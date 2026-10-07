@@ -1,0 +1,2527 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>國際站營運全鏈路手冊 · 一日工作 × 曝光→點擊→詢盤→訂單</title>
+<meta name="description" content="台灣商家的阿里巴巴國際站營運手冊：一整天的工作節奏、店鋪問題的後台處理路徑，以及曝光、點擊率、詢盤轉化訂單三套解決方案。">
+<meta name="author" content="Sam.Wu · 阿里巴巴國際站高級客戶經理">
+<meta name="copyright" content="Sam.Wu">
+<meta property="og:title" content="國際站營運全鏈路手冊">
+<meta property="og:description" content="由 Sam.Wu（阿里巴巴國際站高級客戶經理）製作的阿里巴巴國際站營運手冊。">
+<style>
+  :root{
+    /* ---- seed tokens ---- */
+    --seed-bg:#fef8f3;
+    --seed-fg:#12233f;
+    --seed-primary:#ff6f1a;
+    --seed-accent:#0c2a5e;
+    --seed-surface:#ffffff;
+    --seed-radius:16px;
+
+    /* ---- derived ---- */
+    --ink:var(--seed-fg);
+    --ink-soft:color-mix(in srgb, var(--seed-fg) 62%, #ffffff);
+    --ink-faint:color-mix(in srgb, var(--seed-fg) 42%, #ffffff);
+    --navy:var(--seed-accent);
+    --navy-soft:color-mix(in srgb, var(--seed-accent) 72%, #ffffff);
+    --brand:var(--seed-primary);
+    --brand-strong:color-mix(in srgb, var(--seed-primary) 82%, #b23c00);
+    --brand-tint:color-mix(in srgb, var(--seed-primary) 12%, var(--seed-surface));
+    --brand-tint-2:color-mix(in srgb, var(--seed-primary) 22%, var(--seed-surface));
+    --bg:var(--seed-bg);
+    --surface:var(--seed-surface);
+    --surface-2:color-mix(in srgb, var(--seed-accent) 4%, var(--seed-surface));
+    --line:color-mix(in srgb, var(--seed-accent) 14%, var(--seed-surface));
+    --line-soft:color-mix(in srgb, var(--seed-accent) 8%, var(--seed-surface));
+    --shadow-sm:0 2px 10px color-mix(in srgb, var(--seed-accent) 12%, transparent);
+    --shadow-md:0 14px 40px color-mix(in srgb, var(--seed-accent) 16%, transparent);
+    --shadow-lg:0 30px 70px color-mix(in srgb, var(--seed-accent) 22%, transparent);
+    --r-lg:calc(var(--seed-radius) * 1.5);
+    --r-md:var(--seed-radius);
+    --r-sm:calc(var(--seed-radius) * 0.55);
+    --maxw:1160px;
+
+    /* ---- 心智圖分支色（由 seed 色系延伸）---- */
+    --a:#0c2a5e; --a-soft:#e9edf6; --a-line:#c4d0e6;
+    --b:#c2410c; --b-soft:#fdede5; --b-line:#f2cdba;
+    --c:#0f7a72; --c-soft:#e4f2f0; --c-line:#b7dcd8;
+    --d:#6b5b8e; --d-soft:#efecf6; --d-line:#d4cbe7;
+    --e:#9a6b12; --e-soft:#faf1df; --e-line:#ebdab4;
+    --warn:#b4442e;
+  }
+
+  *{box-sizing:border-box}
+  [hidden]{display:none!important}
+  html{scroll-behavior:smooth}
+  body{
+    margin:0;
+    font-family:-apple-system,BlinkMacSystemFont,"PingFang TC","Noto Sans TC","Microsoft JhengHei",Arial,sans-serif;
+    color:var(--ink);
+    background:var(--bg);
+    line-height:1.65;
+    -webkit-font-smoothing:antialiased;
+    overflow-x:hidden;
+    line-break:strict;
+    word-break:normal;
+    overflow-wrap:break-word;
+  }
+  a{color:inherit;text-decoration:none}
+  h1,h2,h3{margin:0;line-height:1.2;letter-spacing:-0.01em;text-wrap:balance}
+  h4{margin:0}
+  p{margin:0;text-wrap:pretty}
+  img{max-width:100%;display:block}
+  .wrap{max-width:var(--maxw);margin:0 auto;padding:0 24px}
+  .eyebrow{
+    display:inline-flex;align-items:center;gap:8px;
+    font-size:13px;font-weight:700;letter-spacing:.08em;
+    color:var(--brand-strong);
+    background:var(--brand-tint);border:1px solid var(--brand-tint-2);
+    padding:6px 14px;border-radius:999px;
+  }
+  .eyebrow .dot{width:7px;height:7px;border-radius:50%;background:var(--brand)}
+  .btn{
+    display:inline-flex;align-items:center;gap:9px;
+    font-size:15px;font-weight:700;font-family:inherit;
+    padding:14px 26px;border-radius:999px;border:0;cursor:pointer;
+    transition:transform .18s ease, box-shadow .18s ease, background .18s ease;
+    white-space:nowrap;
+  }
+  .btn-primary{
+    background:linear-gradient(135deg, var(--brand) 0%, var(--brand-strong) 100%);
+    color:#fff;box-shadow:0 10px 26px color-mix(in srgb, var(--brand) 42%, transparent);
+  }
+  .btn-primary:hover{transform:translateY(-2px);box-shadow:0 16px 34px color-mix(in srgb, var(--brand) 52%, transparent)}
+  .btn-ghost{background:transparent;color:var(--navy);border:1.5px solid var(--line)}
+  .btn-ghost:hover{border-color:var(--brand);color:var(--brand-strong);transform:translateY(-2px)}
+
+  /* ---------- Nav ---------- */
+  header.nav{
+    position:sticky;top:0;z-index:50;
+    background:color-mix(in srgb, var(--bg) 82%, transparent);
+    backdrop-filter:saturate(150%) blur(14px);
+    border-bottom:1px solid var(--line-soft);
+  }
+  .nav-inner{display:flex;align-items:center;gap:20px;height:70px}
+  .brand{display:flex;align-items:center;gap:11px;font-weight:800;font-size:18px;color:var(--navy);
+    letter-spacing:-.02em;white-space:nowrap;flex:none}
+  .brand .logo{
+    width:38px;height:38px;border-radius:11px;flex:none;
+    background:linear-gradient(135deg,var(--brand),var(--brand-strong));
+    display:grid;place-items:center;box-shadow:0 6px 16px color-mix(in srgb,var(--brand) 40%, transparent);
+  }
+  .nav-links{display:flex;gap:4px;margin-left:auto}
+  .nav-links a{font-size:13.3px;font-weight:600;color:var(--ink-soft);padding:9px 10px;border-radius:10px;
+    transition:color .15s,background .15s;white-space:nowrap}
+  .nav-links a:hover{color:var(--navy);background:var(--surface-2)}
+  .nav-links a.is-active{color:var(--brand-strong);background:var(--brand-tint)}
+  .nav-cta{margin-left:8px;padding:11px 20px;font-size:14.5px}
+  .nav-links a.nav-ext{display:inline-flex;align-items:center;gap:5px;margin-left:4px;
+    border:1px solid var(--brand-tint-2);background:var(--brand-tint);
+    color:var(--brand-strong);font-weight:750}
+  .nav-links a.nav-ext:hover{background:var(--brand);border-color:transparent;color:#fff}
+  .linkcard.tool{background:linear-gradient(160deg,var(--brand-tint),var(--surface));
+    border-color:var(--brand-tint-2)}
+  .linkcard.tool .n{color:var(--brand-strong)}
+  .inline-link{color:var(--brand-strong);font-weight:750;
+    border-bottom:1px solid var(--brand-tint-2);white-space:nowrap}
+  .inline-link:hover{border-bottom-color:var(--brand)}
+  .nav-toggle{display:none}
+
+  /* ---------- Hero ---------- */
+  .hero{position:relative;padding:74px 0 90px;overflow:hidden}
+  .hero::before{
+    content:"";position:absolute;inset:0;z-index:-2;
+    background:
+      radial-gradient(1100px 520px at 84% -8%, color-mix(in srgb,var(--brand) 20%, transparent), transparent 60%),
+      radial-gradient(820px 520px at 6% 12%, color-mix(in srgb,var(--navy) 12%, transparent), transparent 58%);
+  }
+  .hero-wavy{position:absolute;left:0;right:0;bottom:0;width:100%;height:100%;pointer-events:none;z-index:-1}
+  .hero-grid{display:grid;grid-template-columns:1.02fr .98fr;gap:56px;align-items:center}
+  .hero h1{font-size:clamp(34px,4.4vw,56px);font-weight:850;color:var(--navy);margin:20px 0 0;letter-spacing:-0.02em}
+  .hero h1 .hl{position:relative;color:var(--brand-strong);white-space:nowrap}
+  .hero h1 .hl::after{
+    content:"";position:absolute;left:-2%;right:-2%;bottom:6px;height:14px;z-index:-1;
+    background:color-mix(in srgb,var(--brand) 30%, transparent);border-radius:6px;
+  }
+  .hero .lead{font-size:clamp(16px,1.5vw,19px);color:var(--ink-soft);margin-top:22px;max-width:520px}
+  .hero-actions{display:flex;gap:14px;margin-top:32px;flex-wrap:wrap}
+  .hero-trust{display:flex;gap:26px;margin-top:34px;flex-wrap:wrap}
+  .hero-trust .item{display:flex;flex-direction:column}
+  .hero-trust .n{font-size:26px;font-weight:850;color:var(--navy);letter-spacing:-.02em}
+  .hero-trust .l{font-size:13px;color:var(--navy);font-weight:700;margin-top:2px;letter-spacing:.01em}
+
+  /* Hero mock */
+  .hero-visual{position:relative}
+  .mock{
+    position:relative;z-index:1;background:var(--surface);border:1px solid var(--line);
+    border-radius:var(--r-lg);box-shadow:var(--shadow-lg);overflow:hidden;transform:rotate(.4deg);
+  }
+  .mock-bar{display:flex;align-items:center;gap:7px;padding:12px 16px;background:var(--navy)}
+  .mock-bar .d{width:11px;height:11px;border-radius:50%;background:color-mix(in srgb,#fff 34%, var(--navy))}
+  .mock-bar .d.r{background:var(--brand)}
+  .mock-bar .t{margin-left:10px;font-size:12px;color:color-mix(in srgb,#fff 82%, var(--navy));font-weight:600}
+  .mock-body{display:grid;grid-template-columns:1fr 1fr;min-height:340px}
+  .mock-left{padding:16px;border-right:1px solid var(--line);background:var(--surface-2)}
+  .mock-tplcard{border:1px solid var(--line);border-radius:10px;background:#fff;padding:10px;
+    margin-bottom:10px;display:flex;gap:10px;align-items:center}
+  .mock-tplcard.on{border-color:var(--brand);box-shadow:0 0 0 2px color-mix(in srgb,var(--brand) 26%, transparent)}
+  .mock-tplcard .sw{width:34px;height:34px;border-radius:8px;flex:none;display:grid;place-items:center;
+    color:#fff;font-size:12px;font-weight:850}
+  .mock-tplcard .ln{flex:1}
+  .mock-tplcard .ln b{display:block;font-size:12px;color:var(--navy);margin-bottom:6px;letter-spacing:.02em}
+  .mock-tplcard .ln i{display:block;height:6px;border-radius:4px;background:var(--line);margin-bottom:5px}
+  .mock-tplcard .ln i.s{width:58%}
+  .mock-right{padding:16px;background:color-mix(in srgb,var(--navy) 6%, #fff)}
+  .mock-right .cap{font-size:11.5px;font-weight:700;color:var(--navy-soft);letter-spacing:.06em;margin-bottom:12px}
+  .mock-funnel{display:flex;flex-direction:column;gap:8px}
+  .mock-funnel .fr{display:flex;align-items:center;gap:9px}
+  .mock-funnel .fr span{font-size:11.5px;font-weight:700;color:var(--navy);width:32px;flex:none}
+  .mock-funnel .fr .bar{height:14px;border-radius:5px;flex:1;
+    background:linear-gradient(90deg,var(--brand),color-mix(in srgb,var(--brand) 45%, #fff))}
+  .mock-funnel .fr:nth-child(2) .bar{flex:.68;background:linear-gradient(90deg,color-mix(in srgb,var(--brand) 78%, var(--navy)),color-mix(in srgb,var(--brand) 30%, #fff))}
+  .mock-funnel .fr:nth-child(3) .bar{flex:.44;background:linear-gradient(90deg,var(--navy-soft),color-mix(in srgb,var(--navy) 22%, #fff))}
+  .mock-funnel .fr:nth-child(4) .bar{flex:.26;background:linear-gradient(90deg,var(--navy),color-mix(in srgb,var(--navy) 45%, #fff))}
+  .mock-note{margin-top:14px;padding:10px 12px;border-radius:10px;background:#fff;border:1px solid var(--line);
+    font-size:11.5px;color:var(--ink-soft);line-height:1.6}
+  .float-chip{
+    position:absolute;background:#fff;border:1px solid var(--line);border-radius:12px;
+    box-shadow:var(--shadow-md);padding:11px 15px;display:flex;align-items:center;gap:10px;
+    font-size:13px;font-weight:700;color:var(--navy);white-space:nowrap;z-index:3;
+  }
+  .float-chip .ic{width:28px;height:28px;border-radius:8px;display:grid;place-items:center;
+    background:var(--brand-tint);color:var(--brand-strong);flex:none}
+  .float-chip.a{top:-18px;left:-22px;animation:floaty 5s ease-in-out infinite}
+  .float-chip.b{bottom:24px;right:-26px;animation:floaty 5s ease-in-out infinite .8s}
+  @keyframes floaty{0%,100%{transform:translateY(0)}50%{transform:translateY(-9px)}}
+
+  /* strip */
+  .strip{border-top:1px solid var(--line-soft);border-bottom:1px solid var(--line-soft);
+    background:color-mix(in srgb, var(--surface) 70%, var(--bg))}
+  .strip-inner{display:flex;align-items:center;gap:30px;flex-wrap:wrap;padding:22px 0;justify-content:center}
+  .strip .lab{font-size:13px;font-weight:700;color:var(--ink-faint);letter-spacing:.04em}
+  .strip .tag{font-size:14px;font-weight:700;color:var(--navy-soft);display:flex;align-items:center;gap:8px}
+  .strip .tag svg{color:var(--brand)}
+
+  /* ---------- Section base ---------- */
+  section{padding:86px 0}
+  .sec-head{max-width:720px;margin:0 auto 54px;text-align:center}
+  .sec-head h2{font-size:clamp(28px,3vw,40px);font-weight:850;color:var(--navy);margin-top:16px}
+  .sec-head p{font-size:17px;color:var(--ink-soft);margin-top:16px}
+  .sec-alt{background:var(--surface-2)}
+  .sec-navy{background:var(--navy);color:#fff;position:relative;overflow:hidden}
+  .sec-navy::before{content:"";position:absolute;inset:0;z-index:0;
+    background:radial-gradient(700px 400px at 88% 6%, color-mix(in srgb,var(--brand) 26%, transparent), transparent 60%)}
+  .sec-navy .wrap{position:relative;z-index:1}
+  .sec-navy .sec-head h2{color:#fff}
+  .sec-navy .sec-head p{color:color-mix(in srgb,#fff 78%, var(--navy))}
+
+  /* ---------- Cards ---------- */
+  .card{background:var(--surface);border:1px solid var(--line);border-radius:var(--r-md);
+    padding:26px 24px;box-shadow:var(--shadow-sm)}
+  .card h4{font-size:16px;font-weight:800;color:var(--navy);margin-bottom:14px}
+  .grid2{display:grid;grid-template-columns:1fr 1fr;gap:22px}
+  .grid2+.card,.card+.grid2,.grid2+.grid2,.card+.card{margin-top:22px}
+
+  /* ---------- Mind map ---------- */
+  .toolbar{display:flex;flex-wrap:wrap;gap:9px;justify-content:center;margin-bottom:22px}
+  .tbtn{font:inherit;font-size:13.5px;font-weight:700;color:var(--ink-soft);background:var(--surface);
+    border:1px solid var(--line);border-radius:999px;padding:9px 18px;cursor:pointer;
+    transition:border-color .15s,color .15s,transform .18s}
+  .tbtn:hover{border-color:var(--brand);color:var(--brand-strong);transform:translateY(-2px)}
+  .legend{display:flex;flex-wrap:wrap;gap:9px 20px;justify-content:center;margin-bottom:34px;
+    font-size:13.5px;color:var(--ink-soft);font-weight:600}
+  .legend span{display:inline-flex;align-items:center;gap:7px}
+  .swatch{width:11px;height:11px;border-radius:4px;display:inline-block}
+  .map{display:grid;grid-template-columns:250px 1fr;gap:30px;align-items:start}
+  .root{position:sticky;top:92px;background:var(--surface);border:1px solid var(--line);
+    border-radius:var(--r-md);padding:24px 22px;box-shadow:var(--shadow-sm)}
+  .root .lab{font-size:12px;font-weight:800;letter-spacing:.1em;color:var(--ink-faint);margin-bottom:10px}
+  .root h3{font-size:17px;font-weight:850;color:var(--navy);line-height:1.5;margin-bottom:14px}
+  .root p{margin:0 0 11px;font-size:13.5px;color:var(--ink-soft)}
+  .root p:last-of-type{margin-bottom:0}
+  .root b{color:var(--navy);font-weight:750}
+  .branches{display:flex;flex-direction:column;gap:18px;padding-left:28px;position:relative}
+  .branches::before{content:"";position:absolute;left:0;top:10px;bottom:10px;width:2px;
+    background:var(--line);border-radius:2px}
+  .branch{position:relative;background:var(--surface);border:1px solid var(--line);
+    border-radius:var(--r-md);border-left:3px solid var(--bc);box-shadow:var(--shadow-sm)}
+  .branch::before{content:"";position:absolute;left:-29px;top:36px;width:28px;height:2px;background:var(--line)}
+  .bhead{display:flex;align-items:center;gap:11px;padding:16px 22px;cursor:pointer;
+    background:var(--bsoft);border-radius:13px 13px 0 0;user-select:none}
+  .bdot{width:10px;height:10px;border-radius:50%;background:var(--bc);flex:none}
+  .bhead h3{margin:0;font-size:15.5px;font-weight:800;color:var(--bc)}
+  .bhead .cnt{margin-left:auto;font-size:12px;font-weight:700;color:var(--ink-soft);background:#fff;
+    border:1px solid var(--bline);border-radius:999px;padding:2px 11px}
+  .chev{width:14px;text-align:center;color:var(--ink-faint);font-size:11px;transition:transform .18s}
+  .branch.collapsed .chev{transform:rotate(-90deg)}
+  .branch.collapsed .bbody{display:none}
+  .bbody{padding:18px 22px 22px}
+  .bnote{margin-bottom:18px}
+  .funnel{display:flex;flex-wrap:wrap;align-items:center;gap:11px;
+    background:var(--surface-2);border:1px dashed var(--bline);border-radius:12px;padding:12px 15px}
+  .fstep{display:inline-flex;flex-direction:column;line-height:1.35;font-size:12px;color:var(--ink-soft)}
+  .fstep b{font-size:14px;font-weight:850;color:var(--bc)}
+  .fgrp{display:inline-flex;align-items:center;gap:11px}
+  .far{color:var(--ink-faint);font-size:14px}
+  .bnote-tip{margin:11px 0 0;font-size:13.5px;color:var(--ink-soft)}
+  .bnote-tip b{color:var(--navy);font-weight:750}
+  ul.nodes{list-style:none;margin:0;padding:0 0 0 22px;position:relative}
+  ul.nodes::before{content:"";position:absolute;left:0;top:7px;bottom:16px;width:2px;
+    background:var(--bline);border-radius:2px}
+  ul.nodes>li{position:relative;margin:0 0 8px}
+  ul.nodes>li::before{content:"";position:absolute;left:-22px;top:17px;width:18px;height:2px;background:var(--bline)}
+  ul.nodes>li::after{content:"";position:absolute;left:-8px;top:14px;width:7px;height:7px;
+    border-radius:50%;background:var(--bc)}
+  .node{padding:2px 0}
+  .ntitle{display:inline-flex;align-items:baseline;gap:9px;cursor:pointer;font-size:14.5px;
+    font-weight:700;color:var(--ink)}
+  .ntitle:hover{color:var(--bc)}
+  .tag{font-size:11.5px;font-weight:700;color:var(--ink-soft);background:var(--surface-2);
+    border:1px solid var(--line);border-radius:6px;padding:1px 8px;flex:none;line-height:1.6}
+  ul.items{list-style:none;margin:6px 0 0;padding:0 0 0 20px;position:relative}
+  ul.items::before{content:"";position:absolute;left:0;top:6px;bottom:8px;width:1px;background:var(--line)}
+  ul.items>li{position:relative;font-size:14px;color:var(--ink-soft);padding:2px 0}
+  ul.items>li::before{content:"";position:absolute;left:-20px;top:14px;width:13px;height:1px;background:var(--line)}
+  ul.items>li b{color:var(--navy);font-weight:750}
+  .node.folded>ul.items{display:none}
+  .node.folded .ntitle::after{content:" ＋";color:var(--ink-faint);font-size:11px}
+  ul.items>li.warn{color:var(--warn)}
+  ul.items>li.warn::after{content:"紅線";font-size:10.5px;font-weight:800;border:1px solid var(--warn);
+    border-radius:4px;padding:0 5px;margin-left:6px;vertical-align:1px}
+
+  /* ---------- Tabs ---------- */
+  .tabs{display:flex;gap:10px;flex-wrap:wrap;justify-content:center;margin-bottom:38px}
+  .tab{font:inherit;font-size:15px;font-weight:700;font-family:inherit;cursor:pointer;
+    color:var(--ink-soft);background:var(--surface);border:1.5px solid var(--line);
+    border-radius:999px;padding:13px 26px;transition:all .18s ease;white-space:nowrap}
+  .tab:hover{border-color:var(--brand);color:var(--brand-strong);transform:translateY(-2px)}
+  .tab.is-active{background:linear-gradient(135deg,var(--brand),var(--brand-strong));color:#fff;
+    border-color:transparent;box-shadow:0 10px 26px color-mix(in srgb,var(--brand) 38%, transparent)}
+  .panel{display:block}
+  @keyframes rise{from{opacity:0;transform:translateY(16px)}to{opacity:1;transform:none}}
+
+  /* ---------- Solution panel ---------- */
+  .p-hero{background:linear-gradient(135deg,var(--navy) 0%, color-mix(in srgb,var(--navy) 72%, #000) 100%);
+    border-radius:var(--r-lg);padding:34px 32px;color:#fff;margin-bottom:22px;position:relative;overflow:hidden}
+  .p-hero::after{content:"";position:absolute;inset:0;
+    background:radial-gradient(520px 300px at 92% 8%, color-mix(in srgb,var(--brand) 30%, transparent), transparent 62%)}
+  .p-hero>*{position:relative;z-index:1}
+  .p-hero .pill{display:inline-block;font-size:12px;font-weight:800;letter-spacing:.06em;
+    background:color-mix(in srgb,var(--brand) 26%, transparent);
+    border:1px solid color-mix(in srgb,var(--brand) 46%, transparent);
+    color:#ffd0ac;padding:4px 13px;border-radius:999px;margin-bottom:16px}
+  .p-hero h3,.p-hero h2{color:#fff;font-size:clamp(22px,2.4vw,28px);font-weight:850;margin-bottom:12px}
+  .p-hero p{margin:0;color:rgba(255,255,255,.8);font-size:15px;max-width:760px}
+  .p-hero p+p{margin-top:9px}
+  .p-hero p b{color:#ffd0ac;font-weight:750}
+  ul.ticks,ul.pathlist,ol.steps{list-style:none;margin:0;padding:0}
+  ul.ticks li,ul.pathlist li{position:relative;padding-left:24px;font-size:14.2px;
+    color:var(--ink-soft);margin-bottom:10px}
+  ul.ticks li:last-child,ul.pathlist li:last-child{margin-bottom:0}
+  ul.ticks li::before{content:"";position:absolute;left:4px;top:10px;width:8px;height:8px;
+    border-radius:50%;background:var(--brand)}
+  ul.ticks li b,ul.pathlist li b{color:var(--navy);font-weight:750}
+  ul.pathlist li::before{content:"›";position:absolute;left:3px;top:-1px;color:var(--brand);
+    font-size:16px;font-weight:800}
+  ol.steps{counter-reset:s}
+  ol.steps>li{counter-increment:s;position:relative;padding-left:46px;margin-bottom:20px;
+    font-size:14.2px;color:var(--ink-soft)}
+  ol.steps>li:last-child{margin-bottom:0}
+  ol.steps>li::before{content:counter(s);position:absolute;left:0;top:0;width:30px;height:30px;
+    border-radius:9px;background:var(--brand-tint);color:var(--brand-strong);font-size:13.5px;
+    font-weight:850;display:flex;align-items:center;justify-content:center}
+  ol.steps>li b{display:block;color:var(--navy);font-weight:800;font-size:15px;margin-bottom:3px}
+  .badge{display:inline-block;font-size:10.5px;font-weight:800;padding:1px 7px;border-radius:5px;
+    vertical-align:1.5px;margin-left:7px;
+    background:var(--brand-tint);border:1px solid var(--brand-tint-2);color:var(--brand-strong)}
+  .badge.plain{background:var(--surface-2);border-color:var(--line);color:#525c6b}
+  .srcnote{margin-top:20px;font-size:12.5px;color:var(--ink-faint);line-height:1.8}
+
+  /* ---------- Tables ---------- */
+  .tablewrap{border:1px solid var(--line);border-radius:var(--r-md);overflow-x:auto;
+    background:var(--surface);box-shadow:var(--shadow-sm)}
+  table{width:100%;border-collapse:collapse;font-size:14px}
+  th,td{text-align:left;padding:14px 16px;border-bottom:1px solid var(--line-soft);vertical-align:top}
+  th{background:var(--surface-2);font-weight:800;color:var(--navy);font-size:12.5px;
+    letter-spacing:.04em;white-space:nowrap}
+  tr:last-child td{border-bottom:none}
+  td.p{font-family:"SF Mono",ui-monospace,Menlo,monospace;font-size:12.5px;color:var(--ink-soft)}
+  table.star th,table.star td{white-space:nowrap}
+  table.star td:first-child{color:var(--navy);font-weight:800}
+  table.star tbody tr:nth-child(1) td{background:var(--brand-tint)}
+  table.star tbody tr:nth-child(1) td:first-child{color:#a84300}
+  ol.notes{margin:20px 0 0;padding-left:24px;font-size:13.5px;color:var(--ink-soft);line-height:1.9}
+  ol.notes li{margin-bottom:7px}
+  ol.notes li b{color:var(--navy);font-weight:750}
+
+  /* 深藍區塊內的表格與註解：區塊本身 color:#fff，必須把文字色改回深色 */
+  .sec-navy table th{background:var(--surface-2);color:var(--navy)}
+  .sec-navy table td{color:var(--ink)}
+  .sec-navy table.star td:first-child{color:var(--navy)}
+  .sec-navy table.star tbody tr:nth-child(1) td{background:var(--brand-tint);color:var(--ink)}
+  .sec-navy table.star tbody tr:nth-child(1) td:first-child{color:#a84300}
+  .sec-navy ol.notes{color:color-mix(in srgb,#fff 80%, var(--navy))}
+  .sec-navy ol.notes li b{color:#fff}
+  .sec-navy .eyebrow{background:color-mix(in srgb,#fff 12%, transparent);
+    border-color:color-mix(in srgb,#fff 22%, transparent);color:#ffd0ac}
+  .sec-navy .eyebrow .dot{background:var(--brand)}
+
+  /* ---------- Footer ---------- */
+  footer{background:var(--navy);color:color-mix(in srgb,#fff 72%, var(--navy));padding:52px 0 34px}
+  .foot-grid{display:flex;justify-content:space-between;gap:30px;flex-wrap:wrap;align-items:flex-start}
+  .foot-brand{display:flex;align-items:center;gap:11px;font-weight:800;font-size:18px;color:#fff}
+  .foot-brand .logo{width:36px;height:36px;border-radius:10px;
+    background:linear-gradient(135deg,var(--brand),var(--brand-strong));display:grid;place-items:center}
+  footer p{font-size:13.5px;margin-top:14px;max-width:420px}
+  .foot-cols{display:flex;gap:56px;flex-wrap:wrap}
+  .foot-col h4{font-size:13px;letter-spacing:.06em;
+    color:color-mix(in srgb,#fff 55%, var(--navy));margin-bottom:14px}
+  .foot-col a{display:block;font-size:14px;color:color-mix(in srgb,#fff 82%, var(--navy));
+    margin-bottom:10px;transition:color .15s}
+  .foot-col a:hover{color:var(--brand)}
+  .foot-bottom{margin-top:40px;padding-top:22px;
+    border-top:1px solid color-mix(in srgb,#fff 12%, transparent);
+    font-size:13px;display:flex;justify-content:space-between;flex-wrap:wrap;gap:12px}
+
+  /* ---------- Reveal ---------- */
+  .reveal{opacity:0;transform:translateY(24px);transition:opacity .7s ease, transform .7s ease}
+  .reveal.in{opacity:1;transform:none}
+
+
+  /* ---------- multi-page routing ---------- */
+  .page{display:none}
+  .page.is-active{display:block;animation:pagein .45s ease both}
+  @keyframes pagein{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:none}}
+
+  .page-head{position:relative;padding:62px 0 56px;overflow:hidden;
+    border-bottom:1px solid var(--line-soft);
+    background:linear-gradient(180deg,color-mix(in srgb,var(--brand) 7%,var(--bg)) 0%,var(--bg) 100%)}
+  .page-head .wrap{position:relative;z-index:2}
+  .page-head .sec-head{margin-bottom:0}
+  .page-head.navy{background:var(--navy);border-bottom-color:transparent}
+  .page-head.navy::after{content:"";position:absolute;inset:0;z-index:1;
+    background:radial-gradient(760px 380px at 86% 4%, color-mix(in srgb,var(--brand) 28%, transparent), transparent 62%)}
+  .page-head.navy h2{color:#fff}
+  .page-head.navy p{color:color-mix(in srgb,#fff 80%, var(--navy))}
+  .page-head.navy p b{color:#ffd0ac}
+  .page-head.navy .eyebrow{background:color-mix(in srgb,#fff 12%, transparent);
+    border-color:color-mix(in srgb,#fff 22%, transparent);color:#ffd0ac}
+  .page-head.navy .eyebrow .dot{background:var(--brand)}
+
+  .linkgrid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+  .linkcard{display:flex;flex-direction:column;background:var(--surface);border:1px solid var(--line);
+    border-radius:var(--r-md);padding:26px 24px;box-shadow:var(--shadow-sm);
+    transition:transform .2s ease, box-shadow .2s ease, border-color .2s ease}
+  .linkcard:hover{transform:translateY(-4px);box-shadow:var(--shadow-md);border-color:var(--brand-tint-2)}
+  .linkcard .n{font-size:12px;font-weight:800;letter-spacing:.1em;color:var(--brand-strong)}
+  .linkcard h3{font-size:17px;font-weight:850;color:var(--navy);margin:10px 0 8px}
+  .linkcard p{font-size:13.8px;color:var(--ink-soft)}
+  .linkcard .go{margin-top:auto;padding-top:16px;font-size:13.5px;font-weight:800;
+    color:var(--brand-strong);display:inline-flex;align-items:center;gap:6px}
+
+  .pager{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;
+    padding:30px 0 0;margin:0 auto;max-width:var(--maxw)}
+  .pager .wrap-pad{padding:0 24px;display:flex;justify-content:space-between;width:100%;gap:16px;flex-wrap:wrap}
+  .pager a{font-size:14.5px;font-weight:700;color:var(--navy);display:inline-flex;align-items:center;
+    gap:9px;transition:color .15s}
+  .pager a:hover{color:var(--brand-strong)}
+  .pager a i{font-style:normal;display:block;font-size:11.5px;font-weight:700;color:var(--ink-faint)}
+  .pager .next{margin-left:auto;text-align:right}
+  .pager .next i{text-align:right}
+  .page-foot{border-top:1px solid var(--line-soft);margin-top:56px;padding-top:26px}
+
+  /* ---------- signature / byline ---------- */
+  .byline{margin-top:24px;font-size:13px;color:var(--navy);
+    display:flex;align-items:center;gap:9px;flex-wrap:wrap}
+  .byline i{font-style:normal;color:var(--brand-strong)}
+  .byline b{color:var(--navy);font-weight:850;font-size:13.5px}
+  .byline span{color:var(--navy)}
+  .foot-sign{display:inline-flex;align-items:center;gap:13px;margin-top:22px;padding:13px 18px;
+    border:1px solid color-mix(in srgb,#fff 15%, transparent);border-radius:var(--r-md);
+    background:color-mix(in srgb,#fff 7%, transparent)}
+  .sig-av{width:42px;height:42px;border-radius:12px;flex:none;display:grid;place-items:center;
+    font-size:13.5px;font-weight:850;color:#fff;letter-spacing:.03em;
+    background:linear-gradient(135deg,var(--brand),var(--brand-strong));
+    box-shadow:0 6px 16px color-mix(in srgb,var(--brand) 36%, transparent)}
+  .sig-tx{display:flex;flex-direction:column}
+  .sig-tx b{font-size:15.5px;font-weight:850;color:#fff;line-height:1.3}
+  .sig-tx span{font-size:12.5px;color:color-mix(in srgb,#fff 68%, var(--navy));margin-top:1px}
+
+  /* ---------- publish page blocks ---------- */
+  dl.spec{display:grid;grid-template-columns:180px 1fr;gap:0;margin:0;border:1px solid var(--line);
+    border-radius:var(--r-md);overflow:hidden;background:var(--surface);box-shadow:var(--shadow-sm)}
+  dl.spec dt{padding:15px 18px;font-size:13.5px;font-weight:800;color:var(--navy);
+    background:var(--surface-2);border-bottom:1px solid var(--line-soft)}
+  dl.spec dd{margin:0;padding:15px 18px;font-size:13.8px;color:var(--ink-soft);
+    border-bottom:1px solid var(--line-soft)}
+  dl.spec dt:last-of-type,dl.spec dd:last-of-type{border-bottom:none}
+  dl.spec dd b{color:var(--navy);font-weight:750}
+  .toolrow{display:grid;grid-template-columns:repeat(2,1fr);gap:20px}
+  .toolcard{background:var(--surface);border:1px solid var(--line);border-radius:var(--r-md);
+    padding:22px;box-shadow:var(--shadow-sm);display:flex;flex-direction:column}
+  .toolcard .tagline{display:inline-block;font-size:11px;font-weight:800;letter-spacing:.06em;
+    color:var(--brand-strong);background:var(--brand-tint);border:1px solid var(--brand-tint-2);
+    border-radius:999px;padding:2px 11px;margin-bottom:12px;align-self:flex-start}
+  .toolcard .tagline.grey{color:var(--ink-soft);background:var(--surface-2);border-color:var(--line)}
+  .toolcard h4{font-size:15.5px;font-weight:850;color:var(--navy);margin-bottom:9px}
+  .toolcard p{font-size:13.5px;color:var(--ink-soft)}
+  .toolcard ul{margin:0;padding:0;list-style:none}
+  .toolcard ul li{position:relative;padding-left:18px;font-size:13.3px;color:var(--ink-soft);margin-bottom:6px}
+  .toolcard ul li::before{content:"";position:absolute;left:2px;top:9px;width:6px;height:6px;
+    border-radius:50%;background:var(--brand)}
+  .toolcard .path{margin-top:auto;display:block;padding-top:14px;font-size:12.3px;
+    font-family:"SF Mono",ui-monospace,Menlo,monospace;color:var(--ink-faint)}
+  .note-band{border-left:4px solid var(--brand);background:var(--brand-tint);
+    border-radius:0 var(--r-sm) var(--r-sm) 0;padding:17px 20px;margin-top:22px}
+  .note-band b{color:var(--navy);font-weight:800}
+  .note-band p{font-size:13.8px;color:var(--ink-soft)}
+  .note-band p+p{margin-top:8px}
+  .checklist{counter-reset:c;list-style:none;margin:0;padding:0}
+  .checklist li{counter-increment:c;position:relative;padding-left:34px;margin-bottom:11px;
+    font-size:13.8px;color:var(--ink-soft)}
+  .checklist li:last-child{margin-bottom:0}
+  .checklist li::before{content:counter(c);position:absolute;left:0;top:1px;width:22px;height:22px;
+    border-radius:7px;background:var(--brand-tint);color:var(--brand-strong);font-size:12px;
+    font-weight:850;display:flex;align-items:center;justify-content:center}
+  .checklist li b{color:var(--navy);font-weight:750}
+
+  /* ================= SAA 專區（深紫 AI 主題） ================= */
+  .saa{
+    --ink:#ffffff;
+    --ink-soft:color-mix(in srgb,#fff 74%, transparent);
+    --ink-faint:color-mix(in srgb,#fff 50%, transparent);
+    --navy:#ffffff;
+    --surface:rgba(255,255,255,.055);
+    --surface-2:rgba(255,255,255,.09);
+    --line:rgba(255,255,255,.14);
+    --line-soft:rgba(255,255,255,.085);
+    --brand:#a855f7;
+    --brand-strong:#d8b4fe;
+    --brand-tint:rgba(168,85,247,.16);
+    --brand-tint-2:rgba(168,85,247,.34);
+    --shadow-sm:0 2px 12px rgba(0,0,0,.35);
+    --shadow-md:0 16px 44px rgba(0,0,0,.45);
+    position:relative;background:#08031a;color:#fff;overflow:hidden;
+  }
+  .saa::before{content:"";position:absolute;inset:0;pointer-events:none;z-index:0;
+    background:
+      radial-gradient(900px 520px at 82% 3%, rgba(168,85,247,.34), transparent 62%),
+      radial-gradient(720px 440px at 6% 32%, rgba(56,189,248,.15), transparent 62%),
+      radial-gradient(700px 440px at 48% 100%, rgba(232,121,249,.16), transparent 62%)}
+  .saa .wrap{position:relative;z-index:1}
+  .saa section{padding:72px 0}
+  .saa .sec-head h2{color:#fff}
+  .saa .sec-head p{color:var(--ink-soft)}
+  .saa .eyebrow{background:rgba(168,85,247,.18);border-color:rgba(168,85,247,.42);color:#e9d5ff}
+  .saa .eyebrow .dot{background:#c084fc;box-shadow:0 0 10px #c084fc}
+  .saa .card{background:var(--surface);border-color:var(--line)}
+  .saa .card h4{color:#fff}
+  .saa .ticks li{color:var(--ink-soft)}
+  .saa .ticks li b{color:#fff}
+  .saa .ticks li::before{background:#c084fc;box-shadow:0 0 8px rgba(192,132,252,.85)}
+  .saa .srcnote{color:var(--ink-faint)}
+
+  .saa-subnav{display:flex;gap:10px;justify-content:center;flex-wrap:wrap;padding:26px 0 0}
+  .saa-subnav a{font-size:14px;font-weight:750;color:var(--ink-soft);
+    border:1px solid var(--line);background:rgba(255,255,255,.05);
+    border-radius:999px;padding:11px 22px;transition:all .18s ease;white-space:nowrap}
+  .saa-subnav a:hover{border-color:#c084fc;color:#fff;transform:translateY(-2px)}
+  .saa-subnav a.is-active{background:linear-gradient(135deg,#7c3aed,#c026d3);color:#fff;
+    border-color:transparent;box-shadow:0 10px 26px rgba(168,85,247,.45)}
+
+  .saa-hero{padding:66px 0 70px;text-align:center}
+  .saa-hero .brandline{display:inline-flex;align-items:center;gap:9px;font-size:12px;
+    letter-spacing:.16em;color:var(--ink-faint);margin-bottom:24px;text-transform:uppercase}
+  .saa-star{width:180px;height:180px;margin:0 auto 26px;position:relative}
+  .saa-star::before,.saa-star::after{content:"";position:absolute;inset:0;border-radius:50%}
+  .saa-star::before{background:radial-gradient(circle at 50% 50%, rgba(255,255,255,.95) 0%, rgba(192,132,252,.85) 17%, rgba(124,58,237,.5) 42%, transparent 70%);
+    filter:blur(2px);animation:saapulse 5s ease-in-out infinite}
+  .saa-star::after{background:conic-gradient(from 0deg, transparent 0%, rgba(232,121,249,.6) 22%, transparent 45%, rgba(56,189,248,.45) 68%, transparent 90%);
+    filter:blur(10px);animation:saaspin 14s linear infinite}
+  @keyframes saaspin{to{transform:rotate(360deg)}}
+  @keyframes saapulse{0%,100%{transform:scale(1);opacity:.95}50%{transform:scale(1.09);opacity:1}}
+  .saa-hero h1{font-size:clamp(30px,5vw,56px);font-weight:850;letter-spacing:-.02em;line-height:1.12;
+    background:linear-gradient(92deg,#fff 0%,#e9d5ff 44%,#c084fc 100%);
+    -webkit-background-clip:text;background-clip:text;color:transparent}
+  .saa-hero h2{font-size:clamp(20px,2.6vw,30px);font-weight:850;margin-top:16px;
+    background:linear-gradient(92deg,#f0abfc,#a855f7);
+    -webkit-background-clip:text;background-clip:text;color:transparent}
+  .saa-hero .sub{margin:24px auto 0;font-size:16px;color:var(--ink-soft);max-width:620px}
+  .saa-quote{margin-top:32px;display:inline-block;border:1px solid var(--line);
+    background:rgba(255,255,255,.05);border-radius:14px;padding:16px 24px;
+    font-size:14.5px;color:#e9d5ff;line-height:1.8}
+
+  .saa-pillars{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+  .saa-pillar{border:1px solid var(--line);border-radius:18px;padding:26px 24px;
+    background:linear-gradient(160deg,rgba(255,255,255,.075),rgba(255,255,255,.02))}
+  .saa-pillar .cap{display:inline-block;font-size:12.5px;font-weight:850;letter-spacing:.06em;color:#fff;
+    background:linear-gradient(135deg,#7c3aed,#a855f7);border-radius:999px;padding:4px 15px;margin-bottom:16px}
+  .saa-pillar h3{font-size:19px;font-weight:850;color:#fff;margin-bottom:16px}
+
+  .saa-flow{display:grid;grid-template-columns:repeat(5,1fr);gap:14px}
+  .saa-step{position:relative;border:1px solid rgba(168,85,247,.36);border-radius:14px;
+    background:linear-gradient(160deg,rgba(124,58,237,.3),rgba(124,58,237,.07));padding:18px 16px}
+  .saa-step .n{font-size:13px;font-weight:850;color:#e9d5ff;letter-spacing:.08em}
+  .saa-step h4{font-size:16px;font-weight:850;color:#fff;margin:6px 0 10px}
+  .saa-step p{font-size:12.8px;color:var(--ink-soft)}
+  .saa-step:not(:last-child)::after{content:"\203A";position:absolute;right:-12px;top:50%;
+    transform:translateY(-50%);font-size:22px;color:#a855f7;z-index:2;line-height:1}
+
+  .saa-nums{display:grid;grid-template-columns:1fr 1fr;gap:20px}
+  .saa-num{border:1px solid var(--line);border-radius:18px;padding:28px 26px;
+    background:linear-gradient(160deg,rgba(168,85,247,.17),rgba(255,255,255,.03))}
+  .saa-num .big{font-size:clamp(30px,4vw,44px);font-weight:850;letter-spacing:-.02em;
+    background:linear-gradient(92deg,#fff,#c084fc);
+    -webkit-background-clip:text;background-clip:text;color:transparent}
+  .saa-num h3{font-size:17px;font-weight:850;color:#fff;margin:8px 0 12px}
+  .saa-num p{font-size:13.8px;color:var(--ink-soft)}
+
+  .saa-tl{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+  .saa-tl .stage{border:1px solid var(--line);border-radius:16px;padding:22px;
+    background:rgba(255,255,255,.045)}
+  .saa-tl .stage.now{border-color:rgba(232,121,249,.6);box-shadow:0 0 34px rgba(168,85,247,.32)}
+  .saa-tl .yr{font-size:12.5px;font-weight:850;letter-spacing:.1em;color:#e9d5ff}
+  .saa-tl h4{font-size:16.5px;font-weight:850;color:#fff;margin:8px 0 10px}
+  .saa-tl p{font-size:13.3px;color:var(--ink-soft)}
+
+  .saa-map{display:grid;grid-template-columns:1fr auto 1.4fr;gap:18px;align-items:center;margin-top:24px}
+  .saa-map .box{border:1px solid var(--line);border-radius:16px;padding:22px;
+    background:rgba(255,255,255,.05);text-align:center}
+  .saa-map .box b{display:block;font-size:17px;font-weight:850;color:#fff;margin-bottom:8px}
+  .saa-map .box span{font-size:13px;color:var(--ink-soft)}
+  .saa-map .arrows{display:flex;flex-direction:column;gap:6px;font-size:12px;color:#c084fc;text-align:center}
+  .saa-chips{display:flex;flex-wrap:wrap;gap:8px;justify-content:center}
+  .saa-chips span{font-size:12.5px;font-weight:700;color:#e9d5ff;border:1px solid rgba(168,85,247,.4);
+    background:rgba(168,85,247,.14);border-radius:999px;padding:5px 13px}
+
+  .saa-scenes{display:grid;grid-template-columns:1fr 1fr;gap:22px}
+  .saa-scene{border:1px solid var(--line);border-radius:18px;padding:26px 24px;
+    background:linear-gradient(165deg,rgba(168,85,247,.15),rgba(255,255,255,.03))}
+  .saa-scene .cap{display:inline-block;font-size:12.5px;font-weight:850;color:#0a0520;
+    background:linear-gradient(135deg,#c084fc,#e879f9);border-radius:8px;padding:4px 12px;margin-bottom:14px}
+  .saa-scene h3{font-size:19px;font-weight:850;color:#fff;line-height:1.45;margin-bottom:10px}
+  .saa-scene .lead{font-size:13.8px;color:var(--ink-soft);margin-bottom:18px}
+  .saa-feat{border-top:1px solid var(--line-soft);padding-top:14px;margin-top:14px}
+  .saa-feat b{display:block;font-size:14.5px;font-weight:850;color:#fff;margin-bottom:5px}
+  .saa-feat p{font-size:13.3px;color:var(--ink-soft)}
+
+  .saa-table-wrap{border:1px solid var(--line);border-radius:16px;overflow-x:auto;background:rgba(255,255,255,.03)}
+  table.saa-table{width:100%;border-collapse:collapse;font-size:13.3px}
+  table.saa-table th,table.saa-table td{padding:14px 16px;text-align:left;
+    border-bottom:1px solid var(--line-soft);vertical-align:top}
+  table.saa-table thead th{background:rgba(168,85,247,.2);color:#fff;font-weight:850;font-size:13px;white-space:nowrap}
+  table.saa-table tbody th{background:rgba(255,255,255,.05);color:#fff;font-weight:800;white-space:nowrap}
+  table.saa-table td{color:var(--ink-soft)}
+  table.saa-table td.new{background:rgba(168,85,247,.1);color:#e9d5ff}
+  table.saa-table tr:last-child th,table.saa-table tr:last-child td{border-bottom:none}
+
+  .saa-split{display:grid;grid-template-columns:1fr 1fr;gap:20px}
+  .saa-side{border:1px solid var(--line);border-radius:18px;padding:24px}
+  .saa-side.before{background:rgba(255,255,255,.035)}
+  .saa-side.after{background:linear-gradient(165deg,rgba(168,85,247,.2),rgba(255,255,255,.04));
+    border-color:rgba(232,121,249,.45)}
+  .saa-side h4{font-size:14.5px;font-weight:750;color:var(--ink-faint);margin-bottom:6px}
+  .saa-side h3{font-size:19px;font-weight:850;color:#fff;margin-bottom:16px}
+  .saa-side ul{list-style:none;margin:0;padding:0}
+  .saa-side li{position:relative;padding-left:22px;font-size:13.5px;color:var(--ink-soft);margin-bottom:9px}
+  .saa-side li:last-child{margin-bottom:0}
+  .saa-side.after li::before{content:"\2713";position:absolute;left:0;color:#e879f9;font-weight:850}
+  .saa-side.before li::before{content:"\2715";position:absolute;left:0;color:rgba(255,255,255,.32);font-weight:850}
+
+  .saa-cats{display:grid;grid-template-columns:repeat(4,1fr);gap:18px}
+  .saa-cat{border:1px solid var(--line);border-radius:16px;padding:22px 20px;background:rgba(255,255,255,.045)}
+  .saa-cat.hero-cat{border-color:rgba(232,121,249,.6);background:linear-gradient(165deg,rgba(168,85,247,.26),rgba(255,255,255,.05));
+    box-shadow:0 0 34px rgba(168,85,247,.28)}
+  .saa-cat .k{font-size:12px;font-weight:850;letter-spacing:.07em;color:#c084fc;margin-bottom:10px}
+  .saa-cat h4{font-size:15.5px;font-weight:850;color:#fff;margin-bottom:10px}
+  .saa-cat p{font-size:13px;color:var(--ink-soft)}
+  .saa-cat .who{margin-top:14px;padding-top:12px;border-top:1px solid var(--line-soft);
+    font-size:12.3px;color:var(--ink-faint)}
+
+  /* a11y：淺色底上的橙色文字改用深橙（原本 #F16615 約 3.2:1，未達 AA 4.5:1） */
+  .eyebrow,
+  .linkcard .n,
+  .linkcard.tool .n,
+  .linkcard .go,
+  .inline-link,
+  .badge,
+  .toolcard .tagline,
+  .nav-links a.is-active,
+  .nav-links a.nav-ext,
+  .tbtn:hover,
+  .pager a:hover,
+  ol.steps>li::before{color:#c2410c}
+  .nav-links a.nav-ext{border-color:#eec49f;background:#fdf0e6}
+  .inline-link{border-bottom-color:#eec49f}
+
+  /* ================= SAA 指令地圖 ================= */
+  .nav-dd{position:relative}
+  .nav-links .nav-dd>a{display:inline-flex;align-items:center;gap:5px}
+  .nav-links .caret{font-size:9px;opacity:.75;transition:transform .18s;display:inline-block}
+  .nav-dd:hover>a .caret{transform:rotate(180deg)}
+  .nav-dd-menu{position:absolute;top:100%;right:0;padding-top:10px;display:none;z-index:70}
+  .nav-dd:hover .nav-dd-menu,.nav-dd:focus-within .nav-dd-menu{display:block}
+  .nav-dd-menu .dd-panel{background:var(--surface);border:1px solid var(--line);border-radius:16px;
+    box-shadow:var(--shadow-md);padding:10px;min-width:250px}
+  .nav-dd-menu .dd-head{display:block;font-size:11px;font-weight:850;letter-spacing:.09em;
+    color:var(--ink-faint);padding:8px 12px 6px}
+  .nav-dd-menu a{display:block;font-size:13.5px;font-weight:650;color:var(--ink-soft);
+    padding:10px 12px;border-radius:10px;white-space:nowrap}
+  .nav-dd-menu a:hover{background:var(--surface-2);color:var(--navy)}
+  .nav-dd-menu a.is-active{background:var(--brand-tint);color:#c2410c;font-weight:800}
+
+  .cmdtools{display:flex;flex-direction:column;gap:16px;margin-bottom:26px}
+  .cmdsearch{position:relative;display:flex;align-items:center;
+    background:rgba(255,255,255,.07);border:1px solid rgba(168,85,247,.4);border-radius:14px;
+    padding:0 16px;max-width:640px;width:100%;margin:0 auto}
+  .cmdsearch svg{flex:none;color:#c084fc}
+  .cmdsearch input{flex:1;background:transparent;border:0;outline:0;color:#fff;
+    font:inherit;font-size:14.5px;padding:15px 12px;font-family:inherit}
+  .cmdsearch input::placeholder{color:rgba(255,255,255,.42)}
+  .cmdsearch input::-webkit-search-cancel-button{display:none}
+  .cmdsearch button{background:rgba(255,255,255,.1);border:0;color:#e9d5ff;font:inherit;
+    font-size:12.5px;font-weight:750;border-radius:8px;padding:6px 11px;cursor:pointer}
+  .cmdsearch:focus-within{border-color:#c084fc;box-shadow:0 0 0 3px rgba(168,85,247,.22)}
+
+  .cmdfilters{display:flex;flex-wrap:wrap;gap:8px;justify-content:center}
+  .fchip{font:inherit;font-size:12.8px;font-weight:750;color:var(--ink-soft);cursor:pointer;
+    background:rgba(255,255,255,.05);border:1px solid var(--line);border-radius:999px;
+    padding:8px 15px;transition:all .16s ease;white-space:nowrap}
+  .fchip b{font-weight:850;color:#c084fc;margin-left:4px}
+  .fchip:hover{border-color:#c084fc;color:#fff;transform:translateY(-1px)}
+  .fchip.is-active{background:linear-gradient(135deg,#7c3aed,#c026d3);color:#fff;border-color:transparent}
+  .fchip.is-active b{color:#fff}
+  .cmdmeta{text-align:center;font-size:13px;color:var(--ink-faint)}
+  .cmdmeta b{color:#e9d5ff}
+
+  .cmdgrid{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+  .cmd{border:1px solid var(--line);border-radius:16px;overflow:hidden;
+    background:linear-gradient(165deg,rgba(168,85,247,.13),rgba(255,255,255,.03));
+    display:flex;flex-direction:column}
+  .cmd.open{border-color:rgba(232,121,249,.55);box-shadow:0 0 30px rgba(168,85,247,.24);
+    grid-column:1/-1}
+  .cmd-head{display:flex;align-items:flex-start;gap:14px;width:100%;text-align:left;
+    background:transparent;border:0;color:inherit;font:inherit;cursor:pointer;padding:20px 22px}
+  .cmd-n{flex:none;font-size:13px;font-weight:850;color:#0a0520;letter-spacing:.02em;
+    background:linear-gradient(135deg,#c084fc,#e879f9);border-radius:9px;padding:5px 10px}
+  .cmd-t{flex:1;min-width:0}
+  .cmd-t b{display:block;font-size:15.5px;font-weight:850;color:#fff;margin-bottom:4px}
+  .cmd-t i{display:block;font-style:normal;font-size:12.9px;color:var(--ink-soft)}
+  .cmd-step{flex:none;font-size:11px;font-weight:800;letter-spacing:.06em;color:#c084fc;
+    border:1px solid rgba(168,85,247,.4);border-radius:6px;padding:3px 8px}
+  .cmd-chev{flex:none;color:#c084fc;font-size:11px;transition:transform .18s}
+  .cmd.open .cmd-chev{transform:rotate(180deg)}
+  .cmd-body{padding:0 22px 22px;border-top:1px solid var(--line-soft);margin-top:0;padding-top:20px}
+  .cmd-facts{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-bottom:18px}
+  .cmd-facts>div{background:rgba(255,255,255,.05);border:1px solid var(--line);border-radius:12px;padding:14px 16px}
+  .cmd-facts b{display:block;font-size:12px;font-weight:850;letter-spacing:.05em;color:#c084fc;margin-bottom:6px}
+  .cmd-facts p{font-size:13.3px;color:var(--ink-soft)}
+  .cmd-prompt{background:#0a0520;border:1px solid rgba(168,85,247,.4);border-radius:12px;overflow:hidden}
+  .cmd-prompt-head{display:flex;align-items:center;justify-content:space-between;gap:12px;
+    padding:12px 16px;background:rgba(168,85,247,.16)}
+  .cmd-prompt-head b{font-size:13px;font-weight:850;color:#e9d5ff}
+  .cmd-prompt-head button{font:inherit;font-size:12.3px;font-weight:800;cursor:pointer;
+    background:linear-gradient(135deg,#7c3aed,#c026d3);color:#fff;border:0;border-radius:8px;padding:7px 14px}
+  .cmd-prompt-head button.done{background:#16a34a}
+  .cmd-prompt pre{margin:0;padding:16px;font-size:13px;line-height:1.85;color:#e6ddff;
+    white-space:pre-wrap;word-break:break-word;font-family:inherit}
+  .cmd-next{margin-top:16px;font-size:13.3px;color:var(--ink-soft)}
+  .cmd-next b{color:#e9d5ff;font-weight:800}
+  .cmdtag{display:inline-block;font-size:11.5px;font-weight:800;color:#c084fc;
+    background:rgba(168,85,247,.18);border:1px solid rgba(168,85,247,.4);
+    border-radius:6px;padding:2px 8px;margin:0 4px 4px 0}
+  .cmdempty{text-align:center;font-size:14px;color:var(--ink-faint);padding:40px 0}
+  mark{background:rgba(232,121,249,.35);color:#fff;border-radius:3px;padding:0 2px}
+
+  .cmdextra{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:34px}
+  .cmdextra .box{border:1px solid var(--line);border-radius:16px;padding:22px;background:rgba(255,255,255,.045)}
+  .cmdextra h4{font-size:15px;font-weight:850;color:#fff;margin-bottom:14px}
+  .cmdextra li{position:relative;padding-left:18px;font-size:13.2px;color:var(--ink-soft);margin-bottom:7px;list-style:none}
+  .cmdextra li::before{content:"";position:absolute;left:0;top:9px;width:6px;height:6px;border-radius:50%;background:#c084fc}
+  .cmdextra ul{margin:0;padding:0}
+  .cmdextra .goal{margin-top:12px;font-size:12.5px;color:var(--ink-faint)}
+
+  /* ---------- Responsive ---------- */
+  @media(max-width:1020px){
+    .map{grid-template-columns:1fr}
+    .root{position:static}
+    .branches{padding-left:0}
+    .branches::before,.branch::before{display:none}
+  }
+  /* 導覽在 1100px 以下收合成漢堡：水平清單一旦需要橫向捲動，就會把下拉面板裁掉 */
+  @media(max-width:1100px){
+    .nav-links{
+      display:none;position:absolute;top:70px;left:0;right:0;flex-direction:column;
+      background:var(--surface);border-bottom:1px solid var(--line);padding:12px 24px;gap:2px;
+      box-shadow:var(--shadow-md);
+    }
+    .nav-links.open{display:flex}
+    .nav-links a{padding:12px}
+    .nav-dd{width:100%}
+    .nav-dd-menu{position:static;padding-top:0;display:block}
+    .nav-dd-menu .dd-panel{border:0;box-shadow:none;background:transparent;padding:0 0 0 14px;min-width:0}
+    .nav-dd-menu .dd-head{display:none}
+    .nav-dd-menu a{padding:11px 12px}
+    .nav-cta{display:none}
+    .nav-toggle{display:grid;place-items:center;margin-left:auto;width:42px;height:42px;
+      border-radius:10px;border:1px solid var(--line);background:var(--surface);
+      color:var(--navy);cursor:pointer}
+  }
+  @media(max-width:960px){
+    .saa-pillars,.saa-nums,.saa-scenes,.saa-split,.saa-tl{grid-template-columns:1fr}
+    .saa-flow{grid-template-columns:1fr 1fr}
+    .saa-step:not(:last-child)::after{display:none}
+    .saa-map{grid-template-columns:1fr}
+    .saa-cats{grid-template-columns:1fr 1fr}
+    .linkgrid{grid-template-columns:1fr 1fr}
+    .toolrow{grid-template-columns:1fr}
+    .hero-grid{grid-template-columns:1fr;gap:44px}
+    .hero-visual{max-width:560px;margin:0 auto}
+    .grid2{grid-template-columns:1fr}
+    .nav-links{
+      display:none;position:absolute;top:70px;left:0;right:0;flex-direction:column;
+      background:var(--surface);border-bottom:1px solid var(--line);padding:12px 24px;gap:2px;
+      box-shadow:var(--shadow-md);
+    }
+    .nav-links.open{display:flex}
+    .nav-links a{padding:12px}
+    .nav-dd{width:100%}
+    .nav-dd-menu{position:static;padding-top:0;display:block}
+    .nav-dd-menu .dd-panel{border:0;box-shadow:none;background:transparent;padding:0 0 0 14px;min-width:0}
+    .nav-dd-menu .dd-head{display:none}
+    .nav-dd-menu a{padding:11px 12px}
+    .cmdtools{margin-bottom:20px}
+    .cmdgrid,.cmd-facts,.cmdextra{grid-template-columns:1fr}
+    .nav-cta{display:none}
+    .nav-toggle{display:grid;place-items:center;margin-left:auto;width:42px;height:42px;
+      border-radius:10px;border:1px solid var(--line);background:var(--surface);
+      color:var(--navy);cursor:pointer}
+  }
+  @media(max-width:700px){
+    table.star{min-width:780px}
+    table.paths{min-width:660px}
+  }
+  @media(max-width:560px){
+    .cmd-head{flex-wrap:wrap;gap:10px}
+    .cmd-step{order:3}
+    .cmd-facts{grid-template-columns:1fr}
+    .saa-flow{grid-template-columns:1fr}
+    .saa-cats{grid-template-columns:1fr}
+    .saa-scene .saa-flow{grid-template-columns:1fr 1fr!important}
+    .linkgrid{grid-template-columns:1fr}
+    dl.spec{grid-template-columns:1fr}
+    dl.spec dt{border-bottom:none}
+    .page-head{padding:44px 0 40px}
+    section{padding:60px 0}
+    .hero{padding:48px 0 64px}
+    .float-chip.a{left:-8px;top:-14px}
+    .float-chip.b{right:-8px;bottom:14px}
+    .mock-body{grid-template-columns:1fr}
+    .mock-left{border-right:0;border-bottom:1px solid var(--line)}
+    .tab{padding:11px 18px;font-size:14px}
+    .p-hero{padding:26px 22px}
+  }
+  @media print{
+    header.nav,.toolbar,.hero-actions,.float-chip,.pager{display:none}
+    .page{display:block!important}
+    .reveal{opacity:1!important;transform:none!important}
+    .hero-wavy{display:none}
+    .saa{background:#fff!important;color:#0a0520!important}
+    .saa::before,.saa-star,.saa-subnav{display:none!important}
+    .saa .saa-pillar,.saa .saa-scene,.saa .saa-num,.saa .saa-tl .stage,.saa .saa-step,.saa .saa-side,.saa .card,.saa .saa-map .box,.saa .saa-cat,.saa-table-wrap{background:#fff!important;border-color:#c8c8d0!important;box-shadow:none!important}
+    .saa .saa-hero h1,.saa .saa-hero h2,.saa .saa-num .big{background:none!important;-webkit-text-fill-color:#0a0520!important;color:#0a0520!important}
+    .saa h1,.saa h2,.saa h3,.saa h4,.saa b,.saa strong,.saa .saa-scene h3{color:#0a0520!important}
+    .saa p,.saa li,.saa td,.saa th,.saa span,.saa .lead,.saa .srcnote{color:#333340!important}
+    .branch{break-inside:avoid}
+    .root{position:static}
+    section{padding:26px 0}
+  }
+</style>
+<noscript><style>.reveal{opacity:1;transform:none}.page{display:block!important}.page-head{display:block!important}.nav-links{display:flex!important;position:static;flex-direction:row;box-shadow:none;border:0;padding:0;background:transparent}</style></noscript>
+</head>
+<body id="top">
+<header class="nav">
+  <div class="wrap nav-inner">
+    <a class="brand" href="#/home">
+      <span class="logo">
+        <svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 5h18M3 12h12M3 19h7"/></svg>
+      </span>
+      國際站營運手冊
+    </a>
+    <nav class="nav-links" id="navLinks">
+      <a href="#/mindmap" data-page="mindmap">營運心智圖</a>
+      <a href="#/exposure" data-page="exposure">曝光解決方案</a>
+      <a href="#/publish" data-page="publish">發品與標題優化</a>
+      <a href="#/click" data-page="click">點擊率解決方案</a>
+      <a href="#/convert" data-page="convert">詢盤轉化訂單</a>
+      <a href="#/star" data-page="star">星等級規則</a>
+      <a href="#/paths" data-page="paths">路徑速查</a>
+      <div class="nav-dd">
+        <a href="#/saa" data-saa="1">SAA 專區<span class="caret">▾</span></a>
+        <div class="nav-dd-menu"><div class="dd-panel">
+          <span class="dd-head">SAA 專區</span>
+          <a href="#/saa" data-sub="saa">專區總覽</a>
+          <a href="#/saa-commands" data-sub="saa-commands">指令地圖 27 條</a>
+          <a href="#/saa-flows" data-sub="saa-flows">四大場景</a>
+          <a href="#/saa-vs" data-sub="saa-vs">升級與差異對照</a>
+        </div></div>
+      </div>
+      <a class="nav-ext" href="https://alibabasamwu-ai.github.io/detailpage/index" target="_blank" rel="noopener noreferrer">內頁產生器<svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17L17 7M9 7h8v8"/></svg></a>
+    </nav>
+    <button class="nav-toggle" id="navToggle" type="button" aria-label="開啟選單" aria-expanded="false" aria-controls="navLinks">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><path d="M3 6h18M3 12h18M3 18h18"/></svg>
+    </button>
+  </div>
+</header>
+
+<main>
+<section class="page is-active" id="page-home">
+<section class="hero" id="hero">
+  <canvas class="hero-wavy" aria-hidden="true"></canvas>
+  <div class="wrap hero-grid">
+    <div class="hero-copy">
+      <span class="eyebrow"><span class="dot"></span>台灣商家 · 阿里巴巴國際站營運</span>
+      <h1>從曝光到訂單，<br>把國際站營運拆成<span class="hl">一張能執行的地圖</span></h1>
+      <p class="lead">一整天的工作節奏、店鋪出問題時的後台處理路徑，以及曝光 → 點擊 → 詢盤 → 訂單的三套解決方案。所有路徑都對應商家後台的實際入口，照著做就好。</p>
+      <div class="hero-actions">
+        <a class="btn btn-primary" href="#/exposure">看三套解決方案
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+        </a>
+        <a class="btn btn-ghost" href="#/mindmap">看營運心智圖</a>
+      </div>
+      <div class="hero-trust">
+        <div class="item"><span class="n">5</span><span class="l">條心智圖主幹</span></div>
+        <div class="item"><span class="n">3</span><span class="l">套漏斗解決方案</span></div>
+        <div class="item"><span class="n">11</span><span class="l">類店鋪問題路徑</span></div>
+        <div class="item"><span class="n">15</span><span class="l">條後台路徑速查</span></div>
+      </div>
+      <p class="byline">製作 <b>Sam.Wu</b> <i>·</i> <span>阿里巴巴國際站高級客戶經理</span></p>
+    </div>
+
+    <div class="hero-visual">
+      <div class="float-chip a">
+        <span class="ic"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 17l6-6 4 4 7-7"/><path d="M14 8h6v6"/></svg></span>
+        先定位卡在哪一層
+      </div>
+      <div class="float-chip b">
+        <span class="ic"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg></span>
+        只改那一層
+      </div>
+
+      <div class="mock">
+        <div class="mock-bar">
+          <span class="d"></span><span class="d"></span><span class="d r"></span>
+          <span class="t">國際站營運手冊 · 曝光 → 點擊 → 詢盤 → 訂單</span>
+        </div>
+        <div class="mock-body">
+          <div class="mock-left">
+            <div class="mock-tplcard on">
+              <span class="sw" style="background:linear-gradient(135deg,var(--brand),var(--brand-strong))">曝</span>
+              <span class="ln"><b>曝光解決方案</b><i></i><i class="s"></i></span>
+            </div>
+            <div class="mock-tplcard">
+              <span class="sw" style="background:linear-gradient(135deg,#0f7a72,#0b5a55)">點</span>
+              <span class="ln"><b>點擊率解決方案</b><i></i><i class="s"></i></span>
+            </div>
+            <div class="mock-tplcard">
+              <span class="sw" style="background:linear-gradient(135deg,var(--navy),#08193a)">詢</span>
+              <span class="ln"><b>詢盤轉化訂單</b><i></i><i class="s"></i></span>
+            </div>
+            <div class="mock-tplcard">
+              <span class="sw" style="background:linear-gradient(135deg,#9a6b12,#6f4c0c)">星</span>
+              <span class="ln"><b>星等級規則</b><i></i><i class="s"></i></span>
+            </div>
+          </div>
+          <div class="mock-right">
+            <div class="cap">漏斗診斷</div>
+            <div class="mock-funnel">
+              <div class="fr"><span>曝光</span><i class="bar"></i></div>
+              <div class="fr"><span>點擊</span><i class="bar"></i></div>
+              <div class="fr"><span>詢盤</span><i class="bar"></i></div>
+              <div class="fr"><span>訂單</span><i class="bar"></i></div>
+            </div>
+            <div class="mock-note">曝光沒解決就去改點擊，等於白做一輪。</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<div class="strip">
+  <div class="wrap strip-inner">
+    <span class="lab">全鏈路</span>
+    <span class="tag"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><circle cx="12" cy="12" r="9"/></svg>曝光</span>
+    <span class="tag"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><circle cx="12" cy="12" r="9"/></svg>點擊</span>
+    <span class="tag"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><circle cx="12" cy="12" r="9"/></svg>詢盤</span>
+    <span class="tag"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><circle cx="12" cy="12" r="9"/></svg>訂單</span>
+    <span class="tag"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><circle cx="12" cy="12" r="9"/></svg>星等級</span>
+  </div>
+</div>
+  <section class="sec">
+    <div class="wrap">
+      <header class="sec-head reveal">
+        <span class="eyebrow"><span class="dot"></span>手冊內容</span>
+        <h2>八個區塊，一次看一件事</h2>
+        <p>先定位卡在哪一層，只改那一層——曝光沒解決就去改點擊，等於白做一輪。</p>
+      </header>
+      <div class="linkgrid">
+        <a class="linkcard reveal" href="#/mindmap">
+          <span class="n">01</span>
+          <h3>營運心智圖</h3>
+          <p>一整天的工作時間軸、11 類店鋪問題的後台處理路徑、節奏日曆與平台紅線。</p>
+          <span class="go">開啟 <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+        </a>
+        <a class="linkcard reveal" href="#/exposure">
+          <span class="n">02</span>
+          <h3>曝光解決方案</h3>
+          <p>曝光不足怎麼查、關鍵詞與 PIS 怎麼補、廣告花不出去錢的按序排查。</p>
+          <span class="go">開啟 <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+        </a>
+        <a class="linkcard reveal" href="#/publish">
+          <span class="n">03</span>
+          <h3>發品與標題優化</h3>
+          <p>標題 128 字元規範、類目與關鍵詞怎麼填、自定義屬性對 AI 搜尋的作用、該用哪個工具。</p>
+          <span class="go">開啟 <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+        </a>
+        <a class="linkcard reveal" href="#/click">
+          <span class="n">04</span>
+          <h3>點擊率解決方案</h3>
+          <p>有曝光沒點擊時的 7 步處理，主圖、影片、價格、標題怎麼調。</p>
+          <span class="go">開啟 <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+        </a>
+        <a class="linkcard reveal" href="#/convert">
+          <span class="n">05</span>
+          <h3>詢盤轉化訂單解決方案</h3>
+          <p>接待時效、報價四件套、樣品服務、買家分層、信保訂單承接。</p>
+          <span class="go">開啟 <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+        </a>
+        <a class="linkcard reveal" href="#/star">
+          <span class="n">06</span>
+          <h3>星等級規則</h3>
+          <p>台灣商家星等級官方規則表：四力計分項與 5★ 到 1★ 的完整門檻。</p>
+          <span class="go">開啟 <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+        </a>
+        <a class="linkcard reveal" href="#/paths">
+          <span class="n">07</span>
+          <h3>路徑速查</h3>
+          <p>15 條「問題現象 → 後台路徑 → 關鍵動作」，可直接貼進值班表。</p>
+          <span class="go">開啟 <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+        </a>
+        <a class="linkcard tool reveal" href="https://alibabasamwu-ai.github.io/detailpage/index" target="_blank" rel="noopener noreferrer">
+          <span class="n">外部工具</span>
+          <h3>詳情內頁產生器 <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17L17 7M9 7h8v8"/></svg></h3>
+          <p>45 款精選模版直接套用，逐格改文字、換圖片、選主色，即時看到成品；滿意後一鍵輸出切片圖片，上傳後台就上線。把過去要外包好幾天的事，變成一杯咖啡的時間。</p>
+          <span class="go">前往使用 <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17L17 7M9 7h8v8"/></svg></span>
+        </a>
+        <a class="linkcard reveal" href="#/saa">
+          <span class="n">08</span>
+          <h3>SAA 專區</h3>
+          <p>Smart Assistant Agent 深紫專區：27 條可搜尋的營運指令地圖（含可直接複製的 Prompt）、四大場景、舊版 SA vs 新版 SAA 升級對照。</p>
+          <span class="go">開啟 <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+        </a>
+      </div>
+    </div>
+  </section>
+</section>
+<section class="page" id="page-mindmap">
+  <header class="page-head">
+  <canvas class="hero-wavy" aria-hidden="true"></canvas>
+  <div class="wrap">
+<header class="sec-head reveal">
+      <span class="eyebrow"><span class="dot"></span>01 / 營運心智圖</span>
+      <h2>一整天做什麼，遇到問題往哪裡走</h2>
+      <p>五條主幹覆蓋每日節奏與問題處理；第三條主幹把「曝光 → 點擊 → 詢盤」的漏斗診斷拆解到可以直接照著做。</p>
+    </header>
+  </div></header>
+  <section class="sec">
+      <div class="wrap">
+
+    <div class="toolbar">
+      <button class="tbtn" id="expandAll" type="button">展開全部</button>
+      <button class="tbtn" id="collapseAll" type="button">收起全部</button>
+      <button class="tbtn" id="printBtn" type="button">列印 / 存 PDF</button>
+    </div>
+    <div class="legend">
+      <span><i class="swatch" style="background:var(--a)"></i>A 一日工作節奏</span>
+      <span><i class="swatch" style="background:var(--b)"></i>B 問題 → 處理路徑</span>
+      <span><i class="swatch" style="background:var(--c)"></i>C 曝光 → 點擊 → 詢盤 漏斗診斷</span>
+      <span><i class="swatch" style="background:var(--d)"></i>D 節奏日曆</span>
+      <span><i class="swatch" style="background:var(--e)"></i>E 紅線與工具</span>
+    </div>
+    <div class="map">
+      <aside class="root">
+        <div class="lab">主題</div>
+        <h3>國際站營運<br>一日工作 + 問題處理路徑</h3>
+        <p>上午看數據、下午盯轉化、全天下意識巡檢未回覆。</p>
+        <p>遇到問題的通用解法：<b>定位層級 → 進對後台 → 做最小動作 → 次日驗證</b>。</p>
+        <p>漏斗卡住時：先判斷卡在<b>曝光、點擊還是詢盤</b>，只改那一層。</p>
+        <p>點擊任一標題即可折疊／展開該節點的明細。</p>
+      </aside>
+      <div class="branches" id="branches"></div>
+    </div>
+      </div>
+    </section>
+  <div class="wrap"><div class="page-foot"><div class="pager"><div class="wrap-pad"><span></span><a class="next" href="#/exposure"><span><i>下一頁</i>曝光解決方案 ›</span></a></div></div></div></div>
+</section>
+<section class="page" id="page-exposure">
+  <header class="page-head">
+  <canvas class="hero-wavy" aria-hidden="true"></canvas>
+  <div class="wrap">
+
+  </div></header>
+  <section class="sec">
+      <div class="wrap">
+
+    <div class="panel" id="panel-exposure" role="tabpanel">
+      <div class="p-hero">
+        <span class="pill">02.1 · 漏斗第 1 層</span>
+        <h2>曝光解決方案</h2>
+        <p>曝光的本質是「買家搜得到你」。這一層只有兩個槓桿：<b>關鍵詞對得上</b>、<b>商品有資格被推</b>。其他動作都排在後面。</p>
+        <p>在這個階段改主圖、改詳情頁，都是無效努力。</p>
+      </div>
+
+      <div class="grid2">
+        <div class="card reveal">
+          <h4>怎麼判斷卡在曝光層</h4>
+          <ul class="ticks">
+            <li>數據看板曝光<b>低於行業均值</b>，或環比連續下滑</li>
+            <li>關鍵字參謀裡有投放詞，但幾乎<b>沒有展現</b></li>
+            <li>產品參謀中<b>零效果品持續增加</b></li>
+            <li>全站推／直通車<b>花不出去錢</b>，消耗過慢</li>
+          </ul>
+        </div>
+        <div class="card reveal">
+          <h4>後台路徑</h4>
+          <ul class="pathlist">
+            <li>我的阿里巴巴 › 數據參謀 › 數據總覽 › 數據看板<span class="badge plain">先分清全店性還是個別品</span></li>
+            <li>我的阿里巴巴 › 數據參謀 › 產品參謀<span class="badge plain">定位拖後腿的商品</span></li>
+            <li>我的阿里巴巴 › 數據參謀 › 關鍵字參謀<span class="badge plain">進店詞 vs 行業熱搜詞</span></li>
+            <li>我的阿里巴巴 › 商品管理 › 商品品質分<span class="badge plain">檢查 PIS 分佈</span></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="card reveal">
+        <h4>解決方案（依優先順序執行）</h4>
+        <ol class="steps">
+          <li><b>先分類，再開藥</b>全店性下滑 → 查店鋪權重、合規狀態、季節性；個別品下滑 → 進產品參謀逐一處理。兩件事不要混著改，否則無法歸因。</li>
+          <li><b>關鍵詞對齊<span class="badge">平台</span></b>在關鍵字參謀補進行業熱搜詞、換掉長期無曝光的詞；標題核心詞要與你實際投放的詞一致，詞與品對不上就等於沒投。</li>
+          <li><b>把 PIS 拉到 4.5 分以上<span class="badge">平台</span></b>商品品質分是流量分配的門檻。若要投廣告跑量，官方口徑是<b>至少準備 50 個 4.5 分以上商品</b>——優質在投商品越多，越能帶動全店曝光與商機規模。</li>
+          <li><b>高瀏覽未櫥窗的商品補進櫥窗<span class="badge">平台</span></b>在產品參謀篩出「有瀏覽但未櫥窗」的品，直接加入櫥窗，是成本最低的曝光增量。</li>
+          <li><b>多語言站點發品<span class="badge">平台</span></b>西、法、日、俄、葡五大市場站點，是原站之外的增量曝光來源。</li>
+          <li><b>廣告加量<span class="badge">平台</span></b>直通車關鍵字推廣、全站推、優爆品助推計劃。前提是先優化商品再放量，否則流量進來也留不住。</li>
+          <li><b>清掉負資產</b>零效果／非活躍品優化或刪除重發；重複鋪品治理。重複品會互相攤薄曝光，<b>不是「多發多曝光」</b>。</li>
+          <li><b>廣告拿量的按序排查<span class="badge">平台</span></b>① 帳戶是否處於休眠狀態 ② 目標出價是否採用平台建議值（過低會拿量困難）③ 日預算是否採用建議值 ④ 4.5 分以上商品量是否充足 ⑤ 投放 7 天內先專注拿量，超過 7 天再分析在投商品量／點擊率／轉化率 ⑥ 減少頻繁修改出價與預算，每次修改算法都要重新學習。</li>
+        </ol>
+      </div>
+
+      <div class="grid2">
+        <div class="card reveal">
+          <h4>成效檢核</h4>
+          <ul class="ticks">
+            <li>曝光量：週環比、與行業均值的差距</li>
+            <li>進店詞數量：是否覆蓋到行業熱搜詞</li>
+            <li>零效果品數量：應逐週下降</li>
+            <li>廣告：消耗速度、平均商機成本</li>
+          </ul>
+        </div>
+        <div class="card reveal">
+          <h4>常見誤區</h4>
+          <ul class="ticks">
+            <li>曝光沒動就先去改主圖——層級錯了，白做一輪</li>
+            <li>只加關鍵詞、不改標題，詞與品對不上</li>
+            <li>用重複鋪品衝曝光，結果互相攤薄</li>
+            <li>每兩天改一次出價，算法一直在重新學習</li>
+          </ul>
+        </div>
+      </div>
+      <p class="srcnote">標示「平台」者為官方規則／功能路徑；未標示者為實務建議。</p>
+    </div>
+      </div>
+    </section>
+  <div class="wrap"><div class="page-foot"><div class="pager"><div class="wrap-pad"><a href="#/mindmap"><span><i>上一頁</i>‹ 營運心智圖</span></a><a class="next" href="#/publish"><span><i>下一頁</i>發品與標題優化 ›</span></a></div></div></div></div>
+</section>
+<section class="page" id="page-publish">
+  <header class="page-head">
+  <canvas class="hero-wavy" aria-hidden="true"></canvas>
+  <div class="wrap">
+    <header class="sec-head reveal">
+      <span class="eyebrow"><span class="dot"></span>02.2 / 曝光落地動作</span>
+      <h2>具體發品與標題優化</h2>
+      <p>曝光的所有調整，最後都要落到「發一個對的商品」上。這一頁把發品表單裡真正影響搜尋匹配的四個欄位講清楚，並指出該用哪個工具優化。</p>
+    </header>
+  </div></header>
+
+  <section class="sec">
+    <div class="wrap">
+
+      <div class="note-band">
+        <p><b>先講結論（AI 搜索匹配的官方說法）：</b>平台的 AI 搜索匹配已從「標題」擴展到 <b>Product Title（標題）＋ Attributes（屬性）</b>，官方原話是「<b>All authentic and valid product information contributes to search matching</b>」——所有真實有效的商品資訊都參與搜尋匹配。</p>
+        <p>所以方向不是「多寫字」，而是 <b>把真實的差異化資訊講清楚</b>：官方明確把這件事描述為「從『寫詞』轉向『講清楚』、從『鋪品』轉向『高質量供給』」。</p>
+      </div>
+
+      <div class="card reveal" style="margin-top:22px">
+        <h4>標題怎麼寫（官方規範）</h4>
+        <dl class="spec">
+          <dt>字元上限</dt>
+          <dd><b>不超過 128 個字元</b>。超過會被截斷，核心資訊可能被切掉。</dd>
+          <dt>禁用字元</dt>
+          <dd>不可包含<b>特殊符號</b>，例如 @、#、%、&amp;、*、$、!、. 這類符號。</dd>
+          <dt>前 50 字元</dt>
+          <dd>把<b>核心賣點與必要資訊放在標題前 50 個字元內</b>——買家在搜尋結果頁只看得到這一段，決定他要不要點進來。</dd>
+          <dt>必含元素</dt>
+          <dd>產品名稱、<b>型號</b>、顏色、尺寸、類型等主要元素。</dd>
+          <dt>為什麼重要</dt>
+          <dd>官方說明：標題與買家搜尋的關鍵詞直接相關，<b>標題越全面、越精準，越有可能出現在買家的搜尋結果中</b>。</dd>
+        </dl>
+      </div>
+
+      <div class="card reveal">
+        <h4>發品表單：真正影響搜尋匹配的欄位</h4>
+        <dl class="spec">
+          <dt>1 · 商品名稱</dt>
+          <dd>即標題。前台商品頁與搜尋結果顯示的就是這一欄。規則見上方。</dd>
+          <dt>2 · 類目</dt>
+          <dd>系統會依你填的標題<b>自動預測最多 3 個類目</b>；預測不符合時可手動「重新選擇」或直接搜尋類目。類目選錯，後面再優化都事倍功半。</dd>
+          <dt>3 · 關鍵詞</dt>
+          <dd>上限 <b>384 字元</b>。平台會建議該類目的<b>熱門關鍵詞</b>供你勾選加入。「Search Terms」欄位可補充<b>標題裡沒有出現的額外關鍵詞</b>，且不會公開顯示在商品頁上——是很好用的補詞位。</dd>
+          <dt>4 · 商品屬性</dt>
+          <dd>先填完<b>所有必填屬性</b>；官方接著建議<b>繼續填寫額外屬性</b>。預設只展開必填項，其餘收合，要手動展開才填得到。</dd>
+          <dt>5 · 圖片</dt>
+          <dd>比例 3:4 ~ 4:3；最多 <b>6 張</b>；<b>第一張必須白底</b>（沒有白底圖可用「Remove background」去背）。</dd>
+          <dt>6 · 影片</dt>
+          <dd>主圖影片<b>不超過 15 秒</b>，詳情影片不超過 10 分鐘。同時有圖與影片時，<b>影片會優先顯示</b>。</dd>
+          <dt>7 · 詳情描述</dt>
+          <dd>可選「Custom description」自訂，或用「Smart editing」智慧編輯套模板。需要更完整的品牌化詳情內頁，可用外部工具 <a class="inline-link" href="https://alibabasamwu-ai.github.io/detailpage/index" target="_blank" rel="noopener noreferrer">詳情內頁產生器 ↗</a>。</dd>
+        </dl>
+      </div>
+
+      <div class="card reveal">
+        <h4>你問的重點：自定義屬性寫愈多，前台 AI 搜尋真的會出現嗎？</h4>
+        <p style="font-size:14.2px;color:var(--ink-soft);margin-bottom:16px">官方答案是 <b style="color:var(--navy)">會，但有前提</b>——不是「寫愈多」，而是「<b>寫愈多真實且具體</b>」。四個有依據的機制：</p>
+        <ol class="checklist">
+          <li><b>屬性確實是 AI 匹配的輸入之一</b>官方說明 AI 搜索匹配已擴展到 Product Title、Attributes，並強調「所有真實有效的商品資訊都有助於搜尋匹配」。屬性不是裝飾欄位，是匹配來源。</li>
+          <li><b>官方直接建議填滿額外屬性</b>屬性步驟的說明寫得很直白：「<b>We recommend providing detailed information in the additional attributes section. The more details you include, the easier it is for customers to understand your products.</b>」</li>
+          <li><b>可選屬性的排序＝買家搜尋熱度</b>這是很少人注意到的機制：可選屬性<b>是依「買家實際搜尋次數」排序的</b>，搜尋越多的屬性排越前面。屬性欄位排得越前，代表越多買家在搜這個維度——把它填滿，等於直接覆蓋買家的高頻搜尋維度。</li>
+          <li><b>屬性是重鋪診斷的三個維度之一</b>平台判斷重複鋪品時，會綜合<b>標題、屬性、圖片（主圖＋副圖）</b>多維度評估。屬性寫得越有差異性，越不容易被判重鋪、越不會互相攤薄曝光。</li>
+        </ol>
+        <div class="note-band" style="margin-top:20px">
+          <p><b>但有一條紅線：</b>關鍵在「真實有效（authentic and valid）」。官方把這次升級描述為「從寫詞轉向講清楚」，並把「鋪數量」列為要淘汰的做法。填不實的屬性、或靠堆字撐欄位，會踩到資訊品質問題，反而拉低 PIS。</p>
+          <p><b>實務結論：</b>必填全填 → 額外屬性<b>全部填滿</b> → 每個值都具體（不要只寫 Other、不要空白、不要填不相關的）→ 用 PIS 算分驗證。這樣做，屬性才會是 AI 搜尋的加分項。</p>
+        </div>
+      </div>
+
+      <div class="card reveal">
+        <h4>優化工具用哪一個？依情境對應</h4>
+        <div class="toolrow">
+          <div class="toolcard">
+            <span class="tagline">AI 主動優化</span>
+            <h4>生意助手 · 商品 Agent</h4>
+            <ul>
+              <li>低曝光商品優化計劃</li>
+              <li>低訪客商品優化計劃</li>
+              <li>低詢盤商品優化計劃</li>
+              <li>近 30 天新發商品優化</li>
+            </ul>
+            <span class="path">路徑：生意助手（Smart Assistant）</span>
+          </div>
+          <div class="toolcard">
+            <span class="tagline">發品當下必用</span>
+            <h4>商品品質分 PIS 分析器</h4>
+            <ul>
+              <li>1.0–5.0 分，逐區塊指出問題</li>
+              <li>官方門檻：<b>PIS &gt; 4.0</b> 才能確保商品被搜尋到</li>
+              <li>每次修改後可重新算分驗證</li>
+            </ul>
+            <span class="path">路徑：我的阿里巴巴 › 商品管理</span>
+          </div>
+          <div class="toolcard">
+            <span class="tagline">問題商品整改</span>
+            <h4>商品雷達</h4>
+            <ul>
+              <li>平台主動推送需整改的問題商品</li>
+              <li>用來快速找出有嚴重問題的商品</li>
+            </ul>
+            <span class="path">路徑：我的阿里巴巴 › 商品管理 › 商品雷達</span>
+          </div>
+          <div class="toolcard">
+            <span class="tagline">避免互相攤薄</span>
+            <h4>重鋪診斷 / 商品標籤</h4>
+            <ul>
+              <li>發品頁填完屬性後，若判為重鋪品會即時提示</li>
+              <li>可點「View similar items」查看最相似商品</li>
+              <li>商品標籤可篩選「重鋪品」與「標杆品」</li>
+            </ul>
+            <span class="path">路徑：Alibaba › Products › Product Tag</span>
+          </div>
+          <div class="toolcard">
+            <span class="tagline">找詞</span>
+            <h4>關鍵字參謀</h4>
+            <ul>
+              <li>看進店詞與行業熱搜詞的落差</li>
+              <li>把行業熱搜詞補進標題與關鍵詞欄</li>
+            </ul>
+            <span class="path">路徑：我的阿里巴巴 › 數據參謀 › 關鍵字參謀</span>
+          </div>
+          <div class="toolcard">
+            <span class="tagline grey">搬品</span>
+            <h4>批量搬品工具</h4>
+            <ul>
+              <li>把獨立站商品一鍵遷移到國際站</li>
+            </ul>
+            <span class="path">路徑：我的阿里巴巴 › MA 首頁 › 商品管理 › 批量搬品工具</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="grid2">
+        <div class="card reveal">
+          <h4>發品前檢查清單</h4>
+          <ol class="checklist">
+            <li>標題 <b>≤128 字元</b>，前 50 字元含核心賣點，無特殊符號</li>
+            <li>類目已人工確認（不是只採用系統預測）</li>
+            <li>關鍵詞填滿（≤384），Search Terms 補標題沒有的詞</li>
+            <li>必填屬性全填 + <b>額外屬性全部填滿且具體</b></li>
+            <li>主圖白底、至少 3 張、比例 3:4~4:3</li>
+            <li>主圖影片 ≤15 秒</li>
+            <li>PIS 算分，目標 <b>&gt;4.0</b>（實務上 4.5 以上更穩）</li>
+            <li>確認沒有被提示為重鋪品</li>
+            <li>開通樣品服務（見詢盤轉化訂單頁）</li>
+          </ol>
+        </div>
+        <div class="card reveal">
+          <h4>常見誤區</h4>
+          <ul class="ticks">
+            <li>標題塞到 128 字元上限，但核心賣點被擠到第 80 個字元之後</li>
+            <li>只填必填屬性，額外屬性整片留空——等於放棄 AI 匹配的輸入</li>
+            <li>屬性只填「Other」或空白，系統讀不到有效資訊</li>
+            <li>同一款商品用幾乎相同的標題與屬性重複發，被判重鋪互相攤薄</li>
+            <li>發完就不管——官方明確把「發完就忘」列為要淘汰的做法，流量要持續聚焦在核心商品</li>
+          </ul>
+        </div>
+      </div>
+
+      <p class="srcnote">發品規範與後台路徑以商家後台當前版本為準。</p>
+    </div>
+  </section>
+  <div class="wrap"><div class="page-foot"><div class="pager"><div class="wrap-pad"><a href="#/exposure"><span><i>上一頁</i>‹ 曝光解決方案</span></a><a class="next" href="#/click"><span><i>下一頁</i>點擊率解決方案 ›</span></a></div></div></div></div>
+</section>
+
+<section class="page" id="page-click">
+  <header class="page-head">
+  <canvas class="hero-wavy" aria-hidden="true"></canvas>
+  <div class="wrap">
+
+  </div></header>
+  <section class="sec">
+      <div class="wrap">
+
+    <div class="panel" id="panel-click" role="tabpanel">
+      <div class="p-hero">
+        <span class="pill">02.3 · 漏斗第 2 層</span>
+        <h2>點擊率解決方案</h2>
+        <p>曝光有了卻沒人點，問題一律在「第一印象」——買家在搜尋結果頁只用一秒看你，這一步輸了，後面的詳情頁寫得再好都沒機會被看到。</p>
+        <p>這一層的最高槓桿是<b>主圖</b>，其次是價格與標題。</p>
+      </div>
+
+      <div class="grid2">
+        <div class="card reveal">
+          <h4>怎麼判斷卡在點擊層</h4>
+          <ul class="ticks">
+            <li>曝光正常或上升，但<b>點擊率明顯低於同行</b></li>
+            <li>同一批關鍵詞下，你的商品排位不差卻沒人點</li>
+            <li>廣告<b>有曝光、零點擊</b></li>
+            <li>訪客詳情顯示買家搜的詞與你的商品對得上，但就是沒點進來</li>
+          </ul>
+        </div>
+        <div class="card reveal">
+          <h4>後台路徑</h4>
+          <ul class="pathlist">
+            <li>我的阿里巴巴 › 數據參謀 › 商品分析 › 最多瀏覽商品<span class="badge plain">對照高／低點擊品差異</span></li>
+            <li>我的阿里巴巴 › 數據參謀 › 訪客詳情<span class="badge plain">看買家實際搜尋詞與站內行為</span></li>
+            <li>我的阿里巴巴 › 數據參謀 › 產品參謀<span class="badge plain">商品級曝光／點擊／詢盤</span></li>
+            <li>營銷中心 › 效果廣告報表<span class="badge plain">看創意點擊表現</span></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="card reveal">
+        <h4>解決方案（依優先順序執行）</h4>
+        <ol class="steps">
+          <li><b>換掉第一張主圖<span class="badge">平台</span></b>官方對「有一定曝光量但無點擊」的第一建議就是優化商品主圖，這是單點最高槓桿的動作。先從曝光高、點擊最低的那幾支開始改。</li>
+          <li><b>圖片不少於 3 張，並補多維度圖<span class="badge">平台</span></b>官方建議除主圖外，提供側拍圖、後視圖、細節圖、生產流程圖，讓買家在結果頁就建立對產品的直觀認識。</li>
+          <li><b>主圖加上影片<span class="badge">平台</span></b>主圖帶影片的點擊表現更好。全站推也會智慧選出與商品最匹配的圖片，有助於提升創意點擊率。</li>
+          <li><b>對標同行的價格與 MOQ<span class="badge">平台</span></b>價格與起訂量明顯偏離同行時，即使排在前幾位也不會被點。先看你在目標市場的價格帶落在哪裡。</li>
+          <li><b>標題核心詞前置、拼寫正確、不堆詞<span class="badge">平台</span></b>標題是搜尋結果頁僅次於主圖的資訊，直接影響點擊決策。</li>
+          <li><b>用數據回推，不要憑感覺改</b>在「最多瀏覽商品」對照高點擊與低點擊品，找出共同差異再動手；在訪客詳情確認買家搜的詞與你的品是否真的對得上——很多時候是詞品錯配，不是主圖不好。</li>
+          <li><b>一次只改一個變數</b>主圖、價格、標題分開測，以 7 天為一個觀察窗，才知道是哪一項有效。</li>
+        </ol>
+      </div>
+
+      <div class="grid2">
+        <div class="card reveal">
+          <h4>成效檢核</h4>
+          <ul class="ticks">
+            <li>點擊率：改版前後對比（以 7 天為觀察窗）</li>
+            <li>高曝光低點擊品：是否逐支處理完畢</li>
+            <li>廣告創意點擊率</li>
+            <li>訪客來源詞與商品的匹配度</li>
+          </ul>
+        </div>
+        <div class="card reveal">
+          <h4>常見誤區</h4>
+          <ul class="ticks">
+            <li>主圖、價格、標題一次全改，結果不知道哪個有效</li>
+            <li>只看曝光數字，不看買家實際搜尋詞</li>
+            <li>主圖放公司 logo 或純文字，看不到商品</li>
+            <li>圖片只有一張，且和同行長得一樣</li>
+          </ul>
+        </div>
+      </div>
+      <p class="srcnote">標示「平台」者為官方規則／功能路徑；未標示者為實務建議。</p>
+    </div>
+      </div>
+    </section>
+  <div class="wrap"><div class="page-foot"><div class="pager"><div class="wrap-pad"><a href="#/publish"><span><i>上一頁</i>‹ 發品與標題優化</span></a><a class="next" href="#/convert"><span><i>下一頁</i>詢盤轉化訂單解決方案 ›</span></a></div></div></div></div>
+</section>
+<section class="page" id="page-convert">
+  <header class="page-head">
+  <canvas class="hero-wavy" aria-hidden="true"></canvas>
+  <div class="wrap">
+
+  </div></header>
+  <section class="sec">
+      <div class="wrap">
+
+    <div class="panel" id="panel-convert" role="tabpanel">
+      <div class="p-hero">
+        <span class="pill">02.4 · 漏斗第 3 層</span>
+        <h2>詢盤轉化訂單解決方案</h2>
+        <p>這裡其實是兩個不同的問題：<b>有點擊、沒詢盤</b>是「信任與門檻」的問題；<b>有詢盤、沒訂單</b>是「接待與跟進」的問題。診斷時要先分清是哪一種。</p>
+      </div>
+
+      <div class="grid2">
+        <div class="card reveal">
+          <h4>怎麼判斷卡在這一層</h4>
+          <ul class="ticks">
+            <li>訪客數正常，但<b>詢盤（商機）數偏低</b> → 信任與門檻問題</li>
+            <li>詢盤量有，但<b>報價後沒下文</b> → 接待與跟進問題</li>
+            <li>平均回覆時間偏長，或出現<b>「首響快、後續淺」</b></li>
+            <li>買家已讀不回的比例偏高</li>
+          </ul>
+        </div>
+        <div class="card reveal">
+          <h4>後台路徑</h4>
+          <ul class="pathlist">
+            <li>詢盤管理 + 服務指標面板<span class="badge plain">平均回覆時間</span></li>
+            <li>我的阿里巴巴 › 數據參謀 › 訪客詳情<span class="badge plain">買家搜尋詞與站內行為</span></li>
+            <li>我的阿里巴巴 › 商品管理 › 商品編輯 › 服務 › 樣品服務<span class="badge plain">開通樣品</span></li>
+            <li>訂單管理 › 信保訂單<span class="badge plain">承接與履約</span></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="card reveal">
+        <h4>解決方案（依優先順序執行）</h4>
+        <ol class="steps">
+          <li><b>先處理接待時效<span class="badge">平台</span></b>30 天消息平均回覆時間 &lt;24h 是特選商家任務的基礎任務之一；星等級服務力要拿 5 星，平均回覆時間需 ≤4h。實務上：24 小時內必回，衝刺 4 小時內。時效是所有轉化的前置條件。</li>
+          <li><b>報價給「四件套」<span class="badge plain">實務</span></b>單價、MOQ、運費、交期缺一不可。小單直接給到手總價，減少一輪來回，買家比較的是「總成本」而不是單價。</li>
+          <li><b>每次回覆都給一個「最小推進動作」<span class="badge plain">實務</span></b>每一次對話至少要推進一步：確認數量、確認規格、給樣品方案、或給階梯價。避免只回「好的」「請看附件」這類沒有推進的消息。</li>
+          <li><b>開通樣品服務<span class="badge">平台</span></b>商品編輯頁 →「服務」→ 樣品服務選「Available（建議開啟）」，設定樣品價格與每次最大樣品數；買家端會出現「Get sample → Order sample」。樣品是 B2B 建立信任、加速成交最有效的方式之一，特別適合機械零件、紡織布料、電子零組件、家飾、化妝品包裝等需要實物確認的品類。</li>
+          <li><b>依買家分層決定跟進力度<span class="badge">平台</span></b>L1–L4 分層需要可見條件：客戶歸屬歐美日韓土耳其市場，或為金品會員，或非金品但 3 星以上；未達條件的帳號只能看到 L1+。L3／L4 屬高淨值買家，應優先深跟。</li>
+          <li><b>用標籤把商機階段管起來<span class="badge">平台</span></b>生意助手對話列表可用右鍵「標記為」建立自訂標籤（例如「報價中」「索樣」），也可把 VIP 會話置頂；成交後或意圖降低時，把買家從重要商機中移除降級，讓注意力留給真商機。</li>
+          <li><b>大單客戶做資質前置與交接<span class="badge plain">實務</span></b>金額到一定量級時，先確認買家資質與付款條件；需要轉交他人時，必須寫明接手人與時限，避免交接後斷線——這是最常見的丟單原因之一。</li>
+          <li><b>用信保訂單承接<span class="badge">平台</span></b>線上交易額／訂單數是星等級交易力的計分項，兩者取較高者；信保同時也是買家信任的來源。若報名大促的「7 天出貨品會場」，其中一項門檻是近 90 天信保訂單按時出貨率 ≥95%。</li>
+        </ol>
+      </div>
+
+      <div class="grid2">
+        <div class="card reveal">
+          <h4>成效檢核</h4>
+          <ul class="ticks">
+            <li>平均回覆時間（目標 ≤4h，最低需 24h 內）</li>
+            <li>詢盤 → 報價率；報價 → 樣品率；樣品 → 訂單率</li>
+            <li>已讀不回比例、二次跟進覆蓋率</li>
+            <li>信保訂單數與按時出貨率</li>
+          </ul>
+        </div>
+        <div class="card reveal">
+          <h4>常見誤區</h4>
+          <ul class="ticks">
+            <li>只比價格，不談運費與交期</li>
+            <li>報價後不跟進，等買家自己回頭</li>
+            <li>自動接待知識庫沒校準，運費口徑錯誤、跨品類亂推薦</li>
+            <li>買家一直掛在「重要商機」裡，沒有降級機制</li>
+          </ul>
+        </div>
+      </div>
+      <p class="srcnote">標示「平台」者為官方規則／功能路徑；未標示者為實務建議。</p>
+    </div>
+
+      </div>
+    </section>
+  <div class="wrap"><div class="page-foot"><div class="pager"><div class="wrap-pad"><a href="#/click"><span><i>上一頁</i>‹ 點擊率解決方案</span></a><a class="next" href="#/star"><span><i>下一頁</i>星等級規則 ›</span></a></div></div></div></div>
+</section>
+<section class="page" id="page-star">
+  <header class="page-head navy">
+  <div class="wrap">
+<header class="sec-head reveal">
+      <span class="eyebrow"><span class="dot"></span>03 / 星等級規則</span>
+      <h2>台灣商家星等級規則（官方口徑）</h2>
+      <p>能力項分為<b>商家力 / 營銷力 / 服務力 / 交易力</b>四力。預測星等級（Forecast）取四力中的最低值——即木桶效應，每日更新；評定星等級（Current）每月 5 號更新，其值等於上月最後一天的預測星等級，保持至次月 4 號。</p>
+    </header>
+  </div></header>
+  <section class="sec">
+      <div class="wrap">
+
+    <div class="tablewrap" style="border-color:color-mix(in srgb,#fff 16%,transparent)">
+      <table class="star">
+      <thead>
+        <tr>
+          <th>星級</th>
+          <th>潛力品及以上數 ¹</th>
+          <th>實力優品&amp;爆品數 ¹</th>
+          <th>活躍買家數 ¹</th>
+          <th>廣告營銷項</th>
+          <th>平均回覆時間</th>
+          <th>在線交易額 / 訂單數 ³</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr><td>5 星</td><td>≥350</td><td>≥15</td><td>≥60</td><td>30,000 TWD</td><td>≤4h</td><td>$200,000 / 60 單</td></tr>
+        <tr><td>4 星</td><td>≥300</td><td>≥10</td><td>≥35</td><td>12,000 TWD</td><td>≤8h</td><td>$50,000 / 40 單</td></tr>
+        <tr><td>3 星</td><td>≥100</td><td>≥6</td><td>≥20</td><td>4,000 TWD</td><td>≤12h</td><td>$10,000 / 5 單</td></tr>
+        <tr><td>2 星</td><td>≥60</td><td>≥3</td><td>≥10</td><td>—</td><td>≤16h</td><td>$3,000 / 3 單</td></tr>
+        <tr><td>1 星</td><td>≥30</td><td>≥1</td><td>≥4</td><td>—</td><td>≤20h</td><td>$1 / 1 單 ⁴</td></tr>
+      </tbody>
+    </table>
+    </div>
+    <ol class="notes reveal">
+    <li><b>指標門檻</b>：潛力品數、優爆品數、活躍買家數的要求門檻會因應不同一級主營行業而不同，具體以星等級為準。根據買家市場的需求變化，後續將會小幅調整部分星等級計分項的數值，具體以星等級展示為準。</li>
+    <li><b>在線交易額 / 訂單數</b>：交易力星級取線上交易額與訂單數兩個指標<b>較高的結果</b>。</li>
+    <li><b>1 星交易力門檻</b>僅限以下 12 個一級主營產業：汽車零件及配件、汽車電子工具、家居園藝、體育娛樂、服飾配件、美容、珠寶眼鏡手錶及配件、禮品及手工藝品、電氣設備及用品、安防產品、箱包、鞋履及配件。<b>其他行業無門檻</b>。</li>
+    <li><b>營銷流量指數已刪除</b>，簡化為「廣告營銷項」。</li>
+    <li><b>加分項</b>：營銷流量指數達 70 分以上的加分項取消，統一為<b>交易力活動加星</b>。</li>
+  </ol>
+      </div>
+    </section>
+  <div class="wrap"><div class="page-foot"><div class="pager"><div class="wrap-pad"><a href="#/convert"><span><i>上一頁</i>‹ 詢盤轉化訂單解決方案</span></a><a class="next" href="#/paths"><span><i>下一頁</i>路徑速查 ›</span></a></div></div></div></div>
+</section>
+<section class="page" id="page-paths">
+  <header class="page-head">
+  <canvas class="hero-wavy" aria-hidden="true"></canvas>
+  <div class="wrap">
+<header class="sec-head reveal">
+      <span class="eyebrow"><span class="dot"></span>04 / 路徑速查</span>
+      <h2>問題現象 → 後台路徑 → 關鍵動作</h2>
+      <p>可直接貼進團隊值班表。路徑中的模組名稱以商家後台當前版本為準。</p>
+    </header>
+  </div></header>
+  <section class="sec">
+      <div class="wrap">
+
+    <div class="tablewrap reveal">
+      <table class="paths">
+        <thead><tr><th>問題現象</th><th>後台路徑</th><th>關鍵動作</th></tr></thead>
+        <tbody id="pathRows"></tbody>
+      </table>
+    </div>
+      </div>
+    </section>
+  <div class="wrap"><div class="page-foot"><div class="pager"><div class="wrap-pad"><a href="#/star"><span><i>上一頁</i>‹ 星等級規則</span></a><a class="next" href="#/saa"><span><i>下一頁</i>SAA 專區 ›</span></a></div></div></div></div>
+</section>
+<section class="page saa" id="page-saa">
+  <div class="wrap"><div class="saa-subnav">
+    <a href="#/saa" data-sub="saa">專區總覽</a>
+    <a href="#/saa-commands" data-sub="saa-commands">指令地圖 27 條</a>
+    <a href="#/saa-flows" data-sub="saa-flows">四大場景</a>
+    <a href="#/saa-vs" data-sub="saa-vs">升級與差異對照</a>
+  </div></div>
+  <section class="saa-hero">
+    <div class="wrap">
+      <div class="brandline">Alibaba.com ✦ Smart Assistant Agent</div>
+      <div class="saa-star" aria-hidden="true"></div>
+      <h1>Smart Assistant Agent</h1>
+      <h2>讓 AI 接住您的國際站商機</h2>
+      <p class="sub">Smart Assistant Agent × Alibaba.com：從商品、詢盤、商機到診斷，讓 AI 實現店鋪全鏈路運營。</p>
+      <div class="saa-quote">不是再多買一個 AI 工具；<br>而是讓 AI 進入您的國際站日常經營。</div>
+    </div>
+  </section>
+
+  <section>
+    <div class="wrap">
+      <header class="sec-head reveal">
+        <span class="eyebrow"><span class="dot"></span>為什麼需要</span>
+        <h2>做跨境除了獲得流量，更要掌握每次流量轉化的機會</h2>
+      </header>
+      <div class="saa-flow">
+        <div class="saa-step"><span class="n">1</span><h4>流量</h4><p>有曝光，但不知道誰值得追。</p></div>
+        <div class="saa-step"><span class="n">2</span><h4>商品</h4><p>產品多，但不知先優化哪個。</p></div>
+        <div class="saa-step"><span class="n">3</span><h4>詢盤</h4><p>忙、時差、英文，回覆慢。</p></div>
+        <div class="saa-step"><span class="n">4</span><h4>報價</h4><p>回了第一封，後面沒節奏。</p></div>
+        <div class="saa-step"><span class="n">5</span><h4>成交</h4><p>人力不足，商機沉默流失。</p></div>
+      </div>
+      <div class="card reveal" style="margin-top:24px">
+        <h4>已經付了國際站會員費、大量商品上架、可能還投放廣告。<br>真正的損失不是花費，而是漏在每一個環節的機會。</h4>
+        <div class="saa-pillars" style="margin-top:18px">
+          <div class="saa-pillar"><span class="cap">A</span><h3>商品浪費</h3>
+            <p style="font-size:13.5px;color:var(--ink-soft)">商品上了架，卻沒有持續優化標題、屬性、主圖與賣點。</p></div>
+          <div class="saa-pillar"><span class="cap">B</span><h3>詢盤浪費</h3>
+            <p style="font-size:13.5px;color:var(--ink-soft)">買家有需求，但不清楚買家背景，或因為回覆慢、內容弱、報價後沒追蹤。</p></div>
+          <div class="saa-pillar"><span class="cap">C</span><h3>時間浪費</h3>
+            <p style="font-size:13.5px;color:var(--ink-soft)">培訓或診斷了解了問題，但卻沒人手真正去執行。</p></div>
+        </div>
+        <p style="margin-top:20px;font-size:14.5px;font-weight:750;color:#e9d5ff">幫您把「國際站機會」接住，不要讓會員費、廣告費與人力投入白白流失。</p>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="wrap">
+      <header class="sec-head reveal">
+        <span class="eyebrow"><span class="dot"></span>什麼是 Smart Assistant Agent</span>
+        <h2>阿里巴巴國際站 AI 工作台</h2>
+        <p>透過阿里國際站的 AI Agent 能力，聚焦服務 Alibaba.com 國際站經營。</p>
+      </header>
+      <div class="saa-pillars">
+        <div class="saa-pillar reveal"><span class="cap">更簡單</span><h3>0 門檻，誰都會用</h3>
+          <ul class="ticks">
+            <li>開啟 MA 後台即用，<b>無需培訓</b></li>
+            <li>大白話發指令，Agent 自動調用頂尖模型</li>
+            <li>完成複雜任務</li>
+            <li>幫你做全球生意，即開即用</li>
+          </ul>
+        </div>
+        <div class="saa-pillar reveal"><span class="cap">更專業</span><h3>懂生意，能幫你賺錢</h3>
+          <ul class="ticks">
+            <li><b>專為電商場景調優</b>，擅長生意經營</li>
+            <li>市場分析、選品、營銷、運營等全覆蓋</li>
+            <li>直連跨境電商數據，順暢調用專業工具</li>
+            <li>不只辦公，幫你對外拓展賺錢</li>
+          </ul>
+        </div>
+        <div class="saa-pillar reveal"><span class="cap">更安全</span><h3>企業級標準</h3>
+          <ul class="ticks">
+            <li>企業級數據安全標準</li>
+            <li>全鏈路沙箱隔離</li>
+            <li>安全護欄，敏感操作需授權</li>
+          </ul>
+        </div>
+      </div>
+      <div class="card reveal" style="margin-top:22px">
+        <h4>它可以在國際站場景中幫您</h4>
+        <ul class="ticks">
+          <li>看懂<b>店鋪數據與成長卡點</b></li>
+          <li>生成<b>商品、詢盤、報價與行銷內容</b></li>
+          <li>把建議變成<b>可採納、可追蹤的任務</b></li>
+          <li>讓 <b>1–2 人團隊</b>也能持續經營店鋪</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="wrap">
+      <header class="sec-head reveal">
+        <span class="eyebrow"><span class="dot"></span>為什麼是 Smart Assistant Agent</span>
+        <h2>27 年電商基因 × 5000 萬+ 真實交易數據</h2>
+      </header>
+      <div class="saa-nums">
+        <div class="saa-num reveal"><div class="big">27 YEARS</div><h3>電商基因 · B2B 的能力沉澱</h3>
+          <p>1999 年阿里巴巴創立起，跨境 B2B 從未離開這條主線。別人做 AI 需要理解商業，我們做 AI 就是把已經在跑的商業裝上翅膀。</p></div>
+        <div class="saa-num reveal"><div class="big">5000 萬+</div><h3>雙邊真實交易數據 · 買不到的行業 Know-how</h3>
+          <p>海外 5000 萬+ 買家、3000 億美金交易、1.3 億+ 訂單，每一筆詢盤／報價／合同／物流的真實數據，都是模型層的獨家訓練燃料。</p></div>
+      </div>
+      <p class="srcnote" style="text-align:center;font-size:14px;margin-top:22px">AI 時代除了「誰的模型強誰贏」，更要比<b style="color:#e9d5ff">使用場景</b>、<b style="color:#e9d5ff">引用數據源</b>——三件事疊加，才能運用。</p>
+    </div>
+  </section>
+
+  <section>
+    <div class="wrap">
+      <header class="sec-head reveal">
+        <span class="eyebrow"><span class="dot"></span>Agent 升級背景</span>
+        <h2>從「只會回答」進化到「能做事」</h2>
+        <p>一個 Agent 調度全部國際站運營，讓小團隊也能做大生意。</p>
+      </header>
+      <div class="saa-tl">
+        <div class="stage reveal"><div class="yr">1999 — 2023</div><h4>B2B 數字化</h4>
+          <p>人對人，把生意搬到線上，系統等人操作。</p></div>
+        <div class="stage reveal"><div class="yr">2024 — 2025</div><h4>Smart Assistant</h4>
+          <p>人對 AI —— AI 幫寫內容、提建議，但多數仍要人執行。</p></div>
+        <div class="stage now reveal"><div class="yr">2026 — 未來</div><h4>Smart Assistant Agent</h4>
+          <p>Agent 對 Agent —— AI 理解任務、調用能力、產出可執行結果。</p></div>
+      </div>
+      <div class="saa-map">
+        <div class="box"><b>人（You）</b><span>提需求<br>做決策</span></div>
+        <div class="arrows"><span>指令 →</span><span>← 結果</span></div>
+        <div class="box"><b>Smart Assistant Agent</b><span>理解意圖 · 編排任務 · 調度工具 · 回傳結果</span>
+          <div class="saa-chips" style="margin-top:16px">
+            <span>店鋪診斷</span><span>商品優化</span><span>圖片與內容</span><span>詢盤回覆</span>
+            <span>客戶背調</span><span>沉默招回</span><span>RFQ / 商機</span><span>經營週報</span><span>更多功能…</span>
+          </div>
+        </div>
+      </div>
+      <div class="saa-pillars" style="margin-top:22px">
+        <div class="saa-pillar reveal"><span class="cap">降低門檻</span>
+          <p style="font-size:13.8px;color:var(--ink-soft)">替代昂貴的人力、精力與管理成本，低門檻開啓出海。</p></div>
+        <div class="saa-pillar reveal"><span class="cap">全自動運行</span>
+          <p style="font-size:13.8px;color:var(--ink-soft)">電商運營真正自動化：人想創意 → 下命令 → 看彙報。</p></div>
+        <div class="saa-pillar reveal"><span class="cap">雙劍合璧</span>
+          <p style="font-size:13.8px;color:var(--ink-soft)">Smart Assistant Agent ＋ 國際站店鋪 ＝ 1＋1 &gt; 2，效率與流量雙重爆發。</p></div>
+      </div>
+    </div>
+  </section>
+  <div class="wrap"><div class="page-foot"><div class="pager"><div class="wrap-pad"><a href="#/paths"><span><i>上一頁</i>‹ 路徑速查</span></a><a class="next" href="#/saa-commands"><span><i>下一頁</i>指令地圖 27 條 ›</span></a></div></div></div></div>
+</section>
+
+<section class="page saa" id="page-saa-commands">
+  <div class="wrap"><div class="saa-subnav">
+    <a href="#/saa" data-sub="saa">專區總覽</a>
+    <a href="#/saa-commands" data-sub="saa-commands">指令地圖 27 條</a>
+    <a href="#/saa-flows" data-sub="saa-flows">四大場景</a>
+    <a href="#/saa-vs" data-sub="saa-vs">升級與差異對照</a>
+  </div></div>
+
+  <section style="padding-top:56px">
+    <div class="wrap">
+      <header class="sec-head reveal">
+        <span class="eyebrow"><span class="dot"></span>SAA 商家運營指令地圖</span>
+        <h2>27 條指令，從診斷到復盤</h2>
+        <p>從「現在該做什麼」到「下一步怎麼做」。每一條都用同一個邏輯：<b>情境 → 原因 → 指令 → 資料 → 產出 → 下一步</b>。直接搜尋或按階段篩選，找到那一條就複製 Prompt 丟給 SAA。</p>
+      </header>
+
+      <div class="cmdtools">
+        <div class="cmdsearch">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.3" stroke-linecap="round"><circle cx="11" cy="11" r="7"/><path d="M20 20l-3.5-3.5"/></svg>
+          <input type="search" id="cmdSearch" autocomplete="off"
+                 placeholder="搜尋指令：標題、詢盤、RFQ、主圖、GEO、知識庫、選品…">
+          <button id="cmdClear" type="button" hidden>清除</button>
+        </div>
+        <div class="cmdfilters" id="cmdFilters"></div>
+        <div class="cmdmeta" id="cmdMeta"></div>
+      </div>
+
+      <div class="cmdgrid" id="cmdGrid"></div>
+      <div class="cmdempty" id="cmdEmpty" hidden>找不到符合的指令 —— 換個關鍵字，或點「全部」看 27 條。</div>
+
+      <div class="cmdextra" id="cmdExtra"></div>
+    </div>
+  </section>
+  <div class="wrap"><div class="page-foot"><div class="pager"><div class="wrap-pad"><a href="#/saa"><span><i>上一頁</i>‹ 專區總覽</span></a><a class="next" href="#/saa-flows"><span><i>下一頁</i>四大場景 ›</span></a></div></div></div></div>
+</section>
+
+<section class="page saa" id="page-saa-flows">
+  <div class="wrap"><div class="saa-subnav">
+    <a href="#/saa" data-sub="saa">專區總覽</a>
+    <a href="#/saa-commands" data-sub="saa-commands">指令地圖 27 條</a>
+    <a href="#/saa-flows" data-sub="saa-flows">四大場景</a>
+    <a href="#/saa-vs" data-sub="saa-vs">升級與差異對照</a>
+  </div></div>
+  <section style="padding-top:64px">
+    <div class="wrap">
+      <header class="sec-head reveal">
+        <span class="eyebrow"><span class="dot"></span>SAA 四大場景</span>
+        <h2>AI 進入國際站日常經營的四個位置</h2>
+        <p>每個場景都對應國際站經營的一個環節：商品發布、詢盤溝通、商機開發、經營診斷。</p>
+      </header>
+
+      <div class="saa-scenes">
+        <div class="saa-scene reveal">
+          <span class="cap">01 | 商品發布</span>
+          <h3>把商品從「能上架」做到「能被買家找到」</h3>
+          <p class="lead">從選品到盈利，一條鏈路自動跑完。什麼好賣、去哪進貨、怎麼上架——AI 一條龍辦完。</p>
+          <div class="saa-feat"><b>1 · AI 智能發品</b>
+            <p>產品描述／關鍵詞／圖片 → 生成標題、屬性、關鍵詞與詳情。透過熱門數據生成產品主圖與屬性標題關鍵詞。</p></div>
+          <div class="saa-feat"><b>2 · 跨境搬家</b>
+            <p>Amazon / Shopify / AliExpress 資料遷移，自動映射到國際站規範。</p></div>
+          <div class="saa-feat"><b>3 · 智能優化</b>
+            <p>診斷標題、屬性、關鍵詞覆蓋與商品質量分，指出先改哪裡。</p></div>
+          <div class="saa-feat"><b>4 · AI 視覺工作室</b>
+            <p>去背、白底圖、高清化、場景圖合成，讓商品更有點擊理由。</p></div>
+        </div>
+
+        <div class="saa-scene reveal">
+          <span class="cap">02 | 詢盤溝通</span>
+          <h3>把每一封詢盤變成更有節奏的跟進</h3>
+          <p class="lead">從找客戶到成交，一個業務員 7×24 在崗。誰在買、靠不靠譜、怎麼談——AI 全程替你盯。</p>
+          <div class="saa-feat"><b>1 · 買家意圖識別</b>
+            <p>區分高意向採購／同行套價／隨便逛逛，標註價格、交期、認證等關注點。針對買家身份進行全面的背景調查。</p></div>
+          <div class="saa-feat"><b>2 · 高質量回覆與異議處理</b>
+            <p>生成多語言回覆草稿；針對價格高、MOQ 大、樣品費等提供談判話術。</p></div>
+          <div class="saa-feat"><b>3 · 客戶跟進 SOP</b>
+            <p>根據互動頻率生成 1 天、3 天、7 天的跟進模板，避免報價後沉默。</p></div>
+          <div class="saa-feat"><b>4 · 專業報價與開發信</b>
+            <p>把基礎報價轉成能凸顯工廠優勢、證書與服務承諾的溝通內容。</p></div>
+        </div>
+
+        <div class="saa-scene reveal">
+          <span class="cap">03 | 商機開發</span>
+          <h3>不只是等詢盤，更主動找機會</h3>
+          <p class="lead">從市場趨勢、選品、RFQ，幫您把資源放在更有機會的地方。</p>
+          <div class="saa-feat"><b>1 · 全球市場洞察</b>
+            <p>爆款趨勢、藍海市場、亞馬遜數據聯動，判斷哪些品類值得投入。</p></div>
+          <div class="saa-feat"><b>2 · 精準選品建議</b>
+            <p>按國家、季節、屬性與認證需求，推薦更適合國際站布局的產品。</p></div>
+          <div class="saa-feat"><b>3 · RFQ 與獲客優化</b>
+            <p>篩選優質詢價單，生成報價話術；對 RFQ 買家做背景與採購潛力分析。</p></div>
+        </div>
+
+        <div class="saa-scene reveal">
+          <span class="cap">04 | 經營診斷</span>
+          <h3>把看不懂的數據，變成下一步行動</h3>
+          <p class="lead">從看數據到做決策，一張看板全看懂。賣得怎麼樣、錢去哪了、問題在哪——AI 自動匯成一張板。</p>
+          <div class="saa-flow" style="grid-template-columns:repeat(4,1fr);gap:10px;margin-bottom:18px">
+            <div class="saa-step" style="padding:14px 12px"><h4 style="font-size:14px;margin:0 0 8px">曝光不足</h4><p style="font-size:12px">關鍵詞覆蓋？P4P 是否正確？</p></div>
+            <div class="saa-step" style="padding:14px 12px"><h4 style="font-size:14px;margin:0 0 8px">CTR 偏低</h4><p style="font-size:12px">主圖、價格、型號是否有競爭力？</p></div>
+            <div class="saa-step" style="padding:14px 12px"><h4 style="font-size:14px;margin:0 0 8px">詢盤轉化差</h4><p style="font-size:12px">詢盤質量低，還是核心優勢沒講清？</p></div>
+            <div class="saa-step" style="padding:14px 12px"><h4 style="font-size:14px;margin:0 0 8px">回覆效率低</h4><p style="font-size:12px">是否用模板及跟蹤與話術節奏？</p></div>
+          </div>
+          <div class="saa-feat"><b>1 · 商品力健康檢查</b>
+            <p>識別爆品、潛力品與 0 效果品；找出低分原因與先改商品。</p></div>
+          <div class="saa-feat"><b>2 · 店鋪診斷</b>
+            <p>看流量、商品、詢盤、轉化，找出成長卡點，並直接轉化為優化任務。</p></div>
+          <div class="saa-feat"><b>3 · 服務與買家體驗</b>
+            <p>回覆率與平均回覆時長，形成更標準的跟進 SOP。</p></div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <div class="wrap"><div class="page-foot"><div class="pager"><div class="wrap-pad"><a href="#/saa-commands"><span><i>上一頁</i>‹ 指令地圖 27 條</span></a><a class="next" href="#/saa-vs"><span><i>下一頁</i>升級與差異對照 ›</span></a></div></div></div></div>
+</section>
+
+<section class="page saa" id="page-saa-vs">
+  <div class="wrap"><div class="saa-subnav">
+    <a href="#/saa" data-sub="saa">專區總覽</a>
+    <a href="#/saa-commands" data-sub="saa-commands">指令地圖 27 條</a>
+    <a href="#/saa-flows" data-sub="saa-flows">四大場景</a>
+    <a href="#/saa-vs" data-sub="saa-vs">升級與差異對照</a>
+  </div></div>
+  <section style="padding-top:64px">
+    <div class="wrap">
+      <header class="sec-head reveal">
+        <span class="eyebrow"><span class="dot"></span>與國際站的深度結合</span>
+        <h2>Smart Assistant Agent 升級：舊版 SA vs 新版 SAA</h2>
+        <p>沿著國際站經營飛輪的五個位置逐項升級，新版 SAA 幾乎每個位置都補上了新能力。</p>
+      </header>
+      <div class="saa-table-wrap reveal">
+        <table class="saa-table">
+          <thead><tr><th>國際站經營飛輪</th><th>舊版 SA</th><th>新版 SAA</th></tr></thead>
+          <tbody>
+            <tr><th>1 · 商品發布</th>
+              <td>標題優化、關鍵字優化、屬性優化、主圖去背、主圖場景圖合成、圖片合成視頻</td>
+              <td class="new">商品詳情生成、單品／批量發布、圖片識別發品、多平台遷移（數據自動映射）、商品分數提升、定時定量發布產品</td></tr>
+            <tr><th>2 · 詢盤溝通</th>
+              <td>詢盤優化、自動接待、自動報價</td>
+              <td class="new">客戶背調、買家意圖識別、高質量回覆、智能報價、異議處理、二次開發建議、批量跟進、報價催促、開發信／行銷郵件</td></tr>
+            <tr><th>3 · 商機開發</th>
+              <td>RFQ 優化</td>
+              <td class="new">爆款趨勢分析、藍海市場尋找、亞馬遜數據聯動、需求預測、產品屬性推薦、RFQ 智能報價、買家背景深挖、關鍵詞漏斗優化、潛在客戶開發（leads）</td></tr>
+            <tr><th>4 · 經營診斷</th>
+              <td>一級／二級類目、商家數據診斷</td>
+              <td class="new">流量漏斗全鏈路診斷（千人千面）、商品力健康檢查（三級／四級）、溝通報告生成</td></tr>
+            <tr><th>5 · AI 與額外功能</th>
+              <td>—</td>
+              <td class="new">AI 回答與執行、記憶與學習能力、拓源找供應商、內建 30+ 技能 &amp; 插件、與 AccioWork 打通（50+ 官方插件 + 100+ 官方技能）</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="wrap">
+      <header class="sec-head reveal">
+        <span class="eyebrow"><span class="dot"></span>經營節奏</span>
+        <h2>AI Agent 真正改變的是國際站「經營節奏」</h2>
+        <p>不是在工作裡多用幾次 AI，而是讓店鋪每週都有可執行的任務清單。</p>
+      </header>
+      <div class="saa-split">
+        <div class="saa-side before reveal">
+          <h4>以往經營平台</h4>
+          <h3>靠人追、靠經驗猜</h3>
+          <ul>
+            <li>不知道先改哪個商品</li>
+            <li>詢盤回覆靠業務臨場反應</li>
+            <li>報價後容易沒有後續節奏</li>
+            <li>每週經營問題缺乏行動清單</li>
+          </ul>
+        </div>
+        <div class="saa-side after reveal">
+          <h4>透過 Smart Assistant Agent 經營平台</h4>
+          <h3>AI 找問題、產內容、推任務</h3>
+          <ul>
+            <li>每週診斷店鋪漏斗</li>
+            <li>優先處理高潛商品與詢盤</li>
+            <li>生成回覆、報價、跟進與二次開發內容</li>
+            <li>把營運動作標準化、可追蹤、自動化</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="wrap">
+      <header class="sec-head reveal">
+        <span class="eyebrow"><span class="dot"></span>與其他 AI 的差別</span>
+        <h2>同樣是 AI，差別在是否懂國際站、是否能推進任務</h2>
+        <p>通用 AI 給答案；Smart Assistant Agent 服務的是您的 Alibaba.com 店鋪經營動線。</p>
+      </header>
+      <div class="saa-cats">
+        <div class="saa-cat reveal">
+          <div class="k">1 · 個人 AI 助理</div>
+          <h4>ChatGPT · Gemini · Kimi · 文心一言</h4>
+          <p>通用問答，幫你處理事務與整理資料。</p>
+          <p class="who">角色：你的個人小助手，提升個人效率。沒有店鋪上下文，答案要自己轉譯成動作。</p>
+        </div>
+        <div class="saa-cat reveal">
+          <div class="k">2 · 桌面辦公 Agent</div>
+          <h4>Google Workspace · Workday · Manus</h4>
+          <p>通用辦公 Agent，把效率留在企業內部流程。</p>
+          <p class="who">角色：處理內部任務、定義工作流。不碰平台經營與買家端。</p>
+        </div>
+        <div class="saa-cat reveal">
+          <div class="k">3 · 電商垂直 Agent</div>
+          <h4>Shopify Sidekick · Seller Assistant · Kuaizi AI</h4>
+          <p>其他電商 Agent，聚焦在單點提效。</p>
+          <p class="who">角色：適配跨境平台規則、打通多平台與數據（店鋪、客單、庫存）。</p>
+        </div>
+        <div class="saa-cat hero-cat reveal">
+          <div class="k">核心定位</div>
+          <h4>Smart Assistant Agent<br>阿里巴巴國際站 AI 工作台</h4>
+          <p>專為國際站場景打造、直連平台數據，從分析 → 建議 → 任務執行。</p>
+          <p class="who">角色：能幫你接單、賺錢的 Agent。</p>
+        </div>
+      </div>
+    </div>
+  </section>
+  <div class="wrap"><div class="page-foot"><div class="pager"><div class="wrap-pad"><a href="#/saa-flows"><span><i>上一頁</i>‹ 四大場景</span></a><span></span></div></div></div></div>
+</section>
+
+</main>
+<footer>
+  <div class="wrap">
+    <div class="foot-grid">
+      <div>
+        <div class="foot-brand">
+          <span class="logo"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 5h18M3 12h12M3 19h7"/></svg></span>
+          國際站營運手冊
+        </div>
+        <p>星等級規則取自官方《台灣商家星等級規則說明》；行銷手法與管理動作屬實務建議，已在文中標示。</p>
+        <div class="foot-sign">
+          <span class="sig-av">SW</span>
+          <span class="sig-tx"><b>Sam.Wu</b><span>阿里巴巴國際站高級客戶經理</span></span>
+        </div>
+      </div>
+      <div class="foot-cols">
+        <div class="foot-col">
+          <h4>手冊內容</h4>
+          <a href="#/mindmap" data-page="mindmap">營運心智圖</a>
+          <a href="#/exposure" data-page="exposure">三套解決方案</a>
+          <a href="#/publish" data-page="publish">發品與標題優化</a>
+          <a href="#/star" data-page="star">星等級規則</a>
+          <a href="#/paths" data-page="paths">路徑速查</a>
+          <a href="#/saa" data-saa="1">SAA 專區</a>
+          <a href="https://alibabasamwu-ai.github.io/detailpage/index" target="_blank" rel="noopener noreferrer">內頁產生器 ↗</a>
+        </div>
+        <div class="foot-col">
+          <h4>漏斗診斷</h4>
+          <a href="#/exposure" data-page="exposure">曝光解決方案</a>
+          <a href="#/click" data-page="click">點擊率解決方案</a>
+          <a href="#/convert" data-page="convert">詢盤轉化訂單解決方案</a>
+        </div>
+      </div>
+    </div>
+    <div class="foot-bottom">
+      <span>© 2026 Sam.Wu · 國際站營運全鏈路手冊</span>
+      <span>星等級與指標門檻以商家後台即時展示為準</span>
+    </div>
+  </div>
+</footer>
+<script>
+const BRANCHES = [
+{
+  id:"A", color:"a", name:"一日工作節奏（時間軸）",
+  nodes:[
+    { t:"每日三巡 · 09:00 / 14:00 / 18:00", tag:"習慣", items:[
+      "每次巡檢只做一件事：<b>未回覆會話清零</b>（詢盤 + TM 消息）",
+      "優先處理 24 小時內未回，目標壓縮至 4 小時內（對應 5 星）" ]},
+    { t:"09:00–09:30 開工晨檢", tag:"30min", items:[
+      "我的阿里巴巴首頁：系統通知 / 違規提醒 / 服務到期 / 活動報名入口",
+      "待處理清單：訂單待發貨、信保待確認、物流異常件",
+      "查看<b>AI 店鋪診斷月報</b>（每月 5 號產出，含商機/流量/星級/商品/店鋪權益/交易六大模組）" ]},
+    { t:"09:30–10:30 數據早盤", tag:"60min", items:[
+      "路徑：我的阿里巴巴 &gt; 數據參謀 &gt; 數據總覽 &gt; 數據看板",
+      "看曝光 / 訪客 / 詢盤 / 訂單，並與行業均值、行業標杆對比",
+      "數據參謀 &gt; 訪客分析：流量來源、目標國家分佈",
+      "數據參謀 &gt; 關鍵字參謀：進店詞 vs 行業熱搜詞、排名變化",
+      "數據參謀 &gt; 產品參謀：最常瀏覽商品、零效果品清單",
+      "產出：今日 1–3 個「最小推進動作」（要有具體數字）" ]},
+    { t:"10:30–12:00 商品運營", tag:"90min", items:[
+      "新品發佈 / 老品優化：標題、關鍵詞、主圖、屬性矩陣、詳情頁",
+      "<b>PIS 商品品質分</b>與商品等級（潛力品 / 實力優品 / 爆品）優化",
+      "櫥窗 配置：把高瀏覽但未櫥窗的品加進去",
+      "多語言站點發品（西 / 法 / 日 / 俄 / 葡五大市場）",
+      "重複鋪品自查與差異化改寫" ]},
+    { t:"13:30–14:30 流量與廣告", tag:"60min", items:[
+      "直通車 P4P：加詞 / 否詞 / 出價 / 計劃結構",
+      "全站推、AI 智投：預算、出價、投放位置",
+      "新品加速計劃、大促報名與折扣設定",
+      "對照效果廣告報表做「加投 / 減投」決策" ]},
+    { t:"14:30–16:00 商機轉化", tag:"90min", items:[
+      "詢盤深度回覆：報價四件套（<b>單價 / MOQ / 運費 / 交期</b>），小單直接給到手總價",
+      "RFQ 報價：時效優先，先到先談",
+      "客戶分層跟進：L1–L4 買家分層 + 買家標籤",
+      "生意助手「自動接待 + 知識庫」話術校準（防運費口徑錯誤、跨品類亂推薦）",
+      "指定交接人：交接必須寫明接手人與時限" ]},
+    { t:"16:00–16:30 交易與履約", tag:"30min", items:[
+      "訂單跟進、信保訂單確認、拒付 / 糾紛處理",
+      "物流履約、運費合理品自查",
+      "資金管理：回款、服務費、提現" ]},
+    { t:"16:30–18:00 復盤與收尾", tag:"90min", items:[
+      "數據復盤：曝光 → 點擊 → 詢盤 → 訂單 漏斗，逐層找漏點",
+      "輸出日報 / 週報；第二次未回覆會話清零",
+      "明日計劃排定，與交接人確認待辦" ]}
+  ]
+},
+{
+  id:"B", color:"b", name:"店鋪問題 → 實際處理路徑",
+  nodes:[
+    { t:"沒曝光 / 曝光下滑", tag:"流量入口", items:[
+      "判據：數據看板 曝光低於行業均值或環比連續下滑",
+      "路徑：我的阿里巴巴 &gt; 數據參謀 &gt; 數據總覽 &gt; 數據看板（整體對比）",
+      "路徑：數據參謀 &gt; 產品參謀（定位低效商品）",
+      "路徑：數據參謀 &gt; 關鍵字參謀（補詞 / 換詞）",
+      "動作：優化 PIS、加櫥窗、多語言發品、開廣告、報大促" ]},
+    { t:"有曝光沒點擊", tag:"點擊率", items:[
+      "判據：曝光正常但點擊率低 —— 問題在「第一印象」",
+      "路徑：數據參謀 &gt; 商品分析 &gt; 最多瀏覽商品",
+      "動作：主圖重做、價格與 MOQ 合理化、標題吸引力、排名位置" ]},
+    { t:"有點擊沒詢盤", tag:"轉化率", items:[
+      "判據：訪客有、詢盤少 —— 問題在「信任與門檻」",
+      "路徑：數據參謀 &gt; 訪客詳情（看買家搜尋詞與站內行為）",
+      "動作：詳情頁賣點前置、起訂量、公司實力與認證展示、樣品服務" ]},
+    { t:"詢盤流失 / 回覆超時", tag:"服務力", items:[
+      "路徑：詢盤管理 + 服務指標面板（平均回覆時間）",
+      "動作：24 小時內必回，衝刺 ≤4 小時；首響之外的深聊同樣要接住",
+      "紅線式自查：是否存在「首響快、後續淺」導致商機斷線" ]},
+    { t:"商品被下架 / 零效果品", tag:"非活躍品", items:[
+      "路徑：數據參謀 &gt; 產品參謀 &gt; 零效果商品",
+      "定義：180 天內未編輯，且/或無訪客、無詢盤、無收藏、無分享、無比價、無 TM、無訂單",
+      "動作：優化或刪除重發；新發商品仍可獲平台流量扶持",
+      "提醒：商品多 ≠ 效果好，關鍵在有效商品數" ]},
+    { t:"重複鋪品 / 信息品質低", tag:"商品力", items:[
+      "路徑：商品管理 → 重複鋪品診斷 / 商品品質分（港台 2.0）",
+      "動作：標題差異化（型號置前）、核心屬性矩陣差異化、圖片差異化",
+      "目標：讓每個商品在圖片指紋與屬性矩陣上都被判定為獨立品" ]},
+    { t:"違規 / 扣分 / 侵權", tag:"P0 合規", items:[
+      "路徑：後台「違規記錄 / 體檢中心」→ 查看違規詳情 → 整改或申訴",
+      "申訴材料：授權書、貨源憑證等，按要求提交",
+      "依據文件：平台規則總則、合規處罰對應整改建議、禁限售規則、虛假價格規則",
+      "紅線式風險：累計違規扣分 ≥36 分，或嚴重侵權 ≥2 次，店鋪健康度即判不健康"
+    ]},
+    { t:"星等級上不去", tag:"星級", items:[
+      "路徑：我的阿里巴巴 &gt; 星等級（預測星等級每日更新，評定星等級每月 5 號更新）",
+      "機制：預測星等級取<b>商家力 / 營銷力 / 服務力 / 交易力</b>四力中的最低值（木桶效應）——先找最低的那一力",
+      "計分項：潛力品及以上數、實力優品&amp;爆品數、活躍買家數、廣告營銷項、平均回覆時間、在線交易額 / 訂單數",
+      "交易力：在線交易額與訂單數<b>兩者取較高</b>的那個結果",
+      "營銷力：<b>營銷流量指數已刪除</b>，改為考核「廣告營銷項」（5 星 30,000 / 4 星 12,000 / 3 星 4,000 TWD，2 星及以下不考核）",
+      "加分項：原「營銷流量指數 ≥70 加分」已取消，統一為<b>交易力活動加星</b>",
+      "逐星門檻見下方「台灣商家星等級規則」表；其中潛力品數、優爆品數、活躍買家數隨一級主營行業浮動，以星等級為準" ]},
+    { t:"活躍買家（AB）不足", tag:"特選任務", items:[
+      "路徑：我的阿里巴巴首頁「特選商家任務」（每日更新，滿足條件即消失）",
+      "觸發：過去 30 天活躍買家數低於目標值（15–30，視行業而異）",
+      "3 個基礎任務：≥30 個 PIS ≥4.5 的商品；30 天消息平均回覆 &lt;24h；風控處罰 ≤1 次且累計 ≤24 分",
+      "完成 3 項即獲特選商家任務流量調控" ]},
+    { t:"廣告燒錢沒效果", tag:"營銷力", items:[
+      "路徑：營銷中心 → 效果廣告報表",
+      "動作順序：先優化商品（主圖/標題/詳情）再放量，否則流量進來也留不住",
+      "調優維度：關鍵詞結構、出價、投放位置、落地商品結構" ]},
+    { t:"履約異常 / 糾紛", tag:"交易力", items:[
+      "路徑：訂單管理 → 信保訂單 → 糾紛處理 / 拒付",
+      "紅線式風險：異常履約金額 &gt;10 萬美金且異常履約率 &gt;10%，健康度判不健康",
+      "動作：異常件當天上報，備齊溝通與物流憑證" ]}
+  ]
+},
+{
+  id:"C", color:"c", name:"曝光 → 點擊 → 詢盤 漏斗診斷",
+  note:'<div class="funnel"><span class="fstep"><b>曝光</b>有多少人看到</span><span class="fgrp"><span class="far">›</span><span class="fstep"><b>點擊</b>有多少人點進來</span></span><span class="fgrp"><span class="far">›</span><span class="fstep"><b>詢盤</b>有多少人來問</span></span></div><p class="bnote-tip">先定位卡在哪一層，<b>只改那一層</b>。曝光沒解決就去改點擊，等於白做。</p>',
+  nodes:[
+    { t:"三層各由什麼決定", tag:"診斷", items:[
+      "曝光（有多少人看到）：關鍵詞、商品品質分 PIS、店鋪權重、廣告投放",
+      "點擊（有多少人點進來）：主圖、主圖影片、價格與 MOQ、標題、排名位置",
+      "詢盤（有多少人來問）：圖片品質、詳情頁配置、店鋪裝修、起訂量、認證與接待速度",
+      "口徑提醒：數據參謀當日數據僅含<b>搜尋</b>來源；全站推即時數據含搜尋＋推薦等全站來源，其商機效果以「營銷中心 &gt; 全站推廣」的資料為準 —— 兩邊數字不一致是正常的" ]},
+
+    { t:"① 曝光層出問題：曝光不足 / 沒曝光", tag:"曝光", items:[
+      "判據：數據看板曝光低於行業均值，或環比連續下滑",
+      "路徑：我的阿里巴巴 &gt; 數據參謀 &gt; 數據總覽 &gt; 數據看板（先分清是全店性下滑還是個別品）",
+      "路徑：我的阿里巴巴 &gt; 數據參謀 &gt; 產品參謀（揪出拖後腿的品）",
+      "調整 1 關鍵詞：數據參謀 &gt; 關鍵字參謀 —— 補進行業熱搜詞、換掉無曝光詞；標題核心詞要與所投詞一致",
+      "調整 2 商品品質分 PIS：優先拉到 4.5 分以上；若要投廣告跑量，官方口徑是至少準備 50 個 4.5 分以上商品",
+      "調整 3 櫥窗：把「高瀏覽但未櫥窗」的商品加入櫥窗（在產品參謀即可篩出來）",
+      "調整 4 多語言站點發品：西 / 法 / 日 / 俄 / 葡五大市場",
+      "調整 5 廣告加量：直通車關鍵字推廣、全站推、優爆品助推計劃",
+      "調整 6 清掉負資產：零效果／非活躍品優化或刪除重發；重複鋪品治理（重複鋪品會攤薄曝光）" ]},
+
+    { t:"曝光量少 / 廣告花不出去錢：按序排查", tag:"止損", items:[
+      "第 0 步：先檢測廣告帳戶是否處於休眠狀態",
+      "① 目標出價是否採用平台建議值 —— 出價過低會導致拿量困難",
+      "② 日預算是否採用平台建議值 —— 預算不足會拖住拿量",
+      "③ 4.5 分以上商品量是否充足 —— 官方口徑：至少 50 個才有較好的跑量效果",
+      "④ 計劃投放 7 天內：先專注拿量；超過 7 天：分析在投商品量、點擊率、轉化率",
+      "⑤ 減少頻繁修改目標出價與日預算 —— 每次修改算法都要重新學習，會影響消耗速度與投放效果" ]},
+
+    { t:"② 點擊層出問題：有曝光、沒點擊", tag:"點擊", items:[
+      "官方定調：有一定曝光量但無點擊 → 看「點擊率」相關指標",
+      "調整 1 主圖：換掉第一張主圖；官方建議圖片不少於 3 張，並補多維度圖（側拍圖 / 後視圖 / 細節圖 / 生產流程圖）",
+      "調整 2 主圖中的影片：主圖帶影片的點擊表現更好",
+      "調整 3 商品價格：價格與 MOQ 是否明顯偏離同行",
+      "調整 4 標題：核心詞前置、拼寫正確、不堆詞",
+      "路徑：我的阿里巴巴 &gt; 數據參謀 &gt; 商品分析 &gt; 最多瀏覽商品 —— 對照高點擊品與低點擊品的差距",
+      "路徑：我的阿里巴巴 &gt; 數據參謀 &gt; 訪客詳情 —— 看買家實際搜尋詞，確認「詞」與「品」是否對得上",
+      "廣告側：全站推會智慧選出與商品最匹配的圖片，有助於提升創意點擊率" ]},
+
+    { t:"③ 詢盤層出問題：有點擊、沒詢盤", tag:"詢盤", items:[
+      "官方定調：有一定點擊量但無商機 → 看「轉化率」相關指標",
+      "調整 1 商品圖片品質 + 商品詳情頁配置",
+      "調整 2 店鋪裝修：直接學習行業優良商品與店鋪的做法",
+      "調整 3 標題與商品介紹多放目標國、目標人群資訊的關鍵詞，方便系統學習、拉進更精準的買家",
+      "調整 4 起訂量 / 認證資質 / 公司實力展示 / 樣品服務",
+      "調整 5 接待端：24 小時內必回、衝刺 ≤4 小時；報價四件套（單價 / MOQ / 運費 / 交期）",
+      "路徑：我的阿里巴巴 &gt; 數據參謀 &gt; 訪客詳情；詢盤管理 + 服務指標面板（平均回覆時間）" ]},
+
+    { t:"進階：詢盤有了但不精準（商機品質差）", tag:"進階", items:[
+      "精準定位目標受眾：檢查 3 個地域降權是否已配置",
+      "優化產品信息：標題、描述、圖片品質 —— 增加目標國與人群關鍵詞讓系統學習",
+      "適當提高商機出價：在高品質買家處取得更多曝光優勢",
+      "垃圾詢盤處理：可在詢盤介面一鍵舉報，審核通過後會從轉換數中扣除" ]}
+  ]
+},
+{
+  id:"D", color:"d", name:"節奏日曆（日 / 月）",
+  nodes:[
+    { t:"每日", tag:"固定動作", items:[
+      "09:00 / 14:00 / 18:00 三次巡檢，未回覆會話清零",
+      "特選商家任務每日更新，需當天檢查是否符合條件" ]},
+    { t:"每月 1–4 號", tag:"窗口期", items:[
+      "成長任務不展示（每月 5 號刷新上月任務）",
+      "適合做商品結構整理、重複鋪品治理等長動作" ]},
+    { t:"每月 5 號", tag:"關鍵日", items:[
+      "評定星等級更新，保持至次月 4 號",
+      "當月成長任務刷新（每月 5 號展示）",
+      "AI 店鋪診斷月報產出，展示上個月經營表現" ]},
+    { t:"每月最後一天", tag:"結算日", items:[
+      "當日預測星等級決定次月 5 號的評定星等級",
+      "當月任務得分決定次月流量調控獎勵：≥4 分才有獎勵，分越高調控越多",
+      "已滿 5 星商家不參加任務流量調控" ]},
+    { t:"成長任務四類", tag:"任務結構", items:[
+      "商品任務",
+      "服務任務",
+      "營銷任務",
+      "交易任務",
+      "新手任務僅首年可見（港台 30 天 / 非港台 60 天）" ]}
+  ]
+},
+{
+  id:"E", color:"e", name:"平台紅線與常用工具",
+  nodes:[
+    { t:"健康度紅線（任一命中即不健康、無法獲星）", tag:"紅線", items:[
+      "累計違規扣分 ≥36 分",
+      "嚴重侵權 ≥2 次",
+      "異常履約金額 &gt;10 萬美金且異常履約率 &gt;10%",
+      "店鋪健康度判為「不健康」時，無法獲得星等級評定" ]},
+    { t:"生意助手", tag:"效率", items:[
+      "自動接待與知識庫：需校準運費口徑與商品匹配，避免誤導買家",
+      "批量編輯：多商品標題 / 屬性批量重塑",
+      "一鍵續約、輔助訂單起草" ]},
+    { t:"流量與轉化工具", tag:"工具箱", items:[
+      "櫥窗、直通車 P4P、全站推、新品加速計劃",
+      "大促活動報名與折扣設定",
+      "多語言站點發品" ]},
+    { t:"後台與經營工具", tag:"工具箱", items:[
+      "數據參謀：數據分析主入口",
+      "CRM 客戶管理系統、資金管理、店鋪裝修",
+      "信用保障服務（信保）：額度、付款、拒付與糾紛" ]},
+    { t:"學習與支持", tag:"外援", items:[
+      "平台規則總則與官方規則說明",
+      "行業報告（玩具、運動自行車、寵物用品及食品、食品飲料等）",
+      "官方客服與商家學習中心" ]}
+  ]
+}
+];
+
+const PATHS = [
+  ["沒曝光 / 曝光下滑","我的阿里巴巴 &gt; 數據參謀 &gt; 數據總覽 &gt; 數據看板","對比行業均值，鎖定下滑的關鍵詞與商品"],
+  ["定位低效商品","我的阿里巴巴 &gt; 數據參謀 &gt; 產品參謀","看商品級曝光/點擊/詢盤，篩出待優化品"],
+  ["零效果 / 非活躍品","數據參謀 &gt; 產品參謀 &gt; 零效果商品","優化或刪除重發（新發品有流量扶持）"],
+  ["關鍵詞沒流量","數據參謀 &gt; 關鍵字參謀","補行業熱搜詞，替換低效詞"],
+  ["有訪客沒詢盤","數據參謀 &gt; 訪客詳情","看買家搜尋詞與行為，改詳情與門檻"],
+  ["有曝光沒點擊","數據參謀 &gt; 商品分析 &gt; 最多瀏覽商品","重做主圖、調價格與 MOQ、改標題"],
+  ["商品加櫥窗","櫥窗設定頁","把高瀏覽但未櫥窗的商品加入"],
+  ["重複鋪品 / 品質分低","商品管理 → 重複鋪品診斷 / 商品品質分","標題、屬性矩陣、圖片三重差異化"],
+  ["違規 / 扣分 / 侵權","後台「違規記錄 / 體檢中心」","查看詳情 → 整改或按流程申訴"],
+  ["星等級上不去","我的阿里巴巴 &gt; 星等級","先補四力中的最低一力，重點攻廣告營銷項與交易力"],
+  ["活躍買家不足","我的阿里巴巴首頁「特選商家任務」","完成 3 個基礎任務換流量調控"],
+  ["詢盤回覆超時","詢盤管理 + 服務指標面板","24h 內必回，衝刺 ≤4h"],
+  ["廣告效果差","營銷中心 → 效果廣告報表","先優化商品再放量，調詞與出價"],
+  ["履約異常 / 糾紛","訂單管理 → 信保訂單 → 糾紛處理 / 拒付","當天上報，備齊憑證"],
+  ["月度經營復盤","我的阿里巴巴首頁 AI 店鋪診斷月報（每月 5 號）","按六大模組定位問題並排動作"]
+];
+
+(function render(){
+  const host = document.getElementById("branches");
+  BRANCHES.forEach(b=>{
+    const sec = document.createElement("section");
+    sec.className = "branch";
+    sec.style.setProperty("--bc", `var(--${b.color})`);
+    sec.style.setProperty("--bsoft", `var(--${b.color}-soft)`);
+    sec.style.setProperty("--bline", `var(--${b.color}-line)`);
+
+    const head = document.createElement("div");
+    head.className = "bhead";
+    head.innerHTML = `<span class="chev">▾</span><span class="bdot"></span><h3>${b.id}　${b.name}</h3><span class="cnt">${b.nodes.length} 項</span>`;
+    head.addEventListener("click", ()=> sec.classList.toggle("collapsed"));
+
+    const body = document.createElement("div");
+    body.className = "bbody";
+    if (b.note) {
+      const nb = document.createElement("div");
+      nb.className = "bnote";
+      nb.innerHTML = b.note;
+      body.appendChild(nb);
+    }
+    const ul = document.createElement("ul");
+    ul.className = "nodes";
+
+    b.nodes.forEach(n=>{
+      const li = document.createElement("li");
+      const node = document.createElement("div");
+      node.className = "node";
+      const title = document.createElement("div");
+      title.className = "ntitle";
+      title.innerHTML = `<span>${n.t}</span>${n.tag ? `<span class="tag">${n.tag}</span>` : ""}`;
+      node.appendChild(title);
+
+      if(n.items && n.items.length){
+        const iu = document.createElement("ul");
+        iu.className = "items";
+        n.items.forEach(it=>{
+          const il = document.createElement("li");
+          const isWarn = it.includes("紅線式") || it.includes("紅線");
+          if(isWarn && b.id === "B") il.className = "warn";
+          il.innerHTML = it;
+          iu.appendChild(il);
+        });
+        node.appendChild(iu);
+        title.addEventListener("click", ()=> node.classList.toggle("folded"));
+      }
+      li.appendChild(node);
+      ul.appendChild(li);
+    });
+
+    body.appendChild(ul);
+    sec.appendChild(head);
+    sec.appendChild(body);
+    host.appendChild(sec);
+  });
+
+  const tb = document.getElementById("pathRows");
+  PATHS.forEach(r=>{
+    const tr = document.createElement("tr");
+    tr.innerHTML = `<td><b>${r[0]}</b></td><td class="p">${r[1]}</td><td>${r[2]}</td>`;
+    tb.appendChild(tr);
+  });
+
+  document.getElementById("expandAll").addEventListener("click", ()=>{
+    document.querySelectorAll(".branch").forEach(s=>s.classList.remove("collapsed"));
+    document.querySelectorAll(".node").forEach(s=>s.classList.remove("folded"));
+  });
+  document.getElementById("collapseAll").addEventListener("click", ()=>{
+    document.querySelectorAll(".branch").forEach(s=>s.classList.add("collapsed"));
+  });
+  document.getElementById("printBtn").addEventListener("click", ()=> window.print());
+})();
+
+/* ---------------- nav toggle (mobile) ---------------- */
+(function(){
+  var toggle=document.getElementById('navToggle');
+  var links=document.getElementById('navLinks');
+  if(toggle&&links){
+    function syncAria(){ toggle.setAttribute('aria-expanded', links.classList.contains('open') ? 'true' : 'false'); }
+    toggle.addEventListener('click',function(){ links.classList.toggle('open'); syncAria(); });
+    links.addEventListener('click',syncAria);
+    links.addEventListener('click',function(e){ if(e.target.tagName==='A') links.classList.remove('open'); });
+  }
+})();
+
+/* ---------------- scroll reveal ---------------- */
+(function(){
+  if(!('IntersectionObserver' in window)) return;
+  var io=new IntersectionObserver(function(entries){
+    entries.forEach(function(en){ if(en.isIntersecting){ en.target.classList.add('in'); io.unobserve(en.target); } });
+  },{threshold:0.12});
+  document.querySelectorAll('.reveal').forEach(function(el){ io.observe(el); });
+})();
+
+
+
+/* ---------------- hero wavy canvas (multi-instance) ---------------- */
+(function(){
+  if(window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+  var items=[].slice.call(document.querySelectorAll(".hero-wavy")).map(function(cv){
+    return {cv:cv, ctx:cv.getContext("2d"), host:cv.parentElement, w:0, h:0};
+  }).filter(function(it){ return !!it.ctx && !!it.host; });
+  if(!items.length) return;
+  var dpr=Math.min(window.devicePixelRatio||1,2), t=0, raf=0, running=true;
+  var waves=[
+    {amp:30,len:0.0085,speed:0.012,y:0.62,color:"rgba(255,111,26,0.30)"},
+    {amp:38,len:0.0065,speed:0.009,y:0.70,color:"rgba(255,140,60,0.22)"},
+    {amp:24,len:0.0110,speed:0.015,y:0.78,color:"rgba(12,42,94,0.24)"},
+    {amp:44,len:0.0050,speed:0.007,y:0.86,color:"rgba(255,111,26,0.18)"}
+  ];
+  function resize(){
+    items.forEach(function(it){
+      var r=it.host.getBoundingClientRect();
+      var w=Math.max(1,Math.floor(r.width)), h=Math.max(1,Math.floor(r.height));
+      it.w=w; it.h=h;
+      it.cv.width=Math.floor(w*dpr); it.cv.height=Math.floor(h*dpr);
+      it.cv.style.width=w+"px"; it.cv.style.height=h+"px";
+      it.ctx.setTransform(dpr,0,0,dpr,0,0);
+    });
+  }
+  function drawWave(it,wave,time){
+    var baseY=it.h*wave.y, ctx=it.ctx;
+    ctx.beginPath(); ctx.moveTo(0,it.h);
+    for(var x=0;x<=it.w;x+=4){
+      var y=baseY+Math.sin(x*wave.len+time*wave.speed)*wave.amp
+                 +Math.sin(x*wave.len*0.45+time*wave.speed*1.3)*(wave.amp*0.35);
+      ctx.lineTo(x,y);
+    }
+    ctx.lineTo(it.w,it.h); ctx.closePath(); ctx.fillStyle=wave.color; ctx.fill();
+  }
+  function frame(){
+    if(!running) return;
+    t+=1;
+    items.forEach(function(it){
+      if(!it.host.offsetParent) return;
+      var ctx=it.ctx;
+      ctx.clearRect(0,0,it.w,it.h);
+      var veil=ctx.createLinearGradient(0,0,0,it.h);
+      veil.addColorStop(0,"rgba(254,248,243,0)");
+      veil.addColorStop(0.55,"rgba(254,248,243,0)");
+      veil.addColorStop(1,"rgba(255,111,26,0.08)");
+      ctx.fillStyle=veil; ctx.fillRect(0,0,it.w,it.h);
+      for(var i=0;i<waves.length;i++) drawWave(it,waves[i],t);
+    });
+    raf=window.requestAnimationFrame(frame);
+  }
+  var timer=0;
+  window.addEventListener("resize",function(){ window.clearTimeout(timer); timer=window.setTimeout(resize,120); });
+  document.addEventListener("visibilitychange",function(){
+    if(document.hidden){ running=false; if(raf) window.cancelAnimationFrame(raf); }
+    else { running=true; raf=window.requestAnimationFrame(frame); }
+  });
+  window.__wavyResize=resize;
+  resize(); frame();
+})();
+
+
+/* ---------------- SAA 指令地圖 ---------------- */
+(function(){
+  var DATA = {"steps":[{"i":1,"name":"經營診斷與基礎資料","desc":"先把公司、商品與店鋪現況看清楚，避免後面所有內容都偏掉。"},{"i":2,"name":"市場與商機分析","desc":"從買家需求與競爭環境出發，決定下一步要把資源放在哪裡。"},{"i":3,"name":"商品策略與選品","desc":"找到值得投入的產品，再設計差異化定位與主推優先級。"},{"i":4,"name":"商品發佈與內容優化","desc":"把產品變成更容易被買家找到、點擊與詢盤的商品內容。"},{"i":5,"name":"店鋪流量與 GEO 運營","desc":"清理拖累店鋪的低效內容，並持續回填 AI Search 需要的資訊。"},{"i":6,"name":"詢盤與客戶分析","desc":"先判斷商機品質，再決定要怎麼回、怎麼查、怎麼推進。"},{"i":7,"name":"RFQ 與成交策略","desc":"RFQ 不只是報價，而是成本、身份、利潤與談判節奏的組合。"},{"i":8,"name":"數據復盤與持續迭代","desc":"把每週、每月、每季的營運變成可追蹤、可優化的循環。"}],"cmds":[{"n":"01","step":1,"title":"公司與產品優勢盤點","sub":"把公司能力轉成可被 SAA 使用的基礎資料。","when":"剛開始使用 SAA、準備優化公司頁／商品頁／詢盤話術前。","why":"若 SAA 不理解公司與產品優勢，後續標題、詳情頁、詢盤話術都會變得空泛，無法突出商家的真實差異化。","data":"公司首頁／店鋪連結、產品連結、工廠資料、認證、產能、MOQ、交期、售後、同行案例。","out":"21 項公司／產品／工廠優勢長段落，可回填知識庫與後續 Prompt。","next":"02｜公司資訊與 GEO 公司介紹生成","prompts":[{"label":"主指令","text":"這是 XX 行業外貿客戶關注的關於我們的產品優勢點以及公司工廠優勢點，請根據這 21 個點幫我們公司列舉出具體的優勢段落，每一個點可以參考我接下來讓你去查找的資訊來源，並且你生成的每一個點都需要包含一些具體的量化數據優勢，方便我後續智能體的工作。\n\n現在我將發送我們公司平台連結給到你，你可以參考我們公司平台的所有頁面資訊去做抓取，其次你也可以去參考本行業的優秀同行的文案去做抓取，最後幫我生成我們公司優勢的長段落。\n\n以下是我們公司的首頁連結：XXXX（本公司首頁連結）"},{"label":"01-1 長期記憶沉澱","text":"以上是我們公司的介紹以及產品優勢和工廠優勢，請你把以上資訊存入本智能體的長期記憶中，並且以後只要在這個智能體內做的所有營運工作，都需要關聯到以上的公司產品以及工廠優勢，以便做出來的內容更有針對性"}]},{"n":"02","step":1,"title":"公司資訊與 GEO 公司介紹生成","sub":"讓店鋪公司頁更容易被買家與 AI 搜索理解。","when":"公司介紹太空泛，或希望提升 AI Search / GEO 被理解與引用機率時。","why":"公司介紹若只是空泛形容詞，買家與 AI 都難以判斷供應能力；補強後能提升信任與 GEO 被引用機率。","data":"Alibaba.com 店鋪連結、官網、目標市場、目標客戶類型、公司數據、認證與案例。","out":"英文公司介紹、256 字元核心優勢短句、GEO 優化版公司資料。","next":"03｜店鋪健康總診斷","prompts":[{"label":"主指令","text":"你是一位具備 B2B 國際貿易內容經驗的 [行業] 專家，熟悉海外中大型買家的閱讀習慣，也熟悉 GEO 寫作標準，能讓 ChatGPT、Google AI Overviews、Perplexity 等 AI 搜索更容易發現、理解與引用。\n\n請深度分析我提供的 Alibaba.com 店鋪與官網連結，提取公司背景、產品線、產能／服務能力、認證、客戶案例、供應鏈能力與交付能力。\n\n請生成兩段內容：\n1. 公司介紹：英文，2000 字元內，第一句說清楚公司做什麼、服務誰、核心優勢是什麼；必須包含具體數據，缺資料請標註 [待客戶提供]。\n2. 核心優勢短句：英文，256 字元內，可作為店鋪 slogan 或短介紹。\n\n請避免空泛字眼，例如 leading manufacturer、high quality products、competitive price，除非後面有具體數據或證據支撐。"}]},{"n":"03","step":1,"title":"店鋪健康總診斷","sub":"先知道店鋪問題在哪，再決定優先優化項。","when":"不知道店鋪問題優先順序，或月度復盤前。","why":"不先診斷就優化，容易只改表面問題；先找出產品、流量、轉化、推廣的瓶頸，才能排優先級。","data":"月度店鋪數據報表、產品數據報表、推廣報表（商品＋地域）、違規與認證資訊。","out":"店鋪健康分數、問題清單、優先級與下一步優化方案。","next":"04｜營運數據每日播報","prompts":[{"label":"主指令","text":"你是阿里國際站店鋪健康診斷師，全面診斷店鋪，輸出優化方案。診斷維度：\n1. 產品健康：零效果產品、產品資訊品質、重複鋪貨\n2. 流量健康：曝光／點擊／CTR、流量來源、關鍵詞排名\n3. 轉化健康：詢盤轉化率、TM 諮詢率、RFQ 轉化率\n4. 推廣健康：ROI、關鍵詞品質、預算分配\n5. 合規健康：違規記錄、侵權、認證缺失\n6. 權重評估：店鋪星級、產品排名、平台推薦\n\n輸出：健康評分、問題清單、優先級優化方案（1-3 級）。\n\n完成此項 skills 輸入之後，等待我發送對應的店鋪數據報表，除了我提供的數據報表以外，你也可以登入後台檢查該時間段的店鋪板塊情況，方便你更好做好數據校對。"}]},{"n":"04","step":1,"title":"營運數據每日播報","sub":"每天快速看異常、找動作。","when":"每天早上或投放、上新、活動期間，需要快速看異常時。","why":"每天不看數據異常，可能錯過流量下滑、詢盤下降或零效果產品增加；播報能讓營運動作更即時。","data":"昨日或近 7 天數據：曝光、點擊、CTR、詢盤、TM、ROI、零效果產品數。","out":"3 分鐘營運播報、異常原因、今日 3 條行動建議。","next":"05｜買家採購搜尋長句盤點","prompts":[{"label":"主指令","text":"你是阿里國際站數據播報官，接收核心數據報表後輸出 3 分鐘可讀播報。\n規則：\n1. 總覽結論：今日／近 7 天店鋪健康度（優秀／正常／預警）\n2. 核心指標（標紅異常）：曝光、點擊、CTR、詢盤、TM 諮詢、ROI、零效果產品數\n3. 異常診斷：指標問題＋原因（流量／轉化／產品／推廣）\n4. 今日行動建議（≤3 條，可執行）\n5. 格式：分點＋表格，不囉嗦、不廢話。"}]},{"n":"05","step":2,"title":"買家採購搜尋長句盤點","sub":"從買家真實搜索反推產品與內容方向。","when":"準備做標題、發品、知識庫或 GEO 前，需要先知道買家怎麼搜。","why":"不理解買家怎麼搜，標題與知識庫容易只寫賣家想講的內容；長句盤點能反推真實採購需求。","data":"品類名稱、核心產品、目標國家、買家類型、現有標題或商品連結。","out":"買家搜尋長句表、熱度排序、標題與知識庫補充方向。","next":"06｜行業趨勢與機會預判","prompts":[{"label":"主指令","text":"你是一名阿里國際站的 XX 類目的專業營運，現在想要得知 XXX 這個類目下的買家採購具體需求。\n\n我現在要求你從阿里國際站前台的 AI MODE 下以及買家端的 ACCIO 去統計 XXX 這個類目最熱門的常用採購搜尋長句，這些長句需要包含對產品的具體需求、對公司以及工廠的條件篩查。\n\n查完後按照熱度做好降序，並且以表格的形式輸出給到我，方便我根據買家的採購需求去做好後續的產品標題製作以及後台知識庫的填充。"}]},{"n":"06","step":2,"title":"行業趨勢與機會預判","sub":"避免盲目上架，先找到需求正在上升的方向。","when":"規劃新品、季度主推方向或判斷市場是否值得投入時。","why":"市場趨勢不清楚時容易盲目上架；先判斷需求成長與市場變化，能避免把資源投入衰退品類。","data":"品類名稱、目標市場、主營產品、目前主推方向、已知競爭壓力。","out":"市場趨勢、成長需求、產品機會、主推建議。","next":"07｜競品分析與競爭策略","prompts":[{"label":"主指令","text":"請針對 [品類名稱] 在 [目標國家／區域] 的市場做行業趨勢分析以及未來機會點預判。\n\n請重點分析：\n1. 最近 3–6 個月買家需求變化\n2. 成長中的產品、材質、功能、應用場景\n3. 海外買家最常關注的規格、認證、MOQ、交期\n4. 目前國際站上競爭較少但需求上升的機會點\n5. 建議優先開發或主推的產品方向\n\n輸出格式：趨勢結論 → 需求證據 → 產品機會 → 可執行營運建議。"}]},{"n":"07","step":2,"title":"競品分析與競爭策略","sub":"知道誰在搶流量、怎麼避開弱勢競爭。","when":"推廣成本上升、點擊有但轉化低，或準備打競爭策略時。","why":"不了解競品就投放，容易被價格、圖片或詳情頁弱點拖低轉化；競品分析能找到突破口。","data":"競品店鋪／商品連結、我方產品連結、推廣產品、關鍵詞與價格帶。","out":"競品矩陣、關鍵詞策略、差異化、推廣與價格建議。","next":"08｜深度選品報告","prompts":[{"label":"主指令","text":"你是阿里國際站競品分析師，監控並分析競品，輸出競爭策略。分析維度：\n1. 競品產品矩陣（核心產品、價格帶、賣點）\n2. 關鍵詞策略（主關鍵詞、長尾詞、高轉化詞）\n3. 詳情頁與賣點差異化\n4. 推廣策略（直通車／全站、預算、出價）\n5. 我方優勢／劣勢／機會／威脅\n6. 優化建議：產品／標題／關鍵詞／價格／推廣\n\n輸出：結構化報告，可執行方案。"}]},{"n":"08","step":3,"title":"深度選品報告","sub":"用站內外證據鏈找更值得投入的產品。","when":"不知道要做什麼品、想找藍海或高毛利機會時。","why":"選品只靠經驗容易錯過站外熱點與高毛利機會；用證據鏈選品能提高投入回報。","data":"品類、產品圖片或連結、成本區間、目標市場、供應鏈能力、現有銷售數據。","out":"深度選品報告、Excel 選品看板、差異化與毛利建議。","next":"09｜主推產品差異化策略","prompts":[{"label":"主指令","text":"IDENTITY：您是一位深耕跨境電商領域 10 年以上的資深專家，精通數據挖掘、類目研判與市場機會分析。您不僅洞察阿里國際站（ICBU）的站內搜尋與供應商競爭格局，更擅長利用 Amazon BSR、TikTok Trends、Google Trends 及社交媒體輿情（VoC）等全網信號，為賣家提供「證據鏈完整、風險可控、利潤空間明確」的選品決策報告。\n\n請按照【全球跨境選品與供應鏈策略師】的身份，針對 [具體品類] 進行一份深度選品報告。報告需包含：\n1. 站外趨勢驗證（Amazon／TikTok）\n2. 國際站站內競爭與供需比分析\n3. 核心差異化改進建議\n4. 財務利潤測算（FOB 單價、毛利預估）\n5. 最終輸出 Markdown 報告，並生成 Excel 選品看板。"}]},{"n":"09","step":3,"title":"主推產品差異化策略","sub":"確定主推產品要打什麼市場、賣什麼價值。","when":"已經有一批產品，但不知道該主推誰、怎麼定位時。","why":"主推產品沒有定位，後續標題、圖片、推廣都會分散；先確定差異化，才能集中火力。","data":"產品清單、公司優勢、買家需求、競品分析結果、成本與交期資料。","out":"主推產品排序、定位、賣點、優先優化項。","next":"10｜高轉化標題生成優化","prompts":[{"label":"主指令","text":"請根據我們目前的產品資料、公司優勢、買家需求與競品情況，幫我判斷接下來最適合主推的產品。\n\n請輸出：\n1. 建議主推產品清單\n2. 每個產品適合的目標市場與買家類型\n3. 差異化定位：價格、品質、服務、交期、認證、定製能力\n4. 推廣時應優先突出的賣點\n5. 哪些產品暫時不建議投入資源，以及原因\n6. 下一步需要優化的標題、圖片、詳情頁與知識庫內容。"}]},{"n":"10","step":4,"title":"高轉化標題生成優化","sub":"用標題提升搜索匹配與點擊率。","when":"新品上架、舊品標題 CTR 低、需要批量標題優化時。","why":"標題是買家看到商品的第一入口；不優化標題，曝光與點擊都可能被低匹配詞拖累。","data":"產品核心詞、屬性、規格、目標市場、買家類型、核心賣點、參考關鍵詞。","out":"多條高轉化標題、關鍵詞與標題優化思路。","next":"11｜圖片／描述生成爆款標題","prompts":[{"label":"主指令","text":"你是一名專注於阿里國際站的 10 年營運，你在標題的製作以及優化上有豐富經驗，能夠從站內以及站外收集對應的產品關鍵詞資訊做好標題，讓精準客戶看到標題後能被產品賣點、公司優勢亮點、工廠服務優勢點等內容觸動，從而提升產品點擊率以及轉化率。\n\n【產品核心關鍵詞】：\n【核心屬性（材質／工藝）】：\n【產品規格】：\n【目標市場關注點】：\n【目標買家關注點】：\n【核心賣點營銷詞】：\n【參考關鍵詞】：\n【標題風格偏好】：SEO 優先／買家感知優先／兩者平衡\n【需要幾條】："}]},{"n":"11","step":4,"title":"圖片／描述生成爆款標題","sub":"用圖片或簡短描述快速產出關鍵詞、標題、賣點。","when":"只有產品圖或簡短描述，需要快速生成標題／關鍵詞／賣點時。","why":"只有圖片或描述時，人工找詞與寫賣點耗時；用 SAA 可快速產出可上架的關鍵詞與標題。","data":"產品圖片／URL／簡短描述、歷史關鍵詞庫、認證與禁止使用詞。","out":"100+ 新關鍵詞、爆品標題、10 句英文賣點、自檢結果。","next":"12｜結構化商詳生成","prompts":[{"label":"主指令","text":"你是一位資深關鍵詞研究與文案專家，專注於 Alibaba.com 跨境電商營運。你的目標是讓每個商品具備成為爆品的潛力，同時確保同店鋪不同商品的流量詞不重複、不互相競爭。\n\n使用者可提供關鍵詞、產品圖片、產品 URL 或產品描述。請每次完整執行：\n1. 關鍵詞研究：至少產出 100 個相關關鍵詞，包含核心詞、長尾詞、材質／工藝／規格／場景詞、認證詞、採購詞（wholesale、bulk、custom、OEM、factory price）。\n2. 去重檢查：不得與歷史關鍵詞庫重複。\n3. 合規與侵權檢查。\n4. 生成 1 條 100–128 字元的英文爆品標題。\n5. 生成 10 句產品賣點，每句不超過 200 字元。\n6. 輸出自檢結果。"}]},{"n":"12","step":4,"title":"結構化商詳生成","sub":"把商品頁變成 AI 可讀、買家可判斷的說明書。","when":"詳情頁內容薄弱，買家看完仍無法判斷供應能力時。","why":"詳情頁若缺參數、場景、認證與 FAQ，買家無法判斷是否匹配需求，也不利於 AI Search 理解。","data":"產品圖片、規格、參數、認證、MOQ、交期、工廠資訊、售後與 FAQ。","out":"結構化詳情頁框架：圖片、賣點、視頻、公司介紹、FAQ。","next":"13｜主圖／副圖／詳情圖生成","prompts":[{"label":"主指令","text":"請按照結構化商詳的邏輯，為我的產品規劃商品詳情頁。\n\n請依序輸出以下模組：\n1. 商品圖片\n2. 商品賣點\n3. 詳情視頻建議\n4. 公司圖片\n5. 公司介紹\n6. FAQs\n\n詳情頁需要做到資訊完整化、數據結構化、參數體系化、內容場景化。核心賣點需盡量帶有量化標準數字；工廠、產能、MOQ、交期、認證與售後服務需要明確寫清。"}]},{"n":"13","step":4,"title":"主圖／副圖／詳情圖生成","sub":"把產品賣點、工廠能力視覺化。","when":"需要批量規劃主圖、副圖、詳情圖與營銷圖時。","why":"圖片只展示角度容易同質化；把賣點、流程、工廠能力視覺化，能提高停留與信任。","data":"產品素材、品牌調性、目標市場、買家痛點、公司與工廠資訊。","out":"主圖、副圖、詳情圖、營銷圖的生成方案。","next":"14｜買家痛點主圖生成","prompts":[{"label":"主指令","text":"請根據我的產品資料與買家關注點，規劃並生成 Alibaba.com 可使用的主圖、副圖與詳情圖方案。\n\n圖片方向包含：\n1. 主圖：白底高清、細節清晰、無水印，突出核心賣點\n2. 副圖：應用場景、產品細節賣點、多 SKU 對比、定製範圍、生產流程、工廠實力\n3. 詳情圖：結構化展示產品參數、認證、流程與服務\n4. 營銷圖：把買家最關心的利益點視覺化\n\n請確保每張圖的內容都能對應產品資訊＋公司／工廠資訊。"}]},{"n":"14","step":4,"title":"買家痛點主圖生成","sub":"讓主圖 3 秒說清楚技術賣點與供應能力。","when":"主圖同質化嚴重，需要做更有買家痛點的高轉化主圖時。","why":"主圖若不能在 3 秒內說明價值，買家會滑走；痛點主圖能把信任、規格、能力前置。","data":"產品圖片、行業、目標買家、核心痛點、認證、技術賣點、工廠實力。","out":"主圖痛點分析、視覺構圖腳本、中英文圖片 Prompt。","next":"15｜GEO FAQ／Why Choose Us","prompts":[{"label":"主指令","text":"你是一位擁有 10 年跨境 B2B 視覺設計經驗的「首席視覺架構師」。你深諳外貿買家與 B2C 消費者的本質區別：B2C 衝動消費看顏值；B2B 理性採購看信任、規格、實力、利潤。你的使命是：幫助賣家將產品的核心技術賣點和工廠硬實力，在 3 秒鐘內通過一張主圖直觀、無障礙地傳達給海外採購商。\n\n步驟一：買家關注點解構。先拆解該類目下買家最關心的 3 大痛點。\n步驟二：視覺構圖策劃。輸出拍攝角度、光影調性、賣點可視化方法、英文標註層規劃。\n步驟三：AI 繪圖指令生成。直接生成高品質中英文圖片 Prompt，適合白底主圖或高級場景圖。"}]},{"n":"15","step":4,"title":"GEO FAQ／Why Choose Us","sub":"把買家比較供應商時會問的問題提前回答。","when":"買家常問「為什麼選你」，或公司 FAQ／實力標籤內容不足時。","why":"買家比較供應商時最常問 Why Choose Us；提前用 FAQ 回答，能提升信任與 GEO 長尾匹配。","data":"公司優勢、認證、研發／品控／服務／供應鏈標籤、買家常問問題。","out":"可上傳到 FAQ／公司資訊區的 GEO 問答內容。","next":"16｜知識庫月度更新","prompts":[{"label":"主指令","text":"請幫我生成 Alibaba.com 店鋪可使用的 GEO FAQ／Why Choose Us 內容。\n\n目標：把「Why Choose Us」升級成更符合 B2B 買家供應商比較意圖的問題，例如：What Are Your Company's Core Competitive Strengths?\n\n請根據我的公司優勢、認證、研發能力、品控能力、貿易能力、服務能力、供應鏈能力，生成一段 500 字元以內的英文 FAQ 回答。\n\n要求：\n1. 內容必須高度相關，不能空泛\n2. 優先使用可驗證能力與量化數據\n3. 包含 buyer comparison 會使用的高價值長尾詞\n4. 可直接放入 Alibaba.com FAQ 或公司資訊區。"}]},{"n":"16","step":4,"title":"知識庫月度更新","sub":"讓客服、銷售與 AI 知識庫持續進化。","when":"每月更新商品、客服、銷售素材，避免知識庫過期時。","why":"知識庫不更新，客服、銷售與 AI 都會使用舊資訊；月度更新能讓話術與內容跟上市場變化。","data":"店鋪資料、上月知識庫、熱銷／新品資料、買家評論、行業趨勢、Top 店鋪參考。","out":"八大知識庫模組，Word／Excel 格式更新包。","next":"17｜零效果產品優化","prompts":[{"label":"主指令","text":"你是「Alibaba.com 知識庫營運專家」，負責每月為 [公司／店鋪名稱] 產出完整知識庫更新包。內容將直接用於客服回覆訓練、AI 客服知識庫導入與銷售培訓資料。\n\n請每月產出以下八個模組，每個模組至少 100 個知識點：\n1. 最新熱銷產品目錄\n2. 新品上市目錄\n3. 產品補充資訊（材質、工藝、場景等）\n4. 產品規格參數\n5. 公司優勢更新\n6. 定製能力（OEM/ODM、MOQ、打樣週期等）\n7. 銷售技巧更新\n8. FAQ\n\n資料來源依序驗證：店鋪資料、近 3–6 個月行業趨勢、行業 Top 10 店鋪。不能編造資訊，缺資料需標示。"}]},{"n":"17","step":5,"title":"零效果產品優化","sub":"清理低效商品，避免拖累店鋪權重。","when":"商品數據中出現大量零效果產品，店鋪權重可能被拖累時。","why":"零效果產品過多會拉低店鋪貨盤權重與自然推薦；分類處理能釋放營運資源。","data":"產品數據報表：產品 ID、曝光、點擊、詢盤、上架天數、商品品質分。","out":"零效果商品分類、保留／優化／下架／刪除建議。","next":"18｜GEO 資訊回填與模擬搜尋","prompts":[{"label":"主指令","text":"你是阿里國際站零效果產品優化師，按以下規則處理產品報表：\n\n1. 分類標準：\n- 高價值：有曝光／點擊／詢盤 → 保留\n- 需優化：有曝光無點擊／有點擊無詢盤 → 優化標題／關鍵詞／詳情\n- 下架重發：100 天零效果、有潛力 → 下架 → 優化 → 重發\n- 刪除：180 天零效果、無潛力 → 直接刪除\n\n2. 輸出：產品 ID、名稱、分類、優化建議、操作指令\n3. 表格化輸出，可直接複製到國際站後台操作\n\n如果存在零效果產品過多，每天限制下架 10 個即可。"}]},{"n":"18","step":5,"title":"GEO 資訊回填與模擬搜尋","sub":"找出為什麼 AI 沒推薦你，再回填資訊。","when":"AI MODE 搜不到你、推薦供應商沒有你，或 GEO 信息不足時。","why":"如果 AI 搜索不推薦你，代表店鋪資訊可能缺失；模擬搜尋能找到具體補強方向。","data":"買家搜尋長句、AI MODE 搜尋結果、我方店鋪資訊、商品與知識庫現況。","out":"GEO 缺口清單、後台修改位置、每週回填計畫。","next":"19｜詢盤智能分析","prompts":[{"label":"主指令","text":"請根據買家搜尋長句去前台 AI MODE 做模擬搜尋，並反問：本公司為何不在該搜尋結果的推薦供應商名單內？\n\n請對照 SAA 給出的不被推薦理由，拆解我們要補充或優化的店鋪 GEO 資訊：\n1. 產品資訊：標題、賣點、屬性、自定義屬性\n2. 管理公司資訊：公司基本資料、實力標籤、認證產品\n3. 知識庫回填：商品資訊庫與公司資訊庫\n\n最後請輸出：缺口清單、優先級、對應後台修改位置、每週更新建議。"}]},{"n":"19","step":6,"title":"詢盤智能分析","sub":"60 秒判斷這個商機值不值得跟。","when":"收到新詢盤，先判斷值不值得跟、怎麼跟。","why":"不是每個詢盤都值得投入；先分析品質，能避免業務把時間花在噪音詢盤上。","data":"詢盤原文、TM 聊天記錄、截圖、產品、數量、目的地、買家自稱身份。","out":"詢盤分析報告、買家意圖、分級與跟進策略。","next":"20｜詢盤回覆話術優化","prompts":[{"label":"主指令","text":"你是 Alibaba.com 外貿公司的詢盤情報分析師。你的唯一職責是把任何詢盤、TM 諮詢或聊天記錄拆解成可決策情報。\n\n當我貼上詢盤內容、截圖或聊天記錄時，請跳過寒暄並直接執行：\n1. 詢盤文本解析：產品、數量、規格、貿易條款、目的國、買家身份、緊急程度\n2. 買家意圖判斷：真實採購／比價壓價／市場調研／套價格\n3. 買家類型初判：工程承包商、經銷商、批發商、SOHO 設計師、電商賣家、RFQ 比價者\n4. 需求拆解：顯性需求與隱性需求\n5. S/A/B/C 分級與 0–100 品質分\n6. 跟進策略：一句話策略＋三個戰術點\n\n輸出：[詢盤情報分析報告]。"}]},{"n":"20","step":6,"title":"詢盤回覆話術優化","sub":"把模板回覆變成推進成交的話術。","when":"已讀不回、價格異議、交期疑慮、客戶沉默等溝通卡點。","why":"模板回覆容易讓買家無感或流失；針對心理障礙重構話術，才能推進下一步。","data":"回覆草稿、聊天記錄、客戶狀態、報價資訊、公司證據鏈、想達成的下一步。","out":"回覆診斷、重構回覆、多版本話術與發送節奏。","next":"21｜客戶背景調查","prompts":[{"label":"主指令","text":"你是 Alibaba.com 外貿公司的高轉化回覆文案工程師。你的職責是把普通回覆變成能推進成交的銷售工具。\n\n當我貼上回覆草稿、聊天記錄，或描述「客戶已讀不回」「客戶說價格高」「客戶要視頻後沉默」等場景時，請直接執行：\n1. 原始回覆逐句診斷：指出無鉤子、無價值錨定、無 CTA、資訊過載、語氣不符等問題\n2. 買家心理分析：判斷買家真正猶豫的是價格、品質、交期、信任、運費還是付款安全\n3. 重構文案：價值開場 → 痛點共鳴 → 證據鏈 → 單一 CTA\n4. 多場景輸出：首回、已讀不回、價格異議、交期異議、信任建立、沉默 7 天收口\n5. 發送節奏：時間、間隔、觸發條件\n\n第一封回覆不超過 150 字。"}]},{"n":"21","step":6,"title":"客戶背景調查","sub":"判斷買家身份、採購力與風險。","when":"客戶資訊模糊、詢盤金額高、或需要判斷採購力與風險時。","why":"高價值買家若不查背景，容易錯判採購力或風險；背調能決定投入資源與跟進方式。","data":"姓名、Email、公司、國家、官網、社群、詢盤內容、Alibaba 買家資訊。","out":"買家調查報告、採購力、風險、匹配度與資源投入建議。","next":"22｜深度詢盤診斷與成交策略","prompts":[{"label":"主指令","text":"你是 Alibaba.com 外貿公司的買家情報調查員。你的唯一職責是把模糊買家資訊變成明確的採購力畫像。只輸出事實與基於事實的判斷；不能找到就說不能找到，不要幻想。\n\n當我提供任何買家線索（姓名、Email、公司、國家、聊天記錄、詢盤內容）時，請執行：\n1. 盤點已知資訊與缺口\n2. 調查數位足跡：Google、官網、Facebook、Instagram、LinkedIn、OKKI／海關資料（若已連接）、Alibaba 買家等級與歷史詢盤\n3. 判斷買家身份：工程承包商、經銷商、批發商、SOHO 設計師、電商賣家、RFQ 比價者\n4. 評估採購力、復購潛力與決策鏈\n5. 評估信用與風險\n6. 給出匹配度與資源投入建議：全力／標準／放棄。"}]},{"n":"22","step":6,"title":"深度詢盤診斷與成交策略","sub":"對高價值商機做七步診斷並指定下一步。","when":"高價值商機卡住，需要主管級策略介入與成交路徑時。","why":"高潛力商機卡住時，單純補一句話沒用；七步診斷能找到真正斷點並指派行動。","data":"90 天詢盤／TM／信保數據、重點聊天記錄、買家背景、轉化瓶頸。","out":"七步診斷、A→B+C 戰術命令、執行看板。","next":"23｜RFQ 精準報價策略","prompts":[{"label":"主指令","text":"我是 ICBU 數位 CEO，是外貿經理大腦裡的運營插件。我的工作不是寫開發信或回覆 TM，而是識別大量詢盤噪音中 10% 的高價值信號，並把模糊意圖變成明確利潤。\n\n當我要求詢盤分析、買家診斷、成交策略、店鋪審計或買家背景調查時，請自動執行七步深度診斷＋A→B+C 決策框架：\n1. 流量滲透：收集詢盤／TM／信保數據、FRT、趨勢、市場分佈\n2. 買家畫像提取\n3. S/A/B/C 分級\n4. 背景調查\n5. 對話審計：找轉化斷點\n6. A→B+C 戰術命令：本質 → 真實需求 → 可執行動作\n7. 執行看板：負責人、截止時間、話術、驗收標準。"}]},{"n":"23","step":7,"title":"RFQ 精準報價策略","sub":"報價前先算成本、毛利、談判空間。","when":"RFQ 或詢盤進入報價前，避免無利潤報價與盲目降價。","why":"盲目報價可能低於毛利底線；先算成本與談判空間，能保住利潤並提高成交機會。","data":"RFQ 內容、成本、目的地、運費、關稅、目標價、買家背景、毛利底線。","out":"成本表、報價方案、談判底線、階梯讓利與報價話術。","next":"24｜RFQ Night Hunter 定時掃描","prompts":[{"label":"主指令","text":"你是 Alibaba.com 外貿公司的報價策略工程師。你的唯一職責是確保每一份報價都有利潤底線、談判空間與成交路徑。不要憑猜測報價，每一分錢都必須有來源。\n\n當我提供 RFQ 內容（產品、數量、規格、目標價、目的地）或詢盤＋成本資訊時，請執行：\n1. RFQ 解析：產品、數量、規格、目標價、條款、目的地、買家信號\n2. 成本計算：1688 源頭價、材料工藝包裝、運費、關稅、匯率緩衝 2%–3%、平台費與毛利\n3. 按買家身份分層報價：經銷商、工程承包商、電商賣家、RFQ 比價者\n4. 報價策略：首報保留 8%–12% 讓步空間；每次讓價都要換取條件\n5. 輸出報價方案、底線、階梯讓利表與可複製報價話術。"}]},{"n":"24","step":7,"title":"RFQ Night Hunter 定時掃描","sub":"每天固定時間抓高匹配 RFQ，避免錯過 24–48 小時窗口。","when":"希望每天固定掃描 RFQ，抓住時效窗口與高匹配商機。","why":"RFQ 決策窗口短，慢一天可能就輸給同行；定時掃描能把高匹配 RFQ 變成可跟進機會。","data":"公司產品配置、價格錨點、MOQ、交期、目標市場、物流與認證能力。","out":"夜間 RFQ 機會表、S/A RFQ 清單、報價建議與明日跟進。","next":"25｜90 天商機回顧與買家分層","prompts":[{"label":"主指令","text":"你是「RFQ Night Hunter」，Alibaba.com 賣家端 RFQ 機會狩獵引擎。你的工作不是聊天或開發客戶，而是每天晚上從 RFQ 市場噪音中篩出符合我們產品線、價格、MOQ 與物流能力的 RFQ，並在買家決策窗口內完成報價動作。\n\n啟動規則：每天北京時間 22:00 自動開始，或當我說「Start the night hunt / Night hunt / Hunt opportunities / Check the RFQ market」時立即開始。\n\n請根據公司產品配置，依產品匹配、價格帶、MOQ、目的地、買家信號五個維度篩選 RFQ；只把 S/A 級 RFQ 用於報價；輸出夜間 RFQ 機會表、報價建議、報價紀錄與明日跟進清單。"}]},{"n":"25","step":8,"title":"90 天商機回顧與買家分層","sub":"知道商機從哪來、在哪流失、誰要優先跟。","when":"每 90 天檢查商機來源、流失點與買家分層跟進。","why":"不復盤商機來源與流失點，下一季會重複犯錯；90 天復盤能把買家分層與資源配置做準。","data":"90 天詢盤／TM／RFQ／訪客數據、成交記錄、客戶互動記錄、產品與市場資料。","out":"90 天商機復盤、買家 A/B/C 分層、跟進計畫。","next":"26｜機會跟進品質教練","prompts":[{"label":"主指令","text":"你是 Alibaba.com 商機營運分析師。每 90 天使用後台數據解釋商機從哪裡來、為什麼轉化、在哪裡流失，並產出買家分層跟進計畫。\n\n請執行：\n1. 取得過去 90 天詢盤、TM、RFQ、訪客營銷數據\n2. 回顧獲客：總量、來源組成、Top 產品、Top 市場、獲客成本\n3. 回顧轉化漏斗：詢盤 → 有效回覆 → 報價 → 樣品 → 成交，找出最差斷點\n4. 依 RFM＋意向將買家分為 A/B/C\n5. 生成跟進計畫：A 級 24 小時專人跟進；B 級每週培育；C 級每月批量觸達\n6. 輸出 90 天商機復盤報告與買家分層跟進 Excel。"}]},{"n":"26","step":8,"title":"機會跟進品質教練","sub":"每週檢查業務跟進品質，找出流失風險。","when":"管理者每週想知道業務跟進品質與流失風險。","why":"管理者只看成交結果，往往看不到跟進過程問題；週檢能找出回覆慢、話術弱、報價不完整。","data":"上週 IM／RFQ／詢盤／訂單數據、業務帳號、跟進記錄、轉化與流失資料。","out":"業務跟進品質報告、問題清單、改善建議、話術庫。","next":"27｜定時任務與日常監控","prompts":[{"label":"主指令","text":"你是機會跟進品質教練，負責每週為店鋪管理者做商機跟進健康檢查，找出每位業務的跟進弱點，並提供可執行改善建議與話術。\n\n每週一請收集上週 IM 聊天、RFQ 報價記錄、詢盤／訂單數據，按業務帳號分組，從六個維度評分（100 分）：\n1. 回覆速度 20\n2. 跟進主動性 20\n3. 文案專業度 15\n4. 需求挖掘 15\n5. 報價完整度 20\n6. 風險識別 10\n\n請輸出 Excel 報告：總覽看板、問題清單、改善建議、回覆話術庫，並列出本週需要跟進的 TOP 客戶。"}]},{"n":"27","step":8,"title":"定時任務與日常監控","sub":"把重複的數據、客戶與競品監控固定化。","when":"希望把重複分析與監控工作固定成每日／每週任務。","why":"重複工作靠人工容易漏；用定時任務讓數據、商品、廣告與客戶監控變成固定節奏。","data":"店鋪後台數據、競品店鋪、產品分組、廣告帳戶、詢盤／客服記錄。","out":"每日／每週／每月自動監控清單與行動提醒。","next":"進入每日／每週／每月營運循環","prompts":[{"label":"主指令","text":"請幫我建立 SAA 日常定時任務監控清單，可包含：\n1. 生成近 7 天店鋪診斷簡報\n2. 每天早晨 9 點發送昨日經營簡報\n3. 分析 [類目／產品] 下同行沒怎麼用但買家搜尋量在漲的 50 個藍海詞\n4. 最近一週國際站買家詢盤數最多的 [產品名稱]\n5. 最近 30 天直通車商機主要來自哪些產品\n6. 分析上週詢盤品質\n7. 診斷廣告帳戶優化點\n8. 生成上週客服接待週報\n9. 復盤最近 30 天客戶主要關注的產品痛點\n10. 分析最近 30 天沒下單的高意向買家並生成跟進話術。"}]}],"checklist21":["價格競爭力","專業度","主營產品／服務範圍","行業經驗","樣品","品質","色彩","訂製能力","貨期","優勢","證書認證","產品認證","售後","溝通","運輸方式","付款渠道","運費","運輸時間","行業經驗","工廠規模","原材料"],"sop":{"daily":["04 營運數據每日播報","19 詢盤智能分析","20 詢盤回覆話術優化","21 客戶背景調查","23 RFQ 精準報價策略"],"dailyGoal":"快速處理當天商機，避免客戶流失。","weekly":["17 零效果產品優化","18 GEO 資訊回填","26 機會跟進品質教練","27 定時任務監控"],"weeklyGoal":"找出店鋪與業務跟進問題，持續優化。","monthly":["03 店鋪健康總診斷","06 行業趨勢分析","07 競品分析","16 知識庫月度更新","25 90 天商機回顧"],"monthlyGoal":"調整市場、商品與下一階段主推策略。"},"firstRun":["01 公司優勢","03 店鋪診斷","05 買家需求","08 深度選品","10/12 商品內容","19 詢盤分析"],"firstRunData":"店鋪首頁、產品連結、產品／店鋪／推廣報表、買家詢盤與聊天記錄、RFQ、競品連結、工廠與認證資料。","rules":["先用真實資料：店鋪連結、產品報表、詢盤、聊天記錄、RFQ。","缺資料要標註「待補充」，不要讓 SAA 虛構。","每次輸出的內容都要回填到商品、店鋪、知識庫或跟進表。","重要決策如降價、刪品、停推，仍需由商家確認。"],"howto":[{"t":"現在應該做什麼","d":"先看所在階段，不要想到什麼問什麼。"},{"t":"為什麼要做","d":"理解商業原因，避免無效營運。"},{"t":"如何下指令","d":"直接複製 Prompt，再換成自己的產品／店鋪資料。"},{"t":"SAA 產出什麼","d":"確認輸出格式是否能直接上架、跟進或回填。"},{"t":"下一步接什麼","d":"每頁最下方都有 Next Step，讓流程串起來。"}],"purpose":["找問題","找機會","提升曝光","提升點擊","提升詢盤","提升轉化","找回客戶"]};
+  var grid=document.getElementById('cmdGrid');
+  if(!grid) return;
+  var input=document.getElementById('cmdSearch'), clearBtn=document.getElementById('cmdClear');
+  var fWrap=document.getElementById('cmdFilters'), meta=document.getElementById('cmdMeta');
+  var empty=document.getElementById('cmdEmpty'), extra=document.getElementById('cmdExtra');
+  var ES=function(s){return String(s).replace(/[&<>"]/g,function(c){
+    return ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'})[c];});};
+  var HL=function(s,q){
+    var e=ES(s); if(!q) return e;
+    try{ return e.replace(new RegExp('('+q.replace(/[.*+?^${}()|[\]\\]/g,'\\$&')+')','gi'),'<mark>$1</mark>'); }
+    catch(err){ return e; }
+  };
+  var stepName={}; DATA.steps.forEach(function(s){stepName[s.i]=s.name;});
+  var hay=DATA.cmds.map(function(c){
+    return [c.n,c.title,c.sub,c.when,c.why,c.data,c.out,c.next,
+            stepName[c.step],c.prompts.map(function(p){return p.label+' '+p.text;}).join(' ')]
+      .join(' ').toLowerCase();
+  });
+
+  // filter chips
+  var chips=[{i:'all',label:'全部',count:DATA.cmds.length}].concat(
+    DATA.steps.map(function(s){return {i:String(s.i),label:'STEP '+s.i+'　'+s.name,
+      count:DATA.cmds.filter(function(c){return c.step===s.i;}).length};}));
+  chips.forEach(function(ch){
+    var b=document.createElement('button');
+    b.type='button'; b.className='fchip'+(ch.i==='all'?' is-active':'');
+    b.dataset.step=ch.i;
+    b.innerHTML=ES(ch.label)+'<b>'+ch.count+'</b>';
+    b.addEventListener('click',function(){
+      fWrap.querySelectorAll('.fchip').forEach(function(x){x.classList.remove('is-active');});
+      b.classList.add('is-active'); render();
+    });
+    fWrap.appendChild(b);
+  });
+
+  // cards
+  var cards=DATA.cmds.map(function(c,idx){
+    var el=document.createElement('article');
+    el.className='cmd'; el.dataset.step=String(c.step);
+    var facts=[['什麼時候使用',c.when],['為什麼要做',c.why],
+               ['建議提供資料',c.data],['預期產出',c.out]];
+    var prompts=c.prompts.map(function(p){
+      return '<div class="cmd-prompt" style="margin-top:14px">'
+        + '<div class="cmd-prompt-head"><b>'+(c.prompts.length>1?'【直接貼給 SAA】'+ES(p.label):'【直接貼給 SAA】')+'</b>'
+        + '<button type="button" data-copy>複製</button></div>'
+        + '<pre data-prompt="'+idx+'">'+ES(p.text)+'</pre></div>';
+    }).join('');
+    var extra21 = (c.n==='01')
+      ? '<div style="margin-top:16px"><b style="display:block;font-size:12px;font-weight:850;letter-spacing:.05em;color:#c084fc;margin-bottom:8px">'
+        + '21 項客戶關注點（照這張表逐項填）</b>'
+        + DATA.checklist21.map(function(x){return '<span class="cmdtag">'+ES(x)+'</span>';}).join('') + '</div>'
+      : '';
+    el.innerHTML =
+      '<button class="cmd-head" type="button" aria-expanded="false">'
+      + '<span class="cmd-n">'+ES(c.n)+'</span>'
+      + '<span class="cmd-t"><b>'+ES(c.title)+'</b><i>'+ES(c.sub)+'</i></span>'
+      + '<span class="cmd-step">STEP '+c.step+'</span><span class="cmd-chev">▾</span></button>'
+      + '<div class="cmd-body" hidden>'
+      + '<div class="cmd-facts">'+facts.map(function(f){
+          return '<div><b>'+f[0]+'</b><p>'+ES(f[1])+'</p></div>';}).join('')+'</div>'
+      + prompts + extra21
+      + '<div class="cmd-next">下一步 → <b>'+ES(c.next)+'</b></div></div>';
+    el.querySelector('.cmd-head').addEventListener('click',function(){
+      var b=el.querySelector('.cmd-body'), open=el.classList.toggle('open');
+      b.hidden=!open; this.setAttribute('aria-expanded', open?'true':'false');
+    });
+    el.querySelectorAll('[data-copy]').forEach(function(btn){
+      btn.addEventListener('click',function(ev){
+        ev.stopPropagation();
+        var txt=btn.closest('.cmd-prompt').querySelector('pre').textContent;
+        var state=0;
+        function ok(){ if(state) return; state=1; flash('已複製 ✓',true); }
+        function no(){ if(state) return; state=2; flash('複製失敗，請手動選取',false); }
+        function flash(msg,good){
+          btn.textContent=msg; if(good) btn.classList.add('done');
+          setTimeout(function(){ btn.textContent='複製'; btn.classList.remove('done'); },1800);
+        }
+        if(legacyCopy(txt)){ ok(); return; }
+        if(navigator.clipboard && navigator.clipboard.writeText){
+          navigator.clipboard.writeText(txt).then(ok,no);
+          setTimeout(function(){ if(!state) no(); },1500);
+        } else { no(); }
+      });
+    });
+    return el;
+  });
+  function legacyCopy(txt){
+    var ta=document.createElement('textarea'); ta.value=txt;
+    ta.setAttribute('readonly',''); ta.style.position='fixed'; ta.style.top='-1000px';
+    document.body.appendChild(ta);
+    var sel=document.getSelection(), prev=sel.rangeCount?sel.getRangeAt(0):null;
+    ta.select(); ta.setSelectionRange(0,txt.length);
+    var ok=false;
+    try{ ok=document.execCommand('copy'); }catch(e){ ok=false; }
+    document.body.removeChild(ta);
+    if(prev){ sel.removeAllRanges(); sel.addRange(prev); }
+    return ok;
+  }
+  cards.forEach(function(c){ grid.appendChild(c); });
+
+  function render(){
+    var q=input.value.trim().toLowerCase();
+    var active=fWrap.querySelector('.fchip.is-active').dataset.step;
+    var shown=0;
+    cards.forEach(function(el,i){
+      var okS=(active==='all'||el.dataset.step===active);
+      var okQ=(!q||hay[i].indexOf(q)>=0);
+      var on=okS&&okQ;
+      el.hidden=!on; if(on) shown++;
+      if(!on){ el.classList.remove('open'); el.querySelector('.cmd-body').hidden=true; }
+      if(q){
+        var c=DATA.cmds[i];
+        el.querySelector('.cmd-t').innerHTML='<b>'+HL(c.title,q)+'</b><i>'+HL(c.sub,q)+'</i>';
+      } else {
+        var c2=DATA.cmds[i];
+        el.querySelector('.cmd-t').innerHTML='<b>'+ES(c2.title)+'</b><i>'+ES(c2.sub)+'</i>';
+      }
+    });
+    empty.hidden = shown>0;
+    meta.innerHTML = '顯示 <b>'+shown+'</b> / '+DATA.cmds.length+' 條指令'
+      + (q ? '，關鍵字「<b>'+ES(input.value.trim())+'</b>」' : '');
+    clearBtn.hidden = !q;
+  }
+  var timer=0;
+  input.addEventListener('input',function(){ clearTimeout(timer); timer=setTimeout(render,140); });
+  input.addEventListener('keydown',function(e){ if(e.key==='Escape'){ input.value=''; render(); } });
+  clearBtn.addEventListener('click',function(){ input.value=''; render(); input.focus(); });
+
+  // 使用原則 / 第一次使用 / 日常 SOP
+  var howto=DATA.howto.map(function(h,i){
+    return '<li><b style="color:#e9d5ff">'+(i+1)+'. '+ES(h.t)+'</b> —— '+ES(h.d)+'</li>';}).join('');
+  var sopBlock=function(title,items,goal){
+    return '<div class="box"><h4>'+title+'</h4><ul>'
+      + items.map(function(x){return '<li>'+ES(x)+'</li>';}).join('')
+      + '</ul><div class="goal">目的：'+ES(goal)+'</div></div>';};
+  extra.innerHTML =
+    '<div class="box"><h4>怎麼用這份地圖</h4><ul>'+howto+'</ul></div>'
+    + '<div class="box"><h4>第一次使用：先跑完這 6 步</h4><ul>'
+      + DATA.firstRun.map(function(x){return '<li>'+ES(x)+'</li>';}).join('')
+      + '</ul><div class="goal">資料準備：'+ES(DATA.firstRunData)+'</div></div>'
+    + '<div class="box"><h4>使用原則</h4><ul>'
+      + DATA.rules.map(function(x){return '<li>'+ES(x)+'</li>';}).join('')+'</ul></div>'
+    + sopBlock('每日', DATA.sop.daily, DATA.sop.dailyGoal)
+    + sopBlock('每週', DATA.sop.weekly, DATA.sop.weeklyGoal)
+    + sopBlock('每月／每季', DATA.sop.monthly, DATA.sop.monthlyGoal);
+
+  render();
+})();
+
+/* ---------------- hash router ---------------- */
+(function(){
+  var ROUTES=['home','mindmap','exposure','publish','click','convert','star','paths','saa','saa-commands','saa-flows','saa-vs'];
+  var TITLES={home:'',mindmap:'營運心智圖',exposure:'曝光解決方案',publish:'發品與標題優化',
+    click:'點擊率解決方案',convert:'詢盤轉化訂單解決方案',star:'星等級規則',paths:'路徑速查',
+    saa:'SAA 專區',
+    'saa-commands':'SAA 指令地圖',
+    'saa-flows':'SAA 四大場景',
+    'saa-vs':'SAA 升級與差異對照'};
+  var BASE='國際站營運全鏈路手冊';
+  function current(){
+    var h=(location.hash||'').replace(/^#\/?/,'');
+    return ROUTES.indexOf(h)>=0?h:'home';
+  }
+  function render(smooth){
+    var r=current();
+    ROUTES.forEach(function(n){
+      var el=document.getElementById('page-'+n);
+      if(el) el.classList.toggle('is-active', n===r);
+    });
+    var inSaa = (r==='saa'||r==='saa-commands'||r==='saa-flows'||r==='saa-vs');
+    document.querySelectorAll('a[data-page]').forEach(function(a){
+      a.classList.toggle('is-active', a.dataset.page===r);
+    });
+    document.querySelectorAll('a[data-saa]').forEach(function(a){
+      a.classList.toggle('is-active', inSaa);
+    });
+    document.querySelectorAll('a[data-sub]').forEach(function(a){
+      a.classList.toggle('is-active', a.dataset.sub===r);
+    });
+    document.title = TITLES[r] ? TITLES[r]+' · '+BASE : BASE;
+    if(window.__wavyResize) window.__wavyResize();
+    var links=document.getElementById('navLinks');
+    if(links) links.classList.remove('open');
+    var tg=document.getElementById('navToggle');
+    if(tg) tg.setAttribute('aria-expanded','false');
+    window.scrollTo(0,0);
+  }
+  window.addEventListener('hashchange', function(){ render(true); });
+  if(!location.hash) history.replaceState(null,'','#/home');
+  render(false);
+})();
+</script>
+</body>
+</html>
