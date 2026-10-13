@@ -1,82 +1,82 @@
-<section class="bpart" id="f0"><h3 class="bpart-h">INSTALL-客户背调skill-安装启动提示词.md</h3><h1>客户背调 Skill · 安装 + 启动提示词（对话式）</h1>
+<section class="bpart" id="f0"><h3 class="bpart-h">INSTALL-客户背调skill-安装启动提示词.md</h3><h1>客戶背調 Skill · 安裝 + 啟動提示詞（對話式）</h1>
 <blockquote>
 <p>Skill 名：<code>alibaba-customer-deepdive-dashboard</code> (v3)<br />
-作用：对单个阿里国际站买家做深度背调，产出 <strong>D 档时尚高饱和交互式 HTML 看板</strong>，全程<strong>反幻觉 + OSINT 公网交叉验证硬卡点</strong>。<br />
-分发包：<code>alibaba-customer-deepdive-dashboard-v3-20260601.zip</code>（14 个核心文件，含 SKILL.md / audit / prompts×6 / template / reference / ONBOARDING）</p>
+作用：對單個阿里國際站買家做深度背調，產出 <strong>D 檔時尚高飽和互動式 HTML 看板</strong>，全程<strong>反幻覺 + OSINT 公網交叉驗證硬卡點</strong>。<br />
+分發包：<code>alibaba-customer-deepdive-dashboard-v3-20260601.zip</code>（14 個核心檔案，含 SKILL.md / audit / prompts×6 / template / reference / ONBOARDING）</p>
 </blockquote>
 <hr />
-<h2>一、安装提示词（直接对你的 Agent 说这句）</h2>
-<h3>方式 A：从压缩包安装（拿到 zip 的人用这个）</h3>
-<p>把 <code>alibaba-customer-deepdive-dashboard-v3-20260601.zip</code> 发给 Agent，然后说：</p>
-<pre><code>把这个 zip 解压安装成我的 skill，目录放到 agent-core/skills/ 下，
-装完读一遍 ONBOARDING.md 做依赖自检，告诉我能不能用。
+<h2>一、安裝提示詞（直接對你的 Agent 說這句）</h2>
+<h3>方式 A：從壓縮包安裝（拿到 zip 的人用這個）</h3>
+<p>把 <code>alibaba-customer-deepdive-dashboard-v3-20260601.zip</code> 發給 Agent，然後說：</p>
+<pre><code>把這個 zip 解壓安裝成我的 skill，目錄放到 agent-core/skills/ 下，
+裝完讀一遍 ONBOARDING.md 做依賴自檢，告訴我能不能用。
 </code></pre>
-<p>Agent 会：解压到 <code>agent-core/skills/alibaba-customer-deepdive-dashboard/</code> → 跑 <code>python3 audit/checklist.py --help</code> 自检 → 回报就绪状态。</p>
-<h3>方式 B：技能市场安装（如果已上架内部市场）</h3>
-<pre><code>帮我安装 alibaba-customer-deepdive-dashboard 这个 skill
+<p>Agent 會：解壓到 <code>agent-core/skills/alibaba-customer-deepdive-dashboard/</code> → 跑 <code>python3 audit/checklist.py --help</code> 自檢 → 回報就緒狀態。</p>
+<h3>方式 B：技能市場安裝（如果已上架內部市場）</h3>
+<pre><code>幫我安裝 alibaba-customer-deepdive-dashboard 這個 skill
 </code></pre>
-<p>→ Agent 调 <code>skill(action="install", skill_id="alibaba-customer-deepdive-dashboard", scope="agent")</code></p>
-<p>账号级共享（所有 agent 可用，需你确认）：</p>
-<pre><code>把 alibaba-customer-deepdive-dashboard 安装到账号级，所有 agent 都能用
+<p>→ Agent 調 <code>skill(action="install", skill_id="alibaba-customer-deepdive-dashboard", scope="agent")</code></p>
+<p>賬號級共享（所有 agent 可用，需你確認）：</p>
+<pre><code>把 alibaba-customer-deepdive-dashboard 安裝到賬號級，所有 agent 都能用
 </code></pre>
-<p>装坏了重装：</p>
-<pre><code>强制重装 alibaba-customer-deepdive-dashboard
-</code></pre>
-<hr />
-<h2>二、启动提示词（装好后怎么用）</h2>
-<p>任意一句即可触发，越具体越好：</p>
-<pre><code>帮我对买家 [名字 / contactAliId] 做客户背调
-</code></pre>
-<pre><code>分析这个买家：[名字]，给我完整背景看板
-</code></pre>
-<pre><code>对接 [客户名] 我需要准备什么？做一份背调看板
-</code></pre>
-<p>模糊也行，Agent 会先帮你定位买家：</p>
-<pre><code>分析下我最近聊的那个美国大客户，做个背调
+<p>裝壞了重灌：</p>
+<pre><code>強制重灌 alibaba-customer-deepdive-dashboard
 </code></pre>
 <hr />
-<h2>三、运行前必须满足（冷启动检查）</h2>
+<h2>二、啟動提示詞（裝好後怎麼用）</h2>
+<p>任意一句即可觸發，越具體越好：</p>
+<pre><code>幫我對買家 [名字 / contactAliId] 做客戶背調
+</code></pre>
+<pre><code>分析這個買家：[名字]，給我完整背景看板
+</code></pre>
+<pre><code>對接 [客戶名] 我需要準備什麼？做一份背調看板
+</code></pre>
+<p>模糊也行，Agent 會先幫你定位買家：</p>
+<pre><code>分析下我最近聊的那個美國大客戶，做個背調
+</code></pre>
+<hr />
+<h2>三、執行前必須滿足（冷啟動檢查）</h2>
 <table>
 <thead>
 <tr>
 <th>#</th>
-<th>依赖</th>
-<th>不满足怎么办</th>
+<th>依賴</th>
+<th>不滿足怎麼辦</th>
 </tr>
 </thead>
 <tbody>
 <tr>
 <td>1</td>
-<td>已连接 Alibaba.com 后台账号</td>
-<td>在 Accio Work 连接 Alibaba.com</td>
+<td>已連線 Alibaba.com 後臺賬號</td>
+<td>在 Accio Work 連線 Alibaba.com</td>
 </tr>
 <tr>
 <td>2</td>
 <td>MCP 工具可用（<code>query_conversation_msg</code> 等）</td>
-<td>确认国际站生意助手 plugin 已装</td>
+<td>確認國際站生意助手 plugin 已裝</td>
 </tr>
 <tr>
 <td>3</td>
-<td>Python3 在环境里（跑审计脚本）</td>
-<td>装 Python3</td>
+<td>Python3 在環境裡（跑審計指令碼）</td>
+<td>裝 Python3</td>
 </tr>
 </tbody>
 </table>
-<p>一键自检（Agent 会自动跑，你也可手动）：</p>
-<pre><code>读 skill 的 ONBOARDING.md，按第三章依赖检查清单逐项确认，报告结果
+<p>一鍵自檢（Agent 會自動跑，你也可手動）：</p>
+<pre><code>讀 skill 的 ONBOARDING.md，按第三章依賴檢查清單逐項確認，報告結果
 </code></pre>
 <hr />
-<h2>四、产出长什么样</h2>
+<h2>四、產出長什麼樣</h2>
 <ul>
-<li>单买家一份 <strong>交互式 HTML 看板</strong>（D 档时尚高饱和：黑底 + 玫瑰金 + 霓虹紫红/紫，Chart.js 离线可用）</li>
-<li>内容：聊天行为分析 / 买家画像 / 业务员接待绩效对标 / <strong>OSINT 公网身份核验（附 source_url）</strong> / 成单优先级诊断</li>
-<li><strong>每个数字、每句引文都可追溯到落盘 JSON</strong>；OSINT 搜不到会如实写"无公开匹配"，绝不编造</li>
+<li>單買家一份 <strong>互動式 HTML 看板</strong>（D 檔時尚高飽和：黑底 + 玫瑰金 + 霓虹紫紅/紫，Chart.js 離線可用）</li>
+<li>內容：聊天行為分析 / 買家畫像 / 業務員接待績效對標 / <strong>OSINT 公網身份核驗（附 source_url）</strong> / 成單優先順序診斷</li>
+<li><strong>每個數字、每句引文都可追溯到落盤 JSON</strong>；OSINT 搜不到會如實寫"無公開匹配"，絕不編造</li>
 </ul>
 <hr />
-<h2>五、最重要的一条（务必知道）</h2>
+<h2>五、最重要的一條（務必知道）</h2>
 <blockquote>
-<p><strong>OSINT 必须真做。</strong> v3 把公网交叉验证设成了审计<strong>硬卡点</strong>（E1-E5，任一不过不得交付）。<br />
-这是为了堵住"声称做了背调实际跳过"的坑——未经核验的假身份（如错的 LinkedIn）会让你给错的人写开发信，比没做更危险。<br />
-所以看板里的每条 OSINT 发现都带可点击的来源链接，可信度（high/medium/low）也会标注。</p>
+<p><strong>OSINT 必須真做。</strong> v3 把公網交叉驗證設成了審計<strong>硬卡點</strong>（E1-E5，任一不過不得交付）。<br />
+這是為了堵住"聲稱做了背調實際跳過"的坑——未經核驗的假身份（如錯的 LinkedIn）會讓你給錯的人寫開發信，比沒做更危險。<br />
+所以看板裡的每條 OSINT 發現都帶可點選的來源連結，可信度（high/medium/low）也會標註。</p>
 </blockquote>
-<p>详细实战案例见解压后的 <code>reference/case-kimtex-top10.md</code>，完整冷启动指南见 <code>ONBOARDING.md</code>。</p></section><section class="bpart"><h3 class="bpart-h">附件檔案</h3><ul class="filelist"><li>alibaba-customer-deepdive-dashboard-v3-20260601.zip <span class="kb">51.1 KB</span></li></ul></section>
+<p>詳細實戰案例見解壓後的 <code>reference/case-kimtex-top10.md</code>，完整冷啟動指南見 <code>ONBOARDING.md</code>。</p></section><section class="bpart"><h3 class="bpart-h">附件檔案</h3><ul class="filelist"><li>alibaba-customer-deepdive-dashboard-v3-20260601.zip <span class="kb">51.1 KB</span></li></ul></section>

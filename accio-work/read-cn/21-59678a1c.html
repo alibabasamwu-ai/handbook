@@ -1,0 +1,46 @@
+<nav class="toc"><b>本包内容（2 个档案）</b><div><a href="#f0">skill.md</a><a href="#f1">rules/drafting-protocol.md</a></div></nav><section class="bpart" id="f0"><h3 class="bpart-h">skill.md</h3><div class="fm"><b>AiReach交付跟进专家</b><p>自动抓取 AiReach 交付的客户，进行官网深度调研，并生成高度个性化、随性自然的开发信清单，支持自动去重。</p></div><h1>技能名称：AiReach 交付跟进专家 (AiReach Follow-up Specialist)</h1>
+<h2>技能描述</h2>
+<p>这是一个帮你“把 AiReach 挖到的新客户一网打尽”的跟进专家。它会自动去小满后台领取最新的新客户，深度挖掘对方官网找“钩子”，然后模仿老板的语气写出极具“人味儿”的开发信，并整理成 Excel 表格交给你和助理直接发送。</p>
+<h2>核心功能</h2>
+<ol>
+<li><strong>自动领人与去重</strong>：自动从小满（OKKI）抓取新客户，并自动对比黑名单防止重复领取。</li>
+<li><strong>官网深度踩点</strong>：潜入客户官网分析其业务属性、主打产品和视觉风格，寻找个性化切入点。</li>
+<li><strong>随性自然开发信</strong>：拒绝僵硬模板，根据调研结果用多国语言撰写极具“真人手写感”的开发信。</li>
+<li><strong>Excel 清单交付</strong>：将公司名、邮箱、主题、正文一并整理进 Excel 表格，方便团队直接操作。</li>
+</ol>
+<h2>工作流程 (Workflow)</h2>
+<ol>
+<li><strong>领取任务</strong>：通过 <code>aireach-cli</code> 抓取最新 20 个待跟进客户，并对比本地 <code>blacklist.txt</code> 执行查重。</li>
+<li><strong>官网“潜行”</strong>：调用 <code>browser</code> 访问每个客户的网站，提取核心业务词（如“Wabi-sabi”、“Engineering”）及最新产品信息。</li>
+<li><strong>个性化拟稿</strong>：参考 <code>rules/drafting-protocol.md</code>，模仿 Lei 的口吻撰写针对性开发信，确保针对非英语国家自动切换法语/西语。</li>
+<li><strong>生成 Excel 表格</strong>：调用 <code>bash</code> 运行 Python 脚本，将所有调研结果和写好的信件汇总成一个标准的 <code>.xlsx</code> 文件。</li>
+<li><strong>交付汇报</strong>：在对话框总结本次领取的客户情况，并提供 Excel 文件下载路径。</li>
+</ol>
+<h2>使用工具</h2>
+<ul>
+<li><code>browser</code>: 深入客户网站抓取调研线索。</li>
+<li><code>aireach-cli</code>: 与小满系统对接领取新名单。</li>
+<li><code>bash</code>: 运行 Python 脚本处理数据并生成 Excel 报表。</li>
+<li><code>write</code>: 更新本地黑名单文件。</li>
+</ul></section><section class="bpart" id="f1"><h3 class="bpart-h">rules/drafting-protocol.md</h3><h1>规则：随性自然拟稿协议 (Drafting Protocol)</h1>
+<p>为了确保开发信不像 AI 写的，必须遵守以下“说人话”的标准：</p>
+<h3>1. 寻找“真实钩子”</h3>
+<ul>
+<li>必须提到从官网看到的具体细节。</li>
+<li><strong>示例</strong>：看到对方网站主推“Wabi-sabi”风格，就说：“我在你们网站上看到了你们对侘寂风的理解，非常赞，这正和我们的设计理念不谋而合。”</li>
+</ul>
+<h3>2. 模仿 Lei 的口吻</h3>
+<ul>
+<li>随性、真诚、不卑不亢。</li>
+<li>减少“Dear Sir/Madam”这种客套，多用“Hi [Name]”或“Hi Team”。</li>
+<li>避免冗长的长句子，多用短句。</li>
+</ul>
+<h3>3. 多语言适配</h3>
+<ul>
+<li><strong>法国/西班牙/拉美客户</strong>：优先用对方母语撰写，并植入咱们“15年专业工厂、通过CE认证”的背书。</li>
+<li><strong>其他地区</strong>：使用专业简洁的英文。</li>
+</ul>
+<h3>4. 交付规格</h3>
+<ul>
+<li><strong>Excel 字段</strong>：Company Name, Country, Lead Source, Website Detail, Email Subject, Email Body, Status.</li>
+</ul></section>

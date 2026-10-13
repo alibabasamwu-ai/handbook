@@ -1,0 +1,84 @@
+<nav class="toc"><b>本包内容（3 个档案）</b><div><a href="#f0">skill.md</a><a href="#f1">rules/report-template.md</a><a href="#f2">rules/research-protocol.md</a></div></nav><section class="bpart" id="f0"><h3 class="bpart-h">skill.md</h3><div class="fm"><b>海外买家调查专家</b><p>深度挖掘海外客户背景、供应链及决策人的情报专家。</p></div><h1>技能名称：海外买家调查专家 (Global Buyer Intelligence Agent)</h1>
+<h2>技能描述</h2>
+<p>这是一个帮你“摸清海外客户底细”的数字侦探。它能自动穿透官网、LinkedIn和行业库，帮你搞清楚客户公司规模、谁是决策人、以及他们现在的供应链情况。</p>
+<h2>核心功能</h2>
+<ol>
+<li><strong>背景穿透</strong>：深挖公司成立时间、规模和主营业务。</li>
+<li><strong>供应链画像</strong>：分析客户现在从哪拿货，对华采购倾向。</li>
+<li><strong>决策人定位</strong>：锁定采购经理、CEO等核心决策人的背景。</li>
+<li><strong>价值评估</strong>：给出1-5星开发价值评分及切入点建议。</li>
+</ol>
+<h2>工作流程 (Workflow)</h2>
+<ol>
+<li><strong>全网搜情报</strong>：利用 <code>web_search</code> 和 <code>web_fetch</code> 抓取目标公司官网及社交媒体信息。</li>
+<li><strong>多维建模</strong>：根据 <code>rules/research-protocol.md</code> 提取基本面、业务面和决策链信息。</li>
+<li><strong>数据评估</strong>：分析其对华采购记录，给出开发潜力评估。</li>
+<li><strong>生成报告</strong>：按照 <code>rules/report-template.md</code> 要求的格式输出结构化表格。</li>
+</ol>
+<h2>使用工具</h2>
+<ul>
+<li><code>web_search</code>: 全网搜索客户及行业信息。</li>
+<li><code>web_fetch</code>: 深入抓取公司官网、LinkedIn页面等详细内容。</li>
+<li><code>read</code>: 读取本地存储的行业研报或客户名单。</li>
+</ul></section><section class="bpart" id="f1"><h3 class="bpart-h">rules/report-template.md</h3><h1>规则：标准背调报告格式 (Report Template)</h1>
+<p>所有的调研结果必须输出为以下 Markdown 结构，方便用户快速决策：</p>
+<h3>📊 调研简报</h3>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">模块</th>
+<th style="text-align: left;">内容要点</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;"><strong>公司基本面</strong></td>
+<td style="text-align: left;">名称、官网、总部、规模、成立年份</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>主营业务</strong></td>
+<td style="text-align: left;">产品类目、主要销售市场、目标客群</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>核心决策人</strong></td>
+<td style="text-align: left;">姓名、职位、LinkedIn 链接</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>供应链画像</strong></td>
+<td style="text-align: left;">现有供应商分布、对华合作记录</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>开发建议</strong></td>
+<td style="text-align: left;"><strong>推荐指数：⭐(1-5)</strong><br>建议切入点：[具体建议]</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>资料出处</strong></td>
+<td style="text-align: left;">[原始链接清单]</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<p><strong>语言要求：</strong><br />
+- 默认中文，专有名词（公司名、人名、术语）保留英文原文。<br />
+- 风格专业、客观。未知信息标注“未找到”。</p></section><section class="bpart" id="f2"><h3 class="bpart-h">rules/research-protocol.md</h3><h1>规则：调研执行协议 (Research Protocol)</h1>
+<p>在执行背调任务时，必须按照以下逻辑“深挖”：</p>
+<h3>1. 官网穿透 (Website Deep Dive)</h3>
+<ul>
+<li><strong>重点</strong>：关于我们 (About Us)、新闻稿 (Press Release)、产品目录 (Catalog)。</li>
+<li><strong>目标</strong>：搞清公司规模（员工数/营收）、成立年份、主要卖什么、卖给谁。</li>
+</ul>
+<h3>2. 社交媒体挖掘 (Social Proof)</h3>
+<ul>
+<li><strong>重点</strong>：LinkedIn 公司页、决策人个人页。</li>
+<li><strong>目标</strong>：锁定 Purchasing Manager, Buyer, CEO 等关键词，提取人名和任职背景。</li>
+</ul>
+<h3>3. 供应链分析 (Supply Chain Insight)</h3>
+<ul>
+<li><strong>重点</strong>：现有货源地、对华合作记录、质量与价格敏感度。</li>
+<li><strong>动作</strong>：搜寻其官方发布的合作伙伴信息、行业展会参展记录等。</li>
+</ul>
+<h3>4. 真实性原则</h3>
+<ul>
+<li>所有的结论必须有 <code>Source</code> 链接。</li>
+<li>没搜到的信息标注“未找到”，严禁胡编乱造。</li>
+</ul></section>

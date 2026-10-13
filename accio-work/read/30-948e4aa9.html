@@ -1,89 +1,89 @@
-<nav class="toc"><b>本包內容（3 個檔案）</b><div><a href="#f0">skill.md</a><a href="#f1">rules/kb-sop.md</a><a href="#f2">rules/qa-template.md</a></div></nav><section class="bpart" id="f0"><h3 class="bpart-h">skill.md</h3><div class="fm"><b>知识库问答对生成</b><p>深度分析店铺背景，一键生成 100+ 条高转化、专业化的 AI 生意助手知识库问答。</p></div><h1>技能名称：知识库问答对生成 (Alibaba AI KB Expert)</h1>
+<nav class="toc"><b>本包內容（3 個檔案）</b><div><a href="#f0">skill.md</a><a href="#f1">rules/kb-sop.md</a><a href="#f2">rules/qa-template.md</a></div></nav><section class="bpart" id="f0"><h3 class="bpart-h">skill.md</h3><div class="fm"><b>知識庫問答對生成</b><p>深度分析店鋪背景，一鍵生成 100+ 條高轉化、專業化的 AI 生意助手知識庫問答。</p></div><h1>技能名稱：知識庫問答對生成 (Alibaba AI KB Expert)</h1>
 <h2>技能描述</h2>
-<p>这是一个帮你“训练 AI 助手”的金牌策划。它能自动潜入你的店铺，全网搜集你的背景资料，帮你写出 100 多条专业的问答（QA）。把它喂给阿里后台的 AI 生意助手，你的 AI 就能像个 10 年老员工一样，24 小时专业地回复客户，主打一个“不掉链子”。</p>
+<p>這是一個幫你“訓練 AI 助手”的金牌策劃。它能自動潛入你的店鋪，全網蒐集你的背景資料，幫你寫出 100 多條專業的問答（QA）。把它餵給阿里後臺的 AI 生意助手，你的 AI 就能像個 10 年老員工一樣，24 小時專業地回覆客戶，主打一個“不掉鏈子”。</p>
 <h2>核心功能</h2>
 <ol>
-<li><strong>全网背景侦察</strong>：不仅看阿里，还会去搜官网、领英、展会记录，摸清你的真实实力。</li>
-<li><strong>11大模块覆盖</strong>：从公司资质、定制流程到售后保障，全方位补齐 AI 的知识盲区。</li>
-<li><strong>行业灵魂注入</strong>：内置机械、家居、服装等各行各业的专业术语，让 AI 说话有深度。</li>
-<li><strong>缺失信息预警</strong>：自动列出哪些信息是网上查不到的，提醒你手动补全，确保知识库无死角。</li>
+<li><strong>全網背景偵察</strong>：不僅看阿里，還會去搜官網、領英、展會記錄，摸清你的真實實力。</li>
+<li><strong>11大模組覆蓋</strong>：從公司資質、定製流程到售後保障，全方位補齊 AI 的知識盲區。</li>
+<li><strong>行業靈魂注入</strong>：內建機械、家居、服裝等各行各業的專業術語，讓 AI 說話有深度。</li>
+<li><strong>缺失資訊預警</strong>：自動列出哪些資訊是網上查不到的，提醒你手動補全，確保知識庫無死角。</li>
 </ol>
 <h2>工作流程 (Workflow)</h2>
 <ol>
-<li><strong>身份锁定</strong>：输入店铺链接，自动识别公司名、主营产品和实力勋章。</li>
-<li><strong>全网搜集资料</strong>：通过 <code>web_search</code> 和 <code>web_fetch</code> 抓取官网、社交媒体和历史展会信息。</li>
-<li><strong>编写 QA 知识库</strong>：参考 <code>rules/qa-template.md</code>，按照 11 个标准模块撰写 101 条中英双语问答。</li>
-<li><strong>SOP 质检</strong>：按照 <code>rules/kb-sop.md</code> 的规范，检查回答是否具体、是否有销售力、是否无编造。</li>
-<li><strong>打包交付</strong>：生成一个标准的 Markdown 文件，方便用户直接复制上传到阿里 AI 生意助手。</li>
+<li><strong>身份鎖定</strong>：輸入店鋪連結，自動識別公司名、主營產品和實力勳章。</li>
+<li><strong>全網蒐集資料</strong>：透過 <code>web_search</code> 和 <code>web_fetch</code> 抓取官網、社交媒體和歷史展會資訊。</li>
+<li><strong>編寫 QA 知識庫</strong>：參考 <code>rules/qa-template.md</code>，按照 11 個標準模組撰寫 101 條中英雙語問答。</li>
+<li><strong>SOP 質檢</strong>：按照 <code>rules/kb-sop.md</code> 的規範，檢查回答是否具體、是否有銷售力、是否無編造。</li>
+<li><strong>打包交付</strong>：生成一個標準的 Markdown 檔案，方便使用者直接複製上傳到阿里 AI 生意助手。</li>
 </ol>
 <h2>使用工具</h2>
 <ul>
-<li><code>web_search</code> / <code>web_fetch</code>: 跨平台搜集供应商背景资料。</li>
-<li><code>browser</code>: 访问店铺主页进行数据建模。</li>
-<li><code>write</code>: 生成标准的知识库文件。</li>
-</ul></section><section class="bpart" id="f1"><h3 class="bpart-h">rules/kb-sop.md</h3><h1>规则：知识库构建 SOP (KB SOP)</h1>
-<p>为了让 AI 助手回复得像个“真人专家”，必须遵守以下作业标准：</p>
-<h3>1. 拒绝空洞</h3>
+<li><code>web_search</code> / <code>web_fetch</code>: 跨平臺蒐集供應商背景資料。</li>
+<li><code>browser</code>: 訪問店鋪主頁進行資料建模。</li>
+<li><code>write</code>: 生成標準的知識庫檔案。</li>
+</ul></section><section class="bpart" id="f1"><h3 class="bpart-h">rules/kb-sop.md</h3><h1>規則：知識庫構建 SOP (KB SOP)</h1>
+<p>為了讓 AI 助手回覆得像個“真人專家”，必須遵守以下作業標準：</p>
+<h3>1. 拒絕空洞</h3>
 <ul>
-<li><strong>错误示范</strong>：我们质量很好，价格便宜。</li>
-<li><strong>正确示范</strong>：我们拥有 15 名平均工龄 8 年的 QC 团队，执行 AQL 2.5 检验标准，且 90% 的产品通过了 CE 和 RoHS 认证。</li>
+<li><strong>錯誤示範</strong>：我們質量很好，價格便宜。</li>
+<li><strong>正確示範</strong>：我們擁有 15 名平均工齡 8 年的 QC 團隊，執行 AQL 2.5 檢驗標準，且 90% 的產品透過了 CE 和 RoHS 認證。</li>
 </ul>
-<h3>2. 销售力注入</h3>
+<h3>2. 銷售力注入</h3>
 <ul>
-<li>每一个技术参数后面，都要跟一个“对买家的好处”。</li>
-<li>例如：采用无刷电机（技术），不仅噪音低，而且使用寿命比普通电机长 30%（价值）。</li>
+<li>每一個技術引數後面，都要跟一個“對買家的好處”。</li>
+<li>例如：採用無刷電機（技術），不僅噪音低，而且使用壽命比普通電機長 30%（價值）。</li>
 </ul>
-<h3>3. 诚实原则</h3>
+<h3>3. 誠實原則</h3>
 <ul>
-<li>没查到的数据（如：具体某个产品的 FOB 价、工厂真实面积等），必须标注 <code>[待供应商核实]</code>。</li>
-<li>严禁为了凑数而编造认证编号或年限。</li>
+<li>沒查到的資料（如：具體某個產品的 FOB 價、工廠真實面積等），必須標註 <code>[待供應商核實]</code>。</li>
+<li>嚴禁為了湊數而編造認證編號或年限。</li>
 </ul>
-<h3>4. 角色设定</h3>
+<h3>4. 角色設定</h3>
 <ul>
-<li>话术口吻必须是：专业、自信、热情、且以解决问题为导向的 10 年经验外贸经理。</li>
-</ul></section><section class="bpart" id="f2"><h3 class="bpart-h">rules/qa-template.md</h3><h1>规则：11 大模块问答模板 (QA Template)</h1>
-<p>知识库必须包含且不限于以下模块，总计建议 100-101 条：</p>
-<h3>1. 公司基础实力 (Base Info)</h3>
+<li>話術口吻必須是：專業、自信、熱情、且以解決問題為導向的 10 年經驗外貿經理。</li>
+</ul></section><section class="bpart" id="f2"><h3 class="bpart-h">rules/qa-template.md</h3><h1>規則：11 大模組問答模板 (QA Template)</h1>
+<p>知識庫必須包含且不限於以下模組，總計建議 100-101 條：</p>
+<h3>1. 公司基礎實力 (Base Info)</h3>
 <ul>
-<li>历史、规模、工厂 vs 贸易。</li>
+<li>歷史、規模、工廠 vs 貿易。</li>
 </ul>
-<h3>2. 核心资质与认证 (Certifications)</h3>
+<h3>2. 核心資質與認證 (Certifications)</h3>
 <ul>
-<li>ISO, BSCI, CE, UL, 专利等。</li>
+<li>ISO, BSCI, CE, UL, 專利等。</li>
 </ul>
-<h3>3. OEM/ODM 定制能力 (Customization)</h3>
+<h3>3. OEM/ODM 定製能力 (Customization)</h3>
 <ul>
-<li>打样周期、定制起订量、研发团队人数。</li>
+<li>打樣週期、定製起訂量、研發團隊人數。</li>
 </ul>
-<h3>4. 价格与付款 (Pricing &amp; Payment)</h3>
+<h3>4. 價格與付款 (Pricing &amp; Payment)</h3>
 <ul>
-<li>阶梯价逻辑、拿样费退还政策、支持的付款方式。</li>
+<li>階梯價邏輯、拿樣費退還政策、支援的付款方式。</li>
 </ul>
-<h3>5. 生产与交期 (Production &amp; Lead Time)</h3>
+<h3>5. 生產與交期 (Production &amp; Lead Time)</h3>
 <ul>
-<li>月产能、常规交期、急单处理。</li>
+<li>月產能、常規交期、急單處理。</li>
 </ul>
-<h3>6. 质量控制 (Quality Control)</h3>
+<h3>6. 質量控制 (Quality Control)</h3>
 <ul>
-<li>检验标准、测试设备、次品补偿方案。</li>
+<li>檢驗標準、測試裝置、次品補償方案。</li>
 </ul>
-<h3>7. 包装与物流 (Logistics)</h3>
+<h3>7. 包裝與物流 (Logistics)</h3>
 <ul>
-<li>包装规格、起运港、合作物流、运费估算。</li>
+<li>包裝規格、起運港、合作物流、運費估算。</li>
 </ul>
-<h3>8. 售后服务 (After-sales)</h3>
+<h3>8. 售後服務 (After-sales)</h3>
 <ul>
-<li>质保时长、安装指导、视频支持。</li>
+<li>質保時長、安裝指導、影片支援。</li>
 </ul>
-<h3>9. 展会与背调 (Social Proof)</h3>
+<h3>9. 展會與背調 (Social Proof)</h3>
 <ul>
-<li>广交会记录、合作品牌、客户评价。</li>
+<li>廣交會記錄、合作品牌、客戶評價。</li>
 </ul>
-<h3>10. 增值服务 (Value-added)</h3>
+<h3>10. 增值服務 (Value-added)</h3>
 <ul>
-<li>免费图片提供、营销建议、库存同步。</li>
+<li>免費圖片提供、營銷建議、庫存同步。</li>
 </ul>
-<h3>11. 常见拒绝处理 (Objection Handling)</h3>
+<h3>11. 常見拒絕處理 (Objection Handling)</h3>
 <ul>
-<li>为什么比别人贵？运费为什么这么高？</li>
+<li>為什麼比別人貴？運費為什麼這麼高？</li>
 </ul></section>

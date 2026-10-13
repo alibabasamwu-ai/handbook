@@ -1,34 +1,34 @@
-<nav class="toc"><b>本包內容（3 個檔案）</b><div><a href="#f0">知识库建立/SKILL.md</a><a href="#f1">知识库建立/SOP.md</a><a href="#f2">知识库建立/QA_TEMPLATE.md</a></div></nav><section class="bpart" id="f0"><h3 class="bpart-h">知识库建立/SKILL.md</h3><div class="fm"><b>alibaba-knowledge-base-builder</b><p>&gt;</p></div><h1>阿里巴巴国际站供应商 AI 私域知识库构建技能</h1>
-<h2>使用场景</h2>
-<p>当用户提供一个国际站供应商链接，需要为其生成可直接上传至<strong>AI生意助手后台</strong>的标准化知识库时，启用本技能。</p>
+<nav class="toc"><b>本包內容（3 個檔案）</b><div><a href="#f0">知识库建立/SKILL.md</a><a href="#f1">知识库建立/SOP.md</a><a href="#f2">知识库建立/QA_TEMPLATE.md</a></div></nav><section class="bpart" id="f0"><h3 class="bpart-h">知识库建立/SKILL.md</h3><div class="fm"><b>alibaba-knowledge-base-builder</b><p>&gt;</p></div><h1>阿里巴巴國際站供應商 AI 私域知識庫構建技能</h1>
+<h2>使用場景</h2>
+<p>當使用者提供一個國際站供應商連結，需要為其生成可直接上傳至<strong>AI生意助手後臺</strong>的標準化知識庫時，啟用本技能。</p>
 <hr />
-<h2>执行流程（严格按顺序）</h2>
-<h3>Step 1：解析链接，锁定企业身份</h3>
+<h2>執行流程（嚴格按順序）</h2>
+<h3>Step 1：解析連結，鎖定企業身份</h3>
 <ol>
-<li>使用 <code>web_fetch</code> 抓取供应商主页（<code>https://xxx.en.alibaba.com/</code>）及其 <code>company_profile.html</code>。</li>
-<li>提取关键字段：<br />
-   - 公司中英文名称<br />
-   - 主营产品类目<br />
-   - 店铺年限、星级、勋章<br />
-   - 已展示的认证标志</li>
-<li>若 Alibaba 页面触发反爬，立即转向 <code>web_search</code>，关键词格式：<code>"[公司英文名]" alibaba profile products certifications</code></li>
+<li>使用 <code>web_fetch</code> 抓取供應商主頁（<code>https://xxx.en.alibaba.com/</code>）及其 <code>company_profile.html</code>。</li>
+<li>提取關鍵欄位：<br />
+   - 公司中英文名稱<br />
+   - 主營產品類目<br />
+   - 店鋪年限、星級、勳章<br />
+   - 已展示的認證標誌</li>
+<li>若 Alibaba 頁面觸發反爬，立即轉向 <code>web_search</code>，關鍵詞格式：<code>"[公司英文名]" alibaba profile products certifications</code></li>
 </ol>
-<h3>Step 2：全网多维调研（五个维度并行搜索）</h3>
-<p>同时执行以下五个搜索，使用 <code>web_search</code> 工具：</p>
+<h3>Step 2：全網多維調研（五個維度並行搜尋）</h3>
+<p>同時執行以下五個搜尋，使用 <code>web_search</code> 工具：</p>
 <table>
 <thead>
 <tr>
-<th>维度</th>
-<th>搜索关键词模板</th>
+<th>維度</th>
+<th>搜尋關鍵詞模板</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td>官网</td>
+<td>官網</td>
 <td><code>"[公司名]" official website products</code></td>
 </tr>
 <tr>
-<td>资质</td>
+<td>資質</td>
 <td><code>"[公司名]" ISO BSCI certifications factory audit</code></td>
 </tr>
 <tr>
@@ -36,297 +36,297 @@
 <td><code>"[公司名]" LinkedIn Facebook Instagram</code></td>
 </tr>
 <tr>
-<td>展会</td>
+<td>展會</td>
 <td><code>"[公司名]" Canton Fair exhibition trade show</code></td>
 </tr>
 <tr>
-<td>竞对</td>
-<td><code>[主营产品] manufacturer [所在城市] top supplier</code></td>
+<td>競對</td>
+<td><code>[主營產品] manufacturer [所在城市] top supplier</code></td>
 </tr>
 </tbody>
 </table>
-<h3>Step 3：行业通识匹配</h3>
-<p>根据 Step 1 识别的主营类目，自动匹配以下行业包，调取对应的技术标准、认证要求、买家痛点：</p>
+<h3>Step 3：行業通識匹配</h3>
+<p>根據 Step 1 識別的主營類目，自動匹配以下行業包，調取對應的技術標準、認證要求、買家痛點：</p>
 <table>
 <thead>
 <tr>
-<th>行业</th>
-<th>关键通识包</th>
+<th>行業</th>
+<th>關鍵通識包</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td>小家电/电子</td>
-<td>CE/FCC/RoHS/UN38.3/HEPA/无刷电机</td>
+<td>小家電/電子</td>
+<td>CE/FCC/RoHS/UN38.3/HEPA/無刷電機</td>
 </tr>
 <tr>
-<td>服装/纺织</td>
-<td>OEKO-TEX/BSCI/GSM/MOQ/打样周期</td>
+<td>服裝/紡織</td>
+<td>OEKO-TEX/BSCI/GSM/MOQ/打樣週期</td>
 </tr>
 <tr>
-<td>家居/家具</td>
-<td>CARB/FSC/REACH/E0级/跌落测试</td>
+<td>家居/傢俱</td>
+<td>CARB/FSC/REACH/E0級/跌落測試</td>
 </tr>
 <tr>
-<td>机械/五金</td>
-<td>ISO9001/精度等级/材质标号/防锈处理</td>
+<td>機械/五金</td>
+<td>ISO9001/精度等級/材質標號/防鏽處理</td>
 </tr>
 <tr>
-<td>食品/农产品</td>
-<td>FDA/HACCP/有机认证/保质期/冷链</td>
+<td>食品/農產品</td>
+<td>FDA/HACCP/有機認證/保質期/冷鏈</td>
 </tr>
 <tr>
 <td>化工/材料</td>
-<td>REACH/SDS/危险品运输/纯度等级</td>
+<td>REACH/SDS/危險品運輸/純度等級</td>
 </tr>
 <tr>
-<td>玩具/母婴</td>
-<td>EN71/ASTM/CPSC/年龄适用范围</td>
+<td>玩具/母嬰</td>
+<td>EN71/ASTM/CPSC/年齡適用範圍</td>
 </tr>
 <tr>
-<td>汽配/车品</td>
-<td>IATF16949/ROHS/耐温/配套OEM</td>
+<td>汽配/車品</td>
+<td>IATF16949/ROHS/耐溫/配套OEM</td>
 </tr>
 </tbody>
 </table>
-<p>若行业不在列表中，执行 <code>web_search</code>：<code>[行业名] international trade buyer requirements certifications FAQ</code></p>
-<h3>Step 4：生成100条标准QA</h3>
-<p>严格按照以下<strong>11个模块</strong>输出，每个模块条数如下：</p>
+<p>若行業不在列表中，執行 <code>web_search</code>：<code>[行業名] international trade buyer requirements certifications FAQ</code></p>
+<h3>Step 4：生成100條標準QA</h3>
+<p>嚴格按照以下<strong>11個模組</strong>輸出，每個模組條數如下：</p>
 <table>
 <thead>
 <tr>
-<th>模块</th>
-<th>名称</th>
-<th>条数</th>
+<th>模組</th>
+<th>名稱</th>
+<th>條數</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td>模块一</td>
-<td>公司基本信息 Company Profile</td>
-<td>10条</td>
+<td>模組一</td>
+<td>公司基本資訊 Company Profile</td>
+<td>10條</td>
 </tr>
 <tr>
-<td>模块二</td>
-<td>资质与认证 Certifications</td>
-<td>10条</td>
+<td>模組二</td>
+<td>資質與認證 Certifications</td>
+<td>10條</td>
 </tr>
 <tr>
-<td>模块三</td>
-<td>产品与技术参数 Product &amp; Technical Specs</td>
-<td>15条</td>
+<td>模組三</td>
+<td>產品與技術引數 Product &amp; Technical Specs</td>
+<td>15條</td>
 </tr>
 <tr>
-<td>模块四</td>
-<td>OEM/ODM定制 Customization</td>
-<td>10条</td>
+<td>模組四</td>
+<td>OEM/ODM定製 Customization</td>
+<td>10條</td>
 </tr>
 <tr>
-<td>模块五</td>
-<td>交期与生产 Lead Time &amp; Production</td>
-<td>8条</td>
+<td>模組五</td>
+<td>交期與生產 Lead Time &amp; Production</td>
+<td>8條</td>
 </tr>
 <tr>
-<td>模块六</td>
-<td>价格与付款 Pricing &amp; Payment</td>
-<td>8条</td>
+<td>模組六</td>
+<td>價格與付款 Pricing &amp; Payment</td>
+<td>8條</td>
 </tr>
 <tr>
-<td>模块七</td>
-<td>售后与质保 After-sales &amp; Warranty</td>
-<td>8条</td>
+<td>模組七</td>
+<td>售後與質保 After-sales &amp; Warranty</td>
+<td>8條</td>
 </tr>
 <tr>
-<td>模块八</td>
-<td>物流与配送 Shipping &amp; Logistics</td>
-<td>8条</td>
+<td>模組八</td>
+<td>物流與配送 Shipping &amp; Logistics</td>
+<td>8條</td>
 </tr>
 <tr>
-<td>模块九</td>
-<td>竞争优势与差异化 Competitive Advantage</td>
-<td>8条</td>
+<td>模組九</td>
+<td>競爭優勢與差異化 Competitive Advantage</td>
+<td>8條</td>
 </tr>
 <tr>
-<td>模块十</td>
-<td>场景化解决方案 Scenario-based Solutions</td>
-<td>8条</td>
+<td>模組十</td>
+<td>場景化解決方案 Scenario-based Solutions</td>
+<td>8條</td>
 </tr>
 <tr>
-<td>模块十一</td>
-<td>行业通识 Industry Knowledge</td>
-<td>8条</td>
+<td>模組十一</td>
+<td>行業通識 Industry Knowledge</td>
+<td>8條</td>
 </tr>
 <tr>
-<td><strong>合计</strong></td>
+<td><strong>合計</strong></td>
 <td></td>
-<td><strong>101条</strong></td>
+<td><strong>101條</strong></td>
 </tr>
 </tbody>
 </table>
-<p><strong>QA写作规范：</strong><br />
-- 每条格式：<code>**Q[编号]: [问题]**</code> + 换行 + <code>A: [回答]</code><br />
-- 回答语气：专业、有温度、带销售力（不能只陈述事实，要有说服力）<br />
-- 数据来源：优先使用调研获取的真实数据；无法确认的数据用<code>[待供应商确认]</code>标注<br />
-- 严禁：捏造认证、夸大产能、承诺无法兑现的条款</p>
-<h3>Step 5：输出补全建议清单（Gap Analysis）</h3>
-<p>列出调研中无法获取、但对谈单至关重要的信息项，格式如下：</p>
-<pre><code>## 【待供应商补充的关键信息】
+<p><strong>QA寫作規範：</strong><br />
+- 每條格式：<code>**Q[編號]: [問題]**</code> + 換行 + <code>A: [回答]</code><br />
+- 回答語氣：專業、有溫度、帶銷售力（不能只陳述事實，要有說服力）<br />
+- 資料來源：優先使用調研獲取的真實資料；無法確認的資料用<code>[待供應商確認]</code>標註<br />
+- 嚴禁：捏造認證、誇大產能、承諾無法兌現的條款</p>
+<h3>Step 5：輸出補全建議清單（Gap Analysis）</h3>
+<p>列出調研中無法獲取、但對談單至關重要的資訊項，格式如下：</p>
+<pre><code>## 【待供應商補充的關鍵資訊】
 
-| 模块 | 缺失项 | 重要程度 | 建议获取方式 |
+| 模組 | 缺失項 | 重要程度 | 建議獲取方式 |
 |------|--------|---------|------------|
-| 模块六 | 最新FOB报价区间 | ⭐⭐⭐ | 向业务员确认 |
-| 模块二 | CE证书有效期 | ⭐⭐⭐ | 查看证书原件 |
+| 模組六 | 最新FOB報價區間 | ⭐⭐⭐ | 向業務員確認 |
+| 模組二 | CE證書有效期 | ⭐⭐⭐ | 檢視證書原件 |
 ...
 </code></pre>
-<h3>Step 6：文件输出</h3>
-<p>将完整QA库输出为 Markdown 文件，命名规则：<br />
-<code>[公司简称]_knowledge_base_QA100_[YYYYMMDD].md</code></p>
-<p>保存至项目工作目录，并告知用户文件路径。</p>
+<h3>Step 6：檔案輸出</h3>
+<p>將完整QA庫輸出為 Markdown 檔案，命名規則：<br />
+<code>[公司簡稱]_knowledge_base_QA100_[YYYYMMDD].md</code></p>
+<p>儲存至專案工作目錄，並告知使用者檔案路徑。</p>
 <hr />
-<h2>质量红线（必须遵守）</h2>
+<h2>質量紅線（必須遵守）</h2>
 <ol>
-<li><strong>严禁脑补</strong>：所有具体数据（产能、认证、价格）必须来源于调研，无法确认的一律标注<code>[待确认]</code>。</li>
-<li><strong>严禁空洞回答</strong>：A的内容不能只有"可以"、"支持"，必须包含具体细节。</li>
-<li><strong>必须覆盖拒止清单</strong>：每份QA必须包含至少3条"红线"类QA（明确告知AI不能承诺什么）。</li>
-<li><strong>行业通识必须植入</strong>：模块十一不能为空，至少8条行业专业知识。</li>
+<li><strong>嚴禁腦補</strong>：所有具體資料（產能、認證、價格）必須來源於調研，無法確認的一律標註<code>[待確認]</code>。</li>
+<li><strong>嚴禁空洞回答</strong>：A的內容不能只有"可以"、"支援"，必須包含具體細節。</li>
+<li><strong>必須覆蓋拒止清單</strong>：每份QA必須包含至少3條"紅線"類QA（明確告知AI不能承諾什麼）。</li>
+<li><strong>行業通識必須植入</strong>：模組十一不能為空，至少8條行業專業知識。</li>
 </ol>
 <hr />
-<h2>参考文件</h2>
+<h2>參考檔案</h2>
 <ul>
-<li><code>SOP.md</code>：完整标准操作流程（含行业扩展指南）</li>
-<li><code>QA_TEMPLATE.md</code>：通用空白QA模板（适配任意行业）</li>
+<li><code>SOP.md</code>：完整標準操作流程（含行業擴充套件指南）</li>
+<li><code>QA_TEMPLATE.md</code>：通用空白QA模板（適配任意行業）</li>
 </ul>
 <hr />
 <h2>示例案例</h2>
 <ul>
-<li><strong>余姚全绿汽车配件</strong>（吸尘器行业）：见项目目录 <code>quanlv_knowledge_base_QA100.md</code></li>
-</ul></section><section class="bpart" id="f1"><h3 class="bpart-h">知识库建立/SOP.md</h3><h1>阿里巴巴国际站供应商 AI 私域知识库构建</h1>
-<h1>标准操作流程（SOP）</h1>
+<li><strong>餘姚全綠汽車配件</strong>（吸塵器行業）：見專案目錄 <code>quanlv_knowledge_base_QA100.md</code></li>
+</ul></section><section class="bpart" id="f1"><h3 class="bpart-h">知识库建立/SOP.md</h3><h1>阿里巴巴國際站供應商 AI 私域知識庫構建</h1>
+<h1>標準操作流程（SOP）</h1>
 <blockquote>
 <p>版本：V1.0 | 制定日期：2026年4月15日<br />
-适用对象：国际站运营团队、大客户主管、供应商服务团队<br />
-目标：帮助任意行业的国际站供应商，快速生成可上传至AI生意助手的100条标准QA知识库</p>
+適用物件：國際站運營團隊、大客戶主管、供應商服務團隊<br />
+目標：幫助任意行業的國際站供應商，快速生成可上傳至AI生意助手的100條標準QA知識庫</p>
 </blockquote>
 <hr />
-<h2>一、SOP 总览</h2>
-<pre><code>输入：供应商国际站链接（URL）
+<h2>一、SOP 總覽</h2>
+<pre><code>輸入：供應商國際站連結（URL）
           ↓
-Step 1：企业信息解析（2分钟）
+Step 1：企業資訊解析（2分鐘）
           ↓
-Step 2：全网五维调研（10分钟）
+Step 2：全網五維調研（10分鐘）
           ↓
-Step 3：行业通识匹配（3分钟）
+Step 3：行業通識匹配（3分鐘）
           ↓
-Step 4：100条QA生成（15分钟）
+Step 4：100條QA生成（15分鐘）
           ↓
-Step 5：补全建议输出（2分钟）
+Step 5：補全建議輸出（2分鐘）
           ↓
-输出：标准QA文件 + 补全清单
+輸出：標準QA檔案 + 補全清單
 </code></pre>
-<p><strong>总耗时：约30分钟/家供应商</strong></p>
+<p><strong>總耗時：約30分鐘/家供應商</strong></p>
 <hr />
-<h2>二、分步骤详细说明</h2>
-<h3>Step 1：企业信息解析</h3>
-<p><strong>目标</strong>：在2分钟内锁定该供应商的核心标签。</p>
-<p><strong>操作动作</strong>：<br />
-1. 打开供应商国际站主页（<code>https://xxx.en.alibaba.com/</code>）<br />
-2. 重点抓取以下信息：</p>
+<h2>二、分步驟詳細說明</h2>
+<h3>Step 1：企業資訊解析</h3>
+<p><strong>目標</strong>：在2分鐘內鎖定該供應商的核心標籤。</p>
+<p><strong>操作動作</strong>：<br />
+1. 開啟供應商國際站主頁（<code>https://xxx.en.alibaba.com/</code>）<br />
+2. 重點抓取以下資訊：</p>
 <table>
 <thead>
 <tr>
-<th>信息项</th>
-<th>在页面的位置</th>
+<th>資訊項</th>
+<th>在頁面的位置</th>
 <th>重要程度</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td>公司中英文全称</td>
-<td>页面顶部/About Us</td>
+<td>公司中英文全稱</td>
+<td>頁面頂部/About Us</td>
 <td>⭐⭐⭐</td>
 </tr>
 <tr>
-<td>主营产品类目</td>
-<td>导航栏/首页分类</td>
+<td>主營產品類目</td>
+<td>導航欄/首頁分類</td>
 <td>⭐⭐⭐</td>
 </tr>
 <tr>
-<td>工厂/贸易商属性</td>
-<td>标签栏</td>
+<td>工廠/貿易商屬性</td>
+<td>標籤欄</td>
 <td>⭐⭐⭐</td>
 </tr>
 <tr>
-<td>开店年限</td>
-<td>信息栏</td>
+<td>開店年限</td>
+<td>資訊欄</td>
 <td>⭐⭐</td>
 </tr>
 <tr>
-<td>已有认证标志</td>
-<td>右侧信息栏</td>
+<td>已有認證標誌</td>
+<td>右側資訊欄</td>
 <td>⭐⭐⭐</td>
 </tr>
 <tr>
-<td>员工人数/厂房面积</td>
+<td>員工人數/廠房面積</td>
 <td>Company Profile</td>
 <td>⭐⭐</td>
 </tr>
 <tr>
-<td>主要出口市场</td>
+<td>主要出口市場</td>
 <td>Company Profile</td>
 <td>⭐⭐</td>
 </tr>
 </tbody>
 </table>
-<p><strong>异常处理</strong>：<br />
-- 若页面显示"流量异常"或触发验证码 → 转向搜索引擎调研（Step 2）<br />
-- 若公司主页信息极少（新店）→ 在QA中该类数据标注<code>[待供应商确认]</code></p>
+<p><strong>異常處理</strong>：<br />
+- 若頁面顯示"流量異常"或觸發驗證碼 → 轉向搜尋引擎調研（Step 2）<br />
+- 若公司主頁資訊極少（新店）→ 在QA中該類資料標註<code>[待供應商確認]</code></p>
 <hr />
-<h3>Step 2：全网五维调研</h3>
-<p><strong>目标</strong>：从5个维度补全公司信息，让QA更有深度和权威性。</p>
-<h4>维度1：官网调研</h4>
+<h3>Step 2：全網五維調研</h3>
+<p><strong>目標</strong>：從5個維度補全公司資訊，讓QA更有深度和權威性。</p>
+<h4>維度1：官網調研</h4>
 <ul>
-<li>搜索词：<code>"[公司英文名]" official website</code></li>
-<li>重点提取：公司简介、产品参数、核心卖点、联系方式</li>
+<li>搜尋詞：<code>"[公司英文名]" official website</code></li>
+<li>重點提取：公司簡介、產品引數、核心賣點、聯絡方式</li>
 </ul>
-<h4>维度2：资质认证调研</h4>
+<h4>維度2：資質認證調研</h4>
 <ul>
-<li>搜索词：<code>"[公司英文名]" ISO BSCI CE certifications factory</code></li>
-<li>重点提取：认证类型、有效期、是否第三方颁发</li>
+<li>搜尋詞：<code>"[公司英文名]" ISO BSCI CE certifications factory</code></li>
+<li>重點提取：認證型別、有效期、是否第三方頒發</li>
 </ul>
-<h4>维度3：社媒形象调研</h4>
+<h4>維度3：社媒形象調研</h4>
 <ul>
-<li>搜索词：<code>"[公司英文名]" LinkedIn OR Facebook OR Instagram</code></li>
-<li>重点提取：品牌调性、客户评价、产品实拍图信息</li>
+<li>搜尋詞：<code>"[公司英文名]" LinkedIn OR Facebook OR Instagram</code></li>
+<li>重點提取：品牌調性、客戶評價、產品實拍圖資訊</li>
 </ul>
-<h4>维度4：展会参展记录</h4>
+<h4>維度4：展會參展記錄</h4>
 <ul>
-<li>搜索词：<code>"[公司英文名]" Canton Fair OR trade show OR exhibition</code></li>
-<li>重点提取：参展年限、获奖记录、产品发布信息</li>
+<li>搜尋詞：<code>"[公司英文名]" Canton Fair OR trade show OR exhibition</code></li>
+<li>重點提取：參展年限、獲獎記錄、產品釋出資訊</li>
 </ul>
-<h4>维度5：竞对参照</h4>
+<h4>維度5：競對參照</h4>
 <ul>
-<li>搜索词：<code>[主营产品] top manufacturer [城市名] alibaba</code></li>
-<li>重点提取：行业头部企业的卖点话术、差异化方向</li>
+<li>搜尋詞：<code>[主營產品] top manufacturer [城市名] alibaba</code></li>
+<li>重點提取：行業頭部企業的賣點話術、差異化方向</li>
 </ul>
-<p><strong>调研记录表（每家供应商填写一份）</strong>：</p>
+<p><strong>調研記錄表（每家供應商填寫一份）</strong>：</p>
 <table>
 <thead>
 <tr>
-<th>维度</th>
-<th>信息来源URL</th>
-<th>关键信息摘要</th>
+<th>維度</th>
+<th>資訊來源URL</th>
+<th>關鍵資訊摘要</th>
 <th>置信度</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td>官网</td>
+<td>官網</td>
 <td></td>
 <td></td>
 <td>高/中/低</td>
 </tr>
 <tr>
-<td>认证</td>
+<td>認證</td>
 <td></td>
 <td></td>
 <td>高/中/低</td>
@@ -338,13 +338,13 @@ Step 5：补全建议输出（2分钟）
 <td>高/中/低</td>
 </tr>
 <tr>
-<td>展会</td>
+<td>展會</td>
 <td></td>
 <td></td>
 <td>高/中/低</td>
 </tr>
 <tr>
-<td>竞对</td>
+<td>競對</td>
 <td></td>
 <td></td>
 <td>高/中/低</td>
@@ -352,184 +352,184 @@ Step 5：补全建议输出（2分钟）
 </tbody>
 </table>
 <hr />
-<h3>Step 3：行业通识匹配</h3>
-<p><strong>目标</strong>：为QA库注入"行业专家灵魂"，让AI不只会介绍产品，还能教育买家。</p>
+<h3>Step 3：行業通識匹配</h3>
+<p><strong>目標</strong>：為QA庫注入"行業專家靈魂"，讓AI不只會介紹產品，還能教育買家。</p>
 <p><strong>匹配流程</strong>：<br />
-1. 根据主营类目，在下表找到对应行业包<br />
-2. 将行业包内容注入模块十一（行业通识）<br />
-3. 同时将行业标准参数融入模块三（产品技术参数）</p>
-<p><strong>行业通识速查表</strong>：</p>
+1. 根據主營類目，在下表找到對應行業包<br />
+2. 將行業包內容注入模組十一（行業通識）<br />
+3. 同時將行業標準引數融入模組三（產品技術引數）</p>
+<p><strong>行業通識速查表</strong>：</p>
 <table>
 <thead>
 <tr>
-<th>行业大类</th>
-<th>核心认证</th>
-<th>技术关键词</th>
-<th>买家高频痛点</th>
+<th>行業大類</th>
+<th>核心認證</th>
+<th>技術關鍵詞</th>
+<th>買家高頻痛點</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td><strong>小家电/消费电子</strong></td>
+<td><strong>小家電/消費電子</strong></td>
 <td>CE/FCC/RoHS/BSCI</td>
-<td>无刷电机/HEPA/Pa/mAh/UN38.3</td>
-<td>电池安全/认证合规/FBA发货</td>
+<td>無刷電機/HEPA/Pa/mAh/UN38.3</td>
+<td>電池安全/認證合規/FBA發貨</td>
 </tr>
 <tr>
-<td><strong>服装/纺织/鞋帽</strong></td>
+<td><strong>服裝/紡織/鞋帽</strong></td>
 <td>OEKO-TEX/BSCI/GOTS</td>
-<td>GSM/支数/色牢度/成分</td>
-<td>色差/交期/最小起订量</td>
+<td>GSM/支數/色牢度/成分</td>
+<td>色差/交期/最小起訂量</td>
 </tr>
 <tr>
-<td><strong>家居/家具/木制品</strong></td>
+<td><strong>家居/傢俱/木製品</strong></td>
 <td>CARB/FSC/REACH/BIFMA</td>
-<td>E0级/承重/防火等级/实木vs贴皮</td>
-<td>甲醛/破损率/定制周期</td>
+<td>E0級/承重/防火等級/實木vs貼皮</td>
+<td>甲醛/破損率/定製週期</td>
 </tr>
 <tr>
-<td><strong>五金/机械/工具</strong></td>
+<td><strong>五金/機械/工具</strong></td>
 <td>ISO9001/CE/REACH</td>
-<td>精度/硬度/镀层/材质标号</td>
-<td>精度稳定性/售后维修/配件</td>
+<td>精度/硬度/鍍層/材質標號</td>
+<td>精度穩定性/售後維修/配件</td>
 </tr>
 <tr>
-<td><strong>玩具/母婴/儿童</strong></td>
+<td><strong>玩具/母嬰/兒童</strong></td>
 <td>EN71/ASTM F963/CPSC</td>
-<td>年龄段/无毒材质/圆角处理</td>
-<td>安全认证/召回风险</td>
+<td>年齡段/無毒材質/圓角處理</td>
+<td>安全認證/召回風險</td>
 </tr>
 <tr>
 <td><strong>食品/保健品</strong></td>
-<td>FDA/HACCP/有机认证</td>
-<td>保质期/冷链/无添加</td>
-<td>合规风险/保质期管理</td>
+<td>FDA/HACCP/有機認證</td>
+<td>保質期/冷鏈/無新增</td>
+<td>合規風險/保質期管理</td>
 </tr>
 <tr>
-<td><strong>汽配/车品</strong></td>
+<td><strong>汽配/車品</strong></td>
 <td>IATF16949/RoHS</td>
-<td>OEM配套/耐温/防腐</td>
-<td>车型适配/质量一致性</td>
+<td>OEM配套/耐溫/防腐</td>
+<td>車型適配/質量一致性</td>
 </tr>
 <tr>
 <td><strong>化工/材料</strong></td>
-<td>REACH/SDS/危险品</td>
-<td>纯度/CAS编号/危险品运输</td>
-<td>合规风险/运输限制</td>
+<td>REACH/SDS/危險品</td>
+<td>純度/CAS編號/危險品運輸</td>
+<td>合規風險/運輸限制</td>
 </tr>
 <tr>
-<td><strong>包装/纸品</strong></td>
+<td><strong>包裝/紙品</strong></td>
 <td>FSC/SGS</td>
-<td>克重/抗压/印刷精度</td>
-<td>破损率/定制起订量</td>
+<td>克重/抗壓/印刷精度</td>
+<td>破損率/定製起訂量</td>
 </tr>
 <tr>
-<td><strong>体育/户外</strong></td>
+<td><strong>體育/戶外</strong></td>
 <td>CE/ASTM/EN</td>
-<td>承重/防水等级/耐候性</td>
-<td>安全认证/使用场景</td>
+<td>承重/防水等級/耐候性</td>
+<td>安全認證/使用場景</td>
 </tr>
 </tbody>
 </table>
-<p><strong>行业不在表中时</strong>：<br />
-搜索 <code>[行业名] B2B international trade buyer concerns certifications FAQ</code>，提取并整理后手动匹配。</p>
+<p><strong>行業不在表中時</strong>：<br />
+搜尋 <code>[行業名] B2B international trade buyer concerns certifications FAQ</code>，提取並整理後手動匹配。</p>
 <hr />
-<h3>Step 4：100条QA生成规范</h3>
-<h4>4.1 模块结构与条数分配</h4>
+<h3>Step 4：100條QA生成規範</h3>
+<h4>4.1 模組結構與條數分配</h4>
 <table>
 <thead>
 <tr>
-<th>模块编号</th>
-<th>模块名称</th>
-<th>条数</th>
-<th>核心覆盖内容</th>
+<th>模組編號</th>
+<th>模組名稱</th>
+<th>條數</th>
+<th>核心覆蓋內容</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td>模块一</td>
-<td>公司基本信息</td>
-<td>10条</td>
-<td>身份/规模/市场/年限/官网</td>
+<td>模組一</td>
+<td>公司基本資訊</td>
+<td>10條</td>
+<td>身份/規模/市場/年限/官網</td>
 </tr>
 <tr>
-<td>模块二</td>
-<td>资质与认证</td>
-<td>10条</td>
-<td>产品认证/工厂审计/各市场合规</td>
+<td>模組二</td>
+<td>資質與認證</td>
+<td>10條</td>
+<td>產品認證/工廠審計/各市場合規</td>
 </tr>
 <tr>
-<td>模块三</td>
-<td>产品与技术参数</td>
-<td>15条</td>
-<td>核心参数/材质/测试/使用方法</td>
+<td>模組三</td>
+<td>產品與技術引數</td>
+<td>15條</td>
+<td>核心引數/材質/測試/使用方法</td>
 </tr>
 <tr>
-<td>模块四</td>
-<td>OEM/ODM定制</td>
-<td>10条</td>
-<td>起订量/开模/打样/知识产权</td>
+<td>模組四</td>
+<td>OEM/ODM定製</td>
+<td>10條</td>
+<td>起訂量/開模/打樣/智慧財產權</td>
 </tr>
 <tr>
-<td>模块五</td>
-<td>交期与生产</td>
-<td>8条</td>
-<td>交期/产能/跟单/旺季备货</td>
+<td>模組五</td>
+<td>交期與生產</td>
+<td>8條</td>
+<td>交期/產能/跟單/旺季備貨</td>
 </tr>
 <tr>
-<td>模块六</td>
-<td>价格与付款</td>
-<td>8条</td>
-<td>贸易术语/付款方式/样品费/折扣</td>
+<td>模組六</td>
+<td>價格與付款</td>
+<td>8條</td>
+<td>貿易術語/付款方式/樣品費/折扣</td>
 </tr>
 <tr>
-<td>模块七</td>
-<td>售后与质保</td>
-<td>8条</td>
-<td>质保期/次品处理/配件/维修</td>
+<td>模組七</td>
+<td>售後與質保</td>
+<td>8條</td>
+<td>質保期/次品處理/配件/維修</td>
 </tr>
 <tr>
-<td>模块八</td>
-<td>物流与配送</td>
-<td>8条</td>
-<td>港口/运输方式/FBA/追踪</td>
+<td>模組八</td>
+<td>物流與配送</td>
+<td>8條</td>
+<td>港口/運輸方式/FBA/追蹤</td>
 </tr>
 <tr>
-<td>模块九</td>
-<td>竞争优势</td>
-<td>8条</td>
-<td>差异化/品控/反击话术/环保</td>
+<td>模組九</td>
+<td>競爭優勢</td>
+<td>8條</td>
+<td>差異化/品控/反擊話術/環保</td>
 </tr>
 <tr>
-<td>模块十</td>
-<td>场景化解决方案</td>
-<td>8条</td>
-<td>针对不同买家类型的定制方案</td>
+<td>模組十</td>
+<td>場景化解決方案</td>
+<td>8條</td>
+<td>針對不同買家型別的定製方案</td>
 </tr>
 <tr>
-<td>模块十一</td>
-<td>行业通识</td>
-<td>8条</td>
-<td>行业标准/认证科普/趋势</td>
+<td>模組十一</td>
+<td>行業通識</td>
+<td>8條</td>
+<td>行業標準/認證科普/趨勢</td>
 </tr>
 <tr>
-<td><strong>合计</strong></td>
+<td><strong>合計</strong></td>
 <td></td>
-<td><strong>101条</strong></td>
+<td><strong>101條</strong></td>
 <td></td>
 </tr>
 </tbody>
 </table>
-<h4>4.2 QA写作质量标准</h4>
-<p><strong>格式规范</strong>：</p>
-<pre><code class="language-markdown">**Q[编号]: [问题]**
-A: [回答内容]
+<h4>4.2 QA寫作質量標準</h4>
+<p><strong>格式規範</strong>：</p>
+<pre><code class="language-markdown">**Q[編號]: [問題]**
+A: [回答內容]
 </code></pre>
-<p><strong>回答质量对照表</strong>：</p>
+<p><strong>回答質量對照表</strong>：</p>
 <table>
 <thead>
 <tr>
-<th>维度</th>
+<th>維度</th>
 <th>不合格示例</th>
 <th>合格示例</th>
 </tr>
@@ -537,385 +537,385 @@ A: [回答内容]
 <tbody>
 <tr>
 <td>完整性</td>
-<td>"我们支持定制。"</td>
-<td>"我们支持LOGO丝印/激光镭雕/全彩包装定制，起订量500件起，3天内提供设计初稿。"</td>
+<td>"我們支援定製。"</td>
+<td>"我們支援LOGO絲印/鐳射鐳雕/全綵包裝定製，起訂量500件起，3天內提供設計初稿。"</td>
 </tr>
 <tr>
-<td>说服力</td>
-<td>"我们质量很好。"</td>
-<td>"我们执行100%出厂全检，次品率控制在0.5%以内，低于行业平均1-2%的水平。"</td>
+<td>說服力</td>
+<td>"我們質量很好。"</td>
+<td>"我們執行100%出廠全檢，次品率控制在0.5%以內，低於行業平均1-2%的水平。"</td>
 </tr>
 <tr>
-<td>数据支撑</td>
-<td>"交期较短。"</td>
-<td>"大货订单通常15-20个工作日，旺季（Q3-Q4）建议提前30天下单。"</td>
+<td>資料支撐</td>
+<td>"交期較短。"</td>
+<td>"大貨訂單通常15-20個工作日，旺季（Q3-Q4）建議提前30天下單。"</td>
 </tr>
 <tr>
-<td>行业深度</td>
-<td>"我们有CE认证。"</td>
-<td>"我们的CE认证由TÜV第三方机构颁发（非自我声明），包含完整技术文件（DoC+测试报告），可应对欧洲海关抽检。"</td>
+<td>行業深度</td>
+<td>"我們有CE認證。"</td>
+<td>"我們的CE認證由TÜV第三方機構頒發（非自我宣告），包含完整技術檔案（DoC+測試報告），可應對歐洲海關抽檢。"</td>
 </tr>
 </tbody>
 </table>
-<h4>4.3 必须包含的特殊QA类型</h4>
-<p>每份知识库必须覆盖以下三类特殊QA：</p>
-<p><strong>① 价格反击类</strong>（至少1条）</p>
+<h4>4.3 必須包含的特殊QA型別</h4>
+<p>每份知識庫必須覆蓋以下三類特殊QA：</p>
+<p><strong>① 價格反擊類</strong>（至少1條）</p>
 <blockquote>
-<p>场景：买家说"隔壁更便宜"时的AI反击逻辑</p>
+<p>場景：買家說"隔壁更便宜"時的AI反擊邏輯</p>
 </blockquote>
-<p><strong>② 风险拒止类</strong>（至少2条）</p>
+<p><strong>② 風險拒止類</strong>（至少2條）</p>
 <blockquote>
-<p>场景：明确AI不能承诺的事项（如：超出能力范围的交期、未持有的认证）</p>
+<p>場景：明確AI不能承諾的事項（如：超出能力範圍的交期、未持有的認證）</p>
 </blockquote>
-<p><strong>③ 人机切换类</strong>（至少1条）</p>
+<p><strong>③ 人機切換類</strong>（至少1條）</p>
 <blockquote>
-<p>场景：遇到哪些情况AI应停止回答并呼叫人工介入<br />
-示例："涉及合同条款修改、单笔超过$50,000的订单、法律纠纷类问题，请联系我们的高级商务专员处理。"</p>
+<p>場景：遇到哪些情況AI應停止回答並呼叫人工介入<br />
+示例："涉及合同條款修改、單筆超過$50,000的訂單、法律糾紛類問題，請聯絡我們的高階商務專員處理。"</p>
 </blockquote>
 <hr />
-<h3>Step 5：输出补全建议清单</h3>
-<p>调研结束后，将无法从公开信息获取的关键数据，整理为《待补全清单》发给供应商确认：</p>
-<pre><code class="language-markdown">## 【待供应商确认的关键信息】
+<h3>Step 5：輸出補全建議清單</h3>
+<p>調研結束後，將無法從公開資訊獲取的關鍵資料，整理為《待補全清單》發給供應商確認：</p>
+<pre><code class="language-markdown">## 【待供應商確認的關鍵資訊】
 
-| 优先级 | 模块 | 缺失信息项 | 建议获取方式 |
+| 優先順序 | 模組 | 缺失資訊項 | 建議獲取方式 |
 |--------|------|-----------|------------|
-| 🔴 高 | 模块六 | 主力产品FOB价格区间 | 业务员提供 |
-| 🔴 高 | 模块二 | CE证书有效期及证书编号 | 查看证书原件 |
-| 🟡 中 | 模块一 | 服务过的知名客户案例 | 询问老板/销售总监 |
-| 🟡 中 | 模块五 | 旺季最大可承接单量 | 询问生产主管 |
-| 🟢 低 | 模块三 | 新款产品参数（若有） | 产品目录或样品说明书 |
+| 🔴 高 | 模組六 | 主力產品FOB價格區間 | 業務員提供 |
+| 🔴 高 | 模組二 | CE證書有效期及證書編號 | 檢視證書原件 |
+| 🟡 中 | 模組一 | 服務過的知名客戶案例 | 詢問老闆/銷售總監 |
+| 🟡 中 | 模組五 | 旺季最大可承接單量 | 詢問生產主管 |
+| 🟢 低 | 模組三 | 新款產品引數（若有） | 產品目錄或樣品說明書 |
 </code></pre>
 <hr />
-<h3>Step 6：文件命名与交付</h3>
-<p><strong>文件命名规范</strong>：</p>
-<pre><code>[公司简称]_KB_QA100_[YYYYMMDD].md
+<h3>Step 6：檔案命名與交付</h3>
+<p><strong>檔案命名規範</strong>：</p>
+<pre><code>[公司簡稱]_KB_QA100_[YYYYMMDD].md
 </code></pre>
 <p>示例：<code>QuanLv_KB_QA100_20260415.md</code></p>
-<p><strong>交付内容</strong>：<br />
-1. ✅ QA知识库主文件（Markdown格式，可直接上传）<br />
-2. ✅ 待补全清单（Excel或表格格式）<br />
-3. ✅ 知识库维护建议（更新周期表）</p>
+<p><strong>交付內容</strong>：<br />
+1. ✅ QA知識庫主檔案（Markdown格式，可直接上傳）<br />
+2. ✅ 待補全清單（Excel或表格格式）<br />
+3. ✅ 知識庫維護建議（更新週期表）</p>
 <hr />
-<h2>三、知识库维护周期建议</h2>
+<h2>三、知識庫維護週期建議</h2>
 <table>
 <thead>
 <tr>
-<th>周期</th>
-<th>建议动作</th>
+<th>週期</th>
+<th>建議動作</th>
 </tr>
 </thead>
 <tbody>
 <tr>
 <td>每月</td>
-<td>更新现货库存状态、报价有效期</td>
+<td>更新現貨庫存狀態、報價有效期</td>
 </tr>
 <tr>
 <td>每季度</td>
-<td>新增业务员TM实战中遇到的新问题</td>
+<td>新增業務員TM實戰中遇到的新問題</td>
 </tr>
 <tr>
 <td>每半年</td>
-<td>核实认证有效期，新增产品型号QA</td>
+<td>核實認證有效期，新增產品型號QA</td>
 </tr>
 <tr>
 <td>每年</td>
-<td>全面复盘，删除过时内容，注入最新行业趋势</td>
+<td>全面覆盤，刪除過時內容，注入最新行業趨勢</td>
 </tr>
 </tbody>
 </table>
 <hr />
-<h2>四、行业扩展指南</h2>
-<p>当需要为新行业供应商构建知识库时，按以下步骤扩展行业通识包：</p>
+<h2>四、行業擴充套件指南</h2>
+<p>當需要為新行業供應商構建知識庫時，按以下步驟擴充套件行業通識包：</p>
 <ol>
-<li><strong>搜索行业白皮书</strong>：<code>[行业名] global market report buyer guide 2025</code></li>
-<li><strong>搜索行业买家痛点</strong>：<code>[行业名] B2B buyer common questions concerns</code></li>
-<li><strong>搜索合规要求</strong>：<code>[行业名] export compliance certification [目标市场国]</code></li>
-<li><strong>整理后补充至本SOP行业速查表</strong>，形成知识积累</li>
+<li><strong>搜尋行業白皮書</strong>：<code>[行業名] global market report buyer guide 2025</code></li>
+<li><strong>搜尋行業買家痛點</strong>：<code>[行業名] B2B buyer common questions concerns</code></li>
+<li><strong>搜尋合規要求</strong>：<code>[行業名] export compliance certification [目標市場國]</code></li>
+<li><strong>整理後補充至本SOP行業速查表</strong>，形成知識積累</li>
 </ol>
 <hr />
-<h2>五、常见问题与解决方案（SOP内FAQ）</h2>
-<p><strong>Q：供应商的国际站页面被反爬，无法获取信息怎么办？</strong><br />
-A：立即转向搜索引擎，使用 <code>"[公司名]" alibaba profile products</code> 关键词在Google/Bing搜索，通常可以找到Alibaba的摘要信息。</p>
-<p><strong>Q：供应商是新店，几乎没有公开信息怎么办？</strong><br />
-A：启用"极简模式"，要求供应商填写《极简10问快答》（见QA_TEMPLATE.md附录），基于回答生成QA库，数据项标注<code>[待完善]</code>。</p>
-<p><strong>Q：一家供应商经营多个类目，怎么处理？</strong><br />
-A：以其成交量最高或利润最高的核心类目为主，其他类目简要覆盖，避免QA过于分散失去重点。</p>
-<p><strong>Q：调研发现供应商信息与其阿里店铺描述有出入怎么办？</strong><br />
-A：以可核实的官方文件（认证证书、验厂报告）为准，差异处标注<code>[待供应商核实]</code>，不自行判断。</p>
+<h2>五、常見問題與解決方案（SOP內FAQ）</h2>
+<p><strong>Q：供應商的國際站頁面被反爬，無法獲取資訊怎麼辦？</strong><br />
+A：立即轉向搜尋引擎，使用 <code>"[公司名]" alibaba profile products</code> 關鍵詞在Google/Bing搜尋，通常可以找到Alibaba的摘要資訊。</p>
+<p><strong>Q：供應商是新店，幾乎沒有公開資訊怎麼辦？</strong><br />
+A：啟用"極簡模式"，要求供應商填寫《極簡10問快答》（見QA_TEMPLATE.md附錄），基於回答生成QA庫，資料項標註<code>[待完善]</code>。</p>
+<p><strong>Q：一家供應商經營多個類目，怎麼處理？</strong><br />
+A：以其成交量最高或利潤最高的核心類目為主，其他類目簡要覆蓋，避免QA過於分散失去重點。</p>
+<p><strong>Q：調研發現供應商資訊與其阿里店鋪描述有出入怎麼辦？</strong><br />
+A：以可核實的官方檔案（認證證書、驗廠報告）為準，差異處標註<code>[待供應商核實]</code>，不自行判斷。</p>
 <hr />
-<h2>六、版本记录</h2>
+<h2>六、版本記錄</h2>
 <table>
 <thead>
 <tr>
 <th>版本</th>
 <th>日期</th>
-<th>更新内容</th>
+<th>更新內容</th>
 </tr>
 </thead>
 <tbody>
 <tr>
 <td>V1.0</td>
 <td>2026-04-15</td>
-<td>初始版本，基于余姚全绿案例提炼</td>
+<td>初始版本，基於餘姚全綠案例提煉</td>
 </tr>
 </tbody>
 </table>
 <hr />
-<p><em>本SOP由阿里国际站大客户运营团队制定，如有疑问请联系内训负责人。</em></p></section><section class="bpart" id="f2"><h3 class="bpart-h">知识库建立/QA_TEMPLATE.md</h3><h1>国际站供应商 AI 私域知识库</h1>
-<h1>通用空白QA模板（适配任意行业）</h1>
+<p><em>本SOP由阿里國際站大客戶運營團隊制定，如有疑問請聯絡內訓負責人。</em></p></section><section class="bpart" id="f2"><h3 class="bpart-h">知识库建立/QA_TEMPLATE.md</h3><h1>國際站供應商 AI 私域知識庫</h1>
+<h1>通用空白QA模板（適配任意行業）</h1>
 <blockquote>
-<p>使用说明：将 [方括号内容] 替换为供应商真实信息；[待确认] 表示需向供应商核实<br />
-文件命名：[公司简称]<em>KB_QA100</em>[YYYYMMDD].md</p>
+<p>使用說明：將 [方括號內容] 替換為供應商真實資訊；[待確認] 表示需向供應商核實<br />
+檔案命名：[公司簡稱]<em>KB_QA100</em>[YYYYMMDD].md</p>
 </blockquote>
 <hr />
-<p><strong>公司名称</strong>：[中文全称] / [英文全称]<br />
-<strong>主营产品</strong>：[产品类目]<br />
+<p><strong>公司名稱</strong>：[中文全稱] / [英文全稱]<br />
+<strong>主營產品</strong>：[產品類目]<br />
 <strong>所在城市</strong>：[城市名]<br />
 <strong>生成日期</strong>：[YYYY-MM-DD]</p>
 <hr />
-<h2>【模块一】公司基本信息 Company Profile（10条）</h2>
-<p><strong>Q1: 你们公司叫什么名字？主营什么产品？</strong><br />
-A: 我们是[公司英文名]，品牌名[品牌名]，专注于[主营产品]的研发、设计、生产与销售，服务全球[X]个国家和地区的客户。</p>
+<h2>【模組一】公司基本資訊 Company Profile（10條）</h2>
+<p><strong>Q1: 你們公司叫什麼名字？主營什麼產品？</strong><br />
+A: 我們是[公司英文名]，品牌名[品牌名]，專注於[主營產品]的研發、設計、生產與銷售，服務全球[X]個國家和地區的客戶。</p>
 <p><strong>Q2: 公司成立多久了？</strong><br />
-A: 公司成立于[年份]，拥有超过[X]年的行业经验，是[所在城市/地区]专注[产品类目]领域的[工厂/制造商/供应商]之一。</p>
-<p><strong>Q3: 工厂在哪里？</strong><br />
-A: 工厂位于[省/市/工业园区]，距[最近港口]约[X]小时车程，物流便捷高效。</p>
-<p><strong>Q4: 工厂规模有多大？</strong><br />
-A: 厂房面积[X]平方米，员工[X]人，具备[生产工艺1/工艺2]全流程自主生产能力。[待确认]</p>
-<p><strong>Q5: 你们是工厂还是贸易公司？</strong><br />
-A: 我们是[工厂/工贸一体]，[不经过中间商/拥有自主工厂]，可为客户提供最具竞争力的价格和最直接的沟通渠道。</p>
-<p><strong>Q6: 你们有独立的官方网站吗？</strong><br />
-A: 有，您可以访问[官网URL]了解更多信息，也可以在国际站主页[alibaba链接]查看我们的全部产品。</p>
-<p><strong>Q7: 你们目前有多少产品型号在售？</strong><br />
-A: 目前拥有[X]款在售产品，覆盖[细分品类1/品类2]等多个系列，每年新增[X]款新品，欢迎告知需求，我们为您精准推荐。[待确认]</p>
-<p><strong>Q8: 你们主要出口到哪些市场？</strong><br />
-A: 主要出口市场包括[市场1]、[市场2]、[市场3]等，对各主要市场的合规要求、采购习惯和物流标准均有丰富经验。</p>
-<p><strong>Q9: 你们有自己的研发团队吗？</strong><br />
-A: 有，我们设有独立的R&amp;D研发部门，能够[自主设计/模具开发/新品迭代]，每年完成[X]款新品开发，快速响应市场需求。[待确认]</p>
-<p><strong>Q10: 你们有多少年的出口经验？</strong><br />
-A: 我们从事外贸出口超过[X]年，拥有专业的出口团队，熟悉[目标市场]的贸易规则和客户需求，全程服务无忧。</p>
+A: 公司成立於[年份]，擁有超過[X]年的行業經驗，是[所在城市/地區]專注[產品類目]領域的[工廠/製造商/供應商]之一。</p>
+<p><strong>Q3: 工廠在哪裡？</strong><br />
+A: 工廠位於[省/市/工業園區]，距[最近港口]約[X]小時車程，物流便捷高效。</p>
+<p><strong>Q4: 工廠規模有多大？</strong><br />
+A: 廠房面積[X]平方米，員工[X]人，具備[生產工藝1/工藝2]全流程自主生產能力。[待確認]</p>
+<p><strong>Q5: 你們是工廠還是貿易公司？</strong><br />
+A: 我們是[工廠/工貿一體]，[不經過中間商/擁有自主工廠]，可為客戶提供最具競爭力的價格和最直接的溝通渠道。</p>
+<p><strong>Q6: 你們有獨立的官方網站嗎？</strong><br />
+A: 有，您可以訪問[官網URL]瞭解更多資訊，也可以在國際站主頁[alibaba連結]檢視我們的全部產品。</p>
+<p><strong>Q7: 你們目前有多少產品型號在售？</strong><br />
+A: 目前擁有[X]款在售產品，覆蓋[細分品類1/品類2]等多個系列，每年新增[X]款新品，歡迎告知需求，我們為您精準推薦。[待確認]</p>
+<p><strong>Q8: 你們主要出口到哪些市場？</strong><br />
+A: 主要出口市場包括[市場1]、[市場2]、[市場3]等，對各主要市場的合規要求、採購習慣和物流標準均有豐富經驗。</p>
+<p><strong>Q9: 你們有自己的研發團隊嗎？</strong><br />
+A: 有，我們設有獨立的R&amp;D研發部門，能夠[自主設計/模具開發/新品迭代]，每年完成[X]款新品開發，快速響應市場需求。[待確認]</p>
+<p><strong>Q10: 你們有多少年的出口經驗？</strong><br />
+A: 我們從事外貿出口超過[X]年，擁有專業的出口團隊，熟悉[目標市場]的貿易規則和客戶需求，全程服務無憂。</p>
 <hr />
-<h2>【模块二】资质与认证 Certifications（10条）</h2>
-<p><strong>Q11: 你们的产品有哪些认证？</strong><br />
-A: 我们的产品已通过以下认证：[认证1]、[认证2]、[认证3]。所有认证文件均可按需提供，请告知您的目标市场，我们为您匹配对应文件。</p>
-<p><strong>Q12: 你们有工厂审计认证吗？</strong><br />
-A: 有，我们已通过[BSCI/ISO9001/SEDEX/SA8000等]认证，符合国际主流品牌商和零售商对供应链的合规要求。[待确认]</p>
-<p><strong>Q13: 你们的认证是自我声明还是第三方认证？</strong><br />
-A: 我们的[认证名]由[TÜV/SGS/Intertek/BV]等具备资质的第三方机构颁发，权威性高，可应对[目标市场]海关抽检。[待确认]</p>
-<p><strong>Q14: 产品符合欧盟市场要求吗？</strong><br />
-A: 符合，我们的产品通过[CE/RoHS/REACH]认证，满足欧盟强制性要求，可直接在欧盟成员国合规销售。[待确认]</p>
-<p><strong>Q15: 产品能在美国市场合规销售吗？</strong><br />
-A: 可以，我们产品持有[FCC/FDA/UL/CPSC]等美国市场所需认证，符合美国联邦法规要求，可合规上市销售。[待确认]</p>
-<p><strong>Q16: 你们支持特殊市场的认证申请吗？</strong><br />
-A: 支持，如您需要[澳大利亚SAA/日本PSE/加拿大IC/沙特SASO]等特殊市场认证，我们可协助安排检测和认证申请，请提前告知目标市场。</p>
-<p><strong>Q17: 你们支持第三方验厂吗？</strong><br />
-A: 完全支持，我们欢迎[SGS/BV/Intertek]等国际机构对我们的工厂进行实地审计，随时可以安排，全力配合。</p>
-<p><strong>Q18: 你们有没有产品相关的专利？</strong><br />
-A: 我们持有[X]项[外观/实用新型/发明]专利，核心产品受法律保护。如需了解具体专利信息，请联系我们的商务团队。[待确认]</p>
-<p><strong>Q19: 产品有没有相关的测试报告可以提供？</strong><br />
-A: 有，我们可提供[跌落测试/盐雾测试/老化测试/燃烧测试等]报告，具体请告知您的需求，我们匹配对应的测试文件。[待确认]</p>
-<p><strong>Q20: 如何获取完整的认证文件包？</strong><br />
-A: 您只需在询盘中注明所需认证类型和目标市场，我们的商务团队将在[X]个工作日内整理并发送完整文件包。对于敏感文件，签署NDA后提供。</p>
+<h2>【模組二】資質與認證 Certifications（10條）</h2>
+<p><strong>Q11: 你們的產品有哪些認證？</strong><br />
+A: 我們的產品已透過以下認證：[認證1]、[認證2]、[認證3]。所有認證檔案均可按需提供，請告知您的目標市場，我們為您匹配對應檔案。</p>
+<p><strong>Q12: 你們有工廠審計認證嗎？</strong><br />
+A: 有，我們已透過[BSCI/ISO9001/SEDEX/SA8000等]認證，符合國際主流品牌商和零售商對供應鏈的合規要求。[待確認]</p>
+<p><strong>Q13: 你們的認證是自我宣告還是第三方認證？</strong><br />
+A: 我們的[認證名]由[TÜV/SGS/Intertek/BV]等具備資質的第三方機構頒發，權威性高，可應對[目標市場]海關抽檢。[待確認]</p>
+<p><strong>Q14: 產品符合歐盟市場要求嗎？</strong><br />
+A: 符合，我們的產品透過[CE/RoHS/REACH]認證，滿足歐盟強制性要求，可直接在歐盟成員國合規銷售。[待確認]</p>
+<p><strong>Q15: 產品能在美國市場合規銷售嗎？</strong><br />
+A: 可以，我們產品持有[FCC/FDA/UL/CPSC]等美國市場所需認證，符合美國聯邦法規要求，可合規上市銷售。[待確認]</p>
+<p><strong>Q16: 你們支援特殊市場的認證申請嗎？</strong><br />
+A: 支援，如您需要[澳大利亞SAA/日本PSE/加拿大IC/沙特SASO]等特殊市場認證，我們可協助安排檢測和認證申請，請提前告知目標市場。</p>
+<p><strong>Q17: 你們支援第三方驗廠嗎？</strong><br />
+A: 完全支援，我們歡迎[SGS/BV/Intertek]等國際機構對我們的工廠進行實地審計，隨時可以安排，全力配合。</p>
+<p><strong>Q18: 你們有沒有產品相關的專利？</strong><br />
+A: 我們持有[X]項[外觀/實用新型/發明]專利，核心產品受法律保護。如需瞭解具體專利資訊，請聯絡我們的商務團隊。[待確認]</p>
+<p><strong>Q19: 產品有沒有相關的測試報告可以提供？</strong><br />
+A: 有，我們可提供[跌落測試/鹽霧測試/老化測試/燃燒測試等]報告，具體請告知您的需求，我們匹配對應的測試檔案。[待確認]</p>
+<p><strong>Q20: 如何獲取完整的認證檔案包？</strong><br />
+A: 您只需在詢盤中註明所需認證型別和目標市場，我們的商務團隊將在[X]個工作日內整理併傳送完整檔案包。對於敏感檔案，簽署NDA後提供。</p>
 <hr />
-<h2>【模块三】产品与技术参数 Product &amp; Technical Specs（15条）</h2>
-<p><strong>Q21: 你们主要有哪几类产品？</strong><br />
-A: 核心产品线分为[X]类：[产品类别1]、[产品类别2]、[产品类别3]，覆盖[应用场景]等多个细分场景，全系列产品均可定制。</p>
-<p><strong>Q22: 产品的核心技术参数是什么？</strong><br />
-A: 我们[核心产品名]的主要参数：[参数1：数值]、[参数2：数值]、[参数3：数值]，满足[行业标准/市场需求]。[待确认]</p>
-<p><strong>Q23: 主要材质/原料是什么？有什么优势？</strong><br />
-A: 我们使用[材质名称/规格]，相比行业常用的[普通材质]，具备[优势1（如：强度更高/更环保/更耐用）]，使用寿命提升约[X]%。[待确认]</p>
-<p><strong>Q24: 产品通过了哪些性能测试？</strong><br />
-A: 所有产品出厂前通过[测试1/测试2/测试3]，测试标准符合[行业标准编号]，检验记录存档备查。[待确认]</p>
-<p><strong>Q25: 产品有哪些规格/型号可以选择？</strong><br />
-A: 目前提供[X]种规格/型号，分别为[规格1]/[规格2]/[规格3]，可满足[不同应用场景]的需求。详细规格表可发送给您参考。</p>
-<p><strong>Q26: 产品的使用寿命/耐久性如何？</strong><br />
-A: 根据[测试标准]，我们的产品设计使用寿命为[X年/X小时/X次]，远高于行业平均[X年/X小时/X次]的水平。[待确认]</p>
-<p><strong>Q27: 产品有哪些颜色/外观可以选择？</strong><br />
-A: 标准色系包括[颜色1/颜色2/颜色3]，支持按Pantone色号定制，色差控制在行业标准范围内。</p>
-<p><strong>Q28: 产品的尺寸和重量是多少？</strong><br />
-A: 标准款尺寸：[长×宽×高]mm，净重约[X]kg，包装重量约[X]kg。如需其他尺寸，支持定制。[待确认]</p>
-<p><strong>Q29: 产品有没有通过环保检测？</strong><br />
-A: 通过，产品符合[RoHS/REACH/OEKO-TEX/FSC等]环保标准，不含[对应有害物质]，可合规进入对环保要求严格的[欧洲/北美]市场。</p>
-<p><strong>Q30: 产品适用的电压/频率是多少？（电气产品适用）</strong><br />
-A: 标准款适配[110V/220-240V/100-240V]，频率[50Hz/60Hz/50-60Hz]，可根据目标市场定制对应版本。</p>
-<p><strong>Q31: 产品有没有防水/防尘等级？（适用时填写）</strong><br />
-A: 达到[IPX4/IP65/IP68]防护等级，可在[淋雨/水下/粉尘]环境中正常使用，测试报告可提供。[待确认]</p>
-<p><strong>Q32: 产品的包装尺寸和装箱量是多少？</strong><br />
-A: 单件包装尺寸[X×X×X]cm，每箱[X]件，毛重约[X]kg，20GP柜约可装[X]件，40HQ柜约可装[X]件。[待确认]</p>
-<p><strong>Q33: 产品有哪些常见的配件？标配包含什么？</strong><br />
-A: 标准配件包含：[配件1]、[配件2]、[配件3]。可选配件：[选配件1]、[选配件2]。所有配件均支持单独采购。</p>
-<p><strong>Q34: 产品有没有常见的误用或使用限制？</strong><br />
-A: 我们建议：[注意事项1]；[注意事项2]。以下情况不建议使用：[限制场景]。详细使用说明请参考随附的用户手册。</p>
-<p><strong>Q35: 产品目前有没有新款/升级版在研发中？</strong><br />
-A: 有，我们正在研发[新功能/升级点]的新款产品，预计[季度]推出，如有意向可提前预约了解，优先向重要合作伙伴开放试用。[待确认]</p>
+<h2>【模組三】產品與技術引數 Product &amp; Technical Specs（15條）</h2>
+<p><strong>Q21: 你們主要有哪幾類產品？</strong><br />
+A: 核心產品線分為[X]類：[產品類別1]、[產品類別2]、[產品類別3]，覆蓋[應用場景]等多個細分場景，全系列產品均可定製。</p>
+<p><strong>Q22: 產品的核心技術引數是什麼？</strong><br />
+A: 我們[核心產品名]的主要引數：[引數1：數值]、[引數2：數值]、[引數3：數值]，滿足[行業標準/市場需求]。[待確認]</p>
+<p><strong>Q23: 主要材質/原料是什麼？有什麼優勢？</strong><br />
+A: 我們使用[材質名稱/規格]，相比行業常用的[普通材質]，具備[優勢1（如：強度更高/更環保/更耐用）]，使用壽命提升約[X]%。[待確認]</p>
+<p><strong>Q24: 產品透過了哪些效能測試？</strong><br />
+A: 所有產品出廠前透過[測試1/測試2/測試3]，測試標準符合[行業標準編號]，檢驗記錄存檔備查。[待確認]</p>
+<p><strong>Q25: 產品有哪些規格/型號可以選擇？</strong><br />
+A: 目前提供[X]種規格/型號，分別為[規格1]/[規格2]/[規格3]，可滿足[不同應用場景]的需求。詳細規格表可傳送給您參考。</p>
+<p><strong>Q26: 產品的使用壽命/耐久性如何？</strong><br />
+A: 根據[測試標準]，我們的產品設計使用壽命為[X年/X小時/X次]，遠高於行業平均[X年/X小時/X次]的水平。[待確認]</p>
+<p><strong>Q27: 產品有哪些顏色/外觀可以選擇？</strong><br />
+A: 標準色系包括[顏色1/顏色2/顏色3]，支援按Pantone色號定製，色差控制在行業標準範圍內。</p>
+<p><strong>Q28: 產品的尺寸和重量是多少？</strong><br />
+A: 標準款尺寸：[長×寬×高]mm，淨重約[X]kg，包裝重量約[X]kg。如需其他尺寸，支援定製。[待確認]</p>
+<p><strong>Q29: 產品有沒有透過環保檢測？</strong><br />
+A: 透過，產品符合[RoHS/REACH/OEKO-TEX/FSC等]環保標準，不含[對應有害物質]，可合規進入對環保要求嚴格的[歐洲/北美]市場。</p>
+<p><strong>Q30: 產品適用的電壓/頻率是多少？（電氣產品適用）</strong><br />
+A: 標準款適配[110V/220-240V/100-240V]，頻率[50Hz/60Hz/50-60Hz]，可根據目標市場定製對應版本。</p>
+<p><strong>Q31: 產品有沒有防水/防塵等級？（適用時填寫）</strong><br />
+A: 達到[IPX4/IP65/IP68]防護等級，可在[淋雨/水下/粉塵]環境中正常使用，測試報告可提供。[待確認]</p>
+<p><strong>Q32: 產品的包裝尺寸和裝箱量是多少？</strong><br />
+A: 單件包裝尺寸[X×X×X]cm，每箱[X]件，毛重約[X]kg，20GP櫃約可裝[X]件，40HQ櫃約可裝[X]件。[待確認]</p>
+<p><strong>Q33: 產品有哪些常見的配件？標配包含什麼？</strong><br />
+A: 標準配件包含：[配件1]、[配件2]、[配件3]。可選配件：[選配件1]、[選配件2]。所有配件均支援單獨採購。</p>
+<p><strong>Q34: 產品有沒有常見的誤用或使用限制？</strong><br />
+A: 我們建議：[注意事項1]；[注意事項2]。以下情況不建議使用：[限制場景]。詳細使用說明請參考隨附的使用者手冊。</p>
+<p><strong>Q35: 產品目前有沒有新款/升級版在研發中？</strong><br />
+A: 有，我們正在研發[新功能/升級點]的新款產品，預計[季度]推出，如有意向可提前預約瞭解，優先向重要合作伙伴開放試用。[待確認]</p>
 <hr />
-<h2>【模块四】OEM/ODM定制 Customization（10条）</h2>
-<p><strong>Q36: 你们支持OEM定制吗？</strong><br />
-A: 完全支持，我们拥有超过[X]年OEM代工经验，可定制LOGO、颜色、包装及产品结构，保密协议（NDA）可随时签署。</p>
-<p><strong>Q37: OEM定制的最低起订量是多少？</strong><br />
-A: LOGO定制最低[X]件起；全彩包装定制最低[X]件起；结构性ODM开模通常[X]件起，具体视复杂度评估。[待确认]</p>
-<p><strong>Q38: ODM开模费用大概是多少？</strong><br />
-A: 根据产品复杂程度，模具费通常在[$X–$X]之间，模具归客户所有，量产达到约定数量后可全额返还。[待确认]</p>
-<p><strong>Q39: 从提需求到拿到样品需要多久？</strong><br />
-A: 标准流程：需求确认（[X]天）→ 3D出图（[X]天）→ 打样（[X]天）→ 客户确认（[X]天）→ 正式样品。全程约[X]周，配专属跟单。[待确认]</p>
-<p><strong>Q40: 颜色定制支持Pantone色号匹配吗？</strong><br />
-A: 支持，按客户提供的Pantone色号调色，色差控制在ΔE≤[X]范围内，确保品牌视觉一致性。[待确认]</p>
-<p><strong>Q41: 包装可以完全定制吗？</strong><br />
-A: 可以，支持全定制彩盒/礼盒/手提袋，尺寸、材质、印刷工艺（哑光/亮光/UV）均可按品牌风格设计，也可提供符合FBA标准的包装方案。</p>
-<p><strong>Q42: 我有自己的设计图，你们可以按图生产吗？</strong><br />
-A: 可以，请提供2D图纸或3D文件（Step/STL/IGES格式均可），我们工程师将在[X]个工作日内评估可行性并报价。</p>
-<p><strong>Q43: 定制产品的知识产权如何保障？</strong><br />
-A: 我们严格保护客户知识产权，签订合同前可先签NDA，模具和设计文件归客户所有，我们承诺不将定制方案提供给任何第三方。</p>
-<p><strong>Q44: 可以定制多语言说明书吗？</strong><br />
-A: 可以，支持[英语/德语/法语/西班牙语/阿拉伯语等]多语言说明书定制，也可按客户提供的文本制作。</p>
-<p><strong>Q45: 可以从零开始开发全新产品吗？</strong><br />
-A: 可以，我们R&amp;D团队可承接从概念设计到量产的全流程开发，请提供功能需求和目标售价，我们制定开发方案并报价。</p>
+<h2>【模組四】OEM/ODM定製 Customization（10條）</h2>
+<p><strong>Q36: 你們支援OEM定製嗎？</strong><br />
+A: 完全支援，我們擁有超過[X]年OEM代工經驗，可定製LOGO、顏色、包裝及產品結構，保密協議（NDA）可隨時簽署。</p>
+<p><strong>Q37: OEM定製的最低起訂量是多少？</strong><br />
+A: LOGO定製最低[X]件起；全綵包裝定製最低[X]件起；結構性ODM開模通常[X]件起，具體視複雜度評估。[待確認]</p>
+<p><strong>Q38: ODM開模費用大概是多少？</strong><br />
+A: 根據產品複雜程度，模具費通常在[$X–$X]之間，模具歸客戶所有，量產達到約定數量後可全額返還。[待確認]</p>
+<p><strong>Q39: 從提需求到拿到樣品需要多久？</strong><br />
+A: 標準流程：需求確認（[X]天）→ 3D出圖（[X]天）→ 打樣（[X]天）→ 客戶確認（[X]天）→ 正式樣品。全程約[X]周，配專屬跟單。[待確認]</p>
+<p><strong>Q40: 顏色定製支援Pantone色號匹配嗎？</strong><br />
+A: 支援，按客戶提供的Pantone色號調色，色差控制在ΔE≤[X]範圍內，確保品牌視覺一致性。[待確認]</p>
+<p><strong>Q41: 包裝可以完全定製嗎？</strong><br />
+A: 可以，支援全定製彩盒/禮盒/手提袋，尺寸、材質、印刷工藝（啞光/亮光/UV）均可按品牌風格設計，也可提供符合FBA標準的包裝方案。</p>
+<p><strong>Q42: 我有自己的設計圖，你們可以按圖生產嗎？</strong><br />
+A: 可以，請提供2D圖紙或3D檔案（Step/STL/IGES格式均可），我們工程師將在[X]個工作日內評估可行性並報價。</p>
+<p><strong>Q43: 定製產品的智慧財產權如何保障？</strong><br />
+A: 我們嚴格保護客戶智慧財產權，簽訂合同前可先簽NDA，模具和設計檔案歸客戶所有，我們承諾不將定製方案提供給任何第三方。</p>
+<p><strong>Q44: 可以定製多語言說明書嗎？</strong><br />
+A: 可以，支援[英語/德語/法語/西班牙語/阿拉伯語等]多語言說明書定製，也可按客戶提供的文字製作。</p>
+<p><strong>Q45: 可以從零開始開發全新產品嗎？</strong><br />
+A: 可以，我們R&amp;D團隊可承接從概念設計到量產的全流程開發，請提供功能需求和目標售價，我們制定開發方案並報價。</p>
 <hr />
-<h2>【模块五】交期与生产 Lead Time &amp; Production（8条）</h2>
-<p><strong>Q46: 正常的生产交期是多久？</strong><br />
-A: 现货：[X]个工作日发货；定制大货（有模具）：[X–X]个工作日；ODM新品开模：[X–X]个工作日（含开模和首件确认）。[待确认]</p>
-<p><strong>Q47: 旺季交期会延误吗？</strong><br />
-A: 旺季（[月份区间]）为备货高峰，建议提前[X]天下单。我们会在接单时明确确认排产档期，书面保障不延误您的销售节点。</p>
-<p><strong>Q48: 月产能有多大？能接大订单吗？</strong><br />
-A: 月产能[X]件，具备充足产能承接大批量订单。超过[X]件的订单建议提前[X]天沟通排产计划。[待确认]</p>
-<p><strong>Q49: 生产过程中我可以跟进进度吗？</strong><br />
-A: 可以，每个订单配专属跟单员，定期以图片/视频形式汇报生产进度（备料→开工→半成品→品检→包装→装箱）。</p>
-<p><strong>Q50: 你们有没有现货可以快速发货？</strong><br />
-A: 有，常备部分热销款现货，可在[X]个工作日内发货。请告知目标型号和数量，我们立即确认库存。[待确认]</p>
-<p><strong>Q51: 生产前可以检验原材料吗？</strong><br />
-A: 支持，可在原材料入库阶段安排第三方机构现场检验，也可委托我们提供原材料检验报告。</p>
-<p><strong>Q52: 生产完成后能安排出货前检验吗？</strong><br />
-A: 支持，可自行安排SGS/BV/Intertek在我们工厂进行出货前检验（PSI），我们全力配合。</p>
-<p><strong>Q53: 订单能分批次发货吗？</strong><br />
-A: 可以，根据客户库存节奏或仓储空间，支持分批生产、分批发货，具体分批计划在合同签订时协商确认。</p>
+<h2>【模組五】交期與生產 Lead Time &amp; Production（8條）</h2>
+<p><strong>Q46: 正常的生產交期是多久？</strong><br />
+A: 現貨：[X]個工作日發貨；定製大貨（有模具）：[X–X]個工作日；ODM新品開模：[X–X]個工作日（含開模和首件確認）。[待確認]</p>
+<p><strong>Q47: 旺季交期會延誤嗎？</strong><br />
+A: 旺季（[月份區間]）為備貨高峰，建議提前[X]天下單。我們會在接單時明確確認排產檔期，書面保障不延誤您的銷售節點。</p>
+<p><strong>Q48: 月產能有多大？能接大訂單嗎？</strong><br />
+A: 月產能[X]件，具備充足產能承接大批次訂單。超過[X]件的訂單建議提前[X]天溝通排產計劃。[待確認]</p>
+<p><strong>Q49: 生產過程中我可以跟進進度嗎？</strong><br />
+A: 可以，每個訂單配專屬跟單員，定期以圖片/影片形式彙報生產進度（備料→開工→半成品→品檢→包裝→裝箱）。</p>
+<p><strong>Q50: 你們有沒有現貨可以快速發貨？</strong><br />
+A: 有，常備部分熱銷款現貨，可在[X]個工作日內發貨。請告知目標型號和數量，我們立即確認庫存。[待確認]</p>
+<p><strong>Q51: 生產前可以檢驗原材料嗎？</strong><br />
+A: 支援，可在原材料入庫階段安排第三方機構現場檢驗，也可委託我們提供原材料檢驗報告。</p>
+<p><strong>Q52: 生產完成後能安排出貨前檢驗嗎？</strong><br />
+A: 支援，可自行安排SGS/BV/Intertek在我們工廠進行出貨前檢驗（PSI），我們全力配合。</p>
+<p><strong>Q53: 訂單能分批次發貨嗎？</strong><br />
+A: 可以，根據客戶庫存節奏或倉儲空間，支援分批生產、分批發貨，具體分批計劃在合同簽訂時協商確認。</p>
 <hr />
-<h2>【模块六】价格与付款 Pricing &amp; Payment（8条）</h2>
-<p><strong>Q54: 你们的报价基于什么贸易术语？</strong><br />
-A: 默认报价为FOB [港口名]，也可按需报CIF（含保险运费到目的港）或DDP（完税送货上门），请注明偏好。</p>
-<p><strong>Q55: 你们支持哪些付款方式？</strong><br />
-A: 支持：T/T电汇（[X]%定金+[X]%见提单）、阿里巴巴信用保障（Trade Assurance）、L/C信用证（金额$[X]以上）。小额样品费可接受PayPal。</p>
-<p><strong>Q56: 价格可以谈吗？有批量折扣吗？</strong><br />
-A: 我们的报价已是工厂直供价。批量折扣：[X]件基础价，[X]件优惠约[X]%，[X]件以上可进一步协商，请告知目标数量。[待确认]</p>
-<p><strong>Q57: 报价单有效期多长？</strong><br />
-A: 报价有效期通常为[X]天。如遇原材料价格大幅波动（超过[X]%），我们会提前告知，不会单方面在执行中改价。</p>
-<p><strong>Q58: 样品怎么收费？</strong><br />
-A: 样品费[$/件]（视型号），运费由客户承担（建议提供快递账号）。下正式订单后样品费可从货款中全额抵扣。[待确认]</p>
-<p><strong>Q59: 首次合作定金比例可以调整吗？</strong><br />
-A: 首次合作建议使用阿里巴巴信用保障（Trade Assurance）下单，资金受平台托管保护，双方均安心，欢迎优先采用。</p>
-<p><strong>Q60: 有没有长期合作优惠？</strong><br />
-A: 年采购量超过[$X]的长期客户，提供专属年度返点（[X]%–[X]%）及优先排产、专属客服等增值服务。[待确认]</p>
-<p><strong>Q61: 如果遇到汇率大幅波动怎么处理？</strong><br />
-A: 我们报价以美元计价，报价有效期内不因汇率波动单方面调价，超出有效期的订单以重新报价为准，保障双方利益。</p>
+<h2>【模組六】價格與付款 Pricing &amp; Payment（8條）</h2>
+<p><strong>Q54: 你們的報價基於什麼貿易術語？</strong><br />
+A: 預設報價為FOB [港口名]，也可按需報CIF（含保險運費到目的港）或DDP（完稅送貨上門），請註明偏好。</p>
+<p><strong>Q55: 你們支援哪些付款方式？</strong><br />
+A: 支援：T/T電匯（[X]%定金+[X]%見提單）、阿里巴巴信用保障（Trade Assurance）、L/C信用證（金額$[X]以上）。小額樣品費可接受PayPal。</p>
+<p><strong>Q56: 價格可以談嗎？有批次折扣嗎？</strong><br />
+A: 我們的報價已是工廠直供價。批次折扣：[X]件基礎價，[X]件優惠約[X]%，[X]件以上可進一步協商，請告知目標數量。[待確認]</p>
+<p><strong>Q57: 報價單有效期多長？</strong><br />
+A: 報價有效期通常為[X]天。如遇原材料價格大幅波動（超過[X]%），我們會提前告知，不會單方面在執行中改價。</p>
+<p><strong>Q58: 樣品怎麼收費？</strong><br />
+A: 樣品費[$/件]（視型號），運費由客戶承擔（建議提供快遞賬號）。下正式訂單後樣品費可從貨款中全額抵扣。[待確認]</p>
+<p><strong>Q59: 首次合作定金比例可以調整嗎？</strong><br />
+A: 首次合作建議使用阿里巴巴信用保障（Trade Assurance）下單，資金受平臺託管保護，雙方均安心，歡迎優先採用。</p>
+<p><strong>Q60: 有沒有長期合作優惠？</strong><br />
+A: 年採購量超過[$X]的長期客戶，提供專屬年度返點（[X]%–[X]%）及優先排產、專屬客服等增值服務。[待確認]</p>
+<p><strong>Q61: 如果遇到匯率大幅波動怎麼處理？</strong><br />
+A: 我們報價以美元計價，報價有效期內不因匯率波動單方面調價，超出有效期的訂單以重新報價為準，保障雙方利益。</p>
 <hr />
-<h2>【模块七】售后与质保 After-sales &amp; Warranty（8条）</h2>
-<p><strong>Q62: 产品质保期是多久？</strong><br />
-A: 整机质保[X]个月，[易损件/电池/核心部件]质保[X]个月，自客户签收之日起计算。[待确认]</p>
-<p><strong>Q63: 质保期内出现质量问题怎么处理？</strong><br />
-A: 请在发现问题后[X]个工作日内提供照片或视频证明，核实后优先补发良品替换，或在下一单中冲抵金额。</p>
-<p><strong>Q64: 如果次品率超出正常范围怎么办？</strong><br />
-A: 我们承诺次品率不超过[X]%。如实际超出，全额补发超出部分，并向您提交品质改善报告。[待确认]</p>
-<p><strong>Q65: 你们有没有出厂检验流程？</strong><br />
-A: 有，所有产品执行100%出厂全检，包括：[检验项目1/项目2/项目3]，检验记录存档备查。</p>
-<p><strong>Q66: 质保期后能提供维修配件吗？</strong><br />
-A: 可以，我们为所有在售产品保障至少[X]年的配件供应，[主要易损件]支持单独采购。[待确认]</p>
-<p><strong>Q67: 有没有英文版的用户手册？</strong><br />
-A: 有，标准配件包含英文用户手册（含安装、使用、维护、故障排查），如需其他语言版本，定制订单可提供。</p>
-<p><strong>Q68: 产品有没有常见故障排查文档？</strong><br />
-A: 有，提供《常见故障诊断手册》，涵盖[X]种常见问题的自助排查步骤，可随货提供或邮件发送。[待确认]</p>
-<p><strong>Q69: 遇到重大质量纠纷怎么处理？</strong><br />
-A: 对于涉及金额较大的质量纠纷，请通过阿里巴巴信用保障平台提交申请，平台将介入调解，同时我们承诺配合调查，保障买家权益。</p>
+<h2>【模組七】售後與質保 After-sales &amp; Warranty（8條）</h2>
+<p><strong>Q62: 產品質保期是多久？</strong><br />
+A: 整機質保[X]個月，[易損件/電池/核心部件]質保[X]個月，自客戶簽收之日起計算。[待確認]</p>
+<p><strong>Q63: 質保期內出現質量問題怎麼處理？</strong><br />
+A: 請在發現問題後[X]個工作日內提供照片或影片證明，核實後優先補發良品替換，或在下一單中衝抵金額。</p>
+<p><strong>Q64: 如果次品率超出正常範圍怎麼辦？</strong><br />
+A: 我們承諾次品率不超過[X]%。如實際超出，全額補發超出部分，並向您提交品質改善報告。[待確認]</p>
+<p><strong>Q65: 你們有沒有出廠檢驗流程？</strong><br />
+A: 有，所有產品執行100%出廠全檢，包括：[檢驗專案1/專案2/專案3]，檢驗記錄存檔備查。</p>
+<p><strong>Q66: 質保期後能提供維修配件嗎？</strong><br />
+A: 可以，我們為所有在售產品保障至少[X]年的配件供應，[主要易損件]支援單獨採購。[待確認]</p>
+<p><strong>Q67: 有沒有英文版的使用者手冊？</strong><br />
+A: 有，標準配件包含英文使用者手冊（含安裝、使用、維護、故障排查），如需其他語言版本，定製訂單可提供。</p>
+<p><strong>Q68: 產品有沒有常見故障排查文件？</strong><br />
+A: 有，提供《常見故障診斷手冊》，涵蓋[X]種常見問題的自助排查步驟，可隨貨提供或郵件傳送。[待確認]</p>
+<p><strong>Q69: 遇到重大質量糾紛怎麼處理？</strong><br />
+A: 對於涉及金額較大的質量糾紛，請透過阿里巴巴信用保障平臺提交申請，平臺將介入調解，同時我們承諾配合調查，保障買家權益。</p>
 <hr />
-<h2>【模块八】物流与配送 Shipping &amp; Logistics（8条）</h2>
-<p><strong>Q70: 你们从哪个港口出货？</strong><br />
-A: 通常从[港口名]出货，距工厂约[X]小时车程，如客户指定，也可安排从[其他港口]出货。</p>
-<p><strong>Q71: 你们支持哪些运输方式？</strong><br />
-A: 支持：海运整柜（FCL）、海运拼箱（LCL）、空运、快递（DHL/FedEx/UPS，[X]件以下推荐，[X]–[X]天到达欧美）。</p>
-<p><strong>Q72: 你们支持FBA亚马逊入仓发货吗？</strong><br />
-A: 完全支持，熟悉亚马逊FBA包装标签要求（FNSKU/外箱标准），可直接按FBA标准打包贴标出货，客户无需二次处理。</p>
-<p><strong>Q73: 包装能承受长途运输吗？</strong><br />
-A: 可以，出口包装经专业设计，内衬防震材料，外箱瓦楞纸符合国际运输标准，通过[振动/跌落]模拟测试。</p>
-<p><strong>Q74: 我可以指定自己的货代吗？</strong><br />
-A: 完全可以，您提供货代联系方式，我们负责安排装箱并配合提货，提供全套单证（装箱单、发票、提单等）。</p>
-<p><strong>Q75: 发货后能提供货物追踪信息吗？</strong><br />
-A: 可以，发货后[X]小时内提供提单号或快递单号，并同步货代在线追踪链接，实时掌握货物状态。</p>
-<p><strong>Q76: 一个标准柜子能装多少产品？</strong><br />
-A: 以[产品标准包装尺寸]为例，20GP柜约可装[X]件，40HQ柜约可装[X]件。我们提供精确的装柜方案。[待确认]</p>
-<p><strong>Q77: 海运到主要市场大概需要多长时间？</strong><br />
-A: [港口]至欧洲主要港口约[X]天；至美国西海岸约[X]天；至美国东海岸约[X]天；至中东约[X]天。</p>
+<h2>【模組八】物流與配送 Shipping &amp; Logistics（8條）</h2>
+<p><strong>Q70: 你們從哪個港口出貨？</strong><br />
+A: 通常從[港口名]出貨，距工廠約[X]小時車程，如客戶指定，也可安排從[其他港口]出貨。</p>
+<p><strong>Q71: 你們支援哪些運輸方式？</strong><br />
+A: 支援：海運整櫃（FCL）、海運拼箱（LCL）、空運、快遞（DHL/FedEx/UPS，[X]件以下推薦，[X]–[X]天到達歐美）。</p>
+<p><strong>Q72: 你們支援FBA亞馬遜入倉發貨嗎？</strong><br />
+A: 完全支援，熟悉亞馬遜FBA包裝標籤要求（FNSKU/外箱標準），可直接按FBA標準打包貼標出貨，客戶無需二次處理。</p>
+<p><strong>Q73: 包裝能承受長途運輸嗎？</strong><br />
+A: 可以，出口包裝經專業設計，內襯防震材料，外箱瓦楞紙符合國際運輸標準，透過[振動/跌落]模擬測試。</p>
+<p><strong>Q74: 我可以指定自己的貨代嗎？</strong><br />
+A: 完全可以，您提供貨代聯絡方式，我們負責安排裝箱並配合提貨，提供全套單證（裝箱單、發票、提單等）。</p>
+<p><strong>Q75: 發貨後能提供貨物追蹤資訊嗎？</strong><br />
+A: 可以，發貨後[X]小時內提供提單號或快遞單號，並同步貨代線上追蹤連結，實時掌握貨物狀態。</p>
+<p><strong>Q76: 一個標準櫃子能裝多少產品？</strong><br />
+A: 以[產品標準包裝尺寸]為例，20GP櫃約可裝[X]件，40HQ櫃約可裝[X]件。我們提供精確的裝櫃方案。[待確認]</p>
+<p><strong>Q77: 海運到主要市場大概需要多長時間？</strong><br />
+A: [港口]至歐洲主要港口約[X]天；至美國西海岸約[X]天；至美國東海岸約[X]天；至中東約[X]天。</p>
 <hr />
-<h2>【模块九】竞争优势与差异化 Competitive Advantage（8条）</h2>
-<p><strong>Q78: 市场上有更便宜的产品，你们凭什么值这个价？</strong><br />
-A: 低价产品通常[使用劣质材料/省略关键工序/无合规认证]，存在[安全风险/质量不稳定/售后纠纷]等隐患。我们坚持[核心优势]，提供[X]个月质保，帮助您的品牌规避[差评/退货/封号]风险，长期算账性价比更高。</p>
-<p><strong>Q79: 你们和同行相比，最大的优势是什么？</strong><br />
-A: 三个核心差异：①[差异化点1，如：自主研发/自有模具房]；②[差异化点2，如：品控更严格/次品率更低]；③[差异化点3，如：交期更稳定/响应更快]。</p>
-<p><strong>Q80: 你们的品控比其他工厂强在哪里？</strong><br />
-A: 三道防线：①IQC来料检验；②IPQC生产过程抽检；③OQC出货前100%全检。次品率控制在[X]%以内，低于行业平均[X]%。[待确认]</p>
-<p><strong>Q81: 你们的交货稳定性如何？</strong><br />
-A: 长期服务[欧美/中东/东南亚]客户，按时交货率超过[X]%。每笔订单有书面排产确认，旺季提前锁定产能。[待确认]</p>
-<p><strong>Q82: 你们能帮助我提升产品竞争力吗？</strong><br />
-A: 可以，我们定期进行市场趋势研究，向合作客户分享新品开发方向和畅销配置建议，不只是执行订单，而是帮助您保持市场领先。</p>
-<p><strong>Q83: 你们有没有服务过知名品牌的经验？</strong><br />
-A: 有，我们长期为多个[欧美/知名]品牌提供OEM代工服务，因保密协议无法公开品牌名，可签署NDA后提供参考案例。[待确认]</p>
-<p><strong>Q84: 合作后你们能提供产品升级建议吗？</strong><br />
-A: 可以，我们商务团队会根据您所在市场的反馈、新技术动态和竞品动向，主动提供产品迭代建议，帮助您的产品线持续进化。</p>
-<p><strong>Q85: ⚠️ 哪些事情你们不能承诺？（红线）</strong><br />
-A: 以下情况我们会如实告知，不会过度承诺：①目前未持有的认证（如[X认证]），我们不会声称已有；②超出实际产能的订单，我们不会接单后延误；③超出质保范围的人为损坏，我们无法免费处理。诚信经营是我们的底线。</p>
+<h2>【模組九】競爭優勢與差異化 Competitive Advantage（8條）</h2>
+<p><strong>Q78: 市場上有更便宜的產品，你們憑什麼值這個價？</strong><br />
+A: 低價產品通常[使用劣質材料/省略關鍵工序/無合規認證]，存在[安全風險/質量不穩定/售後糾紛]等隱患。我們堅持[核心優勢]，提供[X]個月質保，幫助您的品牌規避[差評/退貨/封號]風險，長期算賬價效比更高。</p>
+<p><strong>Q79: 你們和同行相比，最大的優勢是什麼？</strong><br />
+A: 三個核心差異：①[差異化點1，如：自主研發/自有模具房]；②[差異化點2，如：品控更嚴格/次品率更低]；③[差異化點3，如：交期更穩定/響應更快]。</p>
+<p><strong>Q80: 你們的品控比其他工廠強在哪裡？</strong><br />
+A: 三道防線：①IQC來料檢驗；②IPQC生產過程抽檢；③OQC出貨前100%全檢。次品率控制在[X]%以內，低於行業平均[X]%。[待確認]</p>
+<p><strong>Q81: 你們的交貨穩定性如何？</strong><br />
+A: 長期服務[歐美/中東/東南亞]客戶，按時交貨率超過[X]%。每筆訂單有書面排產確認，旺季提前鎖定產能。[待確認]</p>
+<p><strong>Q82: 你們能幫助我提升產品競爭力嗎？</strong><br />
+A: 可以，我們定期進行市場趨勢研究，向合作客戶分享新品開發方向和暢銷配置建議，不只是執行訂單，而是幫助您保持市場領先。</p>
+<p><strong>Q83: 你們有沒有服務過知名品牌的經驗？</strong><br />
+A: 有，我們長期為多個[歐美/知名]品牌提供OEM代工服務，因保密協議無法公開品牌名，可簽署NDA後提供參考案例。[待確認]</p>
+<p><strong>Q84: 合作後你們能提供產品升級建議嗎？</strong><br />
+A: 可以，我們商務團隊會根據您所在市場的反饋、新技術動態和競品動向，主動提供產品迭代建議，幫助您的產品線持續進化。</p>
+<p><strong>Q85: ⚠️ 哪些事情你們不能承諾？（紅線）</strong><br />
+A: 以下情況我們會如實告知，不會過度承諾：①目前未持有的認證（如[X認證]），我們不會聲稱已有；②超出實際產能的訂單，我們不會接單後延誤；③超出質保範圍的人為損壞，我們無法免費處理。誠信經營是我們的底線。</p>
 <hr />
-<h2>【模块十】场景化解决方案 Scenario-based Solutions（8条）</h2>
-<p><strong>Q86: 我是亚马逊新卖家，刚起步，你们能配合吗？</strong><br />
-A: 完全可以，我们为亚马逊新卖家提供：低起订量支持（[X]件起）、FBA合规包装、完整认证文件包、英文产品描述建议。从一款核心产品开始，帮您快速进入市场。</p>
-<p><strong>Q87: 我是欧洲品牌商，对合规要求很严格，能满足吗？</strong><br />
-A: 可以，为欧洲客户提供完整合规包：[CE技术文件/RoHS声明/REACH符合性声明/BSCI报告]，所有文件签订合同后提供。</p>
-<p><strong>Q88: 我是礼品公司，需要节日礼品套装，你们能做吗？</strong><br />
-A: 非常适合，我们的[产品]体积[轻巧/精致]，适合节日礼赠，支持礼盒定制和LOGO印刷，MOQ [X]件起，建议提前[X]天下单确保节前到货。</p>
-<p><strong>Q89: 我是[大型连锁/超市/平台]采购，需要稳定大量供货，能保障吗？</strong><br />
-A: 可以，月产能[X]件，支持签订年度框架协议，按季度排产，历史按时交货率超过[X]%，有完整的大客户服务机制。[待确认]</p>
-<p><strong>Q90: 我想做自己的品牌，从哪里开始？</strong><br />
-A: 建议三步走：①选定基础款产品（我们协助推荐畅销配置）；②定制品牌LOGO和包装（提供免费初稿设计）；③小批量试单验证市场（[X]件起）。成功后逐步扩大产品线，我们全程陪伴。</p>
-<p><strong>Q91: 我在[特定市场]，有当地特殊要求，你们能处理吗？</strong><br />
-A: 我们熟悉[市场]的[认证要求/包装规定/语言要求]，可提供针对性的解决方案，请告知具体需求，我们匹配最优方案。</p>
-<p><strong>Q92: 我需要产品配合我的营销活动，时效很紧，怎么办？</strong><br />
-A: 请提前告知活动时间节点，我们会优先安排产能并制定专属生产计划。建议提前[X]天沟通，确保满足您的时效要求。</p>
-<p><strong>Q93: ⚠️ 哪些情况需要转接人工处理？（人机切换）</strong><br />
-A: 以下情况AI将停止回复并为您转接专业商务人员：①单笔订单金额超过$[X]；②涉及合同条款修改；③质量纠纷需要协调处理；④有法律相关问题。请耐心等待，我们将在[X]小时内回复。</p>
+<h2>【模組十】場景化解決方案 Scenario-based Solutions（8條）</h2>
+<p><strong>Q86: 我是亞馬遜新賣家，剛起步，你們能配合嗎？</strong><br />
+A: 完全可以，我們為亞馬遜新賣家提供：低起訂量支援（[X]件起）、FBA合規包裝、完整認證檔案包、英文產品描述建議。從一款核心產品開始，幫您快速進入市場。</p>
+<p><strong>Q87: 我是歐洲品牌商，對合規要求很嚴格，能滿足嗎？</strong><br />
+A: 可以，為歐洲客戶提供完整合規包：[CE技術檔案/RoHS宣告/REACH符合性宣告/BSCI報告]，所有檔案簽訂合同後提供。</p>
+<p><strong>Q88: 我是禮品公司，需要節日禮品套裝，你們能做嗎？</strong><br />
+A: 非常適合，我們的[產品]體積[輕巧/精緻]，適合節日禮贈，支援禮盒定製和LOGO印刷，MOQ [X]件起，建議提前[X]天下單確保節前到貨。</p>
+<p><strong>Q89: 我是[大型連鎖/超市/平臺]採購，需要穩定大量供貨，能保障嗎？</strong><br />
+A: 可以，月產能[X]件，支援簽訂年度框架協議，按季度排產，歷史按時交貨率超過[X]%，有完整的大客戶服務機制。[待確認]</p>
+<p><strong>Q90: 我想做自己的品牌，從哪裡開始？</strong><br />
+A: 建議三步走：①選定基礎款產品（我們協助推薦暢銷配置）；②定製品牌LOGO和包裝（提供免費初稿設計）；③小批次試單驗證市場（[X]件起）。成功後逐步擴大產品線，我們全程陪伴。</p>
+<p><strong>Q91: 我在[特定市場]，有當地特殊要求，你們能處理嗎？</strong><br />
+A: 我們熟悉[市場]的[認證要求/包裝規定/語言要求]，可提供針對性的解決方案，請告知具體需求，我們匹配最優方案。</p>
+<p><strong>Q92: 我需要產品配合我的營銷活動，時效很緊，怎麼辦？</strong><br />
+A: 請提前告知活動時間節點，我們會優先安排產能並制定專屬生產計劃。建議提前[X]天溝通，確保滿足您的時效要求。</p>
+<p><strong>Q93: ⚠️ 哪些情況需要轉接人工處理？（人機切換）</strong><br />
+A: 以下情況AI將停止回覆併為您轉接專業商務人員：①單筆訂單金額超過$[X]；②涉及合同條款修改；③質量糾紛需要協調處理；④有法律相關問題。請耐心等待，我們將在[X]小時內回覆。</p>
 <hr />
-<h2>【模块十一】行业通识 Industry Knowledge（8条）</h2>
+<h2>【模組十一】行業通識 Industry Knowledge（8條）</h2>
 <blockquote>
-<p>注：以下为通用模板，需根据具体行业替换对应内容</p>
+<p>注：以下為通用模板，需根據具體行業替換對應內容</p>
 </blockquote>
-<p><strong>Q94: 买家采购[产品类目]时应该关注哪些核心指标？</strong><br />
-A: [行业核心参数1/参数2/参数3]是最重要的评判维度。[简短解释各参数的意义和判断方法]。</p>
-<p><strong>Q95: [产品类目]在欧美市场需要哪些认证才能销售？</strong><br />
-A: 欧盟：[必须认证]（强制要求）；美国：[必须认证]；加拿大：[认证]；澳大利亚：[认证]。我们已覆盖主要市场认证，可按需提供文件。</p>
-<p><strong>Q96: 亚马逊平台对[产品类目]有什么特别要求？</strong><br />
-A: [行业特定的亚马逊合规要求，如：电池产品的UN38.3，食品的FDA，儿童产品的CPSC测试报告等]。我们有完整的合规文件体系，可确保您顺利入仓。</p>
-<p><strong>Q97: [产品类目]行业目前有哪些主流趋势？</strong><br />
-A: 四大趋势：①[趋势1]；②[趋势2]；③[趋势3]；④[趋势4]。我们的新品开发已布局这些方向，欢迎了解最新产品线。</p>
-<p><strong>Q98: 不同地区买家在采购[产品类目]时有哪些偏好差异？</strong><br />
-A: 欧洲：[偏好特点]；北美：[偏好特点]；中东：[偏好特点]；东南亚：[偏好特点]。我们有针对各市场的专属配置方案。</p>
-<p><strong>Q99: [产品类目]在跨境物流中有哪些特殊注意事项？</strong><br />
-A: [行业特有的物流注意点，如：易碎品的包装要求、危险品的申报要求、温控要求、体积重计费规则等]。我们在这些方面均有成熟的处理方案。</p>
-<p><strong>Q100: 如何判断一个[产品类目]供应商是否值得信赖？</strong><br />
-A: 五个维度：①是否源头工厂（非贸易商）；②是否具备主流市场认证；③是否有社会责任审计（BSCI/ISO）；④交货稳定性（按时交货率）；⑤售后政策是否清晰。以上五点我们均可提供书面证明，欢迎对比考察。</p>
-<p><strong>Q101: 我第一次向中国采购[产品类目]，有什么建议？</strong><br />
-A: 给新买家的三点建议：①从小批量试单开始（验证质量和配合度）；②使用阿里巴巴信用保障（Trade Assurance）保障资金安全；③提前沟通认证需求（避免货到目的国无法清关）。我们有丰富的协助新买家落地的经验，全程服务到位。</p>
+<p><strong>Q94: 買家採購[產品類目]時應該關注哪些核心指標？</strong><br />
+A: [行業核心引數1/引數2/引數3]是最重要的評判維度。[簡短解釋各引數的意義和判斷方法]。</p>
+<p><strong>Q95: [產品類目]在歐美市場需要哪些認證才能銷售？</strong><br />
+A: 歐盟：[必須認證]（強制要求）；美國：[必須認證]；加拿大：[認證]；澳大利亞：[認證]。我們已覆蓋主要市場認證，可按需提供檔案。</p>
+<p><strong>Q96: 亞馬遜平臺對[產品類目]有什麼特別要求？</strong><br />
+A: [行業特定的亞馬遜合規要求，如：電池產品的UN38.3，食品的FDA，兒童產品的CPSC測試報告等]。我們有完整的合規檔案體系，可確保您順利入倉。</p>
+<p><strong>Q97: [產品類目]行業目前有哪些主流趨勢？</strong><br />
+A: 四大趨勢：①[趨勢1]；②[趨勢2]；③[趨勢3]；④[趨勢4]。我們的新品開發已佈局這些方向，歡迎瞭解最新產品線。</p>
+<p><strong>Q98: 不同地區買家在採購[產品類目]時有哪些偏好差異？</strong><br />
+A: 歐洲：[偏好特點]；北美：[偏好特點]；中東：[偏好特點]；東南亞：[偏好特點]。我們有針對各市場的專屬配置方案。</p>
+<p><strong>Q99: [產品類目]在跨境物流中有哪些特殊注意事項？</strong><br />
+A: [行業特有的物流注意點，如：易碎品的包裝要求、危險品的申報要求、溫控要求、體積重計費規則等]。我們在這些方面均有成熟的處理方案。</p>
+<p><strong>Q100: 如何判斷一個[產品類目]供應商是否值得信賴？</strong><br />
+A: 五個維度：①是否源頭工廠（非貿易商）；②是否具備主流市場認證；③是否有社會責任審計（BSCI/ISO）；④交貨穩定性（按時交貨率）；⑤售後政策是否清晰。以上五點我們均可提供書面證明，歡迎對比考察。</p>
+<p><strong>Q101: 我第一次向中國採購[產品類目]，有什麼建議？</strong><br />
+A: 給新買家的三點建議：①從小批次試單開始（驗證質量和配合度）；②使用阿里巴巴信用保障（Trade Assurance）保障資金安全；③提前溝通認證需求（避免貨到目的國無法清關）。我們有豐富的協助新買家落地的經驗，全程服務到位。</p>
 <hr />
-<h2>【附录】极简10问快答（适用于信息严重不全的新供应商）</h2>
+<h2>【附錄】極簡10問快答（適用於資訊嚴重不全的新供應商）</h2>
 <blockquote>
-<p>让供应商只需回答以下10个问题，即可生成基础QA库：</p>
+<p>讓供應商只需回答以下10個問題，即可生成基礎QA庫：</p>
 </blockquote>
 <ol>
-<li><strong>公司主营</strong>：我们专注做什么产品，做了多少年？</li>
-<li><strong>工厂规模</strong>：我们厂有多大？多少人？</li>
-<li><strong>核心优势</strong>：客户为什么要选我们而不是别家？</li>
-<li><strong>认证情况</strong>：我们有什么证书？</li>
-<li><strong>定制能力</strong>：我们支持改LOGO/改包装/改结构吗？最低几件起？</li>
-<li><strong>交期</strong>：普通订单多久能交货？</li>
-<li><strong>价格策略</strong>：我们的价格定位（高端/中端/性价比）？</li>
-<li><strong>售后政策</strong>：质量问题怎么处理？质保多久？</li>
-<li><strong>主要市场</strong>：我们现在主要卖给哪些国家的客户？</li>
-<li><strong>最想强调的</strong>：你最希望AI在介绍我们时重点突出什么？</li>
+<li><strong>公司主營</strong>：我們專注做什麼產品，做了多少年？</li>
+<li><strong>工廠規模</strong>：我們廠有多大？多少人？</li>
+<li><strong>核心優勢</strong>：客戶為什麼要選我們而不是別家？</li>
+<li><strong>認證情況</strong>：我們有什麼證書？</li>
+<li><strong>定製能力</strong>：我們支援改LOGO/改包裝/改結構嗎？最低幾件起？</li>
+<li><strong>交期</strong>：普通訂單多久能交貨？</li>
+<li><strong>價格策略</strong>：我們的價格定位（高階/中端/價效比）？</li>
+<li><strong>售後政策</strong>：質量問題怎麼處理？質保多久？</li>
+<li><strong>主要市場</strong>：我們現在主要賣給哪些國家的客戶？</li>
+<li><strong>最想強調的</strong>：你最希望AI在介紹我們時重點突出什麼？</li>
 </ol>
 <hr />
 <p><em>模板版本：V1.0 | 更新日期：2026-04-15</em><br />
-<em>使用中如有问题，请联系内训团队</em></p></section>
+<em>使用中如有問題，請聯絡內訓團隊</em></p></section>

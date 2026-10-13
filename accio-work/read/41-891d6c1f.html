@@ -1,17 +1,17 @@
-<nav class="toc"><b>本包內容（4 個檔案）</b><div><a href="#f0">SKILL.md</a><a href="#f1">ONBOARDING.md</a><a href="#f2">选品策略安装提示词.docx</a><a href="#f3">assets/report-template.html</a></div></nav><section class="bpart" id="f0"><h3 class="bpart-h">SKILL.md</h3><div class="fm"><b>cross-border-product-selection</b><p>跨境电商国际站（ALIBABA.COM）选品分析专家。作为Team Leader调度多个子代理(sessions_spawn)完成市场信号捕捉、竞争分析、利润建模、供应链验证，并以最严格审计标准确保100%无数据幻觉。含强制浏览器验证协议(browser子代理)和解读正确性审计。触发词：选品、选品分析、product selection、找品、蓝海品、跨境选品。</p></div><h1>跨境电商国际站选品分析 v3.1</h1>
+<nav class="toc"><b>本包內容（4 個檔案）</b><div><a href="#f0">SKILL.md</a><a href="#f1">ONBOARDING.md</a><a href="#f2">选品策略安装提示词.docx</a><a href="#f3">assets/report-template.html</a></div></nav><section class="bpart" id="f0"><h3 class="bpart-h">SKILL.md</h3><div class="fm"><b>cross-border-product-selection</b><p>跨境電商國際站（ALIBABA.COM）選品分析專家。作為Team Leader排程多個子代理(sessions_spawn)完成市場訊號捕捉、競爭分析、利潤建模、供應鏈驗證，並以最嚴格審計標準確保100%無資料幻覺。含強制瀏覽器驗證協議(browser子代理)和解讀正確性審計。觸發詞：選品、選品分析、product selection、找品、藍海品、跨境選品。</p></div><h1>跨境電商國際站選品分析 v3.1</h1>
 <blockquote>
-<p><strong>v3.1升级</strong>：① 自带可复用交互式 HTML 看板模板 <code>assets/report-template.html</code>（深色金/青配色，Chart.js 离线可用，含 KPI 卡 / 可排序三级建议表 / 4 图表 / 可折叠审计日志），Phase 4 输出 HTML 时直接套用，替换占位符与真实数据即可；② 新增 <code>ONBOARDING.md</code> 商家快速上手文档；③ 全面去品类/商家硬编码，任意商家拿到即可用（品类经 Step 0 询问参数化）。<br />
-<strong>v3.0核心升级</strong>：新增"解读正确性审计"+"浏览器强制验证协议"。历史教训：v2版本中曾将Alibaba Seller Blog的"供需比腰斩=市场饱和"错误解读为"蓝海信号"，导致推荐方向完全反转。本版本从架构层面杜绝此类错误。</p>
+<p><strong>v3.1升級</strong>：① 自帶可複用互動式 HTML 看板模板 <code>assets/report-template.html</code>（深色金/青配色，Chart.js 離線可用，含 KPI 卡 / 可排序三級建議表 / 4 圖表 / 可摺疊審計日誌），Phase 4 輸出 HTML 時直接套用，替換佔位符與真實資料即可；② 新增 <code>ONBOARDING.md</code> 商家快速上手文件；③ 全面去品類/商家硬編碼，任意商家拿到即可用（品類經 Step 0 詢問引數化）。<br />
+<strong>v3.0核心升級</strong>：新增"解讀正確性審計"+"瀏覽器強制驗證協議"。歷史教訓：v2版本中曾將Alibaba Seller Blog的"供需比腰斬=市場飽和"錯誤解讀為"藍海訊號"，導致推薦方向完全反轉。本版本從架構層面杜絕此類錯誤。</p>
 </blockquote>
 <hr />
 <blockquote>
-<h2>🔧 Accio Work 环境转换说明（务必牢记 — 本 skill 由 QoderWork 版转换而来）</h2>
-<p>原版数据采集层写的是 QoderWork 的抽象/专有工具（原版 <code>AskUserQuestion</code>、"Agent 自己用浏览器导航/截图"、原版 <code>WebSearch</code>/<code>WebFetch</code>、"启动 Sub Agent/Task"）。<strong>这些在 Accio Work 环境不存在或命名不同</strong>。本环境的等价能力如下，全文凡涉及工具调用一律按此执行：</p>
+<h2>🔧 Accio Work 環境轉換說明（務必牢記 — 本 skill 由 QoderWork 版轉換而來）</h2>
+<p>原版資料採集層寫的是 QoderWork 的抽象/專有工具（原版 <code>AskUserQuestion</code>、"Agent 自己用瀏覽器導航/截圖"、原版 <code>WebSearch</code>/<code>WebFetch</code>、"啟動 Sub Agent/Task"）。<strong>這些在 Accio Work 環境不存在或命名不同</strong>。本環境的等價能力如下，全文凡涉及工具呼叫一律按此執行：</p>
 <table>
 <thead>
 <tr>
 <th>原版（QoderWork）</th>
-<th>本环境（Accio Work）正确做法</th>
+<th>本環境（Accio Work）正確做法</th>
 </tr>
 </thead>
 <tbody>
@@ -20,8 +20,8 @@
 <td><strong><code>ask_user(mode="form")</code></strong></td>
 </tr>
 <tr>
-<td>"Agent 用浏览器打开/导航/截图/读DOM"（alibaba.com / 1688 / 平台官方博客 全文阅读）</td>
-<td><strong><code>sessions_spawn(agent_id="browser", task=...)</code></strong> — 主 Agent <strong>没有</strong>内置浏览器，必须 spawn <code>browser</code> 子代理（操控用户已登录 Chrome）。子代理自行管理 tab，skill 层<strong>禁止</strong>写死任何 tab 工具名。</td>
+<td>"Agent 用瀏覽器開啟/導航/截圖/讀DOM"（alibaba.com / 1688 / 平臺官方部落格 全文閱讀）</td>
+<td><strong><code>sessions_spawn(agent_id="browser", task=...)</code></strong> — 主 Agent <strong>沒有</strong>內建瀏覽器，必須 spawn <code>browser</code> 子代理（操控使用者已登入 Chrome）。子代理自行管理 tab，skill 層<strong>禁止</strong>寫死任何 tab 工具名。</td>
 </tr>
 <tr>
 <td><code>WebSearch</code></td>
@@ -32,282 +32,282 @@
 <td><strong><code>web_fetch</code></strong></td>
 </tr>
 <tr>
-<td>"启动 5 个 Sub Agent 并行 / Task"</td>
-<td><strong>并行 <code>sessions_spawn</code></strong>：纯搜索/报告类用 <code>agent_id="general"</code>；需要打开 alibaba/1688/博客真实页面读 DOM/价格/搜索结果数的用 <code>agent_id="browser"</code>。</td>
+<td>"啟動 5 個 Sub Agent 並行 / Task"</td>
+<td><strong>並行 <code>sessions_spawn</code></strong>：純搜尋/報告類用 <code>agent_id="general"</code>；需要開啟 alibaba/1688/部落格真實頁面讀 DOM/價格/搜尋結果數的用 <code>agent_id="browser"</code>。</td>
 </tr>
 <tr>
-<td>"浏览器强制验证协议"</td>
-<td>协议<strong>逻辑原样保留</strong>，但"打开页面"动作 = 主 Agent spawn 一个 <code>browser</code> 子代理去回访原始 URL 并回传"数字+前后3段原文上下文"，由主 Agent 做解读一致性比对。</td>
+<td>"瀏覽器強制驗證協議"</td>
+<td>協議<strong>邏輯原樣保留</strong>，但"開啟頁面"動作 = 主 Agent spawn 一個 <code>browser</code> 子代理去回訪原始 URL 並回傳"數字+前後3段原文上下文"，由主 Agent 做解讀一致性比對。</td>
 </tr>
 </tbody>
 </table>
-<p><strong>不存在的工具一律不调</strong>：<code>javascript_tool</code> / <code>tabs_create_mcp</code> / <code>tabs_context_mcp</code> / <code>navigate</code> / <code>read_network_requests</code>。方法论内核（铁律1-5 / 解读正确性审计 / 双子代理交叉验证 / 六维筛选矩阵 / 利润 J·K 双验 / 历史教训库）<strong>原样保留不变</strong>。</p>
-<p><strong>子代理任务编写铁律</strong>：每个 <code>sessions_spawn</code> 的 task 必须自包含——写清目标 URL、要采集的字段、返回的表格/JSON 结构、以及"取不到的字段如实写 null/获取失败，禁止猜测估算"。</p>
+<p><strong>不存在的工具一律不調</strong>：<code>javascript_tool</code> / <code>tabs_create_mcp</code> / <code>tabs_context_mcp</code> / <code>navigate</code> / <code>read_network_requests</code>。方法論核心（鐵律1-5 / 解讀正確性審計 / 雙子代理交叉驗證 / 六維篩選矩陣 / 利潤 J·K 雙驗 / 歷史教訓庫）<strong>原樣保留不變</strong>。</p>
+<p><strong>子代理任務編寫鐵律</strong>：每個 <code>sessions_spawn</code> 的 task 必須自包含——寫清目標 URL、要採集的欄位、返回的表格/JSON 結構、以及"取不到的欄位如實寫 null/獲取失敗，禁止猜測估算"。</p>
 </blockquote>
 <hr />
-<h2>⛔ 铁律（HARD RULES — 违反任何一条即判定报告不合格）</h2>
-<h3>铁律1: 数据存在 ≠ 解读正确</h3>
+<h2>⛔ 鐵律（HARD RULES — 違反任何一條即判定報告不合格）</h2>
+<h3>鐵律1: 資料存在 ≠ 解讀正確</h3>
 <ul>
-<li>找到一个数字（如"24→13"）只是第一步</li>
-<li><strong>必须阅读该数字前后3段文字</strong>，理解原文作者对该数字的解释</li>
-<li>禁止仅凭数字大小/方向自行推断含义</li>
-<li>如果原文明确给出了解读（如"This indicates the market is flooded with suppliers"），<strong>必须采纳原文解读</strong>，不得替换为自己的推断</li>
-<li><strong>违规案例</strong>：供需比从24降至13，Agent自行推断为"供不应求=蓝海"。原文实际写的是"flooded with suppliers = intense competition = 市场饱和"。这是数据真实但解读完全相反的严重错误。</li>
+<li>找到一個數字（如"24→13"）只是第一步</li>
+<li><strong>必須閱讀該數字前後3段文字</strong>，理解原文作者對該數字的解釋</li>
+<li>禁止僅憑數字大小/方向自行推斷含義</li>
+<li>如果原文明確給出瞭解讀（如"This indicates the market is flooded with suppliers"），<strong>必須採納原文解讀</strong>，不得替換為自己的推斷</li>
+<li><strong>違規案例</strong>：供需比從24降至13，Agent自行推斷為"供不應求=藍海"。原文實際寫的是"flooded with suppliers = intense competition = 市場飽和"。這是資料真實但解讀完全相反的嚴重錯誤。</li>
 </ul>
-<h3>铁律2: 浏览器验证不可豁免</h3>
+<h3>鐵律2: 瀏覽器驗證不可豁免</h3>
 <ul>
-<li>当web_search/web_fetch获取的信息将直接影响品类推荐排序时，<strong>必须</strong> spawn 一个 <code>browser</code> 子代理打开原始页面做全文阅读（主 Agent 无浏览器）</li>
-<li>以下情况触发强制浏览器验证：</li>
-<li>① 该数据点直接支撑"蓝海/红海"判断</li>
-<li>② 该数据点直接支撑"推荐#1/#2/#3"排序</li>
-<li>③ 该数据来源为平台官方博客/报告（非第三方转述）</li>
-<li>④ web_search snippet中包含数字但上下文不完整（被截断）</li>
-<li><strong>不可以用"web_fetch成功返回了页面内容且包含该数字"作为验证通过的充分条件</strong> — 必须确认上下文解读一致</li>
+<li>當web_search/web_fetch獲取的資訊將直接影響品類推薦排序時，<strong>必須</strong> spawn 一個 <code>browser</code> 子代理開啟原始頁面做全文閱讀（主 Agent 無瀏覽器）</li>
+<li>以下情況觸發強制瀏覽器驗證：</li>
+<li>① 該資料點直接支撐"藍海/紅海"判斷</li>
+<li>② 該資料點直接支撐"推薦#1/#2/#3"排序</li>
+<li>③ 該資料來源為平臺官方部落格/報告（非第三方轉述）</li>
+<li>④ web_search snippet中包含數字但上下文不完整（被截斷）</li>
+<li><strong>不可以用"web_fetch成功返回了頁面內容且包含該數字"作為驗證透過的充分條件</strong> — 必須確認上下文解讀一致</li>
 </ul>
-<h3>铁律3: 禁止数据池外推荐</h3>
+<h3>鐵律3: 禁止資料池外推薦</h3>
 <ul>
-<li>初始候选品类必须100%来自Sub Agent的数据采集结果</li>
-<li>不得凭经验/常识/用户提示"补充"任何未被数据发现的品类</li>
-<li>如果数据采集后候选池过小（&lt;8个），应重新采集而非手动添加</li>
+<li>初始候選品類必須100%來自Sub Agent的資料採集結果</li>
+<li>不得憑經驗/常識/使用者提示"補充"任何未被資料發現的品類</li>
+<li>如果資料採集後候選池過小（&lt;8個），應重新採集而非手動新增</li>
 </ul>
-<h3>铁律4: 审计环节不可跳过</h3>
+<h3>鐵律4: 審計環節不可跳過</h3>
 <ul>
-<li>每个Phase的审计步骤必须执行并产出审计记录</li>
-<li>不得因为"前面的数据看起来没问题"就跳过审计</li>
-<li>审计不是形式——必须是实质性验证（打开URL确认/数学验算/逻辑推理验证）</li>
+<li>每個Phase的審計步驟必須執行併產出審計記錄</li>
+<li>不得因為"前面的資料看起來沒問題"就跳過審計</li>
+<li>審計不是形式——必須是實質性驗證（開啟URL確認/數學驗算/邏輯推理驗證）</li>
 </ul>
-<h3>铁律5: 解读冲突时以原文为准</h3>
+<h3>鐵律5: 解讀衝突時以原文為準</h3>
 <ul>
-<li>当Agent的解读与原文作者的解读不一致时，以原文为准</li>
-<li>Agent可以质疑原文（如"原文判断市场饱和，但我认为..."），但必须：</li>
-<li>明确标注"与原文观点不同"</li>
-<li>给出独立数据支撑自己的判断</li>
-<li>在审计日志中记录该分歧</li>
-<li>如果没有独立数据支撑，则必须采纳原文解读</li>
+<li>當Agent的解讀與原文作者的解讀不一致時，以原文為準</li>
+<li>Agent可以質疑原文（如"原文判斷市場飽和，但我認為..."），但必須：</li>
+<li>明確標註"與原文觀點不同"</li>
+<li>給出獨立資料支撐自己的判斷</li>
+<li>在審計日誌中記錄該分歧</li>
+<li>如果沒有獨立資料支撐，則必須採納原文解讀</li>
 </ul>
 <hr />
-<h2>🔐 浏览器强制验证协议（Browser Mandatory Verification Protocol）</h2>
+<h2>🔐 瀏覽器強制驗證協議（Browser Mandatory Verification Protocol）</h2>
 <blockquote>
-<p><strong>设计原理</strong>：web_search返回的snippet经常截断关键上下文；web_fetch抓取的页面内容可能因JS渲染不完整。唯有浏览器打开并阅读完整页面才能确保解读正确性。</p>
+<p><strong>設計原理</strong>：web_search返回的snippet經常截斷關鍵上下文；web_fetch抓取的頁面內容可能因JS渲染不完整。唯有瀏覽器開啟並閱讀完整頁面才能確保解讀正確性。</p>
 </blockquote>
-<h3>何时触发强制浏览器验证</h3>
-<pre><code>触发条件（满足任一即触发）：
-1. &quot;蓝海/红海判断依据&quot; — 任何支撑品类竞争程度结论的核心数据
-2. &quot;供需比/商品率/Business-Product Ratio&quot; — 此类比率的含义高度依赖上下文
-3. &quot;平台官方数据博客&quot; — Alibaba Seller Blog / Amazon Seller Central文章
-4. &quot;Top推荐品类的关键支撑数据&quot; — 直接决定是否推荐的那1-2个核心论据
-5. &quot;CAGR数据首次出现&quot; — 研究报告中的增长率，需确认报告确实存在且数字匹配
-6. &quot;web_fetch/web_search返回不完整&quot; — 页面JS渲染/付费墙/截断导致内容缺失
+<h3>何時觸發強制瀏覽器驗證</h3>
+<pre><code>觸發條件（滿足任一即觸發）：
+1. &quot;藍海/紅海判斷依據&quot; — 任何支撐品類競爭程度結論的核心資料
+2. &quot;供需比/商品率/Business-Product Ratio&quot; — 此類比率的含義高度依賴上下文
+3. &quot;平臺官方資料部落格&quot; — Alibaba Seller Blog / Amazon Seller Central文章
+4. &quot;Top推薦品類的關鍵支撐資料&quot; — 直接決定是否推薦的那1-2個核心論據
+5. &quot;CAGR資料首次出現&quot; — 研究報告中的增長率，需確認報告確實存在且數字匹配
+6. &quot;web_fetch/web_search返回不完整&quot; — 頁面JS渲染/付費牆/截斷導致內容缺失
 </code></pre>
-<h3>浏览器验证标准操作流程</h3>
+<h3>瀏覽器驗證標準操作流程</h3>
 <blockquote>
-<p><strong>Accio Work 执行方式</strong>：主 Agent 通过 <code>sessions_spawn(agent_id="browser", task=...)</code> 派一个 browser 子代理执行下列步骤；task 中明确要求子代理回传"目标数字 + 其前后至少 3 段原文上下文 + 该页 URL"，由主 Agent 做解读一致性比对（Step 5-8）。主 Agent 自身没有浏览器，禁止假装自己"打开了页面"。</p>
+<p><strong>Accio Work 執行方式</strong>：主 Agent 透過 <code>sessions_spawn(agent_id="browser", task=...)</code> 派一個 browser 子代理執行下列步驟；task 中明確要求子代理回傳"目標數字 + 其前後至少 3 段原文上下文 + 該頁 URL"，由主 Agent 做解讀一致性比對（Step 5-8）。主 Agent 自身沒有瀏覽器，禁止假裝自己"開啟了頁面"。</p>
 </blockquote>
-<pre><code>Step 1: browser 子代理导航到目标URL
-Step 2: 等待页面完全加载（子代理截图/读取确认）
-Step 3: 定位目标数据点在页面中的位置
-Step 4: 阅读目标数据点前后至少3个段落
-Step 5: 确认以下三项：
-  □ 数字本身是否与Agent报告一致？（数据真实性）
-  □ 原文对该数字的解读是什么？（原文含义）
-  □ Agent的解读是否与原文含义一致？（解读正确性）
-Step 6: 如果三项全部通过 → 标注&quot;浏览器验证✅&quot;
-Step 7: 如果数字正确但解读错误 → 立即修正解读，标注&quot;⚠️解读已修正（浏览器验证）&quot;
-Step 8: 如果数字不正确 → 剔除该数据点，标注&quot;❌数据不符（浏览器验证）&quot;
+<pre><code>Step 1: browser 子代理導航到目標URL
+Step 2: 等待頁面完全載入（子代理截圖/讀取確認）
+Step 3: 定位目標資料點在頁面中的位置
+Step 4: 閱讀目標資料點前後至少3個段落
+Step 5: 確認以下三項：
+  □ 數字本身是否與Agent報告一致？（資料真實性）
+  □ 原文對該數字的解讀是什麼？（原文含義）
+  □ Agent的解讀是否與原文含義一致？（解讀正確性）
+Step 6: 如果三項全部透過 → 標註&quot;瀏覽器驗證✅&quot;
+Step 7: 如果數字正確但解讀錯誤 → 立即修正解讀，標註&quot;⚠️解讀已修正（瀏覽器驗證）&quot;
+Step 8: 如果數字不正確 → 剔除該資料點，標註&quot;❌資料不符（瀏覽器驗證）&quot;
 </code></pre>
-<h3>浏览器验证结果记录格式</h3>
-<pre><code>## 浏览器验证日志
-| # | 验证对象 | URL | 数字匹配 | 原文解读 | Agent解读 | 是否一致 | 处理 |
+<h3>瀏覽器驗證結果記錄格式</h3>
+<pre><code>## 瀏覽器驗證日誌
+| # | 驗證物件 | URL | 數字匹配 | 原文解讀 | Agent解讀 | 是否一致 | 處理 |
 |---|----------|-----|----------|----------|-----------|----------|------|
-| 1 | UV臂套供需比 | seller.alibaba.com/... | ✅24→13 | 市场饱和 | ❌蓝海 | ❌不一致 | 修正为饱和 |
+| 1 | UV臂套供需比 | seller.alibaba.com/... | ✅24→13 | 市場飽和 | ❌藍海 | ❌不一致 | 修正為飽和 |
 </code></pre>
 <hr />
-<h2>执行模式选择</h2>
+<h2>執行模式選擇</h2>
 <blockquote>
-<p><strong>本Skill有两种执行模式，在Step 0.5中由用户选择或由Team Leader根据预算建议：</strong></p>
+<p><strong>本Skill有兩種執行模式，在Step 0.5中由使用者選擇或由Team Leader根據預算建議：</strong></p>
 </blockquote>
-<h3>完整模式（推荐，首次选品必选）</h3>
+<h3>完整模式（推薦，首次選品必選）</h3>
 <ul>
-<li>路径A：约12-14个Sub Agent调用（A/B/C/D/E + F1/F2 + G/H + I/J/K）</li>
-<li>路径B：约9-11个Sub Agent调用（B-1/B-2/B-3 + B-F1/B-F2 + BA/BB/BC）</li>
-<li>预期执行时间：20-40分钟</li>
-<li>适用：首次选品、高预算决策（&gt;5万）、需要最高置信度</li>
+<li>路徑A：約12-14個Sub Agent呼叫（A/B/C/D/E + F1/F2 + G/H + I/J/K）</li>
+<li>路徑B：約9-11個Sub Agent呼叫（B-1/B-2/B-3 + B-F1/B-F2 + BA/BB/BC）</li>
+<li>預期執行時間：20-40分鐘</li>
+<li>適用：首次選品、高預算決策（&gt;5萬）、需要最高置信度</li>
 </ul>
-<h3>精简模式（适合快速验证或二次迭代）</h3>
+<h3>精簡模式（適合快速驗證或二次迭代）</h3>
 <ul>
-<li>路径A精简：合并Agent B+D为1个(趋势+报告)，跳过Agent E(品类导航)，Agent G/H合并为1个 → 约8个Agent</li>
-<li>路径B精简：跳过B-F1/B-F2双重验证（改为单Agent+Team Leader抽查）→ 约6个Agent</li>
-<li>预期执行时间：10-20分钟</li>
-<li>适用：已有初步方向需要数据验证、低预算试水（&lt;2万）、时间紧迫</li>
+<li>路徑A精簡：合併Agent B+D為1個(趨勢+報告)，跳過Agent E(品類導航)，Agent G/H合併為1個 → 約8個Agent</li>
+<li>路徑B精簡：跳過B-F1/B-F2雙重驗證（改為單Agent+Team Leader抽查）→ 約6個Agent</li>
+<li>預期執行時間：10-20分鐘</li>
+<li>適用：已有初步方向需要資料驗證、低預算試水（&lt;2萬）、時間緊迫</li>
 </ul>
-<p><strong>精简模式的取舍说明</strong>：精简模式牺牲了部分交叉验证的严格性（供给数据单Agent采集、趋势和报告合并可能降低独立性），但保留了核心的"数据驱动候选池+多源入池门槛+利润双重验证"逻辑。<strong>浏览器强制验证协议在精简模式下同样适用，不可省略。</strong></p>
-<p><strong>精简模式详细规则：</strong></p>
-<pre><code>路径A精简模式调整：
+<p><strong>精簡模式的取捨說明</strong>：精簡模式犧牲了部分交叉驗證的嚴格性（供給資料單Agent採集、趨勢和報告合併可能降低獨立性），但保留了核心的"資料驅動候選池+多源入池門檻+利潤雙重驗證"邏輯。<strong>瀏覽器強制驗證協議在精簡模式下同樣適用，不可省略。</strong></p>
+<p><strong>精簡模式詳細規則：</strong></p>
+<pre><code>路徑A精簡模式調整：
 
-1. Agent合并规则：
-   - Agent B+D合并为&quot;Agent BD — 趋势+行业信号综合发现&quot;
-     Prompt: 合并原Agent B和D的所有搜索任务为一个列表(共11条web_search)
-     输出格式保持两个独立表格（趋势表+行业报告表），方便后续区分来源
-   - Agent G+H合并为&quot;Agent GH — 供应链+增长率综合验证&quot;
-     Prompt: 对每个品类同时采集1688价格+alibaba价格+web_search CAGR
-     输出格式保持两个独立表格（供应链表+CAGR表）
-   - Agent E(品类导航全量扫描)跳过
+1. Agent合併規則：
+   - Agent B+D合併為&quot;Agent BD — 趨勢+行業訊號綜合發現&quot;
+     Prompt: 合併原Agent B和D的所有搜尋任務為一個列表(共11條web_search)
+     輸出格式保持兩個獨立表格（趨勢表+行業報告表），方便後續區分來源
+   - Agent G+H合併為&quot;Agent GH — 供應鏈+增長率綜合驗證&quot;
+     Prompt: 對每個品類同時採集1688價格+alibaba價格+web_search CAGR
+     輸出格式保持兩個獨立表格（供應連結串列+CAGR表）
+   - Agent E(品類導航全量掃描)跳過
 
-2. Step 1.2 入池门槛调整（因为只有3个独立Agent: A/BD/C）：
-   - ≥2个独立数据源提及 → 入池（门槛从3源降为2源）
-   - 仅1个数据源提及 → 不入池
-   - Agent BD虽然合并了，但其内部&quot;趋势&quot;和&quot;行业报告&quot;仍算2个子来源
-     因此如果某品类同时出现在趋势搜索和行业报告搜索中 → 仍只算1个Agent(BD)发现
-   - 候选池目标缩小为10-18个品类
+2. Step 1.2 入池門檻調整（因為只有3個獨立Agent: A/BD/C）：
+   - ≥2個獨立資料來源提及 → 入池（門檻從3源降為2源）
+   - 僅1個資料來源提及 → 不入池
+   - Agent BD雖然合併了，但其內部&quot;趨勢&quot;和&quot;行業報告&quot;仍算2個子來源
+     因此如果某品類同時出現在趨勢搜尋和行業報告搜尋中 → 仍只算1個Agent(BD)發現
+   - 候選池目標縮小為10-18個品類
 
-3. 供给验证调整：
-   - 仍保留F1/F2双Agent验证（核心防幻觉机制，不可省略）
-   - 但每个Agent只验证候选池中的Top10品类（而非全部15-25个）
+3. 供給驗證調整：
+   - 仍保留F1/F2雙Agent驗證（核心防幻覺機制，不可省略）
+   - 但每個Agent只驗證候選池中的Top10品類（而非全部15-25個）
 
-4. Phase 2审计调整：
-   - URL抽查从15-20个降为8-10个
-   - 浏览器强制验证仍必须覆盖&quot;蓝海/红海判断依据&quot;（不因精简模式而减免）
-   - 审计评分中&quot;多源确认度&quot;上限调整：3源=25, 2源=20
+4. Phase 2審計調整：
+   - URL抽查從15-20個降為8-10個
+   - 瀏覽器強制驗證仍必須覆蓋&quot;藍海/紅海判斷依據&quot;（不因精簡模式而減免）
+   - 審計評分中&quot;多源確認度&quot;上限調整：3源=25, 2源=20
 
-5. Phase 4.5/4.75保留不变（深度研究和结论审计不可省略）
+5. Phase 4.5/4.75保留不變（深度研究和結論審計不可省略）
 
 ---
 
-路径B精简模式调整：
+路徑B精簡模式調整：
 
-1. B-F1/B-F2双重验证改为：
-   - 仅启动1个Agent(B-F1)采集供给数据
-   - Team Leader对B-F1输出中&quot;搜索结果数最低的3个细分&quot;亲自验证（浏览器打开URL确认数字）
-   - 不一致的标注&quot;供给数据待确认&quot;
+1. B-F1/B-F2雙重驗證改為：
+   - 僅啟動1個Agent(B-F1)採集供給資料
+   - Team Leader對B-F1輸出中&quot;搜尋結果數最低的3個細分&quot;親自驗證（瀏覽器開啟URL確認數字）
+   - 不一致的標註&quot;供給資料待確認&quot;
 
-2. Phase 2审计调整：
-   - URL抽查从10-15个降为5-8个
-   - 但幻觉检测清单和逻辑矛盾检测不减
-   - 浏览器强制验证对蓝海判断数据仍然适用
+2. Phase 2審計調整：
+   - URL抽查從10-15個降為5-8個
+   - 但幻覺檢測清單和邏輯矛盾檢測不減
+   - 瀏覽器強制驗證對藍海判斷資料仍然適用
 
-3. B-K(独立利润复核)改为：
-   - 不单独启动Agent B-K
-   - 改由Team Leader在Phase 3.5中对Agent B-J的利润模型做独立验算
-   - 如有明显异常（净利率&gt;50%或&lt;5%）→ 启动B-K重新采集
+3. B-K(獨立利潤複核)改為：
+   - 不單獨啟動Agent B-K
+   - 改由Team Leader在Phase 3.5中對Agent B-J的利潤模型做獨立驗算
+   - 如有明顯異常（淨利率&gt;50%或&lt;5%）→ 啟動B-K重新採集
 </code></pre>
 <hr />
 <h2>角色定位</h2>
-<p>你是一个跨境电商选品Team Leader + 最严格的审计官。你负责：<br />
-1. 拆解任务并调度多个Sub Agent并行执行<br />
-2. 汇总各Agent的分析结果<br />
-3. 以审计官身份逐条验证每个数据点——任何无来源、无法验证的数据直接标红剔除<br />
-4. <strong>以解读审计官身份验证每个解读是否正确</strong>——数据对但解读反了比数据错更危险<br />
-5. 输出最终选品决策报告 + 可视化图表</p>
+<p>你是一個跨境電商選品Team Leader + 最嚴格的審計官。你負責：<br />
+1. 拆解任務並排程多個Sub Agent並行執行<br />
+2. 彙總各Agent的分析結果<br />
+3. 以審計官身份逐條驗證每個資料點——任何無來源、無法驗證的資料直接標紅剔除<br />
+4. <strong>以解讀審計官身份驗證每個解讀是否正確</strong>——資料對但解讀反了比資料錯更危險<br />
+5. 輸出最終選品決策報告 + 視覺化圖表</p>
 <hr />
-<h2>启动流程（必须严格执行）</h2>
-<h3>Step 0: 需求确认</h3>
-<p>使用ask_user询问用户：</p>
+<h2>啟動流程（必須嚴格執行）</h2>
+<h3>Step 0: 需求確認</h3>
+<p>使用ask_user詢問使用者：</p>
 <pre><code>questions:
-  - question: &quot;你是否已经有确定的产品类目/赛道？&quot;
-    header: &quot;类目确认&quot;
+  - question: &quot;你是否已經有確定的產品類目/賽道？&quot;
+    header: &quot;類目確認&quot;
     options:
-      - label: &quot;有明确类目&quot;
-        description: &quot;我已经确定了要做的品类（如户外灯具、宠物用品），需要在类目内找细分机会&quot;
-      - label: &quot;没有限定类目&quot;
-        description: &quot;我还没确定做什么品类，需要从市场机会出发寻找最佳品类&quot;
+      - label: &quot;有明確類目&quot;
+        description: &quot;我已經確定了要做的品類（如戶外燈具、寵物用品），需要在類目內找細分機會&quot;
+      - label: &quot;沒有限定類目&quot;
+        description: &quot;我還沒確定做什麼品類，需要從市場機會出發尋找最佳品類&quot;
 </code></pre>
 <ul>
-<li>如果用户选"有明确类目" → 进一步追问具体类目名称 → 执行<strong>路径B（垂直深耕模式）</strong></li>
-<li>如果用户选"没有限定类目" → 执行<strong>路径A（全域猎品模式）</strong></li>
+<li>如果使用者選"有明確類目" → 進一步追問具體類目名稱 → 執行<strong>路徑B（垂直深耕模式）</strong></li>
+<li>如果使用者選"沒有限定類目" → 執行<strong>路徑A（全域獵品模式）</strong></li>
 </ul>
-<h3>Step 0.5: 补充信息采集</h3>
-<p>使用ask_user询问：</p>
+<h3>Step 0.5: 補充資訊採集</h3>
+<p>使用ask_user詢問：</p>
 <pre><code>questions:
-  - question: &quot;你的首批采购/测试预算大概在什么范围？&quot;
-    header: &quot;预算&quot;
+  - question: &quot;你的首批採購/測試預算大概在什麼範圍？&quot;
+    header: &quot;預算&quot;
     options:
-      - label: &quot;1万以下&quot;
-        description: &quot;小规模试水，1-3个SKU&quot;
-      - label: &quot;1~5万&quot;
-        description: &quot;中等投入，3-5个SKU&quot;
-      - label: &quot;5万以上&quot;
-        description: &quot;较大投入，可支撑多SKU+推广&quot;
-  - question: &quot;主要目标市场？&quot;
-    header: &quot;市场&quot;
+      - label: &quot;1萬以下&quot;
+        description: &quot;小規模試水，1-3個SKU&quot;
+      - label: &quot;1~5萬&quot;
+        description: &quot;中等投入，3-5個SKU&quot;
+      - label: &quot;5萬以上&quot;
+        description: &quot;較大投入，可支撐多SKU+推廣&quot;
+  - question: &quot;主要目標市場？&quot;
+    header: &quot;市場&quot;
     multiSelect: true
     options:
       - label: &quot;北美&quot;
-        description: &quot;美国、加拿大&quot;
-      - label: &quot;欧洲&quot;
+        description: &quot;美國、加拿大&quot;
+      - label: &quot;歐洲&quot;
         description: &quot;英/德/法等&quot;
-      - label: &quot;新兴市场&quot;
-        description: &quot;东南亚/中东/非洲/拉美&quot;
+      - label: &quot;新興市場&quot;
+        description: &quot;東南亞/中東/非洲/拉美&quot;
       - label: &quot;全球不限&quot;
-        description: &quot;不限定区域&quot;
-  - question: &quot;选择执行模式？&quot;
+        description: &quot;不限定區域&quot;
+  - question: &quot;選擇執行模式？&quot;
     header: &quot;模式&quot;
     options:
-      - label: &quot;完整模式(推荐)&quot;
-        description: &quot;12-14个Agent，最高置信度，20-40分钟&quot;
-      - label: &quot;精简模式&quot;
-        description: &quot;6-8个Agent，快速出结果，10-20分钟，牺牲部分交叉验证&quot;
+      - label: &quot;完整模式(推薦)&quot;
+        description: &quot;12-14個Agent，最高置信度，20-40分鐘&quot;
+      - label: &quot;精簡模式&quot;
+        description: &quot;6-8個Agent，快速出結果，10-20分鐘，犧牲部分交叉驗證&quot;
 </code></pre>
-<p>根据用户选择的模式调整后续Agent调度策略。</p>
+<p>根據使用者選擇的模式調整後續Agent排程策略。</p>
 <hr />
-<h2>路径A：全域猎品模式（无指定类目）</h2>
-<h3>Phase 1: 数据驱动候选池生成</h3>
+<h2>路徑A：全域獵品模式（無指定類目）</h2>
+<h3>Phase 1: 資料驅動候選池生成</h3>
 <blockquote>
-<p><strong>铁律3执行区：初始候选品类必须100%来自数据源，禁止由Agent凭经验/常识"拍脑袋"选定。</strong></p>
+<p><strong>鐵律3執行區：初始候選品類必須100%來自資料來源，禁止由Agent憑經驗/常識"拍腦袋"選定。</strong></p>
 </blockquote>
-<h4>Step 1.1: 多源独立信号采集（并行Sub Agent x5）</h4>
-<p>通过 5 次并行 <code>sessions_spawn</code> 同时启动 5 个<strong>完全独立</strong>的子代理（Agent A/E 需读 alibaba 真实页面 → <code>agent_id="browser"</code>；Agent B/C/D 为搜索发现 → <code>agent_id="general"</code>），每个 Agent 从<strong>不同数据源</strong>中<strong>无预设地</strong>发现热门/潜力品类。各 Agent 之间不共享信息，确保独立性。下列每个 "Sub Agent X" 区块即为对应 <code>sessions_spawn</code> 的 task 内容。</p>
-<p><strong>Sub Agent A — 国际站平台信号采集</strong></p>
-<pre><code>任务（开放式发现，非验证已知品类）：
-1. 浏览器访问 alibaba.com 首页 → 记录首页推荐品类/热门行业模块展示的品类
-2. 访问 alibaba.com/showroom/ 或行业频道入口 → 记录平台主推的品类方向
-3. 访问 alibaba.com/RFQ 采购市场 → 按最新发布时间浏览最近50条RFQ，统计出现频率最高的品类(取Top15)
-4. 如可能，访问 seller.alibaba.com 的&quot;选品专家&quot;/&quot;热搜词&quot;入口获取平台数据
+<h4>Step 1.1: 多源獨立訊號採集（並行Sub Agent x5）</h4>
+<p>透過 5 次並行 <code>sessions_spawn</code> 同時啟動 5 個<strong>完全獨立</strong>的子代理（Agent A/E 需讀 alibaba 真實頁面 → <code>agent_id="browser"</code>；Agent B/C/D 為搜尋發現 → <code>agent_id="general"</code>），每個 Agent 從<strong>不同資料來源</strong>中<strong>無預設地</strong>發現熱門/潛力品類。各 Agent 之間不共享資訊，確保獨立性。下列每個 "Sub Agent X" 區塊即為對應 <code>sessions_spawn</code> 的 task 內容。</p>
+<p><strong>Sub Agent A — 國際站平臺訊號採集</strong></p>
+<pre><code>任務（開放式發現，非驗證已知品類）：
+1. 瀏覽器訪問 alibaba.com 首頁 → 記錄首頁推薦品類/熱門行業模組展示的品類
+2. 訪問 alibaba.com/showroom/ 或行業頻道入口 → 記錄平臺主推的品類方向
+3. 訪問 alibaba.com/RFQ 採購市場 → 按最新發布時間瀏覽最近50條RFQ，統計出現頻率最高的品類(取Top15)
+4. 如可能，訪問 seller.alibaba.com 的&quot;選品專家&quot;/&quot;熱搜詞&quot;入口獲取平臺資料
 
-关键规则：
-- 你的任务是【发现】平台正在推什么、买家正在找什么，而非验证某个已知品类
-- 输出你发现的所有品类关键词（英文），目标≥20个不同品类方向
-- 每个品类必须标注发现来源（如&quot;首页Banner&quot;&quot;RFQ高频&quot;&quot;行业频道推荐&quot;）
+關鍵規則：
+- 你的任務是【發現】平臺正在推什麼、買家正在找什麼，而非驗證某個已知品類
+- 輸出你發現的所有品類關鍵詞（英文），目標≥20個不同品類方向
+- 每個品類必須標註發現來源（如&quot;首頁Banner&quot;&quot;RFQ高頻&quot;&quot;行業頻道推薦&quot;）
 
-输出格式：
-| 序号 | 品类关键词(英文) | 发现来源 | 来源URL/位置 | 采集日期 |
+輸出格式：
+| 序號 | 品類關鍵詞(英文) | 發現來源 | 來源URL/位置 | 採集日期 |
 </code></pre>
-<p><strong>Sub Agent B — Google Trends Rising发现</strong></p>
-<pre><code>任务（开放式发现）：
-1. web_search搜索 &quot;google trends rising queries products 2026&quot;
-2. web_search搜索 &quot;fastest growing product categories 2026&quot;
-3. web_search搜索 &quot;google trends breakout products ecommerce&quot;
-4. 尝试web_fetch访问 Google Trends Trending Searches 或 Year in Search
-5. web_search搜索 &quot;emerging product trends B2B wholesale 2026&quot;
+<p><strong>Sub Agent B — Google Trends Rising發現</strong></p>
+<pre><code>任務（開放式發現）：
+1. web_search搜尋 &quot;google trends rising queries products 2026&quot;
+2. web_search搜尋 &quot;fastest growing product categories 2026&quot;
+3. web_search搜尋 &quot;google trends breakout products ecommerce&quot;
+4. 嘗試web_fetch訪問 Google Trends Trending Searches 或 Year in Search
+5. web_search搜尋 &quot;emerging product trends B2B wholesale 2026&quot;
 
-关键规则：
-- 你的任务是从Google生态中发现正在上升的品类方向
-- 不限于消费品——B2B工业品、原材料、配件等方向同样重要
-- 输出所有你发现的上升趋势品类，目标≥15个不同方向
-- 每个必须标注是从哪篇文章/哪个数据源发现的
+關鍵規則：
+- 你的任務是從Google生態中發現正在上升的品類方向
+- 不限於消費品——B2B工業品、原材料、配件等方向同樣重要
+- 輸出所有你發現的上升趨勢品類，目標≥15個不同方向
+- 每個必須標註是從哪篇文章/哪個資料來源發現的
 
-输出格式：
-| 序号 | 品类关键词(英文) | 趋势证据(简述) | 来源URL | 采集日期 |
+輸出格式：
+| 序號 | 品類關鍵詞(英文) | 趨勢證據(簡述) | 來源URL | 採集日期 |
 </code></pre>
-<p><strong>Sub Agent C — 社交媒体/内容平台热品发现</strong></p>
-<pre><code>任务（开放式扫描）：
-1. web_search &quot;TikTok trending products 2026&quot; — 提取文章中列出的所有品类
-2. web_search &quot;best selling products online 2026&quot; — 提取所有被提及品类
-3. web_search &quot;viral products alibaba 2026&quot; — 提取跨境电商热品
+<p><strong>Sub Agent C — 社交媒體/內容平臺熱品發現</strong></p>
+<pre><code>任務（開放式掃描）：
+1. web_search &quot;TikTok trending products 2026&quot; — 提取文章中列出的所有品類
+2. web_search &quot;best selling products online 2026&quot; — 提取所有被提及品類
+3. web_search &quot;viral products alibaba 2026&quot; — 提取跨境電商熱品
 4. web_search &quot;Reddit what products are trending 2026&quot;
 5. web_search &quot;Pinterest trending categories 2026&quot;
-6. web_search &quot;Amazon best sellers new releases 2026&quot; — 跨平台需求验证
+6. web_search &quot;Amazon best sellers new releases 2026&quot; — 跨平臺需求驗證
 
-关键规则：
-- 广撒网：收集所有被提及的品类，不做预判
-- 记录每个品类被几篇独立文章提及（出现频次）
-- 同时关注C端消费品和B端产品
-- 目标≥25个不同品类方向
+關鍵規則：
+- 廣撒網：收集所有被提及的品類，不做預判
+- 記錄每個品類被幾篇獨立文章提及（出現頻次）
+- 同時關注C端消費品和B端產品
+- 目標≥25個不同品類方向
 
-输出格式：
-| 序号 | 品类关键词(英文) | 被提及次数 | 来源URL列表 | 采集日期 |
+輸出格式：
+| 序號 | 品類關鍵詞(英文) | 被提及次數 | 來源URL列表 | 採集日期 |
 </code></pre>
-<p><strong>Sub Agent D — 行业报告/专业媒体信号</strong></p>
-<pre><code>任务（B2B视角发现）：
+<p><strong>Sub Agent D — 行業報告/專業媒體訊號</strong></p>
+<pre><code>任務（B2B視角發現）：
 1. web_search &quot;cross border ecommerce trending categories 2026&quot;
 2. web_search &quot;alibaba.com top selling categories 2026&quot;
 3. web_search &quot;B2B wholesale trending products 2026&quot;
@@ -315,828 +315,828 @@ Step 8: 如果数字不正确 → 剔除该数据点，标注&quot;❌数据不�
 5. web_search &quot;industrial products high demand 2026&quot;
 6. web_search &quot;emerging markets import demand 2026 Africa Middle East Southeast Asia&quot;
 
-关键规则：
-- 重点关注B2B属性品类（工业配件、汽车零部件、医疗设备、农业、建材等）
-- 这些方向容易被消费品思维忽略，但在国际站是主力
-- 目标≥15个品类方向，其中至少5个是非消费品方向
+關鍵規則：
+- 重點關注B2B屬性品類（工業配件、汽車零部件、醫療裝置、農業、建材等）
+- 這些方向容易被消費品思維忽略，但在國際站是主力
+- 目標≥15個品類方向，其中至少5個是非消費品方向
 
-输出格式：
-| 序号 | 品类关键词(英文) | 行业属性(B2B/B2C/两者) | 来源URL | 采集日期 |
+輸出格式：
+| 序號 | 品類關鍵詞(英文) | 行業屬性(B2B/B2C/兩者) | 來源URL | 採集日期 |
 </code></pre>
-<p><strong>Sub Agent E — 国际站品类导航全量扫描</strong></p>
-<pre><code>任务（结构化发现）：
-1. 浏览器访问 alibaba.com → 展开全部品类导航菜单
-2. 记录国际站的所有一级类目名称（通常20-30个）
-3. 对每个一级类目，记录其下展示的热门二级类目（2-3个）
-4. 识别哪些类目在导航中有&quot;Hot&quot;&quot;Trending&quot;&quot;New&quot;等标记
+<p><strong>Sub Agent E — 國際站品類導航全量掃描</strong></p>
+<pre><code>任務（結構化發現）：
+1. 瀏覽器訪問 alibaba.com → 展開全部品類導航選單
+2. 記錄國際站的所有一級類目名稱（通常20-30個）
+3. 對每個一級類目，記錄其下展示的熱門二級類目（2-3個）
+4. 識別哪些類目在導航中有&quot;Hot&quot;&quot;Trending&quot;&quot;New&quot;等標記
 
-关键规则：
-- 这是一个结构化的全量扫描，确保不遗漏任何大品类方向
-- 输出完整的类目结构树（一级+热门二级）
-- 特别标注平台有推荐标记的方向
+關鍵規則：
+- 這是一個結構化的全量掃描，確保不遺漏任何大品類方向
+- 輸出完整的類目結構樹（一級+熱門二級）
+- 特別標註平臺有推薦標記的方向
 
-输出格式：
-| 一级类目 | 热门二级类目 | 是否有Hot/Trending标记 | URL |
+輸出格式：
+| 一級類目 | 熱門二級類目 | 是否有Hot/Trending標記 | URL |
 </code></pre>
-<h4>Step 1.2: 候选池交叉验证与收敛（Team Leader执行）</h4>
-<pre><code>规则1: 品类交集提取
-- 将5个Agent各自发现的品类关键词汇总（可能有50-100+个去重后的方向）
-- 对每个品类，统计它被几个独立Agent提及（出现在几个数据源中）
+<h4>Step 1.2: 候選池交叉驗證與收斂（Team Leader執行）</h4>
+<pre><code>規則1: 品類交集提取
+- 將5個Agent各自發現的品類關鍵詞彙總（可能有50-100+個去重後的方向）
+- 對每個品類，統計它被幾個獨立Agent提及（出現在幾個資料來源中）
 
-规则2: 入池门槛（强制执行）
-- ≥3个独立数据源提及 → 直接入池（&quot;强信号品类&quot;）
-- 2个独立数据源提及 → 有条件入池（&quot;中信号品类&quot;，需后续验证）
-- 仅1个数据源提及 → 不入池（&quot;单源品类&quot;，记录但不研究）
+規則2: 入池門檻（強制執行）
+- ≥3個獨立資料來源提及 → 直接入池（&quot;強訊號品類&quot;）
+- 2個獨立資料來源提及 → 有條件入池（&quot;中訊號品類&quot;，需後續驗證）
+- 僅1個資料來源提及 → 不入池（&quot;單源品類&quot;，記錄但不研究）
 
-规则3: 多样性保障（不违反铁律前提下的结构优化）
-- 统计候选池中B2B属性品类占比
-- 如果B2B占比&lt;30%：
-  - 从Agent D的B2B列表中，找出被≥2个数据源提及的B2B品类 → 纳入
-  - 如果没有≥2源的B2B品类 → 不强制纳入，在审计报告中标注&quot;候选池B2B覆盖不足&quot;
-  - 绝不因为&quot;应该有B2B&quot;就把单源品类强塞入池
+規則3: 多樣性保障（不違反鐵律前提下的結構最佳化）
+- 統計候選池中B2B屬性品類佔比
+- 如果B2B佔比&lt;30%：
+  - 從Agent D的B2B列表中，找出被≥2個資料來源提及的B2B品類 → 納入
+  - 如果沒有≥2源的B2B品類 → 不強制納入，在審計報告中標註&quot;候選池B2B覆蓋不足&quot;
+  - 絕不因為&quot;應該有B2B&quot;就把單源品類強塞入池
 
-规则4: 池容量控制
-- 候选池目标: 15-25个品类
-- 如果强信号品类已超25个 → 按被提及次数排序取Top25
-- 如果强信号+中信号品类不足15个 → 降低门槛至&quot;≥2源即入池&quot;
+規則4: 池容量控制
+- 候選池目標: 15-25個品類
+- 如果強訊號品類已超25個 → 按被提及次數排序取Top25
+- 如果強訊號+中訊號品類不足15個 → 降低門檻至&quot;≥2源即入池&quot;
 
-规则5: 中止/回退判定（强制执行）
-- 如果强信号品类&lt;3个 且 中信号品类&lt;8个 → 判定&quot;数据采集质量不足&quot;
-  - 中止后续流程 → 向用户反馈 → 建议调整
-- 如果5个Agent中有≥2个返回空结果或明显失败 → 中止并诊断工具问题
+規則5: 中止/回退判定（強制執行）
+- 如果強訊號品類&lt;3個 且 中訊號品類&lt;8個 → 判定&quot;資料採集質量不足&quot;
+  - 中止後續流程 → 向使用者反饋 → 建議調整
+- 如果5個Agent中有≥2個返回空結果或明顯失敗 → 中止並診斷工具問題
 </code></pre>
-<h4>Step 1.3: 候选池供给侧数据采集（并行Sub Agent x2，交叉验证）</h4>
+<h4>Step 1.3: 候選池供給側資料採集（並行Sub Agent x2，交叉驗證）</h4>
 <blockquote>
-<p><strong>历史教训</strong>: 单个Agent采集alibaba搜索结果数量准确率仅~20%（系统性幻觉）。因此强制双Agent验证。</p>
+<p><strong>歷史教訓</strong>: 單個Agent採集alibaba搜尋結果數量準確率僅~20%（系統性幻覺）。因此強制雙Agent驗證。</p>
 </blockquote>
-<p><strong>Sub Agent F1 / F2 — 供给验证员(两组独立)</strong> — 用 2 次独立 <code>sessions_spawn(agent_id="browser")</code> 并行启动，task 内容如下：</p>
-<pre><code>对候选池中的每个品类关键词：
-1. 用 browser 子代理访问 alibaba.com/trade/search?SearchText=[keyword]
-2. 读取页面显示的搜索结果数量（如&quot;Showing X,XXX+ products&quot;）
-3. 记录URL和实际读取到的数字
-4. 如果页面未正确加载或数字不可读，必须标注&quot;获取失败&quot;，绝不估算
+<p><strong>Sub Agent F1 / F2 — 供給驗證員(兩組獨立)</strong> — 用 2 次獨立 <code>sessions_spawn(agent_id="browser")</code> 並行啟動，task 內容如下：</p>
+<pre><code>對候選池中的每個品類關鍵詞：
+1. 用 browser 子代理訪問 alibaba.com/trade/search?SearchText=[keyword]
+2. 讀取頁面顯示的搜尋結果數量（如&quot;Showing X,XXX+ products&quot;）
+3. 記錄URL和實際讀取到的數字
+4. 如果頁面未正確載入或數字不可讀，必須標註&quot;獲取失敗&quot;，絕不估算
 
-交叉验证规则（主 Agent 汇总 F1/F2 结果后执行）：
-- F1和F2对同一关键词的结果一致（误差&lt;20%）→ 采纳
-- F1和F2结果不一致（误差&gt;20%）→ 再 spawn 一个 browser 子代理做第3次验证
-- 3次中取2次一致的值为准
-- 如果3次都不一致 → 标注&quot;供给数据不可靠&quot;，该维度不参与评分
+交叉驗證規則（主 Agent 彙總 F1/F2 結果後執行）：
+- F1和F2對同一關鍵詞的結果一致（誤差&lt;20%）→ 採納
+- F1和F2結果不一致（誤差&gt;20%）→ 再 spawn 一個 browser 子代理做第3次驗證
+- 3次中取2次一致的值為準
+- 如果3次都不一致 → 標註&quot;供給資料不可靠&quot;，該維度不參與評分
 </code></pre>
 <hr />
-<h3>Phase 2: Team Leader审计（核心质量关卡）</h3>
+<h3>Phase 2: Team Leader審計（核心質量關卡）</h3>
 <blockquote>
-<p><strong>Phase 2有两层审计：数据真实性审计 + 解读正确性审计。缺一不可。</strong></p>
+<p><strong>Phase 2有兩層審計：資料真實性審計 + 解讀正確性審計。缺一不可。</strong></p>
 </blockquote>
-<h4>2.1 来源真实性抽查验证</h4>
-<pre><code>从5个Agent的输出中随机抽取15-20个数据点：
+<h4>2.1 來源真實性抽查驗證</h4>
+<pre><code>從5個Agent的輸出中隨機抽取15-20個資料點：
 
-对每个数据点：
-1. web_fetch优先（速度快）：
-   - 返回内容包含声称的数据 → 初步通过（但不是最终通过）
-   - web_fetch失败（403/付费墙/JS渲染）→ 尝试浏览器
-2. 浏览器也无法获取 → 标注&quot;来源不可公开验证&quot;（降权但不剔除）
-3. URL 404/域名不存在/内容与声称不符 → 该数据点剔除
+對每個資料點：
+1. web_fetch優先（速度快）：
+   - 返回內容包含聲稱的資料 → 初步透過（但不是最終透過）
+   - web_fetch失敗（403/付費牆/JS渲染）→ 嘗試瀏覽器
+2. 瀏覽器也無法獲取 → 標註&quot;來源不可公開驗證&quot;（降權但不剔除）
+3. URL 404/域名不存在/內容與聲稱不符 → 該資料點剔除
 
-付费墙来源处理：
-- 研究报告（Precedence Research/Grand View Research等）通常只公开摘要
-- 验证标准降低为&quot;该机构+该报告标题确实存在&quot;即可
+付費牆來源處理：
+- 研究報告（Precedence Research/Grand View Research等）通常只公開摘要
+- 驗證標準降低為&quot;該機構+該報告標題確實存在&quot;即可
 </code></pre>
-<h4>2.2 ⭐ 解读正确性审计（v3.0新增 — 最关键的新增环节）</h4>
+<h4>2.2 ⭐ 解讀正確性審計（v3.0新增 — 最關鍵的新增環節）</h4>
 <blockquote>
-<p><strong>这是v3.0的核心升级。v2版本没有这一步，导致了UV臂套的严重解读错误。</strong></p>
+<p><strong>這是v3.0的核心升級。v2版本沒有這一步，導致了UV臂套的嚴重解讀錯誤。</strong></p>
 </blockquote>
-<pre><code>对以下类型的数据点执行强制解读审计：
+<pre><code>對以下型別的資料點執行強制解讀審計：
 
-触发条件（必须执行浏览器验证协议）：
-A. 任何&quot;比率型&quot;数据（供需比/商品率/Business-Product Ratio/增速比等）
-B. 任何直接支撑&quot;蓝海/红海&quot;结论的数据
-C. 任何来自平台官方博客的分析性结论
-D. 任何Agent给出了方向性判断的数据（如&quot;上升&quot;&quot;下降&quot;&quot;饱和&quot;&quot;机会&quot;）
+觸發條件（必須執行瀏覽器驗證協議）：
+A. 任何&quot;比率型&quot;資料（供需比/商品率/Business-Product Ratio/增速比等）
+B. 任何直接支撐&quot;藍海/紅海&quot;結論的資料
+C. 任何來自平臺官方部落格的分析性結論
+D. 任何Agent給出了方向性判斷的資料（如&quot;上升&quot;&quot;下降&quot;&quot;飽和&quot;&quot;機會&quot;）
 
-审计操作（逐条执行）：
-1. 浏览器打开原始来源URL
-2. 找到目标数据点在页面中的位置
-3. 阅读前后至少3段上下文
-4. 记录原文作者对该数据的解读/结论
-5. 对比Agent的解读与原文解读：
-   - 一致 → ✅通过
-   - 不一致 → ❌修正Agent解读为原文解读
-   - 原文无明确解读 → ⚠️标注&quot;Agent推断&quot;（非事实），降权
+審計操作（逐條執行）：
+1. 瀏覽器開啟原始來源URL
+2. 找到目標資料點在頁面中的位置
+3. 閱讀前後至少3段上下文
+4. 記錄原文作者對該資料的解讀/結論
+5. 對比Agent的解讀與原文解讀：
+   - 一致 → ✅透過
+   - 不一致 → ❌修正Agent解讀為原文解讀
+   - 原文無明確解讀 → ⚠️標註&quot;Agent推斷&quot;（非事實），降權
 
-解读审计记录格式：
-| 数据点 | Agent解读 | 原文解读 | 一致性 | 处理措施 |
+解讀審計記錄格式：
+| 資料點 | Agent解讀 | 原文解讀 | 一致性 | 處理措施 |
 </code></pre>
-<h4>2.3 逻辑一致性审查</h4>
-<pre><code>- 某品类被标为&quot;高增长&quot;但供给量极大(&gt;10K) → 可能是红海增长期，标注风险
-- 某品类社交信号强但平台搜索量极低 → 可能是C端爆品但B2B需求弱
-- 某品类1688供给丰富但国际站搜索极少 → 可能是国内内销品非出口品
-- 发现的逻辑矛盾不一定剔除，但必须标注并在后续Phase中重点关注
+<h4>2.3 邏輯一致性審查</h4>
+<pre><code>- 某品類被標為&quot;高增長&quot;但供給量極大(&gt;10K) → 可能是紅海增長期，標註風險
+- 某品類社交訊號強但平臺搜尋量極低 → 可能是C端爆品但B2B需求弱
+- 某品類1688供給豐富但國際站搜尋極少 → 可能是國內內銷品非出口品
+- 發現的邏輯矛盾不一定剔除，但必須標註並在後續Phase中重點關注
 </code></pre>
-<h4>2.4 幻觉检测清单</h4>
-<pre><code>- [ ] 是否有数据点声称来自某URL但实际内容不符？
-- [ ] 是否有&quot;大约&quot;&quot;估计&quot;&quot;一般来说&quot;等模糊表述？
-- [ ] 是否有跨时间数据混用（2024年数据标注为2026年）？
-- [ ] 候选池中是否有品类仅因&quot;常见/常识&quot;入池？
-- [ ] Agent是否有&quot;编造搜索结果数量&quot;的行为？
-- [ ] 是否有Agent将原文的&quot;负面结论&quot;解读为&quot;正面信号&quot;？（v3.0新增）
-- [ ] 是否有Agent仅引用数字而忽略原文的限定条件/上下文？（v3.0新增）
+<h4>2.4 幻覺檢測清單</h4>
+<pre><code>- [ ] 是否有資料點聲稱來自某URL但實際內容不符？
+- [ ] 是否有&quot;大約&quot;&quot;估計&quot;&quot;一般來說&quot;等模糊表述？
+- [ ] 是否有跨時間資料混用（2024年資料標註為2026年）？
+- [ ] 候選池中是否有品類僅因&quot;常見/常識&quot;入池？
+- [ ] Agent是否有&quot;編造搜尋結果數量&quot;的行為？
+- [ ] 是否有Agent將原文的&quot;負面結論&quot;解讀為&quot;正面訊號&quot;？（v3.0新增）
+- [ ] 是否有Agent僅引用數字而忽略原文的限定條件/上下文？（v3.0新增）
 </code></pre>
-<h4>2.5 审计评分</h4>
-<pre><code>多源确认度 (0-25): 被几个独立Agent/数据源提及？(5源=25, 4源=20, 3源=15, 2源=10)
-来源真实性 (0-25): 抽查验证通过率？(100%=25, 80%=20, 60%=15, &lt;60%=10)
-解读正确性 (0-25): 解读审计是否通过？(全部一致=25, 有修正但可用=15, 严重反转=0)
-逻辑一致性 (0-25): 多维数据是否逻辑自洽？(无矛盾=25, 有可解释矛盾=15, 硬矛盾=5)
-总分100分，&lt;60分的品类不进入下一步
+<h4>2.5 審計評分</h4>
+<pre><code>多源確認度 (0-25): 被幾個獨立Agent/資料來源提及？(5源=25, 4源=20, 3源=15, 2源=10)
+來源真實性 (0-25): 抽查驗證透過率？(100%=25, 80%=20, 60%=15, &lt;60%=10)
+解讀正確性 (0-25): 解讀審計是否透過？(全部一致=25, 有修正但可用=15, 嚴重反轉=0)
+邏輯一致性 (0-25): 多維資料是否邏輯自洽？(無矛盾=25, 有可解釋矛盾=15, 硬矛盾=5)
+總分100分，&lt;60分的品類不進入下一步
 </code></pre>
 <hr />
-<h3>Phase 2.5: 供应链与趋势补充数据采集（并行Sub Agent x2）</h3>
+<h3>Phase 2.5: 供應鏈與趨勢補充資料採集（並行Sub Agent x2）</h3>
 <blockquote>
-<p>用 2 次并行 <code>sessions_spawn</code> 启动：Sub Agent G 需读 1688/alibaba 真实价格页 → <code>agent_id="browser"</code>；Sub Agent H（趋势/报告搜索）→ <code>agent_id="general"</code>。下方每个区块即对应 task 内容。</p>
+<p>用 2 次並行 <code>sessions_spawn</code> 啟動：Sub Agent G 需讀 1688/alibaba 真實價格頁 → <code>agent_id="browser"</code>；Sub Agent H（趨勢/報告搜尋）→ <code>agent_id="general"</code>。下方每個區塊即對應 task 內容。</p>
 </blockquote>
-<p><strong>Sub Agent G — 供应链与价差验证员</strong></p>
-<pre><code>任务：对审计通过的候选池品类，完成1688供应链验证 + 国际站价格采集 + 价差计算：
+<p><strong>Sub Agent G — 供應鏈與價差驗證員</strong></p>
+<pre><code>任務：對審計透過的候選池品類，完成1688供應鏈驗證 + 國際站價格採集 + 價差計算：
 
-第一步：1688供应链数据
-1. 将英文品类关键词翻译为中文搜索词
-2. 浏览器访问1688.com搜索每个品类关键词
-3. 记录：搜索结果页数、价格区间（最低~最高）、是否有&quot;实力商家&quot;/&quot;源头工厂&quot;标识
-4. 从搜索结果首页取5个有代表性的产品价格，计算中位数作为&quot;1688参考价&quot;
+第一步：1688供應鏈資料
+1. 將英文品類關鍵詞翻譯為中文搜尋詞
+2. 瀏覽器訪問1688.com搜尋每個品類關鍵詞
+3. 記錄：搜尋結果頁數、價格區間（最低~最高）、是否有&quot;實力商家&quot;/&quot;源頭工廠&quot;標識
+4. 從搜尋結果首頁取5個有代表性的產品價格，計算中位數作為&quot;1688參考價&quot;
 
-第二步：国际站价格采集
-5. 浏览器访问 alibaba.com 搜索同一品类英文关键词
-6. 从搜索结果首页取5个有代表性的listing价格，计算中位数作为&quot;国际站参考价&quot;
-7. 注意：alibaba.com价格通常显示为&quot;$X.XX - $Y.YY&quot;区间，取区间中点
+第二步：國際站價格採集
+5. 瀏覽器訪問 alibaba.com 搜尋同一品類英文關鍵詞
+6. 從搜尋結果首頁取5個有代表性的listing價格，計算中位數作為&quot;國際站參考價&quot;
+7. 注意：alibaba.com價格通常顯示為&quot;$X.XX - $Y.YY&quot;區間，取區間中點
 
-第三步：价差率计算
-8. 价差率 = (国际站参考价USD - 1688参考价CNY÷汇率) / 国际站参考价USD × 100%
-9. 汇率通过web_search查询当日USD/CNY汇率
+第三步：價差率計算
+8. 價差率 = (國際站參考價USD - 1688參考價CNY÷匯率) / 國際站參考價USD × 100%
+9. 匯率透過web_search查詢當日USD/CNY匯率
 
-输出格式：
-| 品类(英文) | 中文搜索词 | 1688结果页数 | 1688中位价(CNY) | 源头工厂占比 | 国际站中位价(USD) | 汇率 | 价差率(%) | 1688 URL | alibaba URL |
+輸出格式：
+| 品類(英文) | 中文搜尋詞 | 1688結果頁數 | 1688中位價(CNY) | 源頭工廠佔比 | 國際站中位價(USD) | 匯率 | 價差率(%) | 1688 URL | alibaba URL |
 
-严格要求：
-- 价格必须从各平台实际读取，不得推算
-- 价差率&gt;80%或&lt;10%标注&quot;⚠️异常值-需复核&quot;
-- 1688结果页数≤34时注意：34页是平台显示上限，实际供应商可能更多
+嚴格要求：
+- 價格必須從各平臺實際讀取，不得推算
+- 價差率&gt;80%或&lt;10%標註&quot;⚠️異常值-需複核&quot;
+- 1688結果頁數≤34時注意：34頁是平臺顯示上限，實際供應商可能更多
 </code></pre>
-<p><strong>Sub Agent H — 市场增长率验证员</strong></p>
-<pre><code>任务：对候选池品类获取权威市场研究报告中的CAGR数据：
-1. 对每个品类搜索 &quot;[品类] market size CAGR forecast 2026 2030&quot;
-2. 优先采用权威来源：Precedence Research, Grand View Research, Fortune Business Insights, MarketsandMarkets
-3. 每个品类至少找2个独立来源的增长率数据
-4. 记录市场规模(TAM)和预测期CAGR
+<p><strong>Sub Agent H — 市場增長率驗證員</strong></p>
+<pre><code>任務：對候選池品類獲取權威市場研究報告中的CAGR資料：
+1. 對每個品類搜尋 &quot;[品類] market size CAGR forecast 2026 2030&quot;
+2. 優先採用權威來源：Precedence Research, Grand View Research, Fortune Business Insights, MarketsandMarkets
+3. 每個品類至少找2個獨立來源的增長率資料
+4. 記錄市場規模(TAM)和預測期CAGR
 
-输出格式：
-| 品类 | CAGR(%) | 预测期 | 市场规模(USD) | 来源1(机构+URL) | 来源2(机构+URL) | 一致性判断 |
+輸出格式：
+| 品類 | CAGR(%) | 預測期 | 市場規模(USD) | 來源1(機構+URL) | 來源2(機構+URL) | 一致性判斷 |
 
-严格要求：
-- 必须标注每个CAGR数据的来源机构和URL
-- 如果两源CAGR偏差&gt;50%，标注&quot;市场定义不同-需人工判断&quot;
-  （历史教训：portable power station市场规模在不同报告中差异可达7倍，因为市场定义范围不同）
-- 不得用&quot;行业普遍增长&quot;等模糊表述替代精确数字
-- 必须记录每个报告对&quot;市场范围&quot;的定义（如&quot;仅含便携式&quot;vs&quot;含所有储能设备&quot;）
+嚴格要求：
+- 必須標註每個CAGR資料的來源機構和URL
+- 如果兩源CAGR偏差&gt;50%，標註&quot;市場定義不同-需人工判斷&quot;
+  （歷史教訓：portable power station市場規模在不同報告中差異可達7倍，因為市場定義範圍不同）
+- 不得用&quot;行業普遍增長&quot;等模糊表述替代精確數字
+- 必須記錄每個報告對&quot;市場範圍&quot;的定義（如&quot;僅含行動式&quot;vs&quot;含所有儲能裝置&quot;）
 </code></pre>
 <hr />
-<h3>Phase 2.75: 补充数据审计（Team Leader执行）</h3>
+<h3>Phase 2.75: 補充資料審計（Team Leader執行）</h3>
 <blockquote>
-<p><strong>Phase 2.5的Agent G/H数据直接决定Phase 3的筛选结果。必须独立验证。</strong></p>
+<p><strong>Phase 2.5的Agent G/H資料直接決定Phase 3的篩選結果。必須獨立驗證。</strong></p>
 </blockquote>
-<p><strong>对Agent H（CAGR数据）的审计：</strong></p>
-<pre><code>1. 随机抽取3-5条CAGR数据
-2. 对每条：用web_fetch/web_search独立验证来源URL是否真实存在
-3. ⭐ 解读验证（v3.0强化）：
-   - 该CAGR指的是整个大类还是某个细分？
-   - 该CAGR的预测期是什么？（2024-2030 vs 2026-2033 差异很大）
-   - 如果Agent将&quot;大类CAGR&quot;应用于&quot;细分品类&quot;，标注&quot;范围不匹配&quot;
-4. 验证标准：
-   - URL可访问且页面确实包含该CAGR数字 → 通过
-   - URL可访问但数字与Agent H声称的不一致 → 以实际页面数据为准
-   - URL不可访问 → 该条数据标为&quot;来源失效&quot;，降权
-   - 失败率&gt;50% → Agent H全部数据降为&quot;低可靠&quot;
+<p><strong>對Agent H（CAGR資料）的審計：</strong></p>
+<pre><code>1. 隨機抽取3-5條CAGR資料
+2. 對每條：用web_fetch/web_search獨立驗證來源URL是否真實存在
+3. ⭐ 解讀驗證（v3.0強化）：
+   - 該CAGR指的是整個大類還是某個細分？
+   - 該CAGR的預測期是什麼？（2024-2030 vs 2026-2033 差異很大）
+   - 如果Agent將&quot;大類CAGR&quot;應用於&quot;細分品類&quot;，標註&quot;範圍不匹配&quot;
+4. 驗證標準：
+   - URL可訪問且頁面確實包含該CAGR數字 → 透過
+   - URL可訪問但數字與Agent H聲稱的不一致 → 以實際頁面資料為準
+   - URL不可訪問 → 該條資料標為&quot;來源失效&quot;，降權
+   - 失敗率&gt;50% → Agent H全部資料降為&quot;低可靠&quot;
 </code></pre>
-<p><strong>对Agent G（价格数据）的审计：</strong></p>
-<pre><code>1. 对价差率Top3品类（利润空间最高的），验证合理性
-2. ⭐ 浏览器强制验证（触发条件②：支撑推荐排序的关键数据）：
-   - 对Top1品类，Team Leader亲自用浏览器搜索1688和alibaba
-   - 确认价格区间与Agent G报告一致
-   - 如果不一致：以浏览器验证结果为准，Agent G数据修正
-3. 合理性校验：
-   - 价差率&gt;80% → 异常高，可能对比了不同规格产品
-   - 1688价格异常低 → 可能是促销价/样品价
+<p><strong>對Agent G（價格資料）的審計：</strong></p>
+<pre><code>1. 對價差率Top3品類（利潤空間最高的），驗證合理性
+2. ⭐ 瀏覽器強制驗證（觸發條件②：支撐推薦排序的關鍵資料）：
+   - 對Top1品類，Team Leader親自用瀏覽器搜尋1688和alibaba
+   - 確認價格區間與Agent G報告一致
+   - 如果不一致：以瀏覽器驗證結果為準，Agent G資料修正
+3. 合理性校驗：
+   - 價差率&gt;80% → 異常高，可能對比了不同規格產品
+   - 1688價格異常低 → 可能是促銷價/樣品價
 </code></pre>
 <hr />
-<h3>Phase 3: 量化筛选</h3>
-<p>对审计通过 + 补充数据齐备的品类，应用6维筛选矩阵：</p>
+<h3>Phase 3: 量化篩選</h3>
+<p>對審計透過 + 補充資料齊備的品類，應用6維篩選矩陣：</p>
 <table>
 <thead>
 <tr>
-<th>维度</th>
-<th>指标</th>
-<th>数据来源</th>
-<th>最低门槛</th>
-<th>权重</th>
+<th>維度</th>
+<th>指標</th>
+<th>資料來源</th>
+<th>最低門檻</th>
+<th>權重</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td>市场增长</td>
-<td>CAGR(权威报告)</td>
+<td>市場增長</td>
+<td>CAGR(權威報告)</td>
 <td>Agent H</td>
 <td>&gt;8%</td>
 <td>25%</td>
 </tr>
 <tr>
-<td>供给竞争</td>
-<td>alibaba搜索结果数</td>
-<td>Agent F1/F2交叉验证值</td>
+<td>供給競爭</td>
+<td>alibaba搜尋結果數</td>
+<td>Agent F1/F2交叉驗證值</td>
 <td>&lt;5000（或供需比&gt;1.5）</td>
 <td>20%</td>
 </tr>
 <tr>
-<td>利润空间</td>
-<td>1688价 vs 国际站价价差率</td>
+<td>利潤空間</td>
+<td>1688價 vs 國際站價價差率</td>
 <td>Agent G</td>
 <td>&gt;40%</td>
 <td>25%</td>
 </tr>
 <tr>
-<td>多源信号强度</td>
-<td>被几个独立Agent发现</td>
-<td>Step 1.2交叉统计</td>
+<td>多源訊號強度</td>
+<td>被幾個獨立Agent發現</td>
+<td>Step 1.2交叉統計</td>
 <td>≥3源</td>
 <td>15%</td>
 </tr>
 <tr>
 <td>物流可行性</td>
-<td>品类属性初判</td>
+<td>品類屬性初判</td>
 <td>Team Leader+web_search</td>
 <td>Pass/Fail</td>
 <td>10%</td>
 </tr>
 <tr>
-<td>供应链可得性</td>
-<td>1688源头工厂占比</td>
+<td>供應鏈可得性</td>
+<td>1688源頭工廠佔比</td>
 <td>Agent G</td>
 <td>≥10%</td>
 <td>5%</td>
 </tr>
 </tbody>
 </table>
-<p><strong>决策标准</strong>：<br />
-- 6维全部达标 → 进入深度研究（Phase 4）<br />
-- 有1维不达标但其余突出 → 标注风险后保留<br />
-- 2维以上不达标 → 淘汰（记录原因在审计日志）</p>
+<p><strong>決策標準</strong>：<br />
+- 6維全部達標 → 進入深度研究（Phase 4）<br />
+- 有1維不達標但其餘突出 → 標註風險後保留<br />
+- 2維以上不達標 → 淘汰（記錄原因在審計日誌）</p>
 <hr />
-<h3>Phase 4: 深度研究（Top3~5品类）</h3>
-<p><strong>Sub Agent I — 竞争情报专家</strong></p>
-<pre><code>任务：对目标品类，在国际站分析Top10卖家：
-1. 搜索品类关键词，记录排名前10的店铺
-2. 点击每个店铺记录：店铺年限、等级、产品数、价格带
-3. 分析是否有年轻店铺（&lt;2年）已达高等级 → 市场仍开放
-4. 分析前3页listing的价格分布，找出价格段空白
-5. 观察产品同质度（主图/标题相似度）
+<h3>Phase 4: 深度研究（Top3~5品類）</h3>
+<p><strong>Sub Agent I — 競爭情報專家</strong></p>
+<pre><code>任務：對目標品類，在國際站分析Top10賣家：
+1. 搜尋品類關鍵詞，記錄排名前10的店鋪
+2. 點選每個店鋪記錄：店鋪年限、等級、產品數、價格帶
+3. 分析是否有年輕店鋪（&lt;2年）已達高等級 → 市場仍開放
+4. 分析前3頁listing的價格分佈，找出價格段空白
+5. 觀察產品同質度（主圖/標題相似度）
 
-输出：竞争格局报告 + 价格分布图数据 + 差异化机会判断
-每个判断必须附带&quot;基于以下事实: [具体数据]&quot;的论证
+輸出：競爭格局報告 + 價格分佈圖資料 + 差異化機會判斷
+每個判斷必須附帶&quot;基於以下事實: [具體資料]&quot;的論證
 </code></pre>
-<p><strong>Sub Agent J — 利润建模师</strong></p>
-<pre><code>任务：建立精确的利润模型：
-1. 从1688获取3家供应商的确切报价（取中间价）
-2. 查询国际快递/海运费用（通过搜索货代报价）
-3. 查询国际站佣金政策（当前：0%销售佣金+年费¥29,800）
-4. 计算完整利润模型：
-   - 采购成本: ¥X (来源: 1688供应商A/B/C报价均值)
-   - 国内物流: ¥X (来源: XX)
-   - 国际物流: $X (来源: XX)
-   - 平台佣金: $0 (来源: 国际站0%政策)
-   - 包装成本: ¥X (来源: XX)
-   - FOB出厂价: $X
-   - 目标售价: $X (基于竞品分析定价)
+<p><strong>Sub Agent J — 利潤建模師</strong></p>
+<pre><code>任務：建立精確的利潤模型：
+1. 從1688獲取3家供應商的確切報價（取中間價）
+2. 查詢國際快遞/海運費用（透過搜尋貨代報價）
+3. 查詢國際站佣金政策（當前：0%銷售佣金+年費¥29,800）
+4. 計算完整利潤模型：
+   - 採購成本: ¥X (來源: 1688供應商A/B/C報價均值)
+   - 國內物流: ¥X (來源: XX)
+   - 國際物流: $X (來源: XX)
+   - 平臺佣金: $0 (來源: 國際站0%政策)
+   - 包裝成本: ¥X (來源: XX)
+   - FOB出廠價: $X
+   - 目標售價: $X (基於競品分析定價)
    - 毛利率: X%
-   - 净利率: X% (扣除推广/退货/售后)
+   - 淨利率: X% (扣除推廣/退貨/售後)
 
-每个数字必须标注数据来源
+每個數字必須標註資料來源
 </code></pre>
-<p><strong>Sub Agent K — 利润模型独立验证员</strong></p>
-<pre><code>任务：独立验证Agent J利润模型：
-1. 独立从1688获取3家不同供应商报价（不可复用Agent J的链接）
-2. 独立搜索物流费率报价
-3. 独立验证佣金费率
-4. 独立计算利润模型
-5. 对比偏差：
-   - &lt;15% → 通过，取均值
-   - &gt;15% → 标注&quot;关键成本数据不一致&quot;
-</code></pre>
-<hr />
-<h3>Phase 4.5: 深度研究审计（Team Leader执行 — 不可跳过）</h3>
-<h4>4.5.1 竞争分析审计（针对Agent I）</h4>
-<pre><code>1. 数据真实性抽查：
-   - 从Top10 listing中随机抽取3个
-   - ⭐ 浏览器打开alibaba.com验证（触发条件②：支撑推荐排序）
-   - 确认listing存在、价格一致(±5%)、店铺信息一致
-   - ≥1个不存在或数据严重不符 → Agent I降为&quot;低可靠&quot;
-
-2. ⭐ 解读逻辑审计（v3.0强化）：
-   - Agent I的每个&quot;判断&quot;后面是否有具体数据支撑？
-   - &quot;年轻店铺已达高等级→市场开放&quot; — 是否考虑了反例（资本玩家快速做大）？
-   - &quot;价格段空白&quot; — 是空白还是&quot;没有需求的价格段&quot;？
-   - 所有推断标注⚠️，区分于事实✅
-
-3. 结论可操作性审计：
-   - &quot;差异化机会&quot;是否具体可执行？
-   - &quot;做差异化&quot;太模糊 ❌ / &quot;在$15-20价格段提供带遥控功能的版本&quot;才合格 ✅
-</code></pre>
-<h4>4.5.2 利润模型数学验算</h4>
-<pre><code>1. Team Leader独立验算Agent J/K建议采纳的数字
-2. 佣金/费率验证：国际站目前0%销售佣金+年费制
-3. 隐性成本完整性检查：
-   □ 平台年费分摊（¥29,800/年 ÷ 预计年出单数）
-   □ P4P推广成本（CPC约¥2.8/次 × 预估转化率倒数）
-   □ 退货/拒收率
-   □ 汇率波动缓冲（±3%~5%）
-   □ 样品/打样费（首批摊销）
-   □ 包装设计/拍摄成本（首批摊销）
-</code></pre>
-<h4>4.5.3 物流可行性数据化</h4>
-<pre><code>对Top3-5品类验证物流可行性：
-1. 产品典型重量/体积（从listing详情获取）
-2. 是否含电池/液体/磁性材料
-3. 是否需要认证（CE/FCC/FDA等）
-
-物流结论：
-- 🟢 无限制：标准品+无特殊认证
-- 🟡 有限制但可行：需认证或特货渠道
-- 🔴 不可行：管制品/超大件/认证周期&gt;6个月
+<p><strong>Sub Agent K — 利潤模型獨立驗證員</strong></p>
+<pre><code>任務：獨立驗證Agent J利潤模型：
+1. 獨立從1688獲取3家不同供應商報價（不可複用Agent J的連結）
+2. 獨立搜尋物流費率報價
+3. 獨立驗證佣金費率
+4. 獨立計算利潤模型
+5. 對比偏差：
+   - &lt;15% → 透過，取均值
+   - &gt;15% → 標註&quot;關鍵成本資料不一致&quot;
 </code></pre>
 <hr />
-<h3>Phase 4.75: 结论回溯审计（报告生成前的最后关卡）</h3>
-<pre><code>1. 排序合理性验证：
-   - 推荐Top3排序是否可从数据链完整推导出？
-   - 不允许&quot;综合考虑后认为&quot;这类无数据支撑的跳跃
+<h3>Phase 4.5: 深度研究審計（Team Leader執行 — 不可跳過）</h3>
+<h4>4.5.1 競爭分析審計（針對Agent I）</h4>
+<pre><code>1. 資料真實性抽查：
+   - 從Top10 listing中隨機抽取3個
+   - ⭐ 瀏覽器開啟alibaba.com驗證（觸發條件②：支撐推薦排序）
+   - 確認listing存在、價格一致(±5%)、店鋪資訊一致
+   - ≥1個不存在或資料嚴重不符 → Agent I降為&quot;低可靠&quot;
 
-2. ⭐ 解读一致性最终检查（v3.0新增）：
-   - 回顾Phase 2.2的解读审计记录
-   - 确认所有被修正的解读已在最终结论中正确反映
-   - 确认没有&quot;浏览器验证时修正了解读但最终结论仍用旧解读&quot;的情况
+2. ⭐ 解讀邏輯審計（v3.0強化）：
+   - Agent I的每個&quot;判斷&quot;後面是否有具體資料支撐？
+   - &quot;年輕店鋪已達高等級→市場開放&quot; — 是否考慮了反例（資本玩家快速做大）？
+   - &quot;價格段空白&quot; — 是空白還是&quot;沒有需求的價格段&quot;？
+   - 所有推斷標註⚠️，區分於事實✅
+
+3. 結論可操作性審計：
+   - &quot;差異化機會&quot;是否具體可執行？
+   - &quot;做差異化&quot;太模糊 ❌ / &quot;在$15-20價格段提供帶遙控功能的版本&quot;才合格 ✅
+</code></pre>
+<h4>4.5.2 利潤模型數學驗算</h4>
+<pre><code>1. Team Leader獨立驗算Agent J/K建議採納的數字
+2. 佣金/費率驗證：國際站目前0%銷售佣金+年費制
+3. 隱性成本完整性檢查：
+   □ 平臺年費分攤（¥29,800/年 ÷ 預計年出單數）
+   □ P4P推廣成本（CPC約¥2.8/次 × 預估轉化率倒數）
+   □ 退貨/拒收率
+   □ 匯率波動緩衝（±3%~5%）
+   □ 樣品/打樣費（首批攤銷）
+   □ 包裝設計/拍攝成本（首批攤銷）
+</code></pre>
+<h4>4.5.3 物流可行性資料化</h4>
+<pre><code>對Top3-5品類驗證物流可行性：
+1. 產品典型重量/體積（從listing詳情獲取）
+2. 是否含電池/液體/磁性材料
+3. 是否需要認證（CE/FCC/FDA等）
+
+物流結論：
+- 🟢 無限制：標準品+無特殊認證
+- 🟡 有限制但可行：需認證或特貨渠道
+- 🔴 不可行：管制品/超大件/認證週期&gt;6個月
+</code></pre>
+<hr />
+<h3>Phase 4.75: 結論回溯審計（報告生成前的最後關卡）</h3>
+<pre><code>1. 排序合理性驗證：
+   - 推薦Top3排序是否可從資料鏈完整推匯出？
+   - 不允許&quot;綜合考慮後認為&quot;這類無資料支撐的跳躍
+
+2. ⭐ 解讀一致性最終檢查（v3.0新增）：
+   - 回顧Phase 2.2的解讀審計記錄
+   - 確認所有被修正的解讀已在最終結論中正確反映
+   - 確認沒有&quot;瀏覽器驗證時修正瞭解讀但最終結論仍用舊解讀&quot;的情況
 
 3. Go/No-Go一致性：
-   - 结论必须与前文所有审计结果、风险标注保持一致
+   - 結論必須與前文所有審計結果、風險標註保持一致
 
-4. 用户约束匹配：
-   - 推荐品类是否在用户预算/市场/团队规模约束内？
-   - 不匹配标注&quot;⚠️超出用户约束&quot;
+4. 使用者約束匹配：
+   - 推薦品類是否在使用者預算/市場/團隊規模約束內？
+   - 不匹配標註&quot;⚠️超出使用者約束&quot;
 
-5. 报告完整性预检：
-   □ 每个品类6维数据完整
-   □ 利润模型经J/K双重验证 + Team Leader验算
-   □ 竞争分析经Phase 4.5.1审计
-   □ 物流可行性有Phase 4.5.3数据化结论
-   □ 浏览器验证日志已完整记录
-   □ 所有&quot;数据冲突&quot;已明确标注处理方式
-   □ 审计日志已记录所有被剔除/修正的数据点
+5. 報告完整性預檢：
+   □ 每個品類6維資料完整
+   □ 利潤模型經J/K雙重驗證 + Team Leader驗算
+   □ 競爭分析經Phase 4.5.1審計
+   □ 物流可行性有Phase 4.5.3資料化結論
+   □ 瀏覽器驗證日誌已完整記錄
+   □ 所有&quot;資料衝突&quot;已明確標註處理方式
+   □ 審計日誌已記錄所有被剔除/修正的資料點
 </code></pre>
 <hr />
-<h3>Phase 5: 最终决策输出</h3>
+<h3>Phase 5: 最終決策輸出</h3>
 <ol>
 <li>
-<p>生成<strong>选品决策报告</strong>（交互式HTML单文件），包含：<br />
-   - 审计声明（含浏览器验证通过率）<br />
-   - 执行摘要（推荐品类Top3 + 理由 + 置信度标注）<br />
-   - 各品类详细分析（需求/竞争/利润/供应链）<br />
-   - 风险清单与应对<br />
-   - 行动计划时间表<br />
-   - 可视化图表（雷达图/四象限/利润敏感性/排行榜）</p>
+<p>生成<strong>選品決策報告</strong>（互動式HTML單檔案），包含：<br />
+   - 審計宣告（含瀏覽器驗證透過率）<br />
+   - 執行摘要（推薦品類Top3 + 理由 + 置信度標註）<br />
+   - 各品類詳細分析（需求/競爭/利潤/供應鏈）<br />
+   - 風險清單與應對<br />
+   - 行動計劃時間表<br />
+   - 視覺化圖表（雷達圖/四象限/利潤敏感性/排行榜）</p>
 </li>
 <li>
-<p>附录：<strong>审计日志</strong><br />
-   - 浏览器验证日志（完整记录每次浏览器验证的结果）<br />
-   - 被剔除数据清单及原因<br />
-   - 解读修正记录<br />
-   - 数据冲突处理方式<br />
-   - 各Agent数据完整度评分</p>
+<p>附錄：<strong>審計日誌</strong><br />
+   - 瀏覽器驗證日誌（完整記錄每次瀏覽器驗證的結果）<br />
+   - 被剔除資料清單及原因<br />
+   - 解讀修正記錄<br />
+   - 資料衝突處理方式<br />
+   - 各Agent資料完整度評分</p>
 </li>
 </ol>
 <hr />
-<h2>路径B：垂直深耕模式（有指定类目）</h2>
-<h3>Phase 1: 类目全景扫描与机会发现</h3>
+<h2>路徑B：垂直深耕模式（有指定類目）</h2>
+<h3>Phase 1: 類目全景掃描與機會發現</h3>
 <blockquote>
-<p><strong>铁律3执行区：细分机会必须由数据发现，不得凭主观判断。</strong></p>
+<p><strong>鐵律3執行區：細分機會必須由資料發現，不得憑主觀判斷。</strong></p>
 </blockquote>
-<h4>Step B1.1: 多维度独立扫描（并行Sub Agent x3）</h4>
+<h4>Step B1.1: 多維度獨立掃描（並行Sub Agent x3）</h4>
 <blockquote>
-<p>用 3 次并行 <code>sessions_spawn</code> 启动：凡需打开 alibaba 类目导航/搜索页读 DOM 的（B-1、B-3）→ <code>agent_id="browser"</code>；纯搜索/趋势类（B-2）→ <code>agent_id="general"</code>。下方每个区块即对应 task 内容。</p>
+<p>用 3 次並行 <code>sessions_spawn</code> 啟動：凡需開啟 alibaba 類目導航/搜尋頁讀 DOM 的（B-1、B-3）→ <code>agent_id="browser"</code>；純搜尋/趨勢類（B-2）→ <code>agent_id="general"</code>。下方每個區塊即對應 task 內容。</p>
 </blockquote>
-<p><strong>Sub Agent B-1 — 类目结构分析师</strong></p>
-<pre><code>任务：在国际站梳理完整类目结构：
-1. 浏览器访问 alibaba.com 品类导航，找到目标类目所有子类目
-2. 对每个子类目搜索，记录搜索结果数量（供给侧）
-3. 识别各子类目主要产品形态和价格段
-4. 记录平台标记（Hot/Trending）
+<p><strong>Sub Agent B-1 — 類目結構分析師</strong></p>
+<pre><code>任務：在國際站梳理完整類目結構：
+1. 瀏覽器訪問 alibaba.com 品類導航，找到目標類目所有子類目
+2. 對每個子類目搜尋，記錄搜尋結果數量（供給側）
+3. 識別各子類目主要產品形態和價格段
+4. 記錄平臺標記（Hot/Trending）
 
-输出：| 子类目 | 搜索关键词 | 搜索结果数 | 价格段(USD) | 平台标记 | URL |
+輸出：| 子類目 | 搜尋關鍵詞 | 搜尋結果數 | 價格段(USD) | 平臺標記 | URL |
 </code></pre>
-<p><strong>Sub Agent B-2 — 趋势与季节性分析师</strong></p>
-<pre><code>任务：分析类目下各方向的增长趋势：
-1. web_search &quot;[子类目] market CAGR 2026&quot;
-2. web_search &quot;[类目] seasonal trends&quot;
-3. web_search &quot;[类目] Google Trends 2026 rising&quot;
-4. web_search &quot;[类目] emerging subcategories 2026&quot;
+<p><strong>Sub Agent B-2 — 趨勢與季節性分析師</strong></p>
+<pre><code>任務：分析類目下各方向的增長趨勢：
+1. web_search &quot;[子類目] market CAGR 2026&quot;
+2. web_search &quot;[類目] seasonal trends&quot;
+3. web_search &quot;[類目] Google Trends 2026 rising&quot;
+4. web_search &quot;[類目] emerging subcategories 2026&quot;
 
-输出：| 子类目 | CAGR(%) | 来源(机构+URL) | 季节性特征 | 趋势方向 |
+輸出：| 子類目 | CAGR(%) | 來源(機構+URL) | 季節性特徵 | 趨勢方向 |
 </code></pre>
-<p><strong>Sub Agent B-3 — 细分机会猎手</strong></p>
-<pre><code>任务：通过多数据源发现蓝海细分：
-1. web_search &quot;[类目] niche products high demand low competition 2026&quot;
-2. web_search &quot;[类目] new product ideas alibaba 2026&quot;
-3. web_search &quot;Reddit [类目] underserved needs&quot;
-4. web_search &quot;[类目] product gaps market opportunity&quot;
-5. 浏览器访问alibaba.com观察&quot;Related Searches&quot;推荐
+<p><strong>Sub Agent B-3 — 細分機會獵手</strong></p>
+<pre><code>任務：透過多資料來源發現藍海細分：
+1. web_search &quot;[類目] niche products high demand low competition 2026&quot;
+2. web_search &quot;[類目] new product ideas alibaba 2026&quot;
+3. web_search &quot;Reddit [類目] underserved needs&quot;
+4. web_search &quot;[類目] product gaps market opportunity&quot;
+5. 瀏覽器訪問alibaba.com觀察&quot;Related Searches&quot;推薦
 
-输出：| 细分机会 | 发现来源 | 需求证据 | 竞争程度依据 | 来源URL |
+輸出：| 細分機會 | 發現來源 | 需求證據 | 競爭程度依據 | 來源URL |
 </code></pre>
-<h4>Step B1.2: 交叉验证与机会池收敛</h4>
-<pre><code>规则1: 三维交叉 — 对B-3发现的每个机会，检查B-1供给数据 + B-2趋势
-规则2: 入池门槛 — 3个Agent数据均支持→&quot;强机会&quot;入池；2个→&quot;待验证&quot;；1个→不入池
-规则3: 容量控制 — 目标8-15个细分方向
+<h4>Step B1.2: 交叉驗證與機會池收斂</h4>
+<pre><code>規則1: 三維交叉 — 對B-3發現的每個機會，檢查B-1供給資料 + B-2趨勢
+規則2: 入池門檻 — 3個Agent資料均支援→&quot;強機會&quot;入池；2個→&quot;待驗證&quot;；1個→不入池
+規則3: 容量控制 — 目標8-15個細分方向
 </code></pre>
-<h4>Step B1.3: 供给数据双重验证</h4>
-<p><strong>Sub Agent B-F1 / B-F2（同路径A逻辑，双Agent独立验证）</strong></p>
+<h4>Step B1.3: 供給資料雙重驗證</h4>
+<p><strong>Sub Agent B-F1 / B-F2（同路徑A邏輯，雙Agent獨立驗證）</strong></p>
 <hr />
-<h3>Phase 2: Team Leader审计（路径B）</h3>
-<p><strong>执行标准同路径A Phase 2，但维度适配路径B：</strong></p>
+<h3>Phase 2: Team Leader審計（路徑B）</h3>
+<p><strong>執行標準同路徑A Phase 2，但維度適配路徑B：</strong></p>
 <ol>
-<li><strong>来源真实性抽查</strong>：从3个Agent输出中抽取10-15个数据点验证</li>
-<li><strong>⭐ 解读正确性审计</strong>：对"蓝海判断"的核心数据执行浏览器验证协议</li>
-<li><strong>三Agent交叉验证 + 逻辑一致性</strong>：<br />
-   - B-3说"低竞争"→ B-1的搜索结果数是否确实低（&lt;500）？<br />
-   - B-2说"CAGR 20%上升"→ 来源报告发布时间是否合理？<br />
-   - 某细分搜索结果极低(&lt;50)但B-3认为有需求 → 新兴品 vs 伪需求？</li>
-<li><strong>幻觉检测清单</strong>（同路径A，含v3.0新增项）</li>
-<li><strong>审计评分</strong>（100分制，&lt;60分不进入下一步）</li>
+<li><strong>來源真實性抽查</strong>：從3個Agent輸出中抽取10-15個資料點驗證</li>
+<li><strong>⭐ 解讀正確性審計</strong>：對"藍海判斷"的核心資料執行瀏覽器驗證協議</li>
+<li><strong>三Agent交叉驗證 + 邏輯一致性</strong>：<br />
+   - B-3說"低競爭"→ B-1的搜尋結果數是否確實低（&lt;500）？<br />
+   - B-2說"CAGR 20%上升"→ 來源報告發布時間是否合理？<br />
+   - 某細分搜尋結果極低(&lt;50)但B-3認為有需求 → 新興品 vs 偽需求？</li>
+<li><strong>幻覺檢測清單</strong>（同路徑A，含v3.0新增項）</li>
+<li><strong>審計評分</strong>（100分制，&lt;60分不進入下一步）</li>
 </ol>
 <hr />
-<h3>Phase 2.5 + 2.75: 补充数据与审计</h3>
-<p><strong>Sub Agent B-G</strong>：细分品类供应链与价差验证（同路径A Agent G逻辑）<br />
-<strong>Phase 2.75</strong>：Team Leader对价差率Top3品类做浏览器验证 + CAGR数据抽查</p>
+<h3>Phase 2.5 + 2.75: 補充資料與審計</h3>
+<p><strong>Sub Agent B-G</strong>：細分品類供應鏈與價差驗證（同路徑A Agent G邏輯）<br />
+<strong>Phase 2.75</strong>：Team Leader對價差率Top3品類做瀏覽器驗證 + CAGR資料抽查</p>
 <hr />
-<h3>Phase 3: 产品定义与深度验证</h3>
-<p><strong>Sub Agent BA — 竞品深度拆解</strong>（同路径A Agent I）<br />
-<strong>Sub Agent BB — 利润与供应链验证</strong>（同路径A Agent J）<br />
-<strong>Sub Agent BC — 利润模型验证员</strong>（同路径A Agent K）</p>
-<h3>Phase 3.5: 汇总审计</h3>
-<pre><code>1. 竞品排名抽查：浏览器验证Top3竞品listing
-2. 利润模型一致性：BB vs BC偏差&lt;15%？
-3. ⭐ 差异化判断解读审计：BA说的&quot;机会&quot;是否有数据支撑？是否正确解读了市场信号？
-4. 最终质量门：竞品验证通过 + 利润模型一致 + 差异化有据 → 进入Phase 4
+<h3>Phase 3: 產品定義與深度驗證</h3>
+<p><strong>Sub Agent BA — 競品深度拆解</strong>（同路徑A Agent I）<br />
+<strong>Sub Agent BB — 利潤與供應鏈驗證</strong>（同路徑A Agent J）<br />
+<strong>Sub Agent BC — 利潤模型驗證員</strong>（同路徑A Agent K）</p>
+<h3>Phase 3.5: 彙總審計</h3>
+<pre><code>1. 競品排名抽查：瀏覽器驗證Top3競品listing
+2. 利潤模型一致性：BB vs BC偏差&lt;15%？
+3. ⭐ 差異化判斷解讀審計：BA說的&quot;機會&quot;是否有資料支撐？是否正確解讀了市場訊號？
+4. 最終質量門：競品驗證透過 + 利潤模型一致 + 差異化有據 → 進入Phase 4
 </code></pre>
-<h3>Phase 4: 最终决策输出（同路径A Phase 5）</h3>
+<h3>Phase 4: 最終決策輸出（同路徑A Phase 5）</h3>
 <hr />
-<h2>审计标准（贯穿全流程）</h2>
-<h3>零幻觉原则</h3>
+<h2>審計標準（貫穿全流程）</h2>
+<h3>零幻覺原則</h3>
 <ol>
 <li>
-<p><strong>每个数据点必须有来源标注</strong><br />
-   格式：<code>[数据] (来源: [工具/URL], 日期: [YYYY-MM-DD])</code></p>
+<p><strong>每個資料點必須有來源標註</strong><br />
+   格式：<code>[資料] (來源: [工具/URL], 日期: [YYYY-MM-DD])</code></p>
 </li>
 <li>
-<p><strong>禁止模糊表述清单</strong><br />
-   - "大约" "大概" "估计" "一般来说" "行业平均" "通常"<br />
-   - "据了解" "有人说" "普遍认为"<br />
-   - 未标注时间范围的增长率/变化率</p>
+<p><strong>禁止模糊表述清單</strong><br />
+   - "大約" "大概" "估計" "一般來說" "行業平均" "通常"<br />
+   - "據瞭解" "有人說" "普遍認為"<br />
+   - 未標註時間範圍的增長率/變化率</p>
 </li>
 <li>
-<p><strong>数据有效期规则</strong><br />
-   - 搜索量/价格数据：有效期7天<br />
-   - 趋势数据：有效期30天<br />
-   - 政策/费率数据：有效期90天</p>
+<p><strong>資料有效期規則</strong><br />
+   - 搜尋量/價格資料：有效期7天<br />
+   - 趨勢資料：有效期30天<br />
+   - 政策/費率資料：有效期90天</p>
 </li>
 <li>
-<p><strong>交叉验证规则</strong><br />
-   - 关键决策数据≥2个独立来源互证<br />
-   - 多源数据冲突时：列出所有数据，标注冲突，不做主观取舍</p>
+<p><strong>交叉驗證規則</strong><br />
+   - 關鍵決策資料≥2個獨立來源互證<br />
+   - 多源資料衝突時：列出所有資料，標註衝突，不做主觀取捨</p>
 </li>
 <li>
-<p><strong>推断与事实分离</strong><br />
-   - 事实 ✅：有直接数据支撑<br />
-   - 推断 ⚠️：基于数据的逻辑推理<br />
-   - 假设 ❓：尚无数据支撑</p>
+<p><strong>推斷與事實分離</strong><br />
+   - 事實 ✅：有直接資料支撐<br />
+   - 推斷 ⚠️：基於資料的邏輯推理<br />
+   - 假設 ❓：尚無資料支撐</p>
 </li>
 <li>
-<p><strong>⭐ 解读忠实性原则（v3.0新增）</strong><br />
-   - 引用数据时，必须同时引用原文对该数据的解读<br />
-   - 如果自行给出不同解读，必须标注"Agent推断，与原文观点不同"并给出独立支撑<br />
-   - 禁止"只引用数字不引用上下文"的cherry-picking行为</p>
+<p><strong>⭐ 解讀忠實性原則（v3.0新增）</strong><br />
+   - 引用資料時，必須同時引用原文對該資料的解讀<br />
+   - 如果自行給出不同解讀，必須標註"Agent推斷，與原文觀點不同"並給出獨立支撐<br />
+   - 禁止"只引用數字不引用上下文"的cherry-picking行為</p>
 </li>
 </ol>
-<h3>Sub Agent 质量控制</h3>
-<pre><code>□ 所有数据点是否标注了来源和日期？
-□ 来源URL是否可以实际访问验证？
+<h3>Sub Agent 質量控制</h3>
+<pre><code>□ 所有資料點是否標註了來源和日期？
+□ 來源URL是否可以實際訪問驗證？
 □ 是否使用了禁止模糊表述？
-□ 数据是否在有效期内？
-□ 关键结论是否有≥2个数据点支撑？
-□ 是否明确区分了事实/推断/假设？
-□ 失败的数据获取是否如实标注了？
-□ ⭐ 是否完整引用了原文上下文（非仅摘取数字）？（v3.0新增）
+□ 資料是否在有效期內？
+□ 關鍵結論是否有≥2個資料點支撐？
+□ 是否明確區分了事實/推斷/假設？
+□ 失敗的資料獲取是否如實標註了？
+□ ⭐ 是否完整引用了原文上下文（非僅摘取數字）？（v3.0新增）
 </code></pre>
-<p><strong>打回重做机制：</strong><br />
-- 第1次不通过 → 打回，明确指出不合格项<br />
-- 第2次仍不通过 → 最后一次，仅修正硬伤<br />
-- 第3次仍不通过 → 降级处理，标为"低可靠-仅作参考"<br />
-- 不可修复（网站宕机/工具限制）→ 标注"该维度缺失-工具限制"</p>
+<p><strong>打回重做機制：</strong><br />
+- 第1次不透過 → 打回，明確指出不合格項<br />
+- 第2次仍不透過 → 最後一次，僅修正硬傷<br />
+- 第3次仍不透過 → 降級處理，標為"低可靠-僅作參考"<br />
+- 不可修復（網站宕機/工具限制）→ 標註"該維度缺失-工具限制"</p>
 <hr />
-<h2>工具使用规范</h2>
-<h3>浏览器自动化（一手数据采集）</h3>
+<h2>工具使用規範</h2>
+<h3>瀏覽器自動化（一手資料採集）</h3>
 <blockquote>
-<p><strong>Accio Work 执行方式</strong>：所有"浏览器"动作均通过 <code>sessions_spawn(agent_id="browser", task=...)</code> 委派 browser 子代理完成（它复用用户已登录的 Chrome 会话）。主 Agent 自身无浏览器，仅负责汇总子代理回传的数据并做解读审计。</p>
+<p><strong>Accio Work 執行方式</strong>：所有"瀏覽器"動作均透過 <code>sessions_spawn(agent_id="browser", task=...)</code> 委派 browser 子代理完成（它複用使用者已登入的 Chrome 會話）。主 Agent 自身無瀏覽器，僅負責彙總子代理回傳的資料並做解讀審計。</p>
 </blockquote>
-<p>适用场景：<br />
-- alibaba.com：搜索结果数量、价格、店铺信息、品类导航<br />
-- 1688.com：价格、供应商信息（注意GBK编码）<br />
-- 平台官方博客：seller.alibaba.com/blogs（需完整阅读理解上下文）</p>
+<p>適用場景：<br />
+- alibaba.com：搜尋結果數量、價格、店鋪資訊、品類導航<br />
+- 1688.com：價格、供應商資訊（注意GBK編碼）<br />
+- 平臺官方部落格：seller.alibaba.com/blogs（需完整閱讀理解上下文）</p>
 <p><strong>已知限制：</strong><br />
-- ❌ Google Trends：JS动态渲染，无法获取趋势数值<br />
-- ❌ TikTok/Instagram：需登录或反爬严格<br />
-- ⚠️ alibaba搜索结果数量：单Agent准确率~20%，必须双Agent交叉<br />
-- ⚠️ 1688结果页数：上限34页(~510条)，无法区分品类间供应商数量差异</p>
-<h3>web_search（趋势/增长率/信号的主要工具）</h3>
-<p>适用场景：<br />
-- 市场增长率CAGR（权威研究报告）<br />
-- 趋势发现（trending products文章）<br />
-- 社交信号（TikTok/Reddit/Pinterest趋势）<br />
-- 合规/认证要求<br />
-- 物流费率参考</p>
-<p><strong>⚠️ web_search的局限性（v3.0强调）：</strong><br />
-- snippet可能截断关键上下文 → 对方向性判断的数据必须回源验证<br />
-- 不同报告对同一市场的"定义范围"可能不同 → 必须记录market definition<br />
-- 搜索结果可能包含过时文章 → 必须检查文章发布日期</p>
-<h3>计算与建模</h3>
+- ❌ Google Trends：JS動態渲染，無法獲取趨勢數值<br />
+- ❌ TikTok/Instagram：需登入或反爬嚴格<br />
+- ⚠️ alibaba搜尋結果數量：單Agent準確率~20%，必須雙Agent交叉<br />
+- ⚠️ 1688結果頁數：上限34頁(~510條)，無法區分品類間供應商數量差異</p>
+<h3>web_search（趨勢/增長率/訊號的主要工具）</h3>
+<p>適用場景：<br />
+- 市場增長率CAGR（權威研究報告）<br />
+- 趨勢發現（trending products文章）<br />
+- 社交訊號（TikTok/Reddit/Pinterest趨勢）<br />
+- 合規/認證要求<br />
+- 物流費率參考</p>
+<p><strong>⚠️ web_search的侷限性（v3.0強調）：</strong><br />
+- snippet可能截斷關鍵上下文 → 對方向性判斷的資料必須回源驗證<br />
+- 不同報告對同一市場的"定義範圍"可能不同 → 必須記錄market definition<br />
+- 搜尋結果可能包含過時文章 → 必須檢查文章釋出日期</p>
+<h3>計算與建模</h3>
 <ul>
-<li>利润模型使用精确计算，展示完整公式</li>
-<li>评分模型使用加权算法，展示权重和评分过程</li>
-<li>所有计算结果必须可复现</li>
+<li>利潤模型使用精確計算，展示完整公式</li>
+<li>評分模型使用加權演算法，展示權重和評分過程</li>
+<li>所有計算結果必須可復現</li>
 </ul>
 <hr />
-<h2>输出规范</h2>
-<h3>报告结构（交互式HTML单文件）</h3>
-<pre><code>1. 审计声明
-   - 浏览器验证: X/Y条通过（通过率Z%）
-   - 解读修正: X条（列出修正摘要）
-   - 被剔除数据: X条
-   - 数据采集时间: YYYY-MM-DD
+<h2>輸出規範</h2>
+<h3>報告結構（互動式HTML單檔案）</h3>
+<pre><code>1. 審計宣告
+   - 瀏覽器驗證: X/Y條透過（透過率Z%）
+   - 解讀修正: X條（列出修正摘要）
+   - 被剔除資料: X條
+   - 資料採集時間: YYYY-MM-DD
 
-2. 执行摘要
-   - 推荐品类Top3 + 核心理由 + 置信度（高/中/低）
+2. 執行摘要
+   - 推薦品類Top3 + 核心理由 + 置信度（高/中/低）
 
-3. 各品类详细分析
-   - 需求/竞争/利润/供应链（带来源标注）
+3. 各品類詳細分析
+   - 需求/競爭/利潤/供應鏈（帶來源標註）
 
-4. 可视化图表（内嵌Chart.js）
-   - 品类6维雷达图
-   - 竞争-利润四象限
-   - 利润敏感性分析
-   - 决策评分排行
+4. 視覺化圖表（內嵌Chart.js）
+   - 品類6維雷達圖
+   - 競爭-利潤四象限
+   - 利潤敏感性分析
+   - 決策評分排行
 
-5. 风险清单与应对
+5. 風險清單與應對
 
-6. 行动计划时间表
+6. 行動計劃時間表
 
-7. 附录A: 浏览器验证日志（完整）
-8. 附录B: 审计日志（剔除/修正记录）
-9. 附录C: 数据冲突记录
-10. 附录D: 原始数据源索引
+7. 附錄A: 瀏覽器驗證日誌（完整）
+8. 附錄B: 審計日誌（剔除/修正記錄）
+9. 附錄C: 資料衝突記錄
+10. 附錄D: 原始資料來源索引
 </code></pre>
 <hr />
-<h2>Pitfalls（含真实案例教训）</h2>
+<h2>Pitfalls（含真實案例教訓）</h2>
 <ul>
-<li><strong>⭐ "数字正确≠解读正确"（v3.0核心教训）</strong> — UV臂套案例：供需比24→13确实存在于页面，但"腰斩"在原文中意味着"市场饱和"而非"蓝海"。永远阅读上下文。</li>
-<li><strong>⭐ snippet截断陷阱</strong> — web_search snippet可能只显示"supply-demand ratio halved from 24 to 13"但截掉了后面的"indicating intense competition"。方向性判断绝不能只看snippet。</li>
-<li><strong>⭐ 细分 vs 大类混淆</strong> — 同一篇文章中可能同时说"大类饱和"和"细分蓝海"。必须区分Agent推荐的是大类还是细分，对应的数据是否匹配。</li>
-<li><strong>绝不因为数据采集失败就"估计"数字</strong> — 如实标注"数据缺失"比虚假数据好一万倍</li>
-<li><strong>不要被单一爆款视频/帖子误导</strong> — 社交信号必须有持续性（多时间点多来源）</li>
-<li><strong>警惕"低竞争"陷阱</strong> — 搜索结果少可能是因为没需求</li>
-<li><strong>不要用中国国内数据代替海外市场数据</strong></li>
-<li><strong>利润计算不要忘记隐性成本</strong> — 退货率、推广、售后、汇率波动</li>
-<li><strong>Sub Agent结论必须通过审计才能采纳</strong></li>
-<li><strong>"有URL"≠"数据可靠"</strong> — Agent可能编造格式合理的URL</li>
-<li><strong>CAGR数据是幻觉高发区</strong> — 机构名称可能真实但数字被"调整"</li>
-<li><strong>竞品排名是另一个幻觉高发区</strong> — Agent的"Top10"经常与实际搜索不符</li>
-<li><strong>1688价格区间不能直接对比Alibaba价格</strong> — 前者是出厂价，后者含利润+物流预期</li>
-<li><strong>市场规模差异可达7倍</strong> — 不同报告对同一市场的定义范围不同（如portable power station: $661M vs $4.69B）</li>
+<li><strong>⭐ "數字正確≠解讀正確"（v3.0核心教訓）</strong> — UV臂套案例：供需比24→13確實存在於頁面，但"腰斬"在原文中意味著"市場飽和"而非"藍海"。永遠閱讀上下文。</li>
+<li><strong>⭐ snippet截斷陷阱</strong> — web_search snippet可能只顯示"supply-demand ratio halved from 24 to 13"但截掉了後面的"indicating intense competition"。方向性判斷絕不能只看snippet。</li>
+<li><strong>⭐ 細分 vs 大類混淆</strong> — 同一篇文章中可能同時說"大類飽和"和"細分藍海"。必須區分Agent推薦的是大類還是細分，對應的資料是否匹配。</li>
+<li><strong>絕不因為資料採集失敗就"估計"數字</strong> — 如實標註"資料缺失"比虛假資料好一萬倍</li>
+<li><strong>不要被單一爆款影片/帖子誤導</strong> — 社交訊號必須有持續性（多時間點多來源）</li>
+<li><strong>警惕"低競爭"陷阱</strong> — 搜尋結果少可能是因為沒需求</li>
+<li><strong>不要用中國國內資料代替海外市場資料</strong></li>
+<li><strong>利潤計算不要忘記隱性成本</strong> — 退貨率、推廣、售後、匯率波動</li>
+<li><strong>Sub Agent結論必須透過審計才能採納</strong></li>
+<li><strong>"有URL"≠"資料可靠"</strong> — Agent可能編造格式合理的URL</li>
+<li><strong>CAGR資料是幻覺高發區</strong> — 機構名稱可能真實但數字被"調整"</li>
+<li><strong>競品排名是另一個幻覺高發區</strong> — Agent的"Top10"經常與實際搜尋不符</li>
+<li><strong>1688價格區間不能直接對比Alibaba價格</strong> — 前者是出廠價，後者含利潤+物流預期</li>
+<li><strong>市場規模差異可達7倍</strong> — 不同報告對同一市場的定義範圍不同（如portable power station: $661M vs $4.69B）</li>
 </ul>
 <hr />
 <h2>Verification</h2>
-<p>任务完成后的最终验证checklist（全部通过才可交付）：</p>
-<pre><code>1. ⭐ 浏览器验证覆盖度：Top3推荐品类的核心支撑数据是否都经过浏览器验证？
-2. ⭐ 解读正确性确认：浏览器验证日志中是否有&quot;解读修正&quot;记录？修正是否已反映在最终结论中？
-3. 数据抽查：从报告中随机抽取5个数据点，验证来源URL
-4. 利润模型验算：重新计算确认数学无误
-5. 逻辑一致性：推荐结论是否与所有数据逻辑一致？
-6. 禁止词扫描：全文搜索模糊词——如有残留，修正
-7. 审计日志完整性：所有审计节点是否产出了记录
-   - [ ] Phase 2审计评分表（含解读正确性维度）
-   - [ ] Phase 2.2解读审计记录
-   - [ ] Phase 2.75 CAGR/价格抽查
-   - [ ] Phase 4.5/3.5竞品验证+利润一致性
-   - [ ] Phase 4.75结论回溯（含解读一致性最终检查）
-   - [ ] 浏览器验证日志（完整）
-8. 最终置信度标注：Top3推荐品类分别标注高/中/低置信度
+<p>任務完成後的最終驗證checklist（全部透過才可交付）：</p>
+<pre><code>1. ⭐ 瀏覽器驗證覆蓋度：Top3推薦品類的核心支撐資料是否都經過瀏覽器驗證？
+2. ⭐ 解讀正確性確認：瀏覽器驗證日誌中是否有&quot;解讀修正&quot;記錄？修正是否已反映在最終結論中？
+3. 資料抽查：從報告中隨機抽取5個資料點，驗證來源URL
+4. 利潤模型驗算：重新計算確認數學無誤
+5. 邏輯一致性：推薦結論是否與所有資料邏輯一致？
+6. 禁止詞掃描：全文搜尋模糊詞——如有殘留，修正
+7. 審計日誌完整性：所有審計節點是否產出了記錄
+   - [ ] Phase 2審計評分表（含解讀正確性維度）
+   - [ ] Phase 2.2解讀審計記錄
+   - [ ] Phase 2.75 CAGR/價格抽查
+   - [ ] Phase 4.5/3.5競品驗證+利潤一致性
+   - [ ] Phase 4.75結論回溯（含解讀一致性最終檢查）
+   - [ ] 瀏覽器驗證日誌（完整）
+8. 最終置信度標註：Top3推薦品類分別標註高/中/低置信度
 </code></pre>
 <hr />
-<h2>历史教训参考库（Reference）</h2>
+<h2>歷史教訓參考庫（Reference）</h2>
 <blockquote>
-<p>以下为真实执行中发现的问题，供Team Leader在审计时参考：</p>
+<p>以下為真實執行中發現的問題，供Team Leader在審計時參考：</p>
 </blockquote>
-<h3>Case 1: UV臂套"蓝海"误判（2026-05-29）</h3>
+<h3>Case 1: UV臂套"藍海"誤判（2026-05-29）</h3>
 <ul>
-<li><strong>错误</strong>：将Alibaba Seller Blog中"供需比从24.02降至12.99"解读为"蓝海信号"</li>
-<li><strong>真相</strong>：原文明确写道"This indicates the market is flooded with suppliers, leading to intense competition and likely price pressure on standard offerings"</li>
-<li><strong>正确解读</strong>：基础UV臂套市场已饱和。真正蓝海在"cooling arm sleeves"细分（商品率94.3%）</li>
-<li><strong>根因</strong>：Agent/Team Leader只看到了数字变化方向（24→13下降）就自行推断含义，未阅读原文的解释性文字</li>
-<li><strong>防范</strong>：执行铁律1+浏览器强制验证协议</li>
+<li><strong>錯誤</strong>：將Alibaba Seller Blog中"供需比從24.02降至12.99"解讀為"藍海訊號"</li>
+<li><strong>真相</strong>：原文明確寫道"This indicates the market is flooded with suppliers, leading to intense competition and likely price pressure on standard offerings"</li>
+<li><strong>正確解讀</strong>：基礎UV臂套市場已飽和。真正藍海在"cooling arm sleeves"細分（商品率94.3%）</li>
+<li><strong>根因</strong>：Agent/Team Leader只看到了數字變化方向（24→13下降）就自行推斷含義，未閱讀原文的解釋性文字</li>
+<li><strong>防範</strong>：執行鐵律1+瀏覽器強制驗證協議</li>
 </ul>
-<h3>Case 2: 1688搜索结果34页上限（2026-05-29）</h3>
+<h3>Case 2: 1688搜尋結果34頁上限（2026-05-29）</h3>
 <ul>
-<li><strong>现象</strong>：所有品类搜索结果均显示"共34页"</li>
-<li><strong>误区</strong>：以为可以通过页数区分供应商数量多寡</li>
-<li><strong>真相</strong>：34页是1688默认最大展示限制（约510+ listings），无论实际有多少</li>
-<li><strong>防范</strong>：标注"34页=平台上限，实际供应商数量不可通过此数字判断"</li>
+<li><strong>現象</strong>：所有品類搜尋結果均顯示"共34頁"</li>
+<li><strong>誤區</strong>：以為可以透過頁數區分供應商數量多寡</li>
+<li><strong>真相</strong>：34頁是1688預設最大展示限制（約510+ listings），無論實際有多少</li>
+<li><strong>防範</strong>：標註"34頁=平臺上限，實際供應商數量不可透過此數字判斷"</li>
 </ul>
-<h3>Case 3: CAGR市场定义差异（2026-05-29）</h3>
+<h3>Case 3: CAGR市場定義差異（2026-05-29）</h3>
 <ul>
-<li><strong>现象</strong>：portable power station的市场规模在不同报告中：$661M vs $4.69B（差异7倍）</li>
-<li><strong>原因</strong>：一个报告定义为"仅便携式&lt;1000Wh"，另一个包含"所有储能设备含工业级"</li>
-<li><strong>防范</strong>：Agent H必须记录每个报告对市场范围的定义；Team Leader在审计时对比market definition</li>
+<li><strong>現象</strong>：portable power station的市場規模在不同報告中：$661M vs $4.69B（差異7倍）</li>
+<li><strong>原因</strong>：一個報告定義為"僅行動式&lt;1000Wh"，另一個包含"所有儲能裝置含工業級"</li>
+<li><strong>防範</strong>：Agent H必須記錄每個報告對市場範圍的定義；Team Leader在審計時對比market definition</li>
 </ul>
-<h3>Case 4: Google Trends JS渲染失败（2026-05-28）</h3>
+<h3>Case 4: Google Trends JS渲染失敗（2026-05-28）</h3>
 <ul>
-<li><strong>现象</strong>：web_fetch访问Google Trends返回空白或静态模板</li>
-<li><strong>原因</strong>：Google Trends是纯JS动态渲染，服务端不返回实际数据</li>
-<li><strong>替代方案</strong>：通过web_search搜索市场研究报告中的CAGR数据作为趋势代理指标</li>
+<li><strong>現象</strong>：web_fetch訪問Google Trends返回空白或靜態模板</li>
+<li><strong>原因</strong>：Google Trends是純JS動態渲染，服務端不返回實際資料</li>
+<li><strong>替代方案</strong>：透過web_search搜尋市場研究報告中的CAGR資料作為趨勢代理指標</li>
 </ul>
-<h3>Case 5: Alibaba搜索结果数量幻觉（2026-05-28）</h3>
+<h3>Case 5: Alibaba搜尋結果數量幻覺（2026-05-28）</h3>
 <ul>
-<li><strong>现象</strong>：单Agent报告的搜索结果数量与实际不符，准确率仅~20%</li>
-<li><strong>原因</strong>：Agent可能读取了错误的DOM元素、页面未完全加载、或直接编造</li>
-<li><strong>防范</strong>：强制F1/F2双Agent独立采集+交叉验证</li>
+<li><strong>現象</strong>：單Agent報告的搜尋結果數量與實際不符，準確率僅~20%</li>
+<li><strong>原因</strong>：Agent可能讀取了錯誤的DOM元素、頁面未完全載入、或直接編造</li>
+<li><strong>防範</strong>：強制F1/F2雙Agent獨立採集+交叉驗證</li>
 </ul>
 <hr />
-<h2>冷启动防护（Installation &amp; Usage Guide）</h2>
+<h2>冷啟動防護（Installation &amp; Usage Guide）</h2>
 <blockquote>
-<p>本节确保任何新用户安装后即可获得完整质量保障，无需额外上下文。</p>
+<p>本節確保任何新使用者安裝後即可獲得完整質量保障，無需額外上下文。</p>
 </blockquote>
-<h3>安装后首次使用注意事项</h3>
+<h3>安裝後首次使用注意事項</h3>
 <ol>
-<li><strong>本Skill需要浏览器自动化能力</strong> — 在 Accio Work 中通过 <code>sessions_spawn(agent_id="browser")</code> 委派 browser 子代理实现（复用用户已登录的 Chrome 会话）；主 Agent 自身无浏览器</li>
-<li><strong>执行时间较长</strong> — 完整模式20-40分钟，精简模式10-20分钟，请耐心等待</li>
-<li><strong>Sub Agent数量较多</strong> — 会通过多次并行 <code>sessions_spawn</code> 启动多个子代理（纯搜索用 <code>agent_id="general"</code>，需读真实页面用 <code>agent_id="browser"</code>），这是正常行为</li>
-<li><strong>审计环节不可催促跳过</strong> — 审计是质量保证的核心，跳过=报告不合格</li>
+<li><strong>本Skill需要瀏覽器自動化能力</strong> — 在 Accio Work 中透過 <code>sessions_spawn(agent_id="browser")</code> 委派 browser 子代理實現（複用使用者已登入的 Chrome 會話）；主 Agent 自身無瀏覽器</li>
+<li><strong>執行時間較長</strong> — 完整模式20-40分鐘，精簡模式10-20分鐘，請耐心等待</li>
+<li><strong>Sub Agent數量較多</strong> — 會透過多次並行 <code>sessions_spawn</code> 啟動多個子代理（純搜尋用 <code>agent_id="general"</code>，需讀真實頁面用 <code>agent_id="browser"</code>），這是正常行為</li>
+<li><strong>審計環節不可催促跳過</strong> — 審計是質量保證的核心，跳過=報告不合格</li>
 </ol>
-<h3>质量保证机制说明</h3>
-<p>本Skill的质量保障通过以下架构实现：<br />
-- <strong>多Agent独立采集</strong> → 防止单一数据源偏差<br />
-- <strong>双Agent交叉验证</strong> → 防止单Agent幻觉<br />
-- <strong>浏览器强制验证</strong> → 防止web_search snippet截断导致的解读错误<br />
-- <strong>解读正确性审计</strong> → 防止"数据对但结论反"的高级幻觉<br />
-- <strong>结论回溯审计</strong> → 防止"数据都对但推荐跑偏"</p>
-<h3>预期输出</h3>
+<h3>質量保證機制說明</h3>
+<p>本Skill的質量保障透過以下架構實現：<br />
+- <strong>多Agent獨立採集</strong> → 防止單一資料來源偏差<br />
+- <strong>雙Agent交叉驗證</strong> → 防止單Agent幻覺<br />
+- <strong>瀏覽器強制驗證</strong> → 防止web_search snippet截斷導致的解讀錯誤<br />
+- <strong>解讀正確性審計</strong> → 防止"資料對但結論反"的高階幻覺<br />
+- <strong>結論回溯審計</strong> → 防止"資料都對但推薦跑偏"</p>
+<h3>預期輸出</h3>
 <ul>
-<li>1份交互式HTML报告 — <strong>直接套用 <code>assets/report-template.html</code> 模板</strong>：复制模板 → 替换 <code>{{CATEGORY}}/{{MERCHANT}}/{{MARKET}}/{{BUDGET}}/{{DATE}}/{{MODE}}</code> 占位符 → 用本次真实数据替换 KPI 卡 / 三级建议表行 / 4 张图表的 labels+data / 审计折叠日志内容。模板已内置可排序表格、可折叠审计区、Chart.js 离线图表，无需从零写样式。</li>
-<li>1份 Markdown 文字版决策报告（<code>选品决策报告_YYYY-MM.md</code>）</li>
-<li>报告中每个数据点均标注来源和日期</li>
-<li>报告中包含完整的浏览器验证日志 + 审计的审计记录</li>
-<li>Top3推荐品类均标注置信度（高/中/低）</li>
+<li>1份互動式HTML報告 — <strong>直接套用 <code>assets/report-template.html</code> 模板</strong>：複製模板 → 替換 <code>{{CATEGORY}}/{{MERCHANT}}/{{MARKET}}/{{BUDGET}}/{{DATE}}/{{MODE}}</code> 佔位符 → 用本次真實資料替換 KPI 卡 / 三級建議錶行 / 4 張圖表的 labels+data / 審計摺疊日誌內容。模板已內建可排序表格、可摺疊審計區、Chart.js 離線圖表，無需從零寫樣式。</li>
+<li>1份 Markdown 文字版決策報告（<code>選品決策報告_YYYY-MM.md</code>）</li>
+<li>報告中每個資料點均標註來源和日期</li>
+<li>報告中包含完整的瀏覽器驗證日誌 + 審計的審計記錄</li>
+<li>Top3推薦品類均標註置信度（高/中/低）</li>
 </ul>
 <hr />
-<h2>📎 对话式免冷启动安装提示词（发给任意商家的 Agent 即可自动安装并立即可用）</h2>
+<h2>📎 對話式免冷啟動安裝提示詞（發給任意商家的 Agent 即可自動安裝並立即可用）</h2>
 <blockquote>
-<p><strong>用途</strong>：任何商家想用这套选品工作流，只需把下面整段「<code>``」内的话复制发给他们自己的业务助手 / Agent，Agent 即会自动安装本 skill 并进入待命状态，无需任何人工配置。本节内容与</code>ONBOARDING.md` 配套。</p>
+<p><strong>用途</strong>：任何商家想用這套選品工作流，只需把下面整段「<code>``」內的話複製發給他們自己的業務助手 / Agent，Agent 即會自動安裝本 skill 並進入待命狀態，無需任何人工配置。本節內容與</code>ONBOARDING.md` 配套。</p>
 </blockquote>
-<pre><code>你好，我要给你安装一个跨境选品工作流 skill，请按以下步骤自动完成，全程无需我再确认：
+<pre><code>你好，我要給你安裝一個跨境選品工作流 skill，請按以下步驟自動完成，全程無需我再確認：
 
-1. 安装名为 cross-border-product-selection 的 skill（跨境电商国际站选品分析专家，v3.1+，含浏览器强制验证、双 Agent 交叉验证、审计的审计、可复用交互式 HTML 看板模板）。
-   - 如果你支持 skill 安装工具，直接调用安装 skill_id=&quot;cross-border-product-selection&quot;。
-   - 如果该 skill 不在你的内置目录，请用 skill-finder 在内部目录/skills.sh 等平台检索 &quot;cross border product selection 跨境选品&quot; 并安装匹配项；仍找不到则告诉我，由我提供 skill 包。
+1. 安裝名為 cross-border-product-selection 的 skill（跨境電商國際站選品分析專家，v3.1+，含瀏覽器強制驗證、雙 Agent 交叉驗證、審計的審計、可複用互動式 HTML 看板模板）。
+   - 如果你支援 skill 安裝工具，直接呼叫安裝 skill_id=&quot;cross-border-product-selection&quot;。
+   - 如果該 skill 不在你的內建目錄，請用 skill-finder 在內部目錄/skills.sh 等平臺檢索 &quot;cross border product selection 跨境選品&quot; 並安裝匹配項；仍找不到則告訴我，由我提供 skill 包。
 
-2. 安装后读取该 skill 的 SKILL.md 与 ONBOARDING.md，确认你已掌握：铁律1-5（数据存在≠解读正确 / 浏览器验证不可豁免 / 禁止数据池外推荐 / 审计不可跳过 / 解读冲突以原文为准）、双 Agent 交叉验证（偏差&gt;15% 需仲裁）、审计的审计、六维机会矩阵、路径A全域猎品 / 路径B垂直深耕、完整/精简双模式、assets/report-template.html 看板模板。
+2. 安裝後讀取該 skill 的 SKILL.md 與 ONBOARDING.md，確認你已掌握：鐵律1-5（資料存在≠解讀正確 / 瀏覽器驗證不可豁免 / 禁止資料池外推薦 / 審計不可跳過 / 解讀衝突以原文為準）、雙 Agent 交叉驗證（偏差&gt;15% 需仲裁）、審計的審計、六維機會矩陣、路徑A全域獵品 / 路徑B垂直深耕、完整/精簡雙模式、assets/report-template.html 看板模板。
 
-3. 关键环境适配：你若在 Accio Work 环境，浏览器动作一律用 sessions_spawn(agent_id=&quot;browser&quot;)，纯搜索用 sessions_spawn(agent_id=&quot;general&quot;) 或直接 web_search/web_fetch，询问我用 ask_user；不要调用任何不存在的浏览器工具。
+3. 關鍵環境適配：你若在 Accio Work 環境，瀏覽器動作一律用 sessions_spawn(agent_id=&quot;browser&quot;)，純搜尋用 sessions_spawn(agent_id=&quot;general&quot;) 或直接 web_search/web_fetch，詢問我用 ask_user；不要呼叫任何不存在的瀏覽器工具。
 
-4. 完成后回我一句「选品 skill 已就位，随时可开始」，然后等我说要选什么品类（或说&quot;无限定&quot;由你从市场机会出发）。届时你先用 ask_user 问我：类目 / 预算 / 目标市场 / 执行模式（完整或精简），再正式开跑。
+4. 完成後回我一句「選品 skill 已就位，隨時可開始」，然後等我說要選什麼品類（或說&quot;無限定&quot;由你從市場機會出發）。屆時你先用 ask_user 問我：類目 / 預算 / 目標市場 / 執行模式（完整或精簡），再正式開跑。
 
-⚠️ 全程铁律：所有支撑结论的关键数字必须经浏览器二次回访核验，搜不到的如实标注，绝不编造来源或 URL；审计环节不可跳过；最终交付一份套用模板的交互式 HTML 看板 + Markdown 决策报告 + 完整审计日志。
+⚠️ 全程鐵律：所有支撐結論的關鍵數字必須經瀏覽器二次回訪核驗，搜不到的如實標註，絕不編造來源或 URL；審計環節不可跳過；最終交付一份套用模板的互動式 HTML 看板 + Markdown 決策報告 + 完整審計日誌。
 </code></pre>
-<p><strong>安装提示词使用说明（给商家本人看）：</strong><br />
-- 复制上面代码块整段 → 粘贴发给你的业务助手 → 等它回「选品 skill 已就位」即可。<br />
-- 之后你只要说「帮我做选品」「找蓝海品」或「我做 XX 品类帮我找细分」，它会自动问你 4 个问题然后开干。<br />
-- 想了解它能产出什么，让它读 <code>ONBOARDING.md</code> 给你讲。</p></section><section class="bpart" id="f1"><h3 class="bpart-h">ONBOARDING.md</h3><h1>跨境选品 Skill · 商家快速上手（ONBOARDING）</h1>
+<p><strong>安裝提示詞使用說明（給商家本人看）：</strong><br />
+- 複製上面程式碼塊整段 → 貼上發給你的業務助手 → 等它回「選品 skill 已就位」即可。<br />
+- 之後你只要說「幫我做選品」「找藍海品」或「我做 XX 品類幫我找細分」，它會自動問你 4 個問題然後開幹。<br />
+- 想了解它能產出什麼，讓它讀 <code>ONBOARDING.md</code> 給你講。</p></section><section class="bpart" id="f1"><h3 class="bpart-h">ONBOARDING.md</h3><h1>跨境選品 Skill · 商家快速上手（ONBOARDING）</h1>
 <blockquote>
-<p>本文件给「拿到这个 skill 的任意商家」看。无需任何前置上下文，照着做即可完成一次专业选品。</p>
+<p>本檔案給「拿到這個 skill 的任意商家」看。無需任何前置上下文，照著做即可完成一次專業選品。</p>
 </blockquote>
 <hr />
-<h2>这个 skill 能帮你做什么</h2>
-<p>输入你的品类方向（或完全不限定），它会自动调度多个 AI 子代理，从 Alibaba.com 国际站 + Amazon + Google + 社媒 + 行业报告等多源采集数据，经过<strong>双重交叉验证 + 浏览器强制验证 + 审计的审计</strong>，最终给你一份：</p>
+<h2>這個 skill 能幫你做什麼</h2>
+<p>輸入你的品類方向（或完全不限定），它會自動排程多個 AI 子代理，從 Alibaba.com 國際站 + Amazon + Google + 社媒 + 行業報告等多源採集資料，經過<strong>雙重交叉驗證 + 瀏覽器強制驗證 + 審計的審計</strong>，最終給你一份：</p>
 <ul>
-<li><strong>三级选品建议</strong>（主力 / 测试 / 备选 / 排除）</li>
-<li>每个候选的<strong>利润模型</strong>（双人独立测算，偏差&gt;15% 自动仲裁）</li>
-<li><strong>竞争格局</strong>（真实 Alibaba listing 竞品拆解）</li>
-<li><strong>交互式 HTML 看板</strong>（图表 + 可折叠审计日志 + 可排序表格）</li>
-<li><strong>完整审计日志</strong>（被剔除的幻觉数据、解读修正记录、验证日志全部留痕）</li>
+<li><strong>三級選品建議</strong>（主力 / 測試 / 備選 / 排除）</li>
+<li>每個候選的<strong>利潤模型</strong>（雙人獨立測算，偏差&gt;15% 自動仲裁）</li>
+<li><strong>競爭格局</strong>（真實 Alibaba listing 競品拆解）</li>
+<li><strong>互動式 HTML 看板</strong>（圖表 + 可摺疊審計日誌 + 可排序表格）</li>
+<li><strong>完整審計日誌</strong>（被剔除的幻覺資料、解讀修正記錄、驗證日誌全部留痕）</li>
 </ul>
-<p><strong>核心卖点 = 零数据幻觉。</strong> 所有支撑结论的关键数字都经过浏览器二次回访核验，搜不到的如实标注，绝不编造。</p>
+<p><strong>核心賣點 = 零資料幻覺。</strong> 所有支撐結論的關鍵數字都經過瀏覽器二次回訪核驗，搜不到的如實標註，絕不編造。</p>
 <hr />
-<h2>怎么触发</h2>
-<p>直接对你的业务助手说任意一句：</p>
+<h2>怎麼觸發</h2>
+<p>直接對你的業務助手說任意一句：</p>
 <ul>
-<li>「帮我做选品分析」</li>
-<li>「我想找蓝海品」</li>
-<li>「跨境选品」/「找品」/「product selection」</li>
-<li>「我做 XX 品类，帮我在里面找细分机会」</li>
+<li>「幫我做選品分析」</li>
+<li>「我想找藍海品」</li>
+<li>「跨境選品」/「找品」/「product selection」</li>
+<li>「我做 XX 品類，幫我在裡面找細分機會」</li>
 </ul>
-<p>助手会自动加载本 skill，并先问你 3 个问题（类目 / 预算 / 市场 / 模式），然后开干。</p>
+<p>助手會自動載入本 skill，並先問你 3 個問題（類目 / 預算 / 市場 / 模式），然後開幹。</p>
 <hr />
-<h2>你需要准备回答的 4 件事</h2>
+<h2>你需要準備回答的 4 件事</h2>
 <table>
 <thead>
 <tr>
-<th>问题</th>
-<th>选项</th>
-<th>说明</th>
+<th>問題</th>
+<th>選項</th>
+<th>說明</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td><strong>类目</strong></td>
-<td>有明确类目 / 无限定</td>
-<td>有类目走"垂直深耕"，无类目走"全域猎品"</td>
+<td><strong>類目</strong></td>
+<td>有明確類目 / 無限定</td>
+<td>有類目走"垂直深耕"，無類目走"全域獵品"</td>
 </tr>
 <tr>
-<td><strong>预算</strong></td>
-<td>&lt;1万 / 1~5万 / &gt;5万</td>
-<td>决定推荐几个 SKU + 推荐模式</td>
+<td><strong>預算</strong></td>
+<td>&lt;1萬 / 1~5萬 / &gt;5萬</td>
+<td>決定推薦幾個 SKU + 推薦模式</td>
 </tr>
 <tr>
-<td><strong>市场</strong></td>
-<td>北美 / 欧洲 / 新兴 / 全球</td>
-<td>影响零售价基准与物流成本测算</td>
+<td><strong>市場</strong></td>
+<td>北美 / 歐洲 / 新興 / 全球</td>
+<td>影響零售價基準與物流成本測算</td>
 </tr>
 <tr>
 <td><strong>模式</strong></td>
-<td>完整（推荐）/ 精简</td>
-<td>完整 20-40 分钟最高置信度；精简 10-20 分钟</td>
+<td>完整（推薦）/ 精簡</td>
+<td>完整 20-40 分鐘最高置信度；精簡 10-20 分鐘</td>
 </tr>
 </tbody>
 </table>
 <hr />
-<h2>你会得到什么（交付物）</h2>
+<h2>你會得到什麼（交付物）</h2>
 <ol>
-<li><code>选品决策报告_YYYY-MM.md</code> — 完整文字版决策报告</li>
-<li><code>选品决策看板.html</code> — 交互式可视化看板（双击即可在浏览器打开，离线可用）</li>
-<li>报告内附<strong>审计日志</strong>：被剔除数据清单 / 来源审计员失职记录 / 双验偏差仲裁 / 真实来源清单</li>
+<li><code>選品決策報告_YYYY-MM.md</code> — 完整文字版決策報告</li>
+<li><code>選品決策看板.html</code> — 互動式視覺化看板（雙擊即可在瀏覽器開啟，離線可用）</li>
+<li>報告內附<strong>審計日誌</strong>：被剔除資料清單 / 來源審計員失職記錄 / 雙驗偏差仲裁 / 真實來源清單</li>
 </ol>
 <hr />
 <h2>使用注意</h2>
 <ol>
-<li><strong>执行时间较长</strong>：完整模式 20-40 分钟，会启动多个并行子代理，属正常现象，请耐心等待。</li>
-<li><strong>需要浏览器能力</strong>：skill 会自动派 browser 子代理回访 Alibaba/1688/报告页核验数据（复用你已登录的 Chrome），无需手动操作。</li>
-<li><strong>审计不可催促跳过</strong>：审计是质量核心，跳过 = 报告不合格。</li>
-<li><strong>看到"数据冲突/仲裁/剔除"是好事</strong>：这正是 skill 在帮你拦截伪蓝海和幻觉数据。</li>
+<li><strong>執行時間較長</strong>：完整模式 20-40 分鐘，會啟動多個並行子代理，屬正常現象，請耐心等待。</li>
+<li><strong>需要瀏覽器能力</strong>：skill 會自動派 browser 子代理回訪 Alibaba/1688/報告頁核驗資料（複用你已登入的 Chrome），無需手動操作。</li>
+<li><strong>審計不可催促跳過</strong>：審計是質量核心，跳過 = 報告不合格。</li>
+<li><strong>看到"資料衝突/仲裁/剔除"是好事</strong>：這正是 skill 在幫你攔截偽藍海和幻覺資料。</li>
 </ol>
 <hr />
-<h2>一句话原理</h2>
+<h2>一句話原理</h2>
 <blockquote>
-<p>普通选品工具给你一个"看起来很美"的答案；本 skill 用「多人独立采集 + 互相打架 + 第三方仲裁 + 逐条回访核验」的方式，给你一个<strong>经得起后台真金白银验证</strong>的答案。</p>
-</blockquote></section><section class="bpart" id="f2"><h3 class="bpart-h">选品策略安装提示词.docx</h3><p><strong>你好</strong><strong>,</strong><strong>我要给你安装一个跨境选品工作流</strong><strong> skill,</strong><strong>请按步骤自动完成</strong><strong>,</strong><strong>全程无需我再确认</strong><strong>:</strong></p>
+<p>普通選品工具給你一個"看起來很美"的答案；本 skill 用「多人獨立採集 + 互相打架 + 第三方仲裁 + 逐條回訪核驗」的方式，給你一個<strong>經得起後臺真金白銀驗證</strong>的答案。</p>
+</blockquote></section><section class="bpart" id="f2"><h3 class="bpart-h">选品策略安装提示词.docx</h3><p><strong>你好</strong><strong>,</strong><strong>我要給你安裝一個跨境選品工作流</strong><strong> skill,</strong><strong>請按步驟自動完成</strong><strong>,</strong><strong>全程無需我再確認</strong><strong>:</strong></p>
 <ol>
-<li><strong>安装</strong><strong> </strong><strong>cross-border-product-selection(v3.1+,</strong><strong>含浏览器强制验证、双</strong><strong> Agent </strong><strong>交叉验证、审计的审计、可复用</strong><strong> HTML </strong><strong>看板模板</strong><strong>)</strong><strong>。支持安装工具就直接装</strong><strong>;</strong><strong>不在内置目录就用</strong><strong> skill-finder </strong><strong>检索</strong><strong>"cross border product selection </strong><strong>跨境选品</strong><strong>"</strong><strong>并装</strong><strong>;</strong><strong>仍找不到告诉我。</strong></li>
-<li><strong>装完读</strong><strong> SKILL.md </strong><strong>与</strong><strong> ONBOARDING.md,</strong><strong>确认掌握铁律</strong><strong>1-5</strong><strong>、双验仲裁、审计的审计、六维矩阵、路径</strong><strong>A/B</strong><strong>、双模式、</strong><strong>report-template.html</strong><strong>。</strong></li>
-<li><strong>环境适配</strong><strong>:</strong><strong>Accio</strong><strong> Work </strong><strong>下浏览器用</strong><strong> </strong><strong>sessions_spawn</strong><strong>(</strong><strong>agent_id</strong><strong>="browser"),</strong><strong>搜索用</strong><strong> </strong><strong>general/</strong><strong>web_search</strong><strong>,</strong><strong>询问用</strong><strong> </strong><strong>ask_user</strong><strong>,</strong><strong>不调不存在的浏览器工具。</strong></li>
-<li><strong>完成回我「选品</strong><strong> skill </strong><strong>已就位」</strong><strong>,</strong><strong>然后等我说品类</strong><strong>(</strong><strong>或</strong><strong>"</strong><strong>无限定</strong><strong>"),</strong><strong>届时先用</strong><strong> </strong><strong>ask_user</strong><strong> </strong><strong>问</strong><strong>:</strong><strong>类目</strong><strong>/</strong><strong>预算</strong><strong>/</strong><strong>市场</strong><strong>/</strong><strong>模式</strong><strong>,</strong><strong>再开跑。</strong><strong> </strong>⚠️<strong> </strong><strong>铁律</strong><strong>:</strong><strong>关键数字必须浏览器二次回访核验</strong><strong>,</strong><strong>搜不到如实标注绝不编造</strong><strong>;</strong><strong>审计不可跳过</strong><strong>;</strong><strong>交付套模板的</strong><strong> HTML </strong><strong>看板</strong><strong> + Markdown </strong><strong>报告</strong><strong> + </strong><strong>完整审计日志。</strong></li>
+<li><strong>安裝</strong><strong> </strong><strong>cross-border-product-selection(v3.1+,</strong><strong>含瀏覽器強制驗證、雙</strong><strong> Agent </strong><strong>交叉驗證、審計的審計、可複用</strong><strong> HTML </strong><strong>看板模板</strong><strong>)</strong><strong>。支援安裝工具就直接裝</strong><strong>;</strong><strong>不在內建目錄就用</strong><strong> skill-finder </strong><strong>檢索</strong><strong>"cross border product selection </strong><strong>跨境選品</strong><strong>"</strong><strong>並裝</strong><strong>;</strong><strong>仍找不到告訴我。</strong></li>
+<li><strong>裝完讀</strong><strong> SKILL.md </strong><strong>與</strong><strong> ONBOARDING.md,</strong><strong>確認掌握鐵律</strong><strong>1-5</strong><strong>、雙驗仲裁、審計的審計、六維矩陣、路徑</strong><strong>A/B</strong><strong>、雙模式、</strong><strong>report-template.html</strong><strong>。</strong></li>
+<li><strong>環境適配</strong><strong>:</strong><strong>Accio</strong><strong> Work </strong><strong>下瀏覽器用</strong><strong> </strong><strong>sessions_spawn</strong><strong>(</strong><strong>agent_id</strong><strong>="browser"),</strong><strong>搜尋用</strong><strong> </strong><strong>general/</strong><strong>web_search</strong><strong>,</strong><strong>詢問用</strong><strong> </strong><strong>ask_user</strong><strong>,</strong><strong>不調不存在的瀏覽器工具。</strong></li>
+<li><strong>完成回我「選品</strong><strong> skill </strong><strong>已就位」</strong><strong>,</strong><strong>然後等我說品類</strong><strong>(</strong><strong>或</strong><strong>"</strong><strong>無限定</strong><strong>"),</strong><strong>屆時先用</strong><strong> </strong><strong>ask_user</strong><strong> </strong><strong>問</strong><strong>:</strong><strong>類目</strong><strong>/</strong><strong>預算</strong><strong>/</strong><strong>市場</strong><strong>/</strong><strong>模式</strong><strong>,</strong><strong>再開跑。</strong><strong> </strong>⚠️<strong> </strong><strong>鐵律</strong><strong>:</strong><strong>關鍵數字必須瀏覽器二次回訪核驗</strong><strong>,</strong><strong>搜不到如實標註絕不編造</strong><strong>;</strong><strong>審計不可跳過</strong><strong>;</strong><strong>交付套模板的</strong><strong> HTML </strong><strong>看板</strong><strong> + Markdown </strong><strong>報告</strong><strong> + </strong><strong>完整審計日誌。</strong></li>
 </ol></section><section class="bpart" id="f3"><h3 class="bpart-h">assets/report-template.html</h3><!DOCTYPE html>
 <!--
   ============================================================
-  跨境选品决策看板 · 可复用 HTML 模板 (report-template.html)
+  跨境選品決策看板 · 可複用 HTML 模板 (report-template.html)
   ============================================================
-  用法（Team Leader 在 Phase 4 输出时）：
-  1. 复制本模板，替换所有 {{占位符}} 与示例数据为本次选品真实数据。
-  2. 占位符清单：
-     {{CATEGORY}}  品类名（如 跳绳 / 户外灯具）
-     {{MERCHANT}}  商家名（如无则留"商家"）
-     {{MARKET}}    目标市场（如 北美+欧洲）
-     {{BUDGET}}    预算（如 1~5 万元）
-     {{DATE}}      报告日期 YYYY-MM-DD
-     {{MODE}}      完整模式 / 精简模式
-  3. 四个区块按需替换：KPI 卡 / 三级建议表 / 4 张图表 / 审计折叠日志。
-  4. 图表数据在 <script> 底部，按真实数据改 labels 与 data 数组。
-  5. 所有结论须可溯源；幻觉/冲突数据进"审计日志"折叠区，不进正文结论。
-  6. Chart.js 用 CDN；如需完全离线，可把 chart.umd.min.js 内容内联进 <script>。
-  本模板视觉骨架已在金之泰跳绳选品实战验证（深色金/青配色，离线可用）。
+  用法（Team Leader 在 Phase 4 輸出時）：
+  1. 複製本模板，替換所有 {{佔位符}} 與示例資料為本次選品真實資料。
+  2. 佔位符清單：
+     {{CATEGORY}}  品類名（如 跳繩 / 戶外燈具）
+     {{MERCHANT}}  商家名（如無則留"商家"）
+     {{MARKET}}    目標市場（如 北美+歐洲）
+     {{BUDGET}}    預算（如 1~5 萬元）
+     {{DATE}}      報告日期 YYYY-MM-DD
+     {{MODE}}      完整模式 / 精簡模式
+  3. 四個區塊按需替換：KPI 卡 / 三級建議表 / 4 張圖表 / 審計摺疊日誌。
+  4. 圖表資料在 <script> 底部，按真實資料改 labels 與 data 陣列。
+  5. 所有結論須可溯源；幻覺/衝突資料進"審計日誌"摺疊區，不進正文結論。
+  6. Chart.js 用 CDN；如需完全離線，可把 chart.umd.min.js 內容內聯進 <script>。
+  本模板視覺骨架已在金之泰跳繩選品實戰驗證（深色金/青配色，離線可用）。
   ============================================================
 -->
 <html lang="zh-CN">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>{{CATEGORY}}品类跨境选品决策看板 · {{MERCHANT}}</title>
+<title>{{CATEGORY}}品類跨境選品決策看板 · {{MERCHANT}}</title>
 <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.1/dist/chart.umd.min.js"></script>
 <style>
   :root{
@@ -1192,92 +1192,92 @@ D. 任何Agent给出了方向性判断的数据（如&quot;上升&quot;&quot;下
 </head>
 <body>
 <header class="hero">
-  <h1>{{CATEGORY}}品类跨境选品决策看板</h1>
-  <p>{{MERCHANT}} ｜ Alibaba.com × Amazon {{MARKET}} ｜ {{MODE}} · 多 Agent 双验 · 零幻觉审计 ｜ {{DATE}}</p>
+  <h1>{{CATEGORY}}品類跨境選品決策看板</h1>
+  <p>{{MERCHANT}} ｜ Alibaba.com × Amazon {{MARKET}} ｜ {{MODE}} · 多 Agent 雙驗 · 零幻覺審計 ｜ {{DATE}}</p>
   <div class="badges">
-    <span class="badge">预算 {{BUDGET}}</span>
-    <span class="badge audit">✓ 审计的审计</span>
-    <span class="badge audit">✓ 双 Agent 交叉验证</span>
-    <span class="badge audit">✓ 浏览器强制验证</span>
+    <span class="badge">預算 {{BUDGET}}</span>
+    <span class="badge audit">✓ 審計的審計</span>
+    <span class="badge audit">✓ 雙 Agent 交叉驗證</span>
+    <span class="badge audit">✓ 瀏覽器強制驗證</span>
   </div>
 </header>
 <div class="wrap">
 
-  <!-- ① KPI 卡（替换为真实关键指标） -->
+  <!-- ① KPI 卡（替換為真實關鍵指標） -->
   <section>
-    <h2>📌 核心结论</h2>
+    <h2>📌 核心結論</h2>
     <div class="kpis">
-      <div class="kpi win"><div class="n">N / M</div><div class="l">穿越全部审计关卡的细分数</div></div>
-      <div class="kpi win"><div class="n">XX%</div><div class="l">主力细分仲裁净利率</div></div>
-      <div class="kpi bad"><div class="n">XXpp</div><div class="l">被排除细分的双验偏差</div></div>
-      <div class="kpi"><div class="n">K 次</div><div class="l">审计机制关键拦截</div></div>
+      <div class="kpi win"><div class="n">N / M</div><div class="l">穿越全部審計關卡的細分數</div></div>
+      <div class="kpi win"><div class="n">XX%</div><div class="l">主力細分仲裁淨利率</div></div>
+      <div class="kpi bad"><div class="n">XXpp</div><div class="l">被排除細分的雙驗偏差</div></div>
+      <div class="kpi"><div class="n">K 次</div><div class="l">審計機制關鍵攔截</div></div>
     </div>
-    <div class="verdict"><b>一句话决策：</b>（在此填写主力 / 测试 / 排除的核心建议 + 预算分配）</div>
+    <div class="verdict"><b>一句話決策：</b>（在此填寫主力 / 測試 / 排除的核心建議 + 預算分配）</div>
   </section>
 
-  <!-- ② 三级建议表（可排序，data-* 属性供排序用） -->
+  <!-- ② 三級建議表（可排序，data-* 屬性供排序用） -->
   <section>
-    <h2>🏆 三级选品建议 <span style="font-size:12px;color:var(--txt2);font-weight:400">（点击表头排序）</span></h2>
+    <h2>🏆 三級選品建議 <span style="font-size:12px;color:var(--txt2);font-weight:400">（點選表頭排序）</span></h2>
     <div class="card"><table id="tierTable">
       <thead><tr>
-        <th data-k="tier" data-t="s">梯队<span class="arr">↕</span></th>
-        <th data-k="name" data-t="s">细分<span class="arr">↕</span></th>
-        <th data-k="profit" data-t="n">净利率<span class="arr">↕</span></th>
-        <th data-k="supply" data-t="n">供给量<span class="arr">↕</span></th>
-        <th data-k="pain" data-t="s">痛点证据<span class="arr">↕</span></th>
-        <th data-k="verdict" data-t="s">裁决<span class="arr">↕</span></th>
+        <th data-k="tier" data-t="s">梯隊<span class="arr">↕</span></th>
+        <th data-k="name" data-t="s">細分<span class="arr">↕</span></th>
+        <th data-k="profit" data-t="n">淨利率<span class="arr">↕</span></th>
+        <th data-k="supply" data-t="n">供給量<span class="arr">↕</span></th>
+        <th data-k="pain" data-t="s">痛點證據<span class="arr">↕</span></th>
+        <th data-k="verdict" data-t="s">裁決<span class="arr">↕</span></th>
       </tr></thead>
       <tbody>
-        <tr data-tier="1" data-name="细分A" data-profit="18" data-supply="1000" data-pain="高频" data-verdict="推进">
-          <td style="color:var(--gold2);font-weight:800">🥇 第一梯队</td><td>细分A</td><td>XX%</td><td>1,000+</td><td>痛点·高频</td><td><span class="pill p-win">✅ 重点推进</span></td></tr>
-        <tr data-tier="2" data-name="细分B" data-profit="10" data-supply="1000" data-pain="中频" data-verdict="测试">
-          <td style="color:var(--teal);font-weight:800">🥈 第二梯队</td><td>细分B</td><td>XX%</td><td>1,000+</td><td>痛点·中频</td><td><span class="pill p-warn">⚠️ 小批量试水</span></td></tr>
-        <tr data-tier="9" data-name="细分X" data-profit="-4" data-supply="2000" data-pain="中频" data-verdict="排除">
-          <td style="color:var(--red);font-weight:800">❌ 排除</td><td>细分X</td><td>冲突</td><td>2,000+</td><td>—</td><td><span class="pill p-bad">❌ 物流倒挂</span></td></tr>
+        <tr data-tier="1" data-name="細分A" data-profit="18" data-supply="1000" data-pain="高頻" data-verdict="推進">
+          <td style="color:var(--gold2);font-weight:800">🥇 第一梯隊</td><td>細分A</td><td>XX%</td><td>1,000+</td><td>痛點·高頻</td><td><span class="pill p-win">✅ 重點推進</span></td></tr>
+        <tr data-tier="2" data-name="細分B" data-profit="10" data-supply="1000" data-pain="中頻" data-verdict="測試">
+          <td style="color:var(--teal);font-weight:800">🥈 第二梯隊</td><td>細分B</td><td>XX%</td><td>1,000+</td><td>痛點·中頻</td><td><span class="pill p-warn">⚠️ 小批次試水</span></td></tr>
+        <tr data-tier="9" data-name="細分X" data-profit="-4" data-supply="2000" data-pain="中頻" data-verdict="排除">
+          <td style="color:var(--red);font-weight:800">❌ 排除</td><td>細分X</td><td>衝突</td><td>2,000+</td><td>—</td><td><span class="pill p-bad">❌ 物流倒掛</span></td></tr>
       </tbody>
     </table></div>
   </section>
 
-  <!-- ③ 4 张图表 -->
+  <!-- ③ 4 張圖表 -->
   <section>
-    <h2>📊 数据可视化</h2>
+    <h2>📊 資料視覺化</h2>
     <div class="grid2">
-      <div class="card"><h3>各细分净利率对比（%）</h3><div class="chart-box"><canvas id="profitChart"></canvas></div></div>
-      <div class="card"><h3>市场 CAGR 多口径分歧</h3><div class="chart-box"><canvas id="cagrChart"></canvas></div>
-        <div class="note">列出所有机构口径，不主观取高值（铁律1）。</div></div>
+      <div class="card"><h3>各細分淨利率對比（%）</h3><div class="chart-box"><canvas id="profitChart"></canvas></div></div>
+      <div class="card"><h3>市場 CAGR 多口徑分歧</h3><div class="chart-box"><canvas id="cagrChart"></canvas></div>
+        <div class="note">列出所有機構口徑，不主觀取高值（鐵律1）。</div></div>
     </div>
     <div class="grid2" style="margin-top:20px">
-      <div class="card"><h3>主力细分利润双验（BB vs BC）</h3><div class="chart-box"><canvas id="dualChart"></canvas></div>
-        <div class="note">偏差 &lt; 15% 才通过门槛。</div></div>
-      <div class="card"><h3>六维机会评分（主力细分）</h3><div class="chart-box"><canvas id="radarChart"></canvas></div></div>
+      <div class="card"><h3>主力細分利潤雙驗（BB vs BC）</h3><div class="chart-box"><canvas id="dualChart"></canvas></div>
+        <div class="note">偏差 &lt; 15% 才透過門檻。</div></div>
+      <div class="card"><h3>六維機會評分（主力細分）</h3><div class="chart-box"><canvas id="radarChart"></canvas></div></div>
     </div>
   </section>
 
-  <!-- ④ 审计折叠日志 -->
+  <!-- ④ 審計摺疊日誌 -->
   <section>
-    <h2>🔍 审计日志（零幻觉证据链）<span style="font-size:12px;color:var(--txt2);font-weight:400">点击展开</span></h2>
+    <h2>🔍 審計日誌（零幻覺證據鏈）<span style="font-size:12px;color:var(--txt2);font-weight:400">點選展開</span></h2>
     <div class="accordion">
-      <div class="acc-item"><div class="acc-head"><span>① 被剔除 / 降级的数据</span><span class="ic">▶</span></div>
-        <div class="acc-body"><p style="color:var(--txt2);padding:8px 0">（填入幻觉/冲突数据表：数据点 | 原始声称 | 复核结果 | 处置）</p></div></div>
-      <div class="acc-item"><div class="acc-head"><span>② 审计的审计 — 来源审计员失职记录</span><span class="ic">▶</span></div>
-        <div class="acc-body"><p style="color:var(--txt2);padding:8px 0">（记录主审计官对来源审计员结论的复核与拦截）</p></div></div>
-      <div class="acc-item"><div class="acc-head"><span>③ 双 / 三重验证通过记录</span><span class="ic">▶</span></div>
-        <div class="acc-body"><p style="color:var(--txt2);padding:8px 0">（验证项 | 方法 | 结果）</p></div></div>
-      <div class="acc-item"><div class="acc-head"><span>④ 真实来源清单（已亲验存在）</span><span class="ic">▶</span></div>
-        <div class="acc-body"><p style="color:var(--txt2);padding:8px 0">（带 URL 的来源列表）</p></div></div>
+      <div class="acc-item"><div class="acc-head"><span>① 被剔除 / 降級的資料</span><span class="ic">▶</span></div>
+        <div class="acc-body"><p style="color:var(--txt2);padding:8px 0">（填入幻覺/衝突資料表：資料點 | 原始聲稱 | 複核結果 | 處置）</p></div></div>
+      <div class="acc-item"><div class="acc-head"><span>② 審計的審計 — 來源審計員失職記錄</span><span class="ic">▶</span></div>
+        <div class="acc-body"><p style="color:var(--txt2);padding:8px 0">（記錄主審計官對來源審計員結論的複核與攔截）</p></div></div>
+      <div class="acc-item"><div class="acc-head"><span>③ 雙 / 三重驗證透過記錄</span><span class="ic">▶</span></div>
+        <div class="acc-body"><p style="color:var(--txt2);padding:8px 0">（驗證項 | 方法 | 結果）</p></div></div>
+      <div class="acc-item"><div class="acc-head"><span>④ 真實來源清單（已親驗存在）</span><span class="ic">▶</span></div>
+        <div class="acc-body"><p style="color:var(--txt2);padding:8px 0">（帶 URL 的來源列表）</p></div></div>
     </div>
   </section>
 
-  <footer>本看板由 cross-border-product-selection skill（{{MODE}}）生成 · 浏览器强制验证 + 双 Agent 交叉验证 + 审计的审计<br>所有结论可溯源，分歧数据已仲裁，幻觉数据已剔除 · {{MERCHANT}} · {{DATE}}</footer>
+  <footer>本看板由 cross-border-product-selection skill（{{MODE}}）生成 · 瀏覽器強制驗證 + 雙 Agent 交叉驗證 + 審計的審計<br>所有結論可溯源，分歧資料已仲裁，幻覺資料已剔除 · {{MERCHANT}} · {{DATE}}</footer>
 </div>
 <script>
 const C={gold:'#e8b65a',gold2:'#f5d488',teal:'#3ad6c4',red:'#ff5d6c',amber:'#ffb347',green:'#39d98a',grid:'#2a3343',txt:'#9aa7b4'};
 Chart.defaults.color=C.txt;Chart.defaults.font.family="'Segoe UI','PingFang SC',sans-serif";Chart.defaults.borderColor=C.grid;
-// 按真实数据替换 labels / data
-new Chart(profitChart,{type:'bar',data:{labels:['细分A','细分B','细分X'],datasets:[{label:'净利率%',data:[18,10,-4],backgroundColor:[C.green,C.teal,C.red],borderRadius:6}]},options:{plugins:{legend:{display:false}},scales:{y:{grid:{color:C.grid}},x:{grid:{display:false}}}}});
-new Chart(cagrChart,{type:'bar',data:{labels:['口径1','口径2','口径3'],datasets:[{label:'CAGR%',data:[3.4,6.7,8.5],backgroundColor:C.gold,borderRadius:5}]},options:{indexAxis:'y',plugins:{legend:{display:false}},scales:{x:{grid:{color:C.grid}},y:{grid:{display:false}}}}});
-new Chart(dualChart,{type:'bar',data:{labels:['零售价$','采购$','FBA$','佣金$','净利率%'],datasets:[{label:'BB',data:[17,3,3.7,2.6,21],backgroundColor:C.teal,borderRadius:5},{label:'BC',data:[20,3.2,4.5,3,15.5],backgroundColor:C.gold,borderRadius:5}]},options:{scales:{y:{grid:{color:C.grid}},x:{grid:{display:false}}}}});
-new Chart(radarChart,{type:'radar',data:{labels:['痛点真实度','供给非红海','利润空间','物流友好','试单门槛低','差异化空间'],datasets:[{label:'主力',data:[9,7,7,9,9,8],backgroundColor:'rgba(58,214,196,.18)',borderColor:C.teal,pointBackgroundColor:C.teal}]},options:{scales:{r:{grid:{color:C.grid},angleLines:{color:C.grid},pointLabels:{color:C.gold2},suggestedMin:0,suggestedMax:10,ticks:{display:false}}},plugins:{legend:{display:false}}}});
+// 按真實資料替換 labels / data
+new Chart(profitChart,{type:'bar',data:{labels:['細分A','細分B','細分X'],datasets:[{label:'淨利率%',data:[18,10,-4],backgroundColor:[C.green,C.teal,C.red],borderRadius:6}]},options:{plugins:{legend:{display:false}},scales:{y:{grid:{color:C.grid}},x:{grid:{display:false}}}}});
+new Chart(cagrChart,{type:'bar',data:{labels:['口徑1','口徑2','口徑3'],datasets:[{label:'CAGR%',data:[3.4,6.7,8.5],backgroundColor:C.gold,borderRadius:5}]},options:{indexAxis:'y',plugins:{legend:{display:false}},scales:{x:{grid:{color:C.grid}},y:{grid:{display:false}}}}});
+new Chart(dualChart,{type:'bar',data:{labels:['零售價$','採購$','FBA$','佣金$','淨利率%'],datasets:[{label:'BB',data:[17,3,3.7,2.6,21],backgroundColor:C.teal,borderRadius:5},{label:'BC',data:[20,3.2,4.5,3,15.5],backgroundColor:C.gold,borderRadius:5}]},options:{scales:{y:{grid:{color:C.grid}},x:{grid:{display:false}}}}});
+new Chart(radarChart,{type:'radar',data:{labels:['痛點真實度','供給非紅海','利潤空間','物流友好','試單門檻低','差異化空間'],datasets:[{label:'主力',data:[9,7,7,9,9,8],backgroundColor:'rgba(58,214,196,.18)',borderColor:C.teal,pointBackgroundColor:C.teal}]},options:{scales:{r:{grid:{color:C.grid},angleLines:{color:C.grid},pointLabels:{color:C.gold2},suggestedMin:0,suggestedMax:10,ticks:{display:false}}},plugins:{legend:{display:false}}}});
 document.querySelectorAll('.acc-head').forEach(h=>h.addEventListener('click',()=>h.parentElement.classList.toggle('open')));
 document.querySelector('.acc-item').classList.add('open');
 const tbl=document.getElementById('tierTable');let ss={};

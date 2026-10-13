@@ -1,61 +1,61 @@
-<nav class="toc"><b>本包內容（3 個檔案）</b><div><a href="#f0">skill.md</a><a href="#f1">rules/store-diagnostic.md</a><a href="#f2">rules/expansion-strategy.md</a></div></nav><section class="bpart" id="f0"><h3 class="bpart-h">skill.md</h3><div class="fm"><b>现有品类延伸拓品</b><p>深度分析店铺优势，结合实时行业趋势与买家痛点，输出带图的拓品规划全案。</p></div><h1>技能名称：现有品类延伸拓品 (Alibaba Expansion Strategist)</h1>
+<nav class="toc"><b>本包內容（3 個檔案）</b><div><a href="#f0">skill.md</a><a href="#f1">rules/store-diagnostic.md</a><a href="#f2">rules/expansion-strategy.md</a></div></nav><section class="bpart" id="f0"><h3 class="bpart-h">skill.md</h3><div class="fm"><b>現有品類延伸拓品</b><p>深度分析店鋪優勢，結合實時行業趨勢與買家痛點，輸出帶圖的拓品規劃全案。</p></div><h1>技能名稱：現有品類延伸拓品 (Alibaba Expansion Strategist)</h1>
 <h2>技能描述</h2>
-<p>这是一个帮你“寻找下一个爆款方向”的金牌军师。它能先钻进你的店里看看你到底擅长做什么（是工厂还是贸易？有哪些实力认证？），然后去外面看看现在流行什么、买家在吐槽什么，最后给你出一份带图、带逻辑、带步骤的《拓品规划全案》。</p>
+<p>這是一個幫你“尋找下一個爆款方向”的金牌軍師。它能先鑽進你的店裡看看你到底擅長做什麼（是工廠還是貿易？有哪些實力認證？），然後去外面看看現在流行什麼、買家在吐槽什麼，最後給你出一份帶圖、帶邏輯、帶步驟的《拓品規劃全案》。</p>
 <h2>核心功能</h2>
 <ol>
-<li><strong>商家画像诊断</strong>：看清你的主营类目、认证实力和现有爆款。</li>
-<li><strong>行业趋势洞察</strong>：抓取未来2年的趋势、新颜色及新面料。</li>
-<li><strong>买家痛点挖掘</strong>：从同行评价里找出买家最反感的地方，作为你的切入点。</li>
-<li><strong>视觉样图生成</strong>：动嘴也动手，用AI帮你画出建议开发的产品参考图。</li>
+<li><strong>商家畫像診斷</strong>：看清你的主營類目、認證實力和現有爆款。</li>
+<li><strong>行業趨勢洞察</strong>：抓取未來2年的趨勢、新顏色及新面料。</li>
+<li><strong>買家痛點挖掘</strong>：從同行評價裡找出買家最反感的地方，作為你的切入點。</li>
+<li><strong>視覺樣圖生成</strong>：動嘴也動手，用AI幫你畫出建議開發的產品參考圖。</li>
 </ol>
 <h2>工作流程 (Workflow)</h2>
 <ol>
-<li><strong>摸清家底</strong>：利用 <code>browser</code> 访问商家店铺，提取类目、工厂背景和核心证书。</li>
-<li><strong>全网搜情报</strong>：<br />
-   - 搜趋势：调研目标行业 2026-2027 的流行元素。<br />
-   - 看对手：用 <code>product_supplier_search</code> 盯着 Top 1% 的同行都在卖啥。<br />
-   - 听差评：提取买家抱怨最多的痛点。</li>
-<li><strong>出方案</strong>：把你的强项和外面的空档接上，定下 2-3 个具体的拓品方向（参考 <code>rules/expansion-strategy.md</code>）。</li>
-<li><strong>画个样儿</strong>：用 <code>image_generate</code> 为建议的方向生成高清参考图。</li>
-<li><strong>打包汇报</strong>：生成 Markdown 格式的《拓品规划全案》并汇报核心摘要。</li>
+<li><strong>摸清家底</strong>：利用 <code>browser</code> 訪問商家店鋪，提取類目、工廠背景和核心證書。</li>
+<li><strong>全網搜情報</strong>：<br />
+   - 搜趨勢：調研目標行業 2026-2027 的流行元素。<br />
+   - 看對手：用 <code>product_supplier_search</code> 盯著 Top 1% 的同行都在賣啥。<br />
+   - 聽差評：提取買家抱怨最多的痛點。</li>
+<li><strong>出方案</strong>：把你的強項和外面的空檔接上，定下 2-3 個具體的拓品方向（參考 <code>rules/expansion-strategy.md</code>）。</li>
+<li><strong>畫個樣兒</strong>：用 <code>image_generate</code> 為建議的方向生成高畫質參考圖。</li>
+<li><strong>打包彙報</strong>：生成 Markdown 格式的《拓品規劃全案》並彙報核心摘要。</li>
 </ol>
 <h2>使用工具</h2>
 <ul>
-<li><code>browser</code>: 潜入店铺网址进行诊断。</li>
-<li><code>web_search</code>: 搜趋势和买家反馈。</li>
-<li><code>product_supplier_search</code>: 调研竞争对手的爆款。</li>
-<li><code>image_generate</code>: 绘制产品视觉参考图。</li>
-</ul></section><section class="bpart" id="f1"><h3 class="bpart-h">rules/store-diagnostic.md</h3><h1>规则：店铺现状诊断协议 (Store Diagnostic)</h1>
-<p>在建议拓品前，必须先看清商家的“底色”：</p>
-<h3>1. 供应链背景</h3>
+<li><code>browser</code>: 潛入店鋪網址進行診斷。</li>
+<li><code>web_search</code>: 搜趨勢和買家反饋。</li>
+<li><code>product_supplier_search</code>: 調研競爭對手的爆款。</li>
+<li><code>image_generate</code>: 繪製產品視覺參考圖。</li>
+</ul></section><section class="bpart" id="f1"><h3 class="bpart-h">rules/store-diagnostic.md</h3><h1>規則：店鋪現狀診斷協議 (Store Diagnostic)</h1>
+<p>在建議拓品前，必須先看清商家的“底色”：</p>
+<h3>1. 供應鏈背景</h3>
 <ul>
-<li><strong>性质</strong>：是自有工厂（Manufacturer）还是外贸商（Trading Company）？</li>
-<li><strong>实力</strong>：看有什么“硬核”证书（如：BSCI, ISO, CE, OEKO-TEX, GRS）。</li>
+<li><strong>性質</strong>：是自有工廠（Manufacturer）還是外貿商（Trading Company）？</li>
+<li><strong>實力</strong>：看有什麼“硬核”證書（如：BSCI, ISO, CE, OEKO-TEX, GRS）。</li>
 </ul>
-<h3>2. 产品基因</h3>
+<h3>2. 產品基因</h3>
 <ul>
-<li><strong>核心材质</strong>：比如商家擅长做竹纤维，那拓品也要围着竹纤维转。</li>
-<li><strong>现有调性</strong>：是走极简风、奢华风还是性价比路线？</li>
+<li><strong>核心材質</strong>：比如商家擅長做竹纖維，那拓品也要圍著竹纖維轉。</li>
+<li><strong>現有調性</strong>：是走極簡風、奢華風還是價效比路線？</li>
 </ul>
-<h3>3. 诊断目标</h3>
+<h3>3. 診斷目標</h3>
 <ul>
-<li>找出商家的“护城河”，避免拓品拓到了自己不擅长的领域。</li>
-</ul></section><section class="bpart" id="f2"><h3 class="bpart-h">rules/expansion-strategy.md</h3><h1>规则：拓品策略生成逻辑 (Expansion Strategy)</h1>
-<p>制定方案时，必须遵循“跨界协同”与“差异化”原则：</p>
-<h3>1. 寻找“交集点”</h3>
+<li>找出商家的“護城河”，避免拓品拓到了自己不擅長的領域。</li>
+</ul></section><section class="bpart" id="f2"><h3 class="bpart-h">rules/expansion-strategy.md</h3><h1>規則：拓品策略生成邏輯 (Expansion Strategy)</h1>
+<p>制定方案時，必須遵循“跨界協同”與“差異化”原則：</p>
+<h3>1. 尋找“交集點”</h3>
 <ul>
-<li><strong>逻辑</strong>：商家的核心技术 + 行业流行大趋势 = 拓品方向。</li>
-<li><strong>示例</strong>：如果商家擅长做速干面料，而现在露营风很火，那可以考虑拓品“速干露营防晒衣”。</li>
+<li><strong>邏輯</strong>：商家的核心技術 + 行業流行大趨勢 = 拓品方向。</li>
+<li><strong>示例</strong>：如果商家擅長做速乾麵料，而現在露營風很火，那可以考慮拓品“速幹露營防曬衣”。</li>
 </ul>
-<h3>2. 瞄准“痛点区” (VOC)</h3>
+<h3>2. 瞄準“痛點區” (VOC)</h3>
 <ul>
-<li><strong>动作</strong>：从同行 1-3 星评价中抓取关键词（如：容易坏、颜色有色差）。</li>
-<li><strong>策略</strong>：在我们的新方案里明确解决这些问题，作为核心卖点。</li>
+<li><strong>動作</strong>：從同行 1-3 星評價中抓取關鍵詞（如：容易壞、顏色有色差）。</li>
+<li><strong>策略</strong>：在我們的新方案裡明確解決這些問題，作為核心賣點。</li>
 </ul>
-<h3>3. 规划 Roadmap</h3>
+<h3>3. 規劃 Roadmap</h3>
 <ul>
-<li>不能只给建议，要给出执行步骤：</li>
-<li>第一阶段：样品研发与视觉测试。</li>
-<li>第二阶段：批量测款。</li>
-<li>第三阶段：推流引爆。</li>
+<li>不能只給建議，要給出執行步驟：</li>
+<li>第一階段：樣品研發與視覺測試。</li>
+<li>第二階段：批次測款。</li>
+<li>第三階段：推流引爆。</li>
 </ul></section>

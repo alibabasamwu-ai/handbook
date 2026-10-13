@@ -1,0 +1,80 @@
+<nav class="toc"><b>本包内容（3 个档案）</b><div><a href="#f0">skill.md</a><a href="#f1">rules/checklist.md</a><a href="#f2">rules/report-template.md</a></div></nav><section class="bpart" id="f0"><h3 class="bpart-h">skill.md</h3><div class="fm"><b>阿里店铺全能诊断</b><p>阿里国际站店铺全年战略诊断。支持自动后台抓取数据，产出翻倍路线图。</p></div><h1>技能名称：阿里店铺全能诊断 (Alibaba Shop Diagnostic Plus)</h1>
+<h2>技能描述</h2>
+<p>这是一个帮你做“店铺全方位体检”的专家级工具。它支持直接“潜入”阿里国际站后台自动抓取数据，也支持解析你上传的报表截图。最终产出一份专业的《全年战略诊断报告》，并给出业绩翻倍的具体路径。</p>
+<h2>核心功能</h2>
+<ol>
+<li><strong>自动/手动数据采集</strong>：支持直接从阿里后台抓取最近6个月数据，或解析上传的文件。</li>
+<li><strong>同行GAP诊断</strong>：对比行业均值和优秀同行，找出基建、流量、商机、成交的差距。</li>
+<li><strong>产品推优专项</strong>：识别全站推预算黑洞，挖掘应推未推的潜力产品。</li>
+<li><strong>市场四维分析</strong>：识别无效流量黑洞，锁定被低估的高价值市场。</li>
+<li><strong>业绩翻倍路线图</strong>：基于数学逻辑推导漏斗改善空间，制定季度执行清单。</li>
+</ol>
+<h2>启动前准备 (必读)</h2>
+<p>在开始诊断前，必须确保我有权限访问你的数据。我会询问你：<br />
+- <strong>选项 1</strong>：请确保你的谷歌浏览器（Chrome）已登录阿里卖家后台，我将直接通过浏览器自动抓取数据（最快、最准）。<br />
+- <strong>选项 2</strong>：手动输入账号密码（不推荐，除非自动登录失效）。<br />
+- <strong>选项 3</strong>：直接上传 4 类导出的数据文件（经营报表、产品报表、对标/漏斗截图）。</p>
+<h2>工作流程 (Workflow)</h2>
+<ol>
+<li><strong>确认权限</strong>：先确认用户是否已在浏览器登录阿里后台。若未登录，引导用户登录或上传文件。</li>
+<li><strong>数据采集</strong>：<br />
+   - <strong>自动模式</strong>：调用 <code>browser</code> 自动进入数据中心抓取最近6个月指标、产品表现及市场漏斗。<br />
+   - <strong>手动模式</strong>：解析上传的 XLS 报表，并使用 <code>see_image</code> 提取截图数据。</li>
+<li><strong>数据校验</strong>：按照 <code>rules/checklist.md</code> 检查数据完整性。</li>
+<li><strong>深度诊断</strong>：基于数据计算派生指标（CTR、CVR等），并对标行业均值。</li>
+<li><strong>撰写报告</strong>：严格参考 <code>rules/report-template.md</code> 的结构，输出 Markdown 诊断报告。</li>
+<li><strong>展示清单</strong>：在对话框直接贴出 <strong>P0 优先级动作清单</strong>。</li>
+</ol>
+<h2>使用工具</h2>
+<ul>
+<li><code>browser</code>: 自动潜入后台抓取实时数据。</li>
+<li><code>see_image</code>: 解析对标和漏斗截图。</li>
+<li><code>read</code>: 解析导出的报表文件。</li>
+</ul></section><section class="bpart" id="f1"><h3 class="bpart-h">rules/checklist.md</h3><h1>规则：诊断数据核查清单 (Checklist)</h1>
+<p>在写报告前，必须确保以下数据点已就位：</p>
+<h3>1. 经营指标 (最近6个月)</h3>
+<ul>
+<li>搜索曝光、搜索点击、搜索CTR。</li>
+<li>询盘人数、TM咨询人数、ATM留存率。</li>
+<li>信保订单数、信保成交金额。</li>
+</ul>
+<h3>2. 产品结构</h3>
+<ul>
+<li>全站推参推商品数及曝光分布。</li>
+<li>零转化品（曝光&gt;0但商机=0）。</li>
+<li>潜力品（有订单/询盘但未参推）。</li>
+</ul>
+<h3>3. 同行对比</h3>
+<ul>
+<li>必须包含：行业均值、同行优秀（Top 10%）。</li>
+</ul>
+<h3>4. 市场漏斗</h3>
+<ul>
+<li>必须交叉分析：访客TOP5、询盘TOP5、TM TOP5、订单TOP5。</li>
+<li>识别：无效流量黑洞（高访客零产出）、被低估市场（低访客高转化）。</li>
+</ul></section><section class="bpart" id="f2"><h3 class="bpart-h">rules/report-template.md</h3><h1>规则：诊断报告标准模板 (Report Template)</h1>
+<p>报告必须包含以下固定章节，且严禁估算或虚构数字。</p>
+<h3>1. 总判断：一句话核心结论</h3>
+<ul>
+<li>总结当前的优势、核心问题及一句话战略方向。</li>
+</ul>
+<h3>2. 看对手：同行GAP对标</h3>
+<ul>
+<li>用表格对比你与行业均值、优秀的差距。</li>
+<li>每一项必须有：<strong>根因拆解</strong>（A→B→C逻辑）和 <strong>可落地动作</strong>（动词+对象）。</li>
+</ul>
+<h3>3. 全站推专项：钱花对了吗？</h3>
+<ul>
+<li>诊断推广商品池规模。</li>
+<li>列出“预算黑洞”清单（零转化品）和“应推未推”潜力品。</li>
+</ul>
+<h3>4. 市场维度：国家漏斗矩阵</h3>
+<ul>
+<li>判定核心成交市场、无效流量市场和被低估市场。</li>
+</ul>
+<h3>5. 全年翻倍路线图</h3>
+<ul>
+<li><strong>数学逻辑</strong>：拆解当前漏斗 vs 目标漏斗。</li>
+<li><strong>季度节奏</strong>：止血期（Q1）、爬升期（Q2）、爆发期（Q3）。</li>
+<li><strong>优先级清单</strong>：列出 P0（本周必做）到 P3（下季度规划）的动作总表。</li>
+</ul></section>

@@ -1,0 +1,70 @@
+<nav class="toc"><b>本包内容（3 个档案）</b><div><a href="#f0">skill.md</a><a href="#f1">rules/research-logic.md</a><a href="#f2">rules/report-template.md</a></div></nav><section class="bpart" id="f0"><h3 class="bpart-h">skill.md</h3><div class="fm"><b>新拓品类调研报告</b><p>只需输入产品名，自动搜集全球市场增速、买家特征及差异化机会。</p></div><h1>技能名称：新拓品类调研报告 (Category Research Brief)</h1>
+<h2>技能描述</h2>
+<p>这是一个帮你“快速摸清某个产品出口前景”的市场专家。你只需要输入一个产品名字（如“太阳能水泵”），它就会全网搜集权威数据，帮你查清全球市场规模、主要国家买家偏好，并直接告诉你目前最值得切入的“差异化机会”在哪。</p>
+<h2>核心功能</h2>
+<ol>
+<li><strong>全球增速分析</strong>：查询近3年及未来的市场规模和年复合增长率 (CAGR)。</li>
+<li><strong>三地买家画像</strong>：深入调研美国、欧洲、东南亚/澳洲三大市场的买家偏好与认证要求。</li>
+<li><strong>竞争压力评估</strong>：估算阿里国际站同行数量，划出“红区”和“蓝区”。</li>
+<li><strong>差异化发力点</strong>：提炼一个最值得抓住的细分市场机会，并给出具体落地建议。</li>
+</ol>
+<h2>工作流程 (Workflow)</h2>
+<ol>
+<li><strong>识别产品</strong>：自动提取产品中英文名。</li>
+<li><strong>四路并行调研</strong>：<br />
+   - 搜规模与增速（参考 <code>rules/research-logic.md</code>）。<br />
+   - 搜美国/欧洲/东南亚买家特征。<br />
+   - 搜国际站竞争情况与差异化方向。</li>
+<li><strong>结构化输出</strong>：按照 <code>rules/report-template.md</code> 要求的模板生成 Markdown 报告。</li>
+<li><strong>保存与摘要</strong>：将报告存入工作目录，并在对话框展示精简版摘要（市场规模、买家特征、机会点、文件链接）。</li>
+</ol>
+<h2>使用工具</h2>
+<ul>
+<li><code>web_search</code>: 并行抓取全球市场数据。</li>
+<li><code>web_fetch</code>: 深入解析行业报告及竞品信息。</li>
+<li><code>write</code>: 将调研结果保存为本地 .md 文件。</li>
+</ul></section><section class="bpart" id="f1"><h3 class="bpart-h">rules/research-logic.md</h3><h1>规则：调研逻辑与数据质量 (Research Logic)</h1>
+<p>为了保证调研报告的含金量，必须遵守以下搜索与采信逻辑：</p>
+<h3>1. 并行搜索策略</h3>
+<p>同时发出以下 4 组搜索，不要串行等待：<br />
+- <strong>市场规模</strong>："{product} global market size CAGR 2024 2025 growth rate"<br />
+- <strong>美国画像</strong>："{product} US buyer profile preferences import 2025"<br />
+- <strong>欧东南画像</strong>："{product} Europe Southeast Asia buyer trend certification"<br />
+- <strong>竞争机会</strong>："{product} alibaba competition differentiation opportunity 2025"</p>
+<h3>2. 数据采信原则</h3>
+<ul>
+<li><strong>优先机构</strong>：VerifiedMarketReports, GrandViewResearch, Statista, Mordor Intelligence。</li>
+<li><strong>时效要求</strong>：优先使用 2024-2025 年数据。</li>
+<li><strong>诚实原则</strong>：搜不到就说“数据暂缺”，严禁编造数字。</li>
+</ul>
+<h3>3. 差异化逻辑分析</h3>
+<p>不能只堆砌数据，必须通过对比找出：<br />
+- 传统竞品都在做什么（红海）？<br />
+- 哪种细分需求（如：EV适配、智能化、轻量化）还没被满足（蓝海）？</p></section><section class="bpart" id="f2"><h3 class="bpart-h">rules/report-template.md</h3><h1>规则：调研报告标准模板 (Report Template)</h1>
+<p>生成的 .md 报告必须包含以下结构：</p>
+<h3>一、全球市场规模与增速</h3>
+<ul>
+<li>[表格展示：当前规模、CAGR增速、预测规模]</li>
+<li>核心驱动力分析（3点）。</li>
+</ul>
+<h3>二、主要进口国买家特征</h3>
+<ul>
+<li><strong>美国</strong>：画像、偏好、价格带、2025新趋势。</li>
+<li><strong>欧洲</strong>：重点突出环保与认证（CE/REACH等）要求。</li>
+<li><strong>东南亚/澳洲</strong>：增速亮点与特定场景偏好。</li>
+</ul>
+<h3>三、国际站竞争程度</h3>
+<ul>
+<li>综合评级：⭐(1-5) / 竞争烈度（低/中/高/极高）。</li>
+<li>竞争红区 vs 蓝区对比。</li>
+</ul>
+<h3>四、核心差异化机会点 (关键)</h3>
+<ul>
+<li><strong>1个机会标题</strong>（10字内）。</li>
+<li><strong>逻辑支撑</strong>：为什么这个点能赚钱？</li>
+<li><strong>落地建议</strong>：产品要素对比表 + 关键词/营销建议。</li>
+</ul>
+<h3>五、拜访建议问题清单</h3>
+<ul>
+<li>为用户准备 5 个去工厂调研时必问的“钩子”问题。</li>
+</ul></section>

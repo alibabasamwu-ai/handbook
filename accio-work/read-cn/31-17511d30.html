@@ -1,0 +1,110 @@
+<nav class="toc"><b>本包内容（4 个档案）</b><div><a href="#f0">skill.md</a><a href="#f1">rules/faq-protocol.md</a><a href="#f2">rules/ksp-protocol.md</a><a href="#f3">rules/image-protocol.md</a></div></nav><section class="bpart" id="f0"><h3 class="bpart-h">skill.md</h3><div class="fm"><b>结构化商详专家</b><p>一站式搞定阿里国际站200问FAQ、黄金五段卖点及30张专业图集。</p></div><h1>技能名称：结构化商详专家 (Structured Product Detail Expert)</h1>
+<h2>技能描述</h2>
+<p>这是一个帮你把产品在阿里后台“从头到脚武装到牙齿”的专家。它能帮你一口气写出200个专业FAQ问答对、提炼黄金五段卖点文案，并自动生成一整套包含30张图片的专业图集，让你的商详页转化率直接拉满。</p>
+<h2>核心功能</h2>
+<ol>
+<li><strong>FAQ 200问</strong>：覆盖询价、技术、物流等7大维度的双语知识库。</li>
+<li><strong>黄金五段卖点</strong>：按照成交逻辑（CVP/KSP/ICP/TSP/CTA）撰写2000字符内文案。</li>
+<li><strong>30图结构化图集</strong>：自动识别行业，生成包含主图、场景图、证书墙的全套视觉方案。</li>
+</ol>
+<h2>工作流程 (Workflow)</h2>
+<ol>
+<li><strong>接收需求</strong>：用户提供产品名称或链接。</li>
+<li><strong>模块选择</strong>：<br />
+   - <strong>写FAQ</strong>：参考 <code>rules/faq-protocol.md</code>，从7大框架生成双语问答并导出Excel。<br />
+   - <strong>写卖点</strong>：抓取产品信息，按 <code>rules/ksp-protocol.md</code> 的五段论生成文案。<br />
+   - <strong>出图集</strong>：判断行业类型，按 <code>rules/image-protocol.md</code> 并行生成高保真图片。</li>
+<li><strong>交付成果</strong>：输出文案内容，并提供Excel文件及图片下载链接。</li>
+</ol>
+<h2>使用工具</h2>
+<ul>
+<li><code>web_fetch</code>: 抓取竞争对手或自身产品信息。</li>
+<li><code>image_generate</code>: 生成高质量产品主图及详情页图片。</li>
+<li><code>bash</code>: 用于运行Python脚本生成Excel格式的FAQ。</li>
+</ul></section><section class="bpart" id="f1"><h3 class="bpart-h">rules/faq-protocol.md</h3><h1>规则：FAQ 知识库生成协议 (FAQ Protocol)</h1>
+<p>在生成 FAQ 时，必须覆盖以下七大黄金框架，每部分都要有中英双语：</p>
+<h3>1. 破冰与公司实力 (Ice-Breaking)</h3>
+<ul>
+<li>问：你们是工厂还是贸易公司？</li>
+<li>问：你们做了多少年了？</li>
+</ul>
+<h3>2. 产品技术参数 (Technical)</h3>
+<ul>
+<li>问：产品通过了什么认证？</li>
+<li>问：支持定制化 (OEM/ODM) 吗？</li>
+</ul>
+<h3>3. 价格与订单 (Pricing &amp; MOQ)</h3>
+<ul>
+<li>问：拿样怎么收费？</li>
+<li>问：大货起订量是多少？</li>
+</ul>
+<h3>4. 售后保障 (After-Sales)</h3>
+<ul>
+<li>问：质保期多久？</li>
+<li>问：出现质量问题怎么赔付？</li>
+</ul>
+<h3>5. 物流与包装 (Logistics)</h3>
+<ul>
+<li>问：交期一般多久？</li>
+<li>问：支持哪种发货方式？</li>
+</ul>
+<h3>6. 增值服务 (Upselling)</h3>
+<ul>
+<li>问：你们还卖什么配套产品？</li>
+</ul>
+<h3>7. 信任背书 (Confidence)</h3>
+<ul>
+<li>问：为什么我该选你们而不是其他家？</li>
+</ul>
+<p><strong>输出要求：</strong><br />
+- 必须包含 200 个左右的问答对。<br />
+- 采用双语格式，并提醒用户可以使用 <code>bash</code> 导出为 Excel 以便后台上传。</p></section><section class="bpart" id="f2"><h3 class="bpart-h">rules/ksp-protocol.md</h3><h1>规则：卖点黄金五段论 (KSP Protocol)</h1>
+<p>所有产品文案必须严格遵守“黄金五段论”结构，且总长度控制在 2000 字符以内：</p>
+<h3>第一段：CVP (核心价值主张)</h3>
+<ul>
+<li><strong>重点</strong>：一句话说明你是卖什么的，以及最牛的那个点。</li>
+</ul>
+<h3>第二段：KSP (关键卖点矩阵)</h3>
+<ul>
+<li><strong>重点</strong>：3-5 个具体的产品优势（参数、材质、设计、工艺）。</li>
+</ul>
+<h3>第三段：ICP (典型客户画像)</h3>
+<ul>
+<li><strong>重点</strong>：告诉买家，什么样的人最需要这个产品。</li>
+</ul>
+<h3>第四段：TSP (信任保障体系)</h3>
+<ul>
+<li><strong>重点</strong>：列举认证（CE/ISO/FCC）、专利、或者“12年老店”等信任背书。</li>
+</ul>
+<h3>第五段：CTA (行动号召)</h3>
+<ul>
+<li><strong>重点</strong>：引导客户询价或拿样，如：“Contact us now for a full catalog!”</li>
+</ul>
+<p><strong>撰写要求：</strong><br />
+- 英文为主，中文注释。<br />
+- 使用 Bullet points（点状列举），严禁大段的长句子。</p></section><section class="bpart" id="f3"><h3 class="bpart-h">rules/image-protocol.md</h3><h1>规则：商品图集生成协议 (Image Protocol)</h1>
+<p>根据产品行业属性，自动适配出图方案：</p>
+<h3>方案一：B2B 工业品/机械类</h3>
+<ul>
+<li><strong>核心逻辑</strong>：重参数、重结构、重实力。</li>
+<li><strong>图表建议</strong>：<br />
+  1. 白底主图 (Main View)<br />
+  2. 爆炸/拆解图 (Exploded View)<br />
+  3. 核心参数表 (Parameters)<br />
+  4. 生产车间/测试线 (Factory)<br />
+  5. 证书墙/包装图 (Certifications)</li>
+</ul>
+<h3>方案二：B2C 消费品/服装类</h3>
+<ul>
+<li><strong>核心逻辑</strong>：重美感、重场景、重细节。</li>
+<li><strong>图表建议</strong>：<br />
+  1. 模特/使用场景图 (Scenario)<br />
+  2. 细节/材质特写 (Close-up)<br />
+  3. 颜色/款式清单 (Variants)<br />
+  4. 尺码表/穿搭建议 (Size Chart)<br />
+  5. 用户好评/实拍图 (Reviews)</li>
+</ul>
+<p><strong>生成规范：</strong><br />
+- 使用 <code>image_generate</code> 并行生成多组图片。<br />
+- 风格保持一致，严禁出现乱码文字。<br />
+- 每套图集不少于 10-15 张，建议最高配置 30 张。</p></section>

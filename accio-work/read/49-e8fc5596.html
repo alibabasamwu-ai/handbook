@@ -1,742 +1,742 @@
-<nav class="toc"><b>本包內容（2 個檔案）</b><div><a href="#f0">alibaba-product-health-check/SKILL.md</a><a href="#f1">技能使用说明.docx</a></div></nav><section class="bpart" id="f0"><h3 class="bpart-h">alibaba-product-health-check/SKILL.md</h3><div class="fm"><b>alibaba-product-health-check</b><p>阿里巴巴国际站商品健康度诊断技能。通过浏览器会话依次访问商品管理、商品运营工作台、数据参谋、行业征品等后台页面，采集产品赛道结构、主营占比、分组排序、产品分层、零效果产品、违规问题等6大维度数据，输出结构化Word诊断报告并保存到桌面。适用于所有阿里国际站店铺（不限行业）。触发关键词：商品健康度、产品健康度、店铺产品体检、健康度诊断、店铺产品盘点、产品结构分析。</p></div><h1>阿里国际站商品健康度诊断 SKILL</h1>
+<nav class="toc"><b>本包內容（2 個檔案）</b><div><a href="#f0">alibaba-product-health-check/SKILL.md</a><a href="#f1">技能使用说明.docx</a></div></nav><section class="bpart" id="f0"><h3 class="bpart-h">alibaba-product-health-check/SKILL.md</h3><div class="fm"><b>alibaba-product-health-check</b><p>阿里巴巴國際站商品健康度診斷技能。透過瀏覽器會話依次訪問商品管理、商品運營工作臺、資料參謀、行業徵品等後臺頁面，採集產品賽道結構、主營佔比、分組排序、產品分層、零效果產品、違規問題等6大維度資料，輸出結構化Word診斷報告並儲存到桌面。適用於所有阿里國際站店鋪（不限行業）。觸發關鍵詞：商品健康度、產品健康度、店鋪產品體檢、健康度診斷、店鋪產品盤點、產品結構分析。</p></div><h1>阿里國際站商品健康度診斷 SKILL</h1>
 <h2>概述</h2>
-<p>通过浏览器会话自动访问阿里巴巴国际站卖家后台，抓取商品健康度关键指标数据，基于行业标准和最优实践生成诊断报告。适用于所有类目店铺。</p>
-<h2>执行流程</h2>
-<pre><code>Step 1: 收集用户输入
-  │  确认主营类目、店铺行业、报告输出偏好
+<p>透過瀏覽器會話自動訪問阿里巴巴國際站賣家後臺，抓取商品健康度關鍵指標資料，基於行業標準和最優實踐生成診斷報告。適用於所有類目店鋪。</p>
+<h2>執行流程</h2>
+<pre><code>Step 1: 收集使用者輸入
+  │  確認主營類目、店鋪行業、報告輸出偏好
   │  ↓
-Step 2: 检查登录状态
-  │  访问 i.alibaba.com，判断是否需要登录
+Step 2: 檢查登入狀態
+  │  訪問 i.alibaba.com，判斷是否需要登入
   │  ↓
-Step 2.5: 自动抓取店铺真实名称（必须执行）
-  │  浏览器访问后台获取公司英文名 + 阿里主页链接
-  │  用于报告封面，替代账号邮箱
+Step 2.5: 自動抓取店鋪真實名稱（必須執行）
+  │  瀏覽器訪問後臺獲取公司英文名 + 阿里主頁連結
+  │  用於報告封面，替代賬號郵箱
   │  ↓
-Step 3: 数据采集（6大数据源，浏览器分步抓取）
-  │  3.1 商品管理页 → 赛道结构、违规问题
-  │  3.2 商品运营工作台 → 产品分层
-  │  3.3 数据参谋零效果 → 沉睡产品清单
-  │  3.4 商品管理页按类目筛选 → 主营产品占比
-  │  3.5 商品分组与排序 → 分组顺序
-  │  3.6 行业定向征品 → 征品机会
+Step 3: 資料採集（6大資料來源，瀏覽器分步抓取）
+  │  3.1 商品管理頁 → 賽道結構、違規問題
+  │  3.2 商品運營工作臺 → 產品分層
+  │  3.3 資料參謀零效果 → 沉睡產品清單
+  │  3.4 商品管理頁按類目篩選 → 主營產品佔比
+  │  3.5 商品分組與排序 → 分組順序
+  │  3.6 行業定向徵品 → 徵品機會
   │  ↓
-Step 4: 行业赛道比例研究（AI辅助分析）
-  │  基于用户声明的行业与产品线，给出交易品/商机品最优比例建议
+Step 4: 行業賽道比例研究（AI輔助分析）
+  │  基於使用者宣告的行業與產品線，給出交易品/商機品最優比例建議
   │  ↓
-Step 5: 生成Word诊断报告
-  │  按6章节结构输出，保存到桌面
+Step 5: 生成Word診斷報告
+  │  按6章節結構輸出，儲存到桌面
   │  ↓
-Step 6: 呈现结果 + 关键结论摘要
+Step 6: 呈現結果 + 關鍵結論摘要
 </code></pre>
 <hr />
-<h2>环境依赖</h2>
+<h2>環境依賴</h2>
 <table>
 <thead>
 <tr>
-<th>项目</th>
-<th>说明</th>
+<th>專案</th>
+<th>說明</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td>浏览器工具</td>
-<td><code>browser</code> sub-agent，使用用户已登录的Chrome会话</td>
+<td>瀏覽器工具</td>
+<td><code>browser</code> sub-agent，使用使用者已登入的Chrome會話</td>
 </tr>
 <tr>
-<td>目标域名</td>
+<td>目標域名</td>
 <td><code>https://i.alibaba.com/</code> / <code>https://data.alibaba.com/</code> / <code>https://hz-productposting.alibaba.com/</code></td>
 </tr>
 <tr>
 <td>Word生成</td>
-<td><code>docx</code> skill，使用JavaScript docx-js库</td>
+<td><code>docx</code> skill，使用JavaScript docx-js庫</td>
 </tr>
 <tr>
-<td>登录状态</td>
-<td>用户必须已登录阿里巴巴国际站后台</td>
+<td>登入狀態</td>
+<td>使用者必須已登入阿里巴巴國際站後臺</td>
 </tr>
 </tbody>
 </table>
 <hr />
-<h2>Step 1: 收集用户输入</h2>
-<p>执行前必须向用户确认以下3个信息（不确认则不能生成准确报告）：</p>
+<h2>Step 1: 收集使用者輸入</h2>
+<p>執行前必須向使用者確認以下3個資訊（不確認則不能生成準確報告）：</p>
 <table>
 <thead>
 <tr>
-<th>信息项</th>
-<th>说明</th>
+<th>資訊項</th>
+<th>說明</th>
 <th>示例</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td><strong>主营类目</strong></td>
-<td>用户声明的核心产品线（用于计算主营占比）</td>
-<td>"安全帽 + 反光服 + 安全绳"、"USB充电器 + 数据线"、"宠物推车 + 宠物玩具"</td>
+<td><strong>主營類目</strong></td>
+<td>使用者宣告的核心產品線（用於計算主營佔比）</td>
+<td>"安全帽 + 反光服 + 安全繩"、"USB充電器 + 資料線"、"寵物推車 + 寵物玩具"</td>
 </tr>
 <tr>
-<td><strong>店铺行业</strong></td>
-<td>用于AI推算行业赛道比例建议</td>
-<td>"PPE个人防护"、"3C电子配件"、"宠物用品"</td>
+<td><strong>店鋪行業</strong></td>
+<td>用於AI推算行業賽道比例建議</td>
+<td>"PPE個人防護"、"3C電子配件"、"寵物用品"</td>
 </tr>
 <tr>
-<td><strong>报告文件名</strong></td>
-<td>输出的Word文件名（默认：<code>商品健康度诊断报告_日期.docx</code>）</td>
-<td>用户可自定义</td>
+<td><strong>報告檔名</strong></td>
+<td>輸出的Word檔名（預設：<code>商品健康度診斷報告_日期.docx</code>）</td>
+<td>使用者可自定義</td>
 </tr>
 </tbody>
 </table>
-<p><strong>询问模板：</strong></p>
-<pre><code>在开始检查前，请确认以下3个信息：
+<p><strong>詢問模板：</strong></p>
+<pre><code>在開始檢查前，請確認以下3個資訊：
 
-1. 你的主营类目是什么？（用于计算主营占比，请写清楚2-4个核心产品线）
-2. 你的店铺属于哪个行业？（我会基于行业特性给出赛道比例建议）
-3. 报告文件名希望自定义吗？（默认：商品健康度诊断报告_YYYYMMDD.docx）
+1. 你的主營類目是什麼？（用於計算主營佔比，請寫清楚2-4個核心產品線）
+2. 你的店鋪屬於哪個行業？（我會基於行業特性給出賽道比例建議）
+3. 報告檔名希望自定義嗎？（預設：商品健康度診斷報告_YYYYMMDD.docx）
 </code></pre>
-<p><strong>判断规则：</strong> 如果用户回复中已经包含以上信息（比如首轮请求就说"我是做安全帽的店铺"），直接使用无需重复问；缺失才追问。</p>
+<p><strong>判斷規則：</strong> 如果使用者回覆中已經包含以上資訊（比如首輪請求就說"我是做安全帽的店鋪"），直接使用無需重複問；缺失才追問。</p>
 <hr />
-<h2>Step 2: 检查登录状态</h2>
-<p>访问 <code>https://i.alibaba.com/prod/product_manage#/product/online</code>：</p>
+<h2>Step 2: 檢查登入狀態</h2>
+<p>訪問 <code>https://i.alibaba.com/prod/product_manage#/product/online</code>：</p>
 <ul>
-<li>页面跳转到 <code>login.alibaba.com</code> → 未登录，提示用户完成登录后重试</li>
-<li>正常显示商品管理页 → 已登录，继续</li>
+<li>頁面跳轉到 <code>login.alibaba.com</code> → 未登入，提示使用者完成登入後重試</li>
+<li>正常顯示商品管理頁 → 已登入，繼續</li>
 </ul>
 <hr />
-<h2>Step 2.5: 自动抓取店铺真实名称（必须执行）</h2>
-<p><strong>目的：</strong> 报告封面使用真实公司名称，而非账号邮箱，适配多商家/多店铺场景。</p>
-<p><strong>执行方式：</strong> 浏览器访问阿里国际站卖家后台，从以下任一位置读取：</p>
+<h2>Step 2.5: 自動抓取店鋪真實名稱（必須執行）</h2>
+<p><strong>目的：</strong> 報告封面使用真實公司名稱，而非賬號郵箱，適配多商家/多店鋪場景。</p>
+<p><strong>執行方式：</strong> 瀏覽器訪問阿里國際站賣家後臺，從以下任一位置讀取：</p>
 <table>
 <thead>
 <tr>
-<th>来源</th>
+<th>來源</th>
 <th>操作</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td>后台顶部导航栏</td>
-<td>通常显示公司名称或店铺名</td>
+<td>後臺頂部導航欄</td>
+<td>通常顯示公司名稱或店鋪名</td>
 </tr>
 <tr>
-<td>公司信息页</td>
-<td>访问 <code>https://i.alibaba.com/company/company_info.htm</code></td>
+<td>公司資訊頁</td>
+<td>訪問 <code>https://i.alibaba.com/company/company_info.htm</code></td>
 </tr>
 <tr>
-<td>店铺前台链接</td>
-<td>格式为 <code>xxxx.en.alibaba.com</code>，从后台"我的店铺"或地址栏获取</td>
+<td>店鋪前臺連結</td>
+<td>格式為 <code>xxxx.en.alibaba.com</code>，從後臺"我的店鋪"或位址列獲取</td>
 </tr>
 </tbody>
 </table>
-<p><strong>需记录字段：</strong></p>
+<p><strong>需記錄欄位：</strong></p>
 <table>
 <thead>
 <tr>
-<th>字段</th>
-<th>说明</th>
+<th>欄位</th>
+<th>說明</th>
 <th>用途</th>
 </tr>
 </thead>
 <tbody>
 <tr>
 <td><code>company_name_en</code></td>
-<td>公司英文注册名称</td>
-<td>报告封面"店铺名称"</td>
+<td>公司英文註冊名稱</td>
+<td>報告封面"店鋪名稱"</td>
 </tr>
 <tr>
 <td><code>store_url</code></td>
-<td>阿里主页链接（xxxx.en.alibaba.com）</td>
-<td>报告封面"主页链接"</td>
+<td>阿里主頁連結（xxxx.en.alibaba.com）</td>
+<td>報告封面"主頁連結"</td>
 </tr>
 <tr>
 <td><code>company_name_cn</code></td>
-<td>公司中文名称（如有）</td>
-<td>可选，报告备注</td>
+<td>公司中文名稱（如有）</td>
+<td>可選，報告備註</td>
 </tr>
 </tbody>
 </table>
-<p><strong>如无法自动读取（页面超时/结构异常）：</strong><br />
-- 降级方案：使用用户提供的账号邮箱作为店铺标识，在报告中注明"（账号邮箱）"<br />
-- 不允许凭猜测填写公司名称</p>
-<p><strong>报告封面写法：</strong></p>
-<pre><code>店铺名称：Hangzhou XXX Co., Ltd
-主页链接：xxxx.en.alibaba.com
+<p><strong>如無法自動讀取（頁面超時/結構異常）：</strong><br />
+- 降級方案：使用使用者提供的賬號郵箱作為店鋪標識，在報告中註明"（賬號郵箱）"<br />
+- 不允許憑猜測填寫公司名稱</p>
+<p><strong>報告封面寫法：</strong></p>
+<pre><code>店鋪名稱：Hangzhou XXX Co., Ltd
+主頁連結：xxxx.en.alibaba.com
 </code></pre>
 <hr />
-<h2>Step 3: 数据采集（关键 · 分步执行）</h2>
-<p><strong>重要原则：</strong><br />
-1. <strong>每次抓取只做一件事</strong>（浏览器session超时限制严格，一次任务超过5-8步大概率超时）<br />
-2. <strong>每次抓取必须截图确认</strong>（数字读错代价大）<br />
-3. <strong>优先看页面显示的数字</strong>，其次才是JS console抓取<br />
-4. <strong>不要用querySelectorAll('tr')数产品行</strong>（会把嵌套子行也数进去）</p>
-<h3>3.1 商品管理页 - 赛道结构 + 违规问题</h3>
+<h2>Step 3: 資料採集（關鍵 · 分步執行）</h2>
+<p><strong>重要原則：</strong><br />
+1. <strong>每次抓取只做一件事</strong>（瀏覽器session超時限制嚴格，一次任務超過5-8步大機率超時）<br />
+2. <strong>每次抓取必須截圖確認</strong>（數字讀錯代價大）<br />
+3. <strong>優先看頁面顯示的數字</strong>，其次才是JS console抓取<br />
+4. <strong>不要用querySelectorAll('tr')數產品行</strong>（會把巢狀子行也數進去）</p>
+<h3>3.1 商品管理頁 - 賽道結構 + 違規問題</h3>
 <p><strong>入口：</strong> <code>https://i.alibaba.com/prod/product_manage#/product/online</code></p>
-<p><strong>依次执行5次筛选搜索，每次记录页面右下角"总数"：</strong></p>
+<p><strong>依次執行5次篩選搜尋，每次記錄頁面右下角"總數"：</strong></p>
 <table>
 <thead>
 <tr>
-<th>搜索序号</th>
-<th>筛选条件</th>
-<th>记录字段</th>
+<th>搜尋序號</th>
+<th>篩選條件</th>
+<th>記錄欄位</th>
 </tr>
 </thead>
 <tbody>
 <tr>
 <td>①</td>
-<td>商品上下架状态=已上架（公共产品）</td>
-<td><code>已上架总数</code></td>
+<td>商品上下架狀態=已上架（公共產品）</td>
+<td><code>已上架總數</code></td>
 </tr>
 <tr>
 <td>②</td>
-<td>①的基础 + 商品类型=交易品</td>
-<td><code>交易品数</code></td>
+<td>①的基礎 + 商品型別=交易品</td>
+<td><code>交易品數</code></td>
 </tr>
 <tr>
 <td>③</td>
-<td>①的基础 + 商品类型=商机品</td>
-<td><code>商机品数</code></td>
+<td>①的基礎 + 商品型別=商機品</td>
+<td><code>商機品數</code></td>
 </tr>
 <tr>
 <td>④</td>
-<td>①的基础 + 商品质量分=0~3.9</td>
-<td><code>低分品数</code></td>
+<td>①的基礎 + 商品質量分=0~3.9</td>
+<td><code>低分品數</code></td>
 </tr>
 <tr>
 <td>⑤</td>
-<td>①的基础 + 是否有违规问题=是</td>
-<td><code>已上架违规数</code></td>
+<td>①的基礎 + 是否有違規問題=是</td>
+<td><code>已上架違規數</code></td>
 </tr>
 </tbody>
 </table>
-<p><strong>关键提示：</strong><br />
-- 页面元素引用（refs）会随刷新失效，遇到 <code>Element not found</code> 立即重新snapshot<br />
-- 总数位置：列表右下角，格式"总数: XXXX"<br />
-- 每次修改筛选条件后要等5秒让数据加载</p>
-<h3>3.2 商品运营工作台 - 产品分层</h3>
+<p><strong>關鍵提示：</strong><br />
+- 頁面元素引用（refs）會隨重新整理失效，遇到 <code>Element not found</code> 立即重新snapshot<br />
+- 總數位置：列表右下角，格式"總數: XXXX"<br />
+- 每次修改篩選條件後要等5秒讓資料載入</p>
+<h3>3.2 商品運營工作臺 - 產品分層</h3>
 <p><strong>入口：</strong> <code>https://hz-productposting.alibaba.com/product_operate/product_growth.htm</code></p>
-<p>页面直接显示以下数字，用JS或直接读页面文本抓取：</p>
-<pre><code class="language-javascript">// 抓取产品分层数据
+<p>頁面直接顯示以下數字，用JS或直接讀頁面文字抓取：</p>
+<pre><code class="language-javascript">// 抓取產品分層資料
 const levels = {};
 document.querySelectorAll('[class*=&quot;level-item&quot;], [class*=&quot;tier&quot;], .product-level').forEach(el =&gt; {
   const text = el.innerText;
-  const match = text.match(/(低质品|普通品|潜力优品|优品|爆品)[（(](\d+)[)）]/);
+  const match = text.match(/(低質品|普通品|潛力優品|優品|爆品)[（(](\d+)[)）]/);
   if (match) levels[match[1]] = parseInt(match[2]);
 });
 console.log(JSON.stringify(levels));
 </code></pre>
-<p><strong>需记录字段：</strong> 低质品数 / 普通品数 / 潜力优品数 / 优品数 / 爆品数 / 右上角"重铺诊断"数</p>
-<h3>3.3 数据参谋零效果产品 【专项优化 v2.0】</h3>
+<p><strong>需記錄欄位：</strong> 低質品數 / 普通品數 / 潛力優品數 / 優品數 / 爆品數 / 右上角"重鋪診斷"數</p>
+<h3>3.3 資料參謀零效果產品 【專項最佳化 v2.0】</h3>
 <p><strong>入口：</strong> <code>https://data.alibaba.com/product/overview</code></p>
-<p><strong>⚠️ 铁律：每页固定10条产品，永不变动。任何显示其他数字（如40条）都是取数方式错了，不是页面变了。</strong></p>
+<p><strong>⚠️ 鐵律：每頁固定10條產品，永不變動。任何顯示其他數字（如40條）都是取數方式錯了，不是頁面變了。</strong></p>
 <hr />
-<p><strong>❌ 已知3大取数陷阱（严禁使用，血泪教训）：</strong></p>
+<p><strong>❌ 已知3大取數陷阱（嚴禁使用，血淚教訓）：</strong></p>
 <table>
 <thead>
 <tr>
-<th>错误方法</th>
-<th>会得到的错误结果</th>
-<th>错误原因</th>
+<th>錯誤方法</th>
+<th>會得到的錯誤結果</th>
+<th>錯誤原因</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td>保留默认勾选的"橱窗产品"</td>
-<td>数字异常少（如1款）</td>
-<td>该过滤器只保留橱窗产品，会屏蔽95%以上数据</td>
+<td>保留預設勾選的"櫥窗產品"</td>
+<td>數字異常少（如1款）</td>
+<td>該過濾器只保留櫥窗產品，會遮蔽95%以上資料</td>
 </tr>
 <tr>
 <td><code>document.querySelectorAll('tr').length</code></td>
-<td>数字虚高4倍（如40/页）</td>
-<td>tr包含表头行、展开的子行、操作行等非产品行</td>
+<td>數字虛高4倍（如40/頁）</td>
+<td>tr包含表頭行、展開的子行、操作行等非產品行</td>
 </tr>
 <tr>
-<td>读 <code>window.MYDATA_DATA.ineffTotal</code></td>
-<td>数字不可控（如1605）</td>
-<td>该字段不对应零效果产品总数，是其他业务数据</td>
+<td>讀 <code>window.MYDATA_DATA.ineffTotal</code></td>
+<td>數字不可控（如1605）</td>
+<td>該欄位不對應零效果產品總數，是其他業務資料</td>
 </tr>
 </tbody>
 </table>
 <hr />
-<p><strong>✅ 标准取数流程（固化，不可变）：</strong></p>
-<p><strong>🎯 检查逻辑（统一口径）：</strong></p>
+<p><strong>✅ 標準取數流程（固化，不可變）：</strong></p>
+<p><strong>🎯 檢查邏輯（統一口徑）：</strong></p>
 <table>
 <thead>
 <tr>
-<th>指标</th>
-<th>定义</th>
-<th>达标标准</th>
+<th>指標</th>
+<th>定義</th>
+<th>達標標準</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td><strong>零效果产品占比</strong></td>
-<td>≥90天无效果产品数量 ÷ 已上架总数 × 100%</td>
+<td><strong>零效果產品佔比</strong></td>
+<td>≥90天無效果產品數量 ÷ 已上架總數 × 100%</td>
 <td>&lt; 5%</td>
 </tr>
 </tbody>
 </table>
-<p><strong>为什么统一用90天：</strong><br />
-- 90天是阿里国际站官方公认的产品沉睡分界线<br />
-- 不区分赛道可以简化诊断逻辑，避免商机品/交易品数据无法精确拆分带来的偏差<br />
-- 单一指标便于历史对比和目标追踪</p>
+<p><strong>為什麼統一用90天：</strong><br />
+- 90天是阿里國際站官方公認的產品沉睡分界線<br />
+- 不區分賽道可以簡化診斷邏輯，避免商機品/交易品資料無法精確拆分帶來的偏差<br />
+- 單一指標便於歷史對比和目標追蹤</p>
 <hr />
-<p><strong>标准取数步骤（一次抓取即可）：</strong></p>
-<pre><code>Step 1: 访问 https://data.alibaba.com/product/overview
-Step 2: 等待8秒页面加载
-Step 3: 点击顶部&quot;零效果产品&quot;Tab，等待5秒
-Step 4: 【关键】检查&quot;橱窗产品&quot;复选框，如已勾选必须取消
-Step 5: &quot;无效时长&quot;下拉框选择&quot;大于等于90天&quot;
-Step 6: 点击&quot;搜索&quot;按钮，等待5秒
-Step 7: 截图页面底部分页器（必须截图存证）
-Step 8: 从分页器读取总页数 XX（格式：&quot;1/XX&quot; 或 &quot;共 XX 页&quot;）
-Step 9: 计算：零效果产品总数 = XX × 10
+<p><strong>標準取數步驟（一次抓取即可）：</strong></p>
+<pre><code>Step 1: 訪問 https://data.alibaba.com/product/overview
+Step 2: 等待8秒頁面載入
+Step 3: 點選頂部&quot;零效果產品&quot;Tab，等待5秒
+Step 4: 【關鍵】檢查&quot;櫥窗產品&quot;核取方塊，如已勾選必須取消
+Step 5: &quot;無效時長&quot;下拉框選擇&quot;大於等於90天&quot;
+Step 6: 點選&quot;搜尋&quot;按鈕，等待5秒
+Step 7: 截圖頁面底部分頁器（必須截圖存證）
+Step 8: 從分頁器讀取總頁數 XX（格式：&quot;1/XX&quot; 或 &quot;共 XX 頁&quot;）
+Step 9: 計算：零效果產品總數 = XX × 10
 </code></pre>
 <hr />
-<p><strong>📐 计算规则（严格执行）：</strong></p>
-<p><strong>基础计算：总页数与总数换算</strong></p>
+<p><strong>📐 計算規則（嚴格執行）：</strong></p>
+<p><strong>基礎計算：總頁數與總數換算</strong></p>
 <table>
 <thead>
 <tr>
-<th>场景</th>
-<th>计算方式</th>
+<th>場景</th>
+<th>計算方式</th>
 <th>示例</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td>总页数 ≥ 2</td>
-<td>总页数 × 10 = 总数</td>
-<td>57页 × 10 = 570款</td>
+<td>總頁數 ≥ 2</td>
+<td>總頁數 × 10 = 總數</td>
+<td>57頁 × 10 = 570款</td>
 </tr>
 <tr>
-<td>总页数 = 1</td>
-<td>直接数当前页产品行数（可能&lt;10条）</td>
-<td>显示7条 = 7款</td>
+<td>總頁數 = 1</td>
+<td>直接數當前頁產品行數（可能&lt;10條）</td>
+<td>顯示7條 = 7款</td>
 </tr>
 <tr>
-<td>显示"无数据"</td>
-<td>总数 = 0</td>
-<td>达标</td>
+<td>顯示"無資料"</td>
+<td>總數 = 0</td>
+<td>達標</td>
 </tr>
 </tbody>
 </table>
-<p><strong>末页误差说明：</strong> 末页可能不足10条（如实际567款显示57页，末页7条），产生±10条内的误差属于合理范围，不影响诊断结论。</p>
+<p><strong>末頁誤差說明：</strong> 末頁可能不足10條（如實際567款顯示57頁，末頁7條），產生±10條內的誤差屬於合理範圍，不影響診斷結論。</p>
 <hr />
-<p><strong>零效果占比计算：</strong></p>
+<p><strong>零效果佔比計算：</strong></p>
 <table>
 <thead>
 <tr>
-<th>计算项</th>
+<th>計算項</th>
 <th>公式</th>
-<th>达标标准</th>
+<th>達標標準</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td><strong>零效果产品占比</strong></td>
-<td>≥90天零效果总数 ÷ <strong>已上架总数</strong> × 100%</td>
+<td><strong>零效果產品佔比</strong></td>
+<td>≥90天零效果總數 ÷ <strong>已上架總數</strong> × 100%</td>
 <td>&lt; 5%</td>
 </tr>
 </tbody>
 </table>
-<p><strong>举例说明：</strong></p>
-<pre><code>假设：已上架2380款
-     ≥90天零效果产品显示57页
+<p><strong>舉例說明：</strong></p>
+<pre><code>假設：已上架2380款
+     ≥90天零效果產品顯示57頁
 
-计算过程：
-├── 零效果产品总数 = 57页 × 10条/页 = 570款
-├── 零效果产品占比 = 570 ÷ 2380 = 23.9%
-├── 警戒线：&lt; 5%（对应 119款）
-└── 状态：严重超标（超出警戒线约5倍）
+計算過程：
+├── 零效果產品總數 = 57頁 × 10條/頁 = 570款
+├── 零效果產品佔比 = 570 ÷ 2380 = 23.9%
+├── 警戒線：&lt; 5%（對應 119款）
+└── 狀態：嚴重超標（超出警戒線約5倍）
 </code></pre>
 <hr />
-<p><strong>🔍 抓取质量校验（每次必做）：</strong></p>
-<p>抓取完成后，立即执行以下2项校验：</p>
+<p><strong>🔍 抓取質量校驗（每次必做）：</strong></p>
+<p>抓取完成後，立即執行以下2項校驗：</p>
 <ol>
-<li><strong>✓ 截图校验：</strong> 分页器截图必须能清晰看到"1/XX"数字，否则重新截图</li>
-<li><strong>✓ 逻辑校验：</strong> 零效果总数 ≤ 已上架总数（如零效果&gt;已上架，一定错了，需重抓）</li>
+<li><strong>✓ 截圖校驗：</strong> 分頁器截圖必須能清晰看到"1/XX"數字，否則重新截圖</li>
+<li><strong>✓ 邏輯校驗：</strong> 零效果總數 ≤ 已上架總數（如零效果&gt;已上架，一定錯了，需重抓）</li>
 </ol>
-<p><strong>任一校验不通过 → 立即从Step 1重跑，不允许带错误数据进入报告。</strong></p>
+<p><strong>任一校驗不透過 → 立即從Step 1重跑，不允許帶錯誤資料進入報告。</strong></p>
 <hr />
-<p><strong>📝 报告中的数据表述规范：</strong></p>
-<pre><code>【零效果产品检查】
-零效果产品（≥90天）：XXX款
-├── 数据来源：XX页 × 10条/页 = XXX款
-├── 已上架总数：XXXX款（来自商品管理页）
-├── 零效果占比：XX.X%（零效果数 ÷ 已上架总数）
-├── 警戒线：&lt; 5%（对应 XX 款）
-└── 状态：[达标/超标X倍]
+<p><strong>📝 報告中的資料表述規範：</strong></p>
+<pre><code>【零效果產品檢查】
+零效果產品（≥90天）：XXX款
+├── 資料來源：XX頁 × 10條/頁 = XXX款
+├── 已上架總數：XXXX款（來自商品管理頁）
+├── 零效果佔比：XX.X%（零效果數 ÷ 已上架總數）
+├── 警戒線：&lt; 5%（對應 XX 款）
+└── 狀態：[達標/超標X倍]
 </code></pre>
 <hr />
-<p><strong>⚡ 效率优化建议：</strong></p>
+<p><strong>⚡ 效率最佳化建議：</strong></p>
 <ul>
-<li>只需抓取一次（≥90天），耗时约1-2分钟</li>
-<li>如遇下拉框交互失败，直接用 <code>browser_act</code> 自然语言描述："在无效时长下拉框中选择大于等于90天，点击搜索按钮"</li>
-<li>分母使用3.1章节抓取的已上架总数</li>
+<li>只需抓取一次（≥90天），耗時約1-2分鐘</li>
+<li>如遇下拉框互動失敗，直接用 <code>browser_act</code> 自然語言描述："在無效時長下拉框中選擇大於等於90天，點選搜尋按鈕"</li>
+<li>分母使用3.1章節抓取的已上架總數</li>
 </ul>
-<h3>3.4 主营产品占比（按用户声明类目筛选）</h3>
+<h3>3.4 主營產品佔比（按使用者宣告類目篩選）</h3>
 <p><strong>入口：</strong> <code>https://i.alibaba.com/prod/product_manage#/product/online</code></p>
-<p>根据用户在Step 1声明的主营类目，逐个执行"商品所在类目"筛选：</p>
+<p>根據使用者在Step 1宣告的主營類目，逐個執行"商品所在類目"篩選：</p>
 <ul>
-<li>商品上下架状态=已上架</li>
-<li>商品所在类目=[主营类目1] → 记录数量</li>
-<li>清空 → 商品所在类目=[主营类目2] → 记录数量</li>
-<li>清空 → 商品所在类目=[主营类目3] → 记录数量</li>
+<li>商品上下架狀態=已上架</li>
+<li>商品所在類目=[主營類目1] → 記錄數量</li>
+<li>清空 → 商品所在類目=[主營類目2] → 記錄數量</li>
+<li>清空 → 商品所在類目=[主營類目3] → 記錄數量</li>
 </ul>
-<p><strong>类目选择器提示：</strong><br />
-- 弹出的类目树可能多级，逐级点击展开<br />
-- 若找不到精确类目，选择最接近的父类目并在报告中注明实际选择的类目名称</p>
-<p><strong>计算：</strong> 各主营类目数量之和 ÷ 已上架总数 = 主营占比</p>
-<h3>3.5 产品分组与排序</h3>
-<p>在商品管理页左侧或筛选区找到"商品分组"下拉框，读取所有分组名称的<strong>排序顺序</strong>（从上到下）。</p>
-<p>若分组较多，至少记录前10-15个分组的：<br />
-- 分组名称<br />
-- 每组产品数<br />
-- 是否属于主营类目</p>
-<h3>3.6 行业定向征品（可选，用于P2建议）</h3>
+<p><strong>類目選擇器提示：</strong><br />
+- 彈出的類目樹可能多級，逐級點選展開<br />
+- 若找不到精確類目，選擇最接近的父類目並在報告中註明實際選擇的類目名稱</p>
+<p><strong>計算：</strong> 各主營類目數量之和 ÷ 已上架總數 = 主營佔比</p>
+<h3>3.5 產品分組與排序</h3>
+<p>在商品管理頁左側或篩選區找到"商品分組"下拉框，讀取所有分組名稱的<strong>排序順序</strong>（從上到下）。</p>
+<p>若分組較多，至少記錄前10-15個分組的：<br />
+- 分組名稱<br />
+- 每組產品數<br />
+- 是否屬於主營類目</p>
+<h3>3.6 行業定向徵品（可選，用於P2建議）</h3>
 <p><strong>入口：</strong> <code>https://hz-productposting.alibaba.com/product/collect_product.htm</code></p>
-<p>读取当前"交易品定招"和"商机品定招"下的：<br />
-- 全部商品数 / 待优化商品数 / 加速中商品数 / 加速完成商品数</p>
-<p>用于报告中"P2 优化建议"的征品补量方向。</p>
+<p>讀取當前"交易品定招"和"商機品定招"下的：<br />
+- 全部商品數 / 待最佳化商品數 / 加速中商品數 / 加速完成商品數</p>
+<p>用於報告中"P2 最佳化建議"的徵品補量方向。</p>
 <hr />
-<h2>Step 4: 行业赛道比例研究</h2>
-<p>基于用户在Step 1声明的<strong>店铺行业</strong>和<strong>主营类目</strong>，输出交易品/商机品最优比例建议。</p>
-<p><strong>判断逻辑（内嵌行业知识）：</strong></p>
+<h2>Step 4: 行業賽道比例研究</h2>
+<p>基於使用者在Step 1宣告的<strong>店鋪行業</strong>和<strong>主營類目</strong>，輸出交易品/商機品最優比例建議。</p>
+<p><strong>判斷邏輯（內嵌行業知識）：</strong></p>
 <table>
 <thead>
 <tr>
-<th>产品特征</th>
-<th>建议交易品占比</th>
+<th>產品特徵</th>
+<th>建議交易品佔比</th>
 <th>定位</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td>标准化极高、客单价低、决策周期短（如反光服、日用品、小家电配件）</td>
+<td>標準化極高、客單價低、決策週期短（如反光服、日用品、小家電配件）</td>
 <td>60%~80%</td>
 <td>引流款、RTS主力</td>
 </tr>
 <tr>
-<td>标准化中等、客单价中、决策中等（如安全帽、宠物用品、家居）</td>
+<td>標準化中等、客單價中、決策中等（如安全帽、寵物用品、家居）</td>
 <td>40%~55%</td>
 <td>平衡款</td>
 </tr>
 <tr>
-<td>定制化强、客单价高、决策周期长（如安全绳、大件家具、工业设备）</td>
+<td>定製化強、客單價高、決策週期長（如安全繩、大件傢俱、工業裝置）</td>
 <td>20%~30%</td>
-<td>商机主导</td>
+<td>商機主導</td>
 </tr>
 </tbody>
 </table>
-<p><strong>若用户提供的品类无法直接判断，通过 <code>web_search</code> 或AI推理给出比例建议，并在报告中注明"基于行业逻辑推算"。</strong></p>
-<p><strong>综合店铺建议比例区间：</strong> 根据主营各产品线加权平均后给出（如45%~55%）。</p>
+<p><strong>若使用者提供的品類無法直接判斷，透過 <code>web_search</code> 或AI推理給出比例建議，並在報告中註明"基於行業邏輯推算"。</strong></p>
+<p><strong>綜合店鋪建議比例區間：</strong> 根據主營各產品線加權平均後給出（如45%~55%）。</p>
 <hr />
-<h2>Step 5: 生成Word诊断报告</h2>
-<p><strong>使用 <code>docx</code> skill 生成报告，保存到桌面。</strong></p>
-<p><strong>报告文件路径：</strong> <code>/Users/[username]/Desktop/[用户指定文件名].docx</code></p>
-<h3>报告章节结构（固定）</h3>
+<h2>Step 5: 生成Word診斷報告</h2>
+<p><strong>使用 <code>docx</code> skill 生成報告，儲存到桌面。</strong></p>
+<p><strong>報告檔案路徑：</strong> <code>/Users/[username]/Desktop/[使用者指定檔名].docx</code></p>
+<h3>報告章節結構（固定）</h3>
 <pre><code>封面
-├── 报告标题：商品健康度诊断报告
-├── 店铺名称（公司英文名）/ 主页链接 / 主营产品 / 检查日期
-│   ※ 店铺名称来自 Step 2.5 自动抓取，优先用公司英文名；抓取失败则用账号邮箱
-└── 综合健康评级（低风险/中风险/高风险，红黄绿三色）
+├── 報告標題：商品健康度診斷報告
+├── 店鋪名稱（公司英文名）/ 主頁連結 / 主營產品 / 檢查日期
+│   ※ 店鋪名稱來自 Step 2.5 自動抓取，優先用公司英文名；抓取失敗則用賬號郵箱
+└── 綜合健康評級（低風險/中風險/高風險，紅黃綠三色）
 
-第一章：产品赛道结构
-├── 交易品 vs 商机品比例表
-├── 行业建议比例表（按产品线拆分）
-├── 诊断结论
-└── 整改建议
+第一章：產品賽道結構
+├── 交易品 vs 商機品比例表
+├── 行業建議比例表（按產品線拆分）
+├── 診斷結論
+└── 整改建議
 
-第二章：主营产品占比 &amp; 分组排序
-├── 2.1 主营产品占比（各类目数量+合计+占比）
-└── 2.2 产品分组排序检查（表格展示前10分组+评估）
+第二章：主營產品佔比 &amp; 分組排序
+├── 2.1 主營產品佔比（各類目數量+合計+佔比）
+└── 2.2 產品分組排序檢查（表格展示前10分組+評估）
 
-第三章：问题产品检查
-├── 3.1 低质品/低分品/违规品（三项归零标准）
-└── 3.2 产品分层分布（爆品/优品/潜力优品/普通品/低质品）
+第三章：問題產品檢查
+├── 3.1 低質品/低分品/違規品（三項歸零標準）
+└── 3.2 產品分層分佈（爆品/優品/潛力優品/普通品/低質品）
 
-第四章：零效果产品检查
-├── 检查表（≥90天数量、占比、警戒线）
+第四章：零效果產品檢查
+├── 檢查表（≥90天數量、佔比、警戒線）
 ├── 根本原因分析
 └── 整改方案
 
-第五章：违规侵权检查
-├── 已上架违规 / 已下架违规 / 商品雷达预警（三项归零）
-├── 平台被动检测局限性说明
-└── 持续监控路径
+第五章：違規侵權檢查
+├── 已上架違規 / 已下架違規 / 商品雷達預警（三項歸零）
+├── 平臺被動檢測侷限性說明
+└── 持續監控路徑
 
-第六章：优先行动清单
-└── P0/P1/P2 三级优先级 + 完成时限 + 操作路径直达
+第六章：優先行動清單
+└── P0/P1/P2 三級優先順序 + 完成時限 + 操作路徑直達
 </code></pre>
-<h3>报告样式规范（去AI化 + 结构化）</h3>
+<h3>報告樣式規範（去AI化 + 結構化）</h3>
 <table>
 <thead>
 <tr>
-<th>样式项</th>
-<th>规范</th>
+<th>樣式項</th>
+<th>規範</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td>字体</td>
-<td>Arial（正文22pt，标题26-32pt）</td>
+<td>字型</td>
+<td>Arial（正文22pt，標題26-32pt）</td>
 </tr>
 <tr>
-<td>主题色</td>
-<td>深蓝 <code>#1A5276</code>（品牌色）+ 深灰 <code>#1A1A1A</code>（正文）</td>
+<td>主題色</td>
+<td>深藍 <code>#1A5276</code>（品牌色）+ 深灰 <code>#1A1A1A</code>（正文）</td>
 </tr>
 <tr>
-<td>状态色</td>
-<td>达标绿 <code>#1E8449</code> / 预警橙 <code>#D35400</code> / 严重红 <code>#C0392B</code></td>
+<td>狀態色</td>
+<td>達標綠 <code>#1E8449</code> / 預警橙 <code>#D35400</code> / 嚴重紅 <code>#C0392B</code></td>
 </tr>
 <tr>
 <td>表格</td>
-<td>浅蓝表头 <code>#E8F0F7</code> + 灰色边框 <code>#CCCCCC</code></td>
+<td>淺藍表頭 <code>#E8F0F7</code> + 灰色邊框 <code>#CCCCCC</code></td>
 </tr>
 <tr>
-<td>页眉/页脚</td>
-<td>页眉：报告标题+日期；页脚：页码"第X页/共Y页"</td>
+<td>頁首/頁尾</td>
+<td>頁首：報告標題+日期；頁尾：頁碼"第X頁/共Y頁"</td>
 </tr>
 <tr>
-<td>结论表述</td>
-<td>直接给数字+判断+行动路径，禁用"通过分析可以看出"等空话</td>
+<td>結論表述</td>
+<td>直接給數字+判斷+行動路徑，禁用"透過分析可以看出"等空話</td>
 </tr>
 </tbody>
 </table>
-<h3>报告数据完整性要求</h3>
+<h3>報告資料完整性要求</h3>
 <ul>
-<li>每个数字必须有来源（页面/接口/用户声明）</li>
-<li>判断必须有标准（"标准≥80%"、"警戒线&lt;5%"）</li>
-<li>建议必须有路径（"商品管理 → XXX → XXX"）</li>
-<li>时限必须有节点（"本周内"、"2周内"、"本月内"）</li>
+<li>每個數字必須有來源（頁面/介面/使用者宣告）</li>
+<li>判斷必須有標準（"標準≥80%"、"警戒線&lt;5%"）</li>
+<li>建議必須有路徑（"商品管理 → XXX → XXX"）</li>
+<li>時限必須有節點（"本週內"、"2周內"、"本月內"）</li>
 </ul>
 <hr />
-<h2>Step 6: 结果呈现</h2>
-<p>生成Word后，在对话中给出简要摘要：</p>
-<pre><code class="language-markdown">Word文件已保存至桌面：[文件路径]
+<h2>Step 6: 結果呈現</h2>
+<p>生成Word後，在對話中給出簡要摘要：</p>
+<pre><code class="language-markdown">Word檔案已儲存至桌面：[檔案路徑]
 
-【核心数据汇总】
-- 已上架总数：XXXX款
-- 交易品占比：X.X%（行业建议XX%~XX%，[达标/不达标]）
-- 主营占比：X.X%（标准≥80%，[达标/不达标]）
-- 零效果产品：XXX款（占比X.X%，警戒线&lt;5%，[达标/超标]）
-- 违规产品：X款
-- 重铺诊断：XXX款
+【核心資料彙總】
+- 已上架總數：XXXX款
+- 交易品佔比：X.X%（行業建議XX%~XX%，[達標/不達標]）
+- 主營佔比：X.X%（標準≥80%，[達標/不達標]）
+- 零效果產品：XXX款（佔比X.X%，警戒線&lt;5%，[達標/超標]）
+- 違規產品：X款
+- 重鋪診斷：XXX款
 
-【首要问题】
-1. [最严重的1-2个问题]
+【首要問題】
+1. [最嚴重的1-2個問題]
 
-【首要行动】
-1. [最优先的1-2个行动]
+【首要行動】
+1. [最優先的1-2個行動]
 </code></pre>
 <hr />
-<h2>异常处理</h2>
+<h2>異常處理</h2>
 <table>
 <thead>
 <tr>
-<th>异常场景</th>
-<th>检测信号</th>
-<th>处理方式</th>
+<th>異常場景</th>
+<th>檢測訊號</th>
+<th>處理方式</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td>用户未登录</td>
-<td>URL跳转到login.alibaba.com</td>
-<td>提示用户完成登录后重试</td>
+<td>使用者未登入</td>
+<td>URL跳轉到login.alibaba.com</td>
+<td>提示使用者完成登入後重試</td>
 </tr>
 <tr>
-<td>类目选择器交互失败</td>
-<td>多次点击下拉框无响应</td>
-<td>让用户截图后台类目并手动告知数字</td>
+<td>類目選擇器互動失敗</td>
+<td>多次點選下拉框無響應</td>
+<td>讓使用者截圖後臺類目並手動告知數字</td>
 </tr>
 <tr>
-<td>零效果页面"橱窗产品"被勾选</td>
-<td>结果异常少（&lt;10条但页码显示很多页）</td>
-<td>提示先取消勾选"橱窗产品"</td>
+<td>零效果頁面"櫥窗產品"被勾選</td>
+<td>結果異常少（&lt;10條但頁碼顯示很多頁）</td>
+<td>提示先取消勾選"櫥窗產品"</td>
 </tr>
 <tr>
-<td>浏览器session超时</td>
-<td>单次任务超过400秒</td>
-<td>拆分为更小任务，用sessions_send继续</td>
+<td>瀏覽器session超時</td>
+<td>單次任務超過400秒</td>
+<td>拆分為更小任務，用sessions_send繼續</td>
 </tr>
 <tr>
-<td>页面refs失效</td>
+<td>頁面refs失效</td>
 <td>Element "eXXX" not found</td>
-<td>立即重新snapshot再点击</td>
+<td>立即重新snapshot再點選</td>
 </tr>
 <tr>
-<td>数字读取失败</td>
-<td>页面无"总数"字样或读取NaN</td>
-<td>截图上传，让用户核实</td>
+<td>數字讀取失敗</td>
+<td>頁面無"總數"字樣或讀取NaN</td>
+<td>截圖上傳，讓使用者核實</td>
 </tr>
 </tbody>
 </table>
 <hr />
-<h2>操作规范</h2>
+<h2>操作規範</h2>
 <ol>
-<li><strong>数据准确性优先于速度</strong>：宁可多花时间核实数字，也不要把错误数据写入报告</li>
-<li><strong>每次抓取必须截图</strong>：截图是数字准确性的最后保障</li>
-<li><strong>不要伪造数据</strong>：任何一项数据无法确认时，报告中明确写"待人工核实"</li>
-<li><strong>保持中文输出</strong>：报告全部中文，专业术语可保留英文原文</li>
-<li><strong>不要跨店铺执行</strong>：一次运行只处理一个店铺，不要在同一次任务中混合多店铺数据</li>
+<li><strong>資料準確性優先於速度</strong>：寧可多花時間核實數字，也不要把錯誤資料寫入報告</li>
+<li><strong>每次抓取必須截圖</strong>：截圖是數字準確性的最後保障</li>
+<li><strong>不要偽造資料</strong>：任何一項資料無法確認時，報告中明確寫"待人工核實"</li>
+<li><strong>保持中文輸出</strong>：報告全部中文，專業術語可保留英文原文</li>
+<li><strong>不要跨店鋪執行</strong>：一次執行只處理一個店鋪，不要在同一次任務中混合多店鋪資料</li>
 </ol>
 <hr />
-<h2>技能升级方向（未来可扩展）</h2>
+<h2>技能升級方向（未來可擴充套件）</h2>
 <ul>
-<li>增加历史数据对比（本周 vs 上周）</li>
-<li>增加P4P直通车数据关联分析</li>
-<li>增加行业竞品数据横向对比</li>
-<li>增加自动化定时执行（配合cron）</li>
-</ul></section><section class="bpart" id="f1"><h3 class="bpart-h">技能使用说明.docx</h3><p><strong>商品健康度诊断技能包</strong></p>
-<p><strong>使 用 说 明 书</strong></p>
+<li>增加歷史資料對比（本週 vs 上週）</li>
+<li>增加P4P直通車資料關聯分析</li>
+<li>增加行業競品資料橫向對比</li>
+<li>增加自動化定時執行（配合cron）</li>
+</ul></section><section class="bpart" id="f1"><h3 class="bpart-h">技能使用说明.docx</h3><p><strong>商品健康度診斷技能包</strong></p>
+<p><strong>使 用 說 明 書</strong></p>
 <p>Alibaba Product Health Check · User Guide</p>
-<p>技能名称：alibaba-product-health-check</p>
-<p>适用平台：阿里巴巴国际站（Alibaba.com）</p>
-<p>适用店铺：全类目通用</p>
-<h2><strong>一、技能概览</strong></h2>
-<h3><strong>1.1 这个技能能帮你做什么</strong></h3>
-<p><strong>这是一个专为阿里国际站店铺设计的商品健康度自动诊断工具。运行一次，即可获得完整的店铺产品健康度Word报告，覆盖6大核心维度，直接指出问题、给出整改路径。</strong></p>
-<p><strong>简单来说，你只需要一句话："帮我做商品健康度诊断"，剩下的全部自动完成。</strong></p>
-<h3><strong>1.2 覆盖的检查维度</strong></h3>
-<div class="tbl-wrap"><table><tr><td><strong>序号</strong></td><td><strong>检查维度</strong></td><td><strong>检查内容</strong></td></tr><tr><td><strong>1</strong></td><td><strong>产品赛道结构</strong></td><td><strong>交易品/商机品数量占比 vs 行业最优比例建议</strong></td></tr><tr><td><strong>2</strong></td><td><strong>主营产品占比</strong></td><td><strong>主营类目产品数量占全店比例（标准≥80%）</strong></td></tr><tr><td><strong>3</strong></td><td><strong>产品分组排序</strong></td><td><strong>核心分组是否靠前排列，非主营分组是否挤占主营展示位</strong></td></tr><tr><td><strong>4</strong></td><td><strong>问题产品清单</strong></td><td><strong>低质品/低分品/违规产品数量（标准=0）+ 产品分层分布</strong></td></tr><tr><td><strong>5</strong></td><td><strong>零效果产品</strong></td><td><strong>≥90天无曝光产品数量与占比（警戒线&lt;5%）</strong></td></tr><tr><td><strong>6</strong></td><td><strong>违规问题</strong></td><td><strong>已上架/已下架违规产品数 + 商品雷达异常预警</strong></td></tr></table></div>
-<h3><strong>1.3 输出结果</strong></h3>
+<p>技能名稱：alibaba-product-health-check</p>
+<p>適用平臺：阿里巴巴國際站（Alibaba.com）</p>
+<p>適用店鋪：全類目通用</p>
+<h2><strong>一、技能概覽</strong></h2>
+<h3><strong>1.1 這個技能能幫你做什麼</strong></h3>
+<p><strong>這是一個專為阿里國際站店鋪設計的商品健康度自動診斷工具。執行一次，即可獲得完整的店鋪產品健康度Word報告，覆蓋6大核心維度，直接指出問題、給出整改路徑。</strong></p>
+<p><strong>簡單來說，你只需要一句話："幫我做商品健康度診斷"，剩下的全部自動完成。</strong></p>
+<h3><strong>1.2 覆蓋的檢查維度</strong></h3>
+<div class="tbl-wrap"><table><tr><td><strong>序號</strong></td><td><strong>檢查維度</strong></td><td><strong>檢查內容</strong></td></tr><tr><td><strong>1</strong></td><td><strong>產品賽道結構</strong></td><td><strong>交易品/商機品數量佔比 vs 行業最優比例建議</strong></td></tr><tr><td><strong>2</strong></td><td><strong>主營產品佔比</strong></td><td><strong>主營類目產品數量佔全店比例（標準≥80%）</strong></td></tr><tr><td><strong>3</strong></td><td><strong>產品分組排序</strong></td><td><strong>核心分組是否靠前排列，非主營分組是否擠佔主營展示位</strong></td></tr><tr><td><strong>4</strong></td><td><strong>問題產品清單</strong></td><td><strong>低質品/低分品/違規產品數量（標準=0）+ 產品分層分佈</strong></td></tr><tr><td><strong>5</strong></td><td><strong>零效果產品</strong></td><td><strong>≥90天無曝光產品數量與佔比（警戒線&lt;5%）</strong></td></tr><tr><td><strong>6</strong></td><td><strong>違規問題</strong></td><td><strong>已上架/已下架違規產品數 + 商品雷達異常預警</strong></td></tr></table></div>
+<h3><strong>1.3 輸出結果</strong></h3>
 <ol>
-<li>自动生成一份Word诊断报告，保存到桌面</li>
-<li>报告包含6章节 + 优先行动清单，共约15-20页</li>
-<li>所有数据带原始来源+行业标准对比+可直接落地的整改路径</li>
-<li>对话中同步输出核心数据摘要和首要问题</li>
+<li>自動生成一份Word診斷報告，儲存到桌面</li>
+<li>報告包含6章節 + 優先行動清單，共約15-20頁</li>
+<li>所有資料帶原始來源+行業標準對比+可直接落地的整改路徑</li>
+<li>對話中同步輸出核心資料摘要和首要問題</li>
 </ol>
-<h2><strong>二、安装与配置</strong></h2>
-<h3><strong>2.1 技能文件位置</strong></h3>
-<p><strong>技能包由一个SKILL.md文件构成，需要放到 Accio Work 的技能目录下：</strong></p>
+<h2><strong>二、安裝與配置</strong></h2>
+<h3><strong>2.1 技能檔案位置</strong></h3>
+<p><strong>技能包由一個SKILL.md檔案構成，需要放到 Accio Work 的技能目錄下：</strong></p>
 <ul>
-<li>~/.accio/accounts/[账号ID]/agents/[Agent ID]/agent-core/skills/alibaba-product-health-check/SKILL.md</li>
+<li>~/.accio/accounts/[賬號ID]/agents/[Agent ID]/agent-core/skills/alibaba-product-health-check/SKILL.md</li>
 </ul>
-<p><strong>也可以放到账号级技能目录（所有Agent共用）：</strong></p>
+<p><strong>也可以放到賬號級技能目錄（所有Agent共用）：</strong></p>
 <ul>
-<li>~/.accio/accounts/[账号ID]/skills/alibaba-product-health-check/SKILL.md</li>
+<li>~/.accio/accounts/[賬號ID]/skills/alibaba-product-health-check/SKILL.md</li>
 </ul>
-<h3><strong>2.2 安装步骤（3步）</strong></h3>
+<h3><strong>2.2 安裝步驟（3步）</strong></h3>
 <ol>
-<li>把 alibaba-product-health-check 文件夹复制到上述技能目录下</li>
-<li>在 Accio Work 中打开对应的 Agent（如"资深运营"）</li>
-<li>技能会自动被 Agent 识别，无需重启</li>
+<li>把 alibaba-product-health-check 資料夾複製到上述技能目錄下</li>
+<li>在 Accio Work 中開啟對應的 Agent（如"資深運營"）</li>
+<li>技能會自動被 Agent 識別，無需重啟</li>
 </ol>
-<h3><strong>2.3 前置依赖</strong></h3>
-<div class="tbl-wrap"><table><tr><td><strong>依赖项</strong></td><td><strong>说明</strong></td></tr><tr><td><strong>browser 子代理</strong></td><td><strong>用于访问阿里国际站后台。已内置于 Accio Work，无需单独安装。</strong></td></tr><tr><td><strong>docx 技能</strong></td><td><strong>用于生成Word报告。已内置于 Accio Work 默认技能库。</strong></td></tr><tr><td><strong>阿里国际站账号</strong></td><td><strong>用户必须在 Chrome 中登录阿里国际站卖家后台，且账号有商品管理/数据参谋权限。</strong></td></tr></table></div>
+<h3><strong>2.3 前置依賴</strong></h3>
+<div class="tbl-wrap"><table><tr><td><strong>依賴項</strong></td><td><strong>說明</strong></td></tr><tr><td><strong>browser 子代理</strong></td><td><strong>用於訪問阿里國際站後臺。已內建於 Accio Work，無需單獨安裝。</strong></td></tr><tr><td><strong>docx 技能</strong></td><td><strong>用於生成Word報告。已內建於 Accio Work 預設技能庫。</strong></td></tr><tr><td><strong>阿里國際站賬號</strong></td><td><strong>使用者必須在 Chrome 中登入阿里國際站賣家後臺，且賬號有商品管理/資料參謀許可權。</strong></td></tr></table></div>
 <h2><strong>三、使用方法</strong></h2>
-<h3><strong>3.1 一句话触发</strong></h3>
-<p><strong>在对话中输入以下任一关键词，Agent会自动加载并执行本技能：</strong></p>
-<div class="tbl-wrap"><table><tr><td><strong>推荐触发语</strong></td><td><strong>适用场景</strong></td></tr><tr><td><strong>帮我做商品健康度诊断</strong></td><td><strong>标准触发语，最推荐</strong></td></tr><tr><td><strong>检查一下店铺产品健康度</strong></td><td><strong>自然对话触发</strong></td></tr><tr><td><strong>给我出一份产品体检报告</strong></td><td><strong>语义触发</strong></td></tr><tr><td><strong>店铺产品盘点一下</strong></td><td><strong>简短触发</strong></td></tr><tr><td><strong>健康度诊断</strong></td><td><strong>极简触发</strong></td></tr></table></div>
-<h3><strong>3.2 完整执行流程（用户视角）</strong></h3>
-<p><strong>Step 1：Agent 询问你3个关键信息</strong></p>
-<p><strong>触发技能后，Agent会先问你以下3件事（这些信息决定报告的准确性）：</strong></p>
+<h3><strong>3.1 一句話觸發</strong></h3>
+<p><strong>在對話中輸入以下任一關鍵詞，Agent會自動載入並執行本技能：</strong></p>
+<div class="tbl-wrap"><table><tr><td><strong>推薦觸發語</strong></td><td><strong>適用場景</strong></td></tr><tr><td><strong>幫我做商品健康度診斷</strong></td><td><strong>標準觸發語，最推薦</strong></td></tr><tr><td><strong>檢查一下店鋪產品健康度</strong></td><td><strong>自然對話觸發</strong></td></tr><tr><td><strong>給我出一份產品體檢報告</strong></td><td><strong>語義觸發</strong></td></tr><tr><td><strong>店鋪產品盤點一下</strong></td><td><strong>簡短觸發</strong></td></tr><tr><td><strong>健康度診斷</strong></td><td><strong>極簡觸發</strong></td></tr></table></div>
+<h3><strong>3.2 完整執行流程（使用者視角）</strong></h3>
+<p><strong>Step 1：Agent 詢問你3個關鍵資訊</strong></p>
+<p><strong>觸發技能後，Agent會先問你以下3件事（這些資訊決定報告的準確性）：</strong></p>
 <ol>
-<li>主营类目是什么？（例如：安全帽 + 反光服 + 安全绳；或：USB充电器 + 数据线）</li>
-<li>店铺属于哪个行业？（例如：PPE个人防护 / 3C电子配件 / 宠物用品）</li>
-<li>报告文件名要自定义吗？（默认：商品健康度诊断报告_YYYYMMDD.docx）</li>
+<li>主營類目是什麼？（例如：安全帽 + 反光服 + 安全繩；或：USB充電器 + 資料線）</li>
+<li>店鋪屬於哪個行業？（例如：PPE個人防護 / 3C電子配件 / 寵物用品）</li>
+<li>報告檔名要自定義嗎？（預設：商品健康度診斷報告_YYYYMMDD.docx）</li>
 </ol>
-<p><strong>💡 提示：如果你在触发语中已经说了"我是做安全帽的店铺"，Agent会跳过重复询问。</strong></p>
-<p><strong>Step 2：Agent 自动打开后台采集数据</strong></p>
-<p><strong>Agent会依次访问4个后台页面，你会看到浏览器窗口自动打开并翻页：</strong></p>
+<p><strong>💡 提示：如果你在觸發語中已經說了"我是做安全帽的店鋪"，Agent會跳過重複詢問。</strong></p>
+<p><strong>Step 2：Agent 自動開啟後臺採集資料</strong></p>
+<p><strong>Agent會依次訪問4個後臺頁面，你會看到瀏覽器視窗自動開啟並翻頁：</strong></p>
 <ol>
-<li>商品管理页 → 抓取赛道结构、违规数据</li>
-<li>商品运营工作台 → 抓取产品分层</li>
-<li>数据参谋零效果 → 抓取沉睡产品数据</li>
-<li>商品分组排序 → 检查分组顺序</li>
+<li>商品管理頁 → 抓取賽道結構、違規資料</li>
+<li>商品運營工作臺 → 抓取產品分層</li>
+<li>資料參謀零效果 → 抓取沉睡產品資料</li>
+<li>商品分組排序 → 檢查分組順序</li>
 </ol>
-<p><strong>⏱️ 全程约需 8-15 分钟，取决于店铺产品数量。</strong></p>
-<p><strong>Step 3：Agent 生成Word报告</strong></p>
-<p><strong>数据采集完成后，Agent会自动生成一份完整的诊断报告，保存到桌面。</strong></p>
-<p><strong>Step 4：Agent 输出结论摘要</strong></p>
-<p><strong>对话中同步给出核心数据+首要问题+首要行动，无需打开Word也能快速了解店铺状态。</strong></p>
-<h2><strong>四、报告内容说明</strong></h2>
-<p><strong>每份报告固定6章结构，全部15-20页，直接可用于团队汇报或运营复盘。</strong></p>
-<div class="tbl-wrap"><table><tr><td><strong>章节</strong></td><td><strong>内容</strong></td><td><strong>核心用途</strong></td></tr><tr><td><strong>封面</strong></td><td><strong>综合健康评级（低/中/高风险）</strong></td><td><strong>一眼判断店铺整体状态</strong></td></tr><tr><td><strong>第一章</strong></td><td><strong>产品赛道结构（交易品vs商机品）</strong></td><td><strong>判断店铺是否偏科，是否需要补发某类产品</strong></td></tr><tr><td><strong>第二章</strong></td><td><strong>主营占比 + 分组排序</strong></td><td><strong>判断主营产品是否占主导，展示位是否合理</strong></td></tr><tr><td><strong>第三章</strong></td><td><strong>低质品/低分品/产品分层</strong></td><td><strong>找出需要下架、优化、升级的产品</strong></td></tr><tr><td><strong>第四章</strong></td><td><strong>零效果产品清单</strong></td><td><strong>找出沉睡产品，启动批量重发计划</strong></td></tr><tr><td><strong>第五章</strong></td><td><strong>违规侵权检查</strong></td><td><strong>确认合规状态，避免降权风险</strong></td></tr><tr><td><strong>第六章</strong></td><td><strong>优先行动清单（P0/P1/P2）</strong></td><td><strong>明确本周/2周/本月要做什么，附操作路径</strong></td></tr></table></div>
-<h2><strong>五、执行前准备</strong></h2>
-<p><strong>为保证数据采集顺利，执行前请完成以下准备：</strong></p>
-<p><strong>✓ 必做项</strong></p>
+<p><strong>⏱️ 全程約需 8-15 分鐘，取決於店鋪產品數量。</strong></p>
+<p><strong>Step 3：Agent 生成Word報告</strong></p>
+<p><strong>資料採集完成後，Agent會自動生成一份完整的診斷報告，儲存到桌面。</strong></p>
+<p><strong>Step 4：Agent 輸出結論摘要</strong></p>
+<p><strong>對話中同步給出核心資料+首要問題+首要行動，無需開啟Word也能快速瞭解店鋪狀態。</strong></p>
+<h2><strong>四、報告內容說明</strong></h2>
+<p><strong>每份報告固定6章結構，全部15-20頁，直接可用於團隊彙報或運營覆盤。</strong></p>
+<div class="tbl-wrap"><table><tr><td><strong>章節</strong></td><td><strong>內容</strong></td><td><strong>核心用途</strong></td></tr><tr><td><strong>封面</strong></td><td><strong>綜合健康評級（低/中/高風險）</strong></td><td><strong>一眼判斷店鋪整體狀態</strong></td></tr><tr><td><strong>第一章</strong></td><td><strong>產品賽道結構（交易品vs商機品）</strong></td><td><strong>判斷店鋪是否偏科，是否需要補發某類產品</strong></td></tr><tr><td><strong>第二章</strong></td><td><strong>主營佔比 + 分組排序</strong></td><td><strong>判斷主營產品是否佔主導，展示位是否合理</strong></td></tr><tr><td><strong>第三章</strong></td><td><strong>低質品/低分品/產品分層</strong></td><td><strong>找出需要下架、最佳化、升級的產品</strong></td></tr><tr><td><strong>第四章</strong></td><td><strong>零效果產品清單</strong></td><td><strong>找出沉睡產品，啟動批次重發計劃</strong></td></tr><tr><td><strong>第五章</strong></td><td><strong>違規侵權檢查</strong></td><td><strong>確認合規狀態，避免降權風險</strong></td></tr><tr><td><strong>第六章</strong></td><td><strong>優先行動清單（P0/P1/P2）</strong></td><td><strong>明確本週/2周/本月要做什麼，附操作路徑</strong></td></tr></table></div>
+<h2><strong>五、執行前準備</strong></h2>
+<p><strong>為保證資料採集順利，執行前請完成以下準備：</strong></p>
+<p><strong>✓ 必做項</strong></p>
 <ol>
-<li>打开 Chrome 浏览器，登录阿里国际站卖家后台（i.alibaba.com）</li>
-<li>确认账号有以下权限：商品管理、数据参谋、商品运营工作台</li>
-<li>准备好回答3个问题：主营类目 / 行业 / 报告文件名</li>
+<li>開啟 Chrome 瀏覽器，登入阿里國際站賣家後臺（i.alibaba.com）</li>
+<li>確認賬號有以下許可權：商品管理、資料參謀、商品運營工作臺</li>
+<li>準備好回答3個問題：主營類目 / 行業 / 報告檔名</li>
 </ol>
-<p><strong>✓ 推荐项</strong></p>
+<p><strong>✓ 推薦項</strong></p>
 <ol>
-<li>执行前手动打开数据参谋"零效果产品"Tab一次，确认页面能正常加载</li>
-<li>如果店铺产品超过3000款，建议在执行前先关闭Chrome其他标签页，减少浏览器负载</li>
-<li>每周固定时间执行（如周一上午），便于对比历史数据</li>
+<li>執行前手動開啟資料參謀"零效果產品"Tab一次，確認頁面能正常載入</li>
+<li>如果店鋪產品超過3000款，建議在執行前先關閉Chrome其他標籤頁，減少瀏覽器負載</li>
+<li>每週固定時間執行（如週一上午），便於對比歷史資料</li>
 </ol>
-<p><strong>✗ 避免项</strong></p>
+<p><strong>✗ 避免項</strong></p>
 <ol>
-<li>执行过程中不要手动操作浏览器（关闭标签、跳转页面等）</li>
-<li>不要在网络不稳定时执行（数据采集依赖多次请求）</li>
-<li>不要同时执行两次相同技能（会导致数据混乱）</li>
+<li>執行過程中不要手動操作瀏覽器（關閉標籤、跳轉頁面等）</li>
+<li>不要在網路不穩定時執行（資料採集依賴多次請求）</li>
+<li>不要同時執行兩次相同技能（會導致資料混亂）</li>
 </ol>
-<h2><strong>六、常见问题与故障排除</strong></h2>
-<h3><strong>Q1：Agent提示"需要登录"怎么办？</strong></h3>
+<h2><strong>六、常見問題與故障排除</strong></h2>
+<h3><strong>Q1：Agent提示"需要登入"怎麼辦？</strong></h3>
 <ul>
-<li><strong>直接在Chrome中打开 https://i.alibaba.com/ 完成登录，然后回到对话中告诉Agent"我登录好了，继续"即可。</strong></li>
+<li><strong>直接在Chrome中開啟 https://i.alibaba.com/ 完成登入，然後回到對話中告訴Agent"我登入好了，繼續"即可。</strong></li>
 </ul>
-<h3><strong>Q2：零效果产品数量抓得不对（比如只显示1条但实际有几百条）</strong></h3>
+<h3><strong>Q2：零效果產品數量抓得不對（比如只顯示1條但實際有幾百條）</strong></h3>
 <ul>
-<li><strong>原因：数据参谋零效果页面默认勾选了"橱窗产品"复选框，过滤了大部分数据。</strong></li>
-<li><strong>解决：技能已内置该场景检测，会自动取消勾选。如果仍有问题，请手动打开该页面确认勾选项状态并告知Agent。</strong></li>
+<li><strong>原因：資料參謀零效果頁面預設勾選了"櫥窗產品"核取方塊，過濾了大部分資料。</strong></li>
+<li><strong>解決：技能已內建該場景檢測，會自動取消勾選。如果仍有問題，請手動開啟該頁面確認勾選項狀態並告知Agent。</strong></li>
 </ul>
-<h3><strong>Q3：主营类目筛选时找不到我的类目</strong></h3>
+<h3><strong>Q3：主營類目篩選時找不到我的類目</strong></h3>
 <ul>
-<li><strong>原因：阿里后台类目名称可能与你日常叫法不一样（比如你说"反光服"，后台叫"反光安全服"）。</strong></li>
-<li><strong>解决：Agent会尝试匹配相近类目，并在报告中注明实际选择的类目名称。你也可以提前告诉Agent"我的类目在后台叫XXX"。</strong></li>
+<li><strong>原因：阿里後臺類目名稱可能與你日常叫法不一樣（比如你說"反光服"，後臺叫"反光安全服"）。</strong></li>
+<li><strong>解決：Agent會嘗試匹配相近類目，並在報告中註明實際選擇的類目名稱。你也可以提前告訴Agent"我的類目在後臺叫XXX"。</strong></li>
 </ul>
-<h3><strong>Q4：报告中某项数据显示"待人工核实"</strong></h3>
+<h3><strong>Q4：報告中某項資料顯示"待人工核實"</strong></h3>
 <ul>
-<li><strong>原因：某个数据点在自动化过程中未能可靠抓取（比如页面交互失败）。</strong></li>
-<li><strong>解决：按报告中给出的"手动核查路径"人工补充数据。这是设计上的容错机制，不是错误。</strong></li>
+<li><strong>原因：某個資料點在自動化過程中未能可靠抓取（比如頁面互動失敗）。</strong></li>
+<li><strong>解決：按報告中給出的"手動核查路徑"人工補充資料。這是設計上的容錯機制，不是錯誤。</strong></li>
 </ul>
-<h3><strong>Q5：浏览器session超时中断了怎么办？</strong></h3>
+<h3><strong>Q5：瀏覽器session超時中斷了怎麼辦？</strong></h3>
 <ul>
-<li><strong>原因：单次浏览器任务超过约8分钟会强制中断。</strong></li>
-<li><strong>解决：Agent会自动拆分任务并续跑。你可以直接在对话中说"继续"，Agent会从中断处恢复。</strong></li>
+<li><strong>原因：單次瀏覽器任務超過約8分鐘會強制中斷。</strong></li>
+<li><strong>解決：Agent會自動拆分任務並續跑。你可以直接在對話中說"繼續"，Agent會從中斷處恢復。</strong></li>
 </ul>
-<h3><strong>Q6：报告数字与我手动核对的不一致</strong></h3>
+<h3><strong>Q6：報告數字與我手動核對的不一致</strong></h3>
 <ul>
-<li><strong>原因：可能是页面数据缓存、时间点差异（如你8点看的是7点数据）或筛选条件不一致。</strong></li>
-<li><strong>解决：告诉Agent具体哪项数据不对，Agent会重新抓取核实。数据准确性优先，宁可多花时间也要保证正确。</strong></li>
+<li><strong>原因：可能是頁面資料快取、時間點差異（如你8點看的是7點資料）或篩選條件不一致。</strong></li>
+<li><strong>解決：告訴Agent具體哪項資料不對，Agent會重新抓取核實。資料準確性優先，寧可多花時間也要保證正確。</strong></li>
 </ul>
-<h2><strong>七、行业标准参考</strong></h2>
-<p><strong>技能内置以下行业标准作为诊断基准，用户也可以在触发时自定义标准。</strong></p>
-<h3><strong>7.1 核心指标标准（通用）</strong></h3>
-<div class="tbl-wrap"><table><tr><td><strong>指标</strong></td><td><strong>达标标准</strong></td><td><strong>说明</strong></td></tr><tr><td><strong>主营产品占比</strong></td><td><strong>≥ 80%</strong></td><td><strong>主营类目产品数量占全店已上架总数的比例</strong></td></tr><tr><td><strong>低质品数量</strong></td><td><strong>= 0</strong></td><td><strong>平台标记的低质产品，必须清零</strong></td></tr><tr><td><strong>低分品数量</strong></td><td><strong>= 0</strong></td><td><strong>质量分0~3.9分的产品，必须清零</strong></td></tr><tr><td><strong>违规产品数量</strong></td><td><strong>= 0</strong></td><td><strong>平台标记违规的产品，必须清零</strong></td></tr><tr><td><strong>商机品零效果占比</strong></td><td><strong>&lt; 5%（≥90天）</strong></td><td><strong>≥90天无曝光商机品占已上架总数比例</strong></td></tr><tr><td><strong>交易品零效果占比</strong></td><td><strong>&lt; 5%（≥60天）</strong></td><td><strong>≥60天无曝光交易品占已上架总数比例</strong></td></tr></table></div>
-<h3><strong>7.2 赛道比例建议（按产品特性）</strong></h3>
-<div class="tbl-wrap"><table><tr><td><strong>产品特征</strong></td><td><strong>建议交易品占比</strong></td><td><strong>典型品类示例</strong></td></tr><tr><td><strong>标准化极高、客单价低、决策周期短</strong></td><td><strong>60%~80%</strong></td><td><strong>反光服/耗材/小配件/日用品/工装手套</strong></td></tr><tr><td><strong>标准化中等、客单价中、决策中等</strong></td><td><strong>40%~55%</strong></td><td><strong>安全帽/宠物用品/家居/小家电</strong></td></tr><tr><td><strong>定制化强、客单价高、决策周期长</strong></td><td><strong>20%~30%</strong></td><td><strong>安全绳/大件家具/工业设备/机械零件</strong></td></tr></table></div>
-<p><strong>💡 综合建议：多品类混合店铺按加权平均计算。技能会根据你声明的主营类目自动匹配。</strong></p>
-<h2><strong>八、能力边界与免责说明</strong></h2>
-<h3><strong>8.1 本技能能做什么</strong></h3>
+<h2><strong>七、行業標準參考</strong></h2>
+<p><strong>技能內建以下行業標準作為診斷基準，使用者也可以在觸發時自定義標準。</strong></p>
+<h3><strong>7.1 核心指標標準（通用）</strong></h3>
+<div class="tbl-wrap"><table><tr><td><strong>指標</strong></td><td><strong>達標標準</strong></td><td><strong>說明</strong></td></tr><tr><td><strong>主營產品佔比</strong></td><td><strong>≥ 80%</strong></td><td><strong>主營類目產品數量佔全店已上架總數的比例</strong></td></tr><tr><td><strong>低質品數量</strong></td><td><strong>= 0</strong></td><td><strong>平臺標記的低質產品，必須清零</strong></td></tr><tr><td><strong>低分品數量</strong></td><td><strong>= 0</strong></td><td><strong>質量分0~3.9分的產品，必須清零</strong></td></tr><tr><td><strong>違規產品數量</strong></td><td><strong>= 0</strong></td><td><strong>平臺標記違規的產品，必須清零</strong></td></tr><tr><td><strong>商機品零效果佔比</strong></td><td><strong>&lt; 5%（≥90天）</strong></td><td><strong>≥90天無曝光商機品佔已上架總數比例</strong></td></tr><tr><td><strong>交易品零效果佔比</strong></td><td><strong>&lt; 5%（≥60天）</strong></td><td><strong>≥60天無曝光交易品佔已上架總數比例</strong></td></tr></table></div>
+<h3><strong>7.2 賽道比例建議（按產品特性）</strong></h3>
+<div class="tbl-wrap"><table><tr><td><strong>產品特徵</strong></td><td><strong>建議交易品佔比</strong></td><td><strong>典型品類示例</strong></td></tr><tr><td><strong>標準化極高、客單價低、決策週期短</strong></td><td><strong>60%~80%</strong></td><td><strong>反光服/耗材/小配件/日用品/工裝手套</strong></td></tr><tr><td><strong>標準化中等、客單價中、決策中等</strong></td><td><strong>40%~55%</strong></td><td><strong>安全帽/寵物用品/家居/小家電</strong></td></tr><tr><td><strong>定製化強、客單價高、決策週期長</strong></td><td><strong>20%~30%</strong></td><td><strong>安全繩/大件傢俱/工業裝置/機械零件</strong></td></tr></table></div>
+<p><strong>💡 綜合建議：多品類混合店鋪按加權平均計算。技能會根據你宣告的主營類目自動匹配。</strong></p>
+<h2><strong>八、能力邊界與免責說明</strong></h2>
+<h3><strong>8.1 本技能能做什麼</strong></h3>
 <ol>
-<li>自动抓取阿里国际站后台6大维度的公开数据</li>
-<li>基于内置行业标准生成结构化Word诊断报告</li>
-<li>给出可直接落地的P0/P1/P2三级行动清单</li>
-<li>每次执行都是独立的（不依赖历史数据缓存）</li>
+<li>自動抓取阿里國際站後臺6大維度的公開資料</li>
+<li>基於內建行業標準生成結構化Word診斷報告</li>
+<li>給出可直接落地的P0/P1/P2三級行動清單</li>
+<li>每次執行都是獨立的（不依賴歷史資料快取）</li>
 </ol>
-<h3><strong>8.2 本技能不做什么</strong></h3>
+<h3><strong>8.2 本技能不做什麼</strong></h3>
 <ol>
-<li>❌ 不主动修改后台任何数据（只读诊断，不执行操作）</li>
-<li>❌ 不做主动侵权风险扫描（如图片logo识别、商标词库比对）</li>
-<li>❌ 不做外观专利/发明专利查询</li>
-<li>❌ 不做视频内容侵权分析</li>
-<li>❌ 不做P4P直通车数据关联分析（另有专门技能）</li>
-<li>❌ 不做行业竞品数据对比（需另外调用行业分析技能）</li>
+<li>❌ 不主動修改後臺任何資料（只讀診斷，不執行操作）</li>
+<li>❌ 不做主動侵權風險掃描（如圖片logo識別、商標詞庫比對）</li>
+<li>❌ 不做外觀專利/發明專利查詢</li>
+<li>❌ 不做影片內容侵權分析</li>
+<li>❌ 不做P4P直通車資料關聯分析（另有專門技能）</li>
+<li>❌ 不做行業競品資料對比（需另外呼叫行業分析技能）</li>
 </ol>
-<h3><strong>8.3 数据准确性说明</strong></h3>
+<h3><strong>8.3 資料準確性說明</strong></h3>
 <ol>
-<li>所有数据均来自阿里国际站后台，实时抓取，无缓存</li>
-<li>由于后台页面元素可能变动，个别数据可能出现"待人工核实"标记</li>
-<li>报告中每项数据都注明了来源和抓取方法，可追溯核对</li>
-<li>如发现数据错误，请告知Agent具体项，会立即重新抓取</li>
+<li>所有資料均來自阿里國際站後臺，實時抓取，無快取</li>
+<li>由於後臺頁面元素可能變動，個別資料可能出現"待人工核實"標記</li>
+<li>報告中每項資料都註明了來源和抓取方法，可追溯核對</li>
+<li>如發現資料錯誤，請告知Agent具體項，會立即重新抓取</li>
 </ol>
-<h3><strong>8.4 使用建议</strong></h3>
+<h3><strong>8.4 使用建議</strong></h3>
 <ol>
-<li>建议每周执行一次，形成周期性诊断记录</li>
-<li>大促前/后各执行一次，评估活动效果</li>
-<li>新员工接手店铺时执行一次，快速了解店铺现状</li>
-<li>季度复盘/月度汇报可直接使用报告内容</li>
+<li>建議每週執行一次，形成週期性診斷記錄</li>
+<li>大促前/後各執行一次，評估活動效果</li>
+<li>新員工接手店鋪時執行一次，快速瞭解店鋪現狀</li>
+<li>季度覆盤/月度彙報可直接使用報告內容</li>
 </ol></section>

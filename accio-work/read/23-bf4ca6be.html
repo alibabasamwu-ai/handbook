@@ -1,61 +1,61 @@
-<nav class="toc"><b>本包內容（3 個檔案）</b><div><a href="#f0">skill.md</a><a href="#f1">rules/visual-protocol.md</a><a href="#f2">rules/copywriting-protocol.md</a></div></nav><section class="bpart" id="f0"><h3 class="bpart-h">skill.md</h3><div class="fm"><b>产品上架助手</b><p>自动生成国际站标题、主图及750px详情页切片，实现快速上架。</p></div><h1>技能名称：产品上架助手 (Alibaba Listing Assistant)</h1>
+<nav class="toc"><b>本包內容（3 個檔案）</b><div><a href="#f0">skill.md</a><a href="#f1">rules/visual-protocol.md</a><a href="#f2">rules/copywriting-protocol.md</a></div></nav><section class="bpart" id="f0"><h3 class="bpart-h">skill.md</h3><div class="fm"><b>產品上架助手</b><p>自動生成國際站標題、主圖及750px詳情頁切片，實現快速上架。</p></div><h1>技能名稱：產品上架助手 (Alibaba Listing Assistant)</h1>
 <h2>技能描述</h2>
-<p>这是一个帮你“一键配齐上架素材”的效率神器。只要定好产品，它就能自动帮你把国际站后台上货需要的所有东西——爆款标题、SEO关键词、6张核心主图、详情页营销切片、参数表——全部自动做出来，你拿走直接上传就行。</p>
+<p>這是一個幫你“一鍵配齊上架素材”的效率神器。只要定好產品，它就能自動幫你把國際站後臺上貨需要的所有東西——爆款標題、SEO關鍵詞、6張核心主圖、詳情頁營銷切片、參數列——全部自動做出來，你拿走直接上傳就行。</p>
 <h2>核心功能</h2>
 <ol>
-<li><strong>SEO标题策划</strong>：自动抓取Top 5热词，拼出符合阿里权重的128字符黄金标题。</li>
-<li><strong>6张专业主图</strong>：生成“白底+场景+细节+尺寸+实力”的 1:1 主图全家桶。</li>
-<li><strong>750px营销切片</strong>：自动设计并生成6段符合手机端展示的营销长图切片。</li>
-<li><strong>参数自动补全</strong>：自动生成专业技术参数表和物流装运建议。</li>
+<li><strong>SEO標題策劃</strong>：自動抓取Top 5熱詞，拼出符合阿里權重的128字元黃金標題。</li>
+<li><strong>6張專業主圖</strong>：生成“白底+場景+細節+尺寸+實力”的 1:1 主圖全家桶。</li>
+<li><strong>750px營銷切片</strong>：自動設計並生成6段符合手機端展示的營銷長圖切片。</li>
+<li><strong>引數自動補全</strong>：自動生成專業技術參數列和物流裝運建議。</li>
 </ol>
 <h2>工作流程 (Workflow)</h2>
 <ol>
-<li><strong>词库调研</strong>：用 <code>web_search</code> 调研同类爆款的Top关键词。</li>
-<li><strong>文案输出</strong>：按“品牌+特征+材质+人群+认证”公式拼好标题。</li>
-<li><strong>视觉生产</strong>：<br />
-   - 使用 <code>image_generate</code> 生成 6 张 1000x1000px 的“X+1”主图。<br />
-   - 生成 6 张 750px 宽度的营销切片（品牌、卖点、对比、应用、工厂、CTA）。</li>
-<li><strong>质量自检</strong>：调用 <code>see_image</code> 自检图文是否匹配，确保图片不崩。</li>
+<li><strong>詞庫調研</strong>：用 <code>web_search</code> 調研同類爆款的Top關鍵詞。</li>
+<li><strong>文案輸出</strong>：按“品牌+特徵+材質+人群+認證”公式拼好標題。</li>
+<li><strong>視覺生產</strong>：<br />
+   - 使用 <code>image_generate</code> 生成 6 張 1000x1000px 的“X+1”主圖。<br />
+   - 生成 6 張 750px 寬度的營銷切片（品牌、賣點、對比、應用、工廠、CTA）。</li>
+<li><strong>質量自檢</strong>：呼叫 <code>see_image</code> 自檢圖文是否匹配，確保圖片不崩。</li>
 <li><strong>打包交付</strong>：整理成一份完整的“刊登材料包”。</li>
 </ol>
 <h2>使用工具</h2>
 <ul>
-<li><code>web_search</code>: 搜索关键词和SEO数据。</li>
-<li><code>image_generate</code>: 生成主图和详情页营销切片。</li>
-<li><code>see_image</code>: 用于生成后的质量复核。</li>
-</ul></section><section class="bpart" id="f1"><h3 class="bpart-h">rules/visual-protocol.md</h3><h1>规则：视觉素材生产协议 (Visual Asset Protocol)</h1>
-<p>图片必须符合阿里国际站的官方规格，且具备营销冲击力：</p>
-<h3>1. 核心主图 (Main Images) - 1000x1000px</h3>
-<p>必须一次性生成以下 6 张图：<br />
-1. <strong>白底首图</strong>：产品主体清晰，比例适中。<br />
-2. <strong>微距细节</strong>：展示材质、做工或核心黑科技。<br />
-3. <strong>尺寸/包装</strong>：用标注展示产品实际大小或包装规格。<br />
-4. <strong>场景 A</strong>：产品在实际环境中的美照。<br />
-5. <strong>场景 B</strong>：展示产品解决痛点的瞬间。<br />
-6. <strong>工厂实力</strong>：生产线或实验室实拍，增强信任感。</p>
-<h3>2. 详情页切片 (Detail Slices) - 750px 宽</h3>
-<p>生成 6 个固定宽度的营销模块：<br />
-1. <strong>权威 Banner</strong>：品牌调性展示。<br />
-2. <strong>卖点拆解</strong>：把产品大白话优点印在图上。<br />
-3. <strong>痛点对比</strong>：我们 vs 普通货。<br />
-4. <strong>全场景展示</strong>：多角度应用。<br />
-5. <strong>验厂证书</strong>：证书墙或数字化验厂截图。<br />
-6. <strong>行动号召</strong>：引导点击或私信。</p>
-<p><strong>自检要求：</strong><br />
-- 图片上不能有乱码或拼写错误的英文单词。<br />
-- 风格必须统一。</p></section><section class="bpart" id="f2"><h3 class="bpart-h">rules/copywriting-protocol.md</h3><h1>规则：SEO 与标题生成协议 (SEO &amp; Copywriting)</h1>
-<p>上架标题不能瞎写，必须按照阿里的搜索逻辑来：</p>
-<h3>1. 关键词选取</h3>
+<li><code>web_search</code>: 搜尋關鍵詞和SEO資料。</li>
+<li><code>image_generate</code>: 生成主圖和詳情頁營銷切片。</li>
+<li><code>see_image</code>: 用於生成後的質量複核。</li>
+</ul></section><section class="bpart" id="f1"><h3 class="bpart-h">rules/visual-protocol.md</h3><h1>規則：視覺素材生產協議 (Visual Asset Protocol)</h1>
+<p>圖片必須符合阿里國際站的官方規格，且具備營銷衝擊力：</p>
+<h3>1. 核心主圖 (Main Images) - 1000x1000px</h3>
+<p>必須一次性生成以下 6 張圖：<br />
+1. <strong>白底首圖</strong>：產品主體清晰，比例適中。<br />
+2. <strong>微距細節</strong>：展示材質、做工或核心黑科技。<br />
+3. <strong>尺寸/包裝</strong>：用標註展示產品實際大小或包裝規格。<br />
+4. <strong>場景 A</strong>：產品在實際環境中的美照。<br />
+5. <strong>場景 B</strong>：展示產品解決痛點的瞬間。<br />
+6. <strong>工廠實力</strong>：生產線或實驗室實拍，增強信任感。</p>
+<h3>2. 詳情頁切片 (Detail Slices) - 750px 寬</h3>
+<p>生成 6 個固定寬度的營銷模組：<br />
+1. <strong>權威 Banner</strong>：品牌調性展示。<br />
+2. <strong>賣點拆解</strong>：把產品大白話優點印在圖上。<br />
+3. <strong>痛點對比</strong>：我們 vs 普通貨。<br />
+4. <strong>全場景展示</strong>：多角度應用。<br />
+5. <strong>驗廠證書</strong>：證書牆或數字化驗廠截圖。<br />
+6. <strong>行動號召</strong>：引導點選或私信。</p>
+<p><strong>自檢要求：</strong><br />
+- 圖片上不能有亂碼或拼寫錯誤的英文單詞。<br />
+- 風格必須統一。</p></section><section class="bpart" id="f2"><h3 class="bpart-h">rules/copywriting-protocol.md</h3><h1>規則：SEO 與標題生成協議 (SEO &amp; Copywriting)</h1>
+<p>上架標題不能瞎寫，必須按照阿里的搜尋邏輯來：</p>
+<h3>1. 關鍵詞選取</h3>
 <ul>
-<li>必须包含该产品的核心词（Core Seed Keyword）。</li>
-<li>必须包含 2-3 个高转化长尾词（Long-tail Keywords）。</li>
+<li>必須包含該產品的核心詞（Core Seed Keyword）。</li>
+<li>必須包含 2-3 個高轉化長尾詞（Long-tail Keywords）。</li>
 </ul>
-<h3>2. 标题黄金公式 (128字符以内)</h3>
+<h3>2. 標題黃金公式 (128字元以內)</h3>
 <ul>
 <li><strong>公式</strong>：[Brand] + [Core Feature] + [Material/Tech] + [Target Application] + [Standard/Certification]</li>
 <li><strong>示例</strong>：Accio Waterproof IP67 Solar Street Light with Motion Sensor for Garden Outdoor Lighting CE RoHS Certified</li>
 </ul>
-<h3>3. SEO 属性建议</h3>
+<h3>3. SEO 屬性建議</h3>
 <ul>
-<li>顺带列出 3 个精准的 Keyword 标签，方便填入后台。</li>
+<li>順帶列出 3 個精準的 Keyword 標籤，方便填入後臺。</li>
 </ul></section>

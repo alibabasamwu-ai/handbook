@@ -1,0 +1,77 @@
+<nav class="toc"><b>本包内容（3 个档案）</b><div><a href="#f0">skill.md</a><a href="#f1">rules/report-format.md</a><a href="#f2">rules/diagnosis-criteria.md</a></div></nav><section class="bpart" id="f0"><h3 class="bpart-h">skill.md</h3><div class="fm"><b>阿里询盘日诊断</b><p>每天自动盘点阿里后台商机，分析客户背景及业务员表现，并在聊天框给出诊断。</p></div><h1>技能名称：阿里询盘日诊断 (Alibaba Daily Diagnosis)</h1>
+<h2>技能描述</h2>
+<p>这是一个帮你“盘点每日商机”的数字主管。它每天自动潜入你的阿里消息中心，抓取最新聊天的客户，背景调查这些客户是大买家还是散客，并检查业务员回话是否有问题。所有诊断结果直接发在聊天框里，让你一眼看清谁该盯、谁该催。</p>
+<h2>核心功能</h2>
+<ol>
+<li><strong>自动抓取商机</strong>：每天定时/手动进入阿里后台，锁定“今天”和“昨天”聊过天的所有客户。</li>
+<li><strong>客户背景侦察</strong>：全网搜索客户背景，识别是“家具店、设计师、酒店”等大买家，还是个人散客。</li>
+<li><strong>管理干预报警</strong>：自动识别业务员回话不专业、大单未报价、客户抱怨等需要老板介入的风险点。</li>
+<li><strong>直出精简战报</strong>：不写文档、不搞复杂报告，直接在聊天框用表格和清单告诉你结果。</li>
+</ol>
+<h2>工作流程 (Workflow)</h2>
+<ol>
+<li><strong>权限检查</strong>：确认用户已在谷歌浏览器登录阿里后台。</li>
+<li><strong>抓取数据</strong>：通过 <code>browser</code> 进入消息中心，提取活跃客户名、国家、产品及最近 3-5 句聊天总结。</li>
+<li><strong>背景深挖</strong>：利用 <code>web_search</code> 调研每个客户的背景，并按照 <code>rules/diagnosis-criteria.md</code> 进行优先级打分。</li>
+<li><strong>健康诊断</strong>：分析聊天记录，识别“态度风险”、“报价缺失”或“质量投诉”等警报。</li>
+<li><strong>聊天框汇报</strong>：按照 <code>rules/report-format.md</code> 要求的格式，在对话框直接贴出今日战报。</li>
+</ol>
+<h2>使用工具</h2>
+<ul>
+<li><code>browser</code>: 进入后台抓取实时聊天动态。</li>
+<li><code>web_search</code>: 调研客户的 LinkedIn 和公司背景。</li>
+<li><code>web_fetch</code>: 深入解析客户官网或背景资料。</li>
+</ul></section><section class="bpart" id="f1"><h3 class="bpart-h">rules/report-format.md</h3><h1>规则：聊天框汇报模板 (Report Format)</h1>
+<p>不要废话，不要输出文档。直接在聊天框贴出以下结构的“今日战报”：</p>
+<hr />
+<h3>📊 今日阿里询盘复盘 (汇总)</h3>
+<ul>
+<li><strong>活跃客户总数</strong>：{N} 位</li>
+<li><strong>高潜力客户</strong>：{N} 位 (重点加粗)</li>
+<li><strong>需老板介入</strong>：{N} 位 (红色预警)</li>
+</ul>
+<h4>1. 重点商机看板</h4>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">客户 (国家)</th>
+<th style="text-align: left;">核心产品</th>
+<th style="text-align: left;">业务员</th>
+<th style="text-align: left;">背景/潜力</th>
+<th style="text-align: left;">进度总结</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;">{Name}</td>
+<td style="text-align: left;">{Product}</td>
+<td style="text-align: left;">{Staff}</td>
+<td style="text-align: left;">⭐⭐⭐</td>
+<td style="text-align: left;">已推样，等回复</td>
+</tr>
+</tbody>
+</table>
+<h4>2. ⚠️ 管理干预清单 (必看)</h4>
+<ul>
+<li><strong>客户 {Name}</strong>：[警报理由] + [建议动作]。</li>
+<li><strong>客户 {Name}</strong>：[警报理由] + [建议动作]。</li>
+</ul>
+<h4>3. 今日表现打分</h4>
+<ul>
+<li><strong>团队整体评分</strong>：[A/B/C/D]</li>
+<li><strong>一句话总结</strong>：今日整体进度 [健康/有风险/需加强跟进]。</li>
+</ul>
+<hr /></section><section class="bpart" id="f2"><h3 class="bpart-h">rules/diagnosis-criteria.md</h3><h1>规则：商机诊断与分级标准 (Diagnosis Criteria)</h1>
+<p>在分析每一条询盘时，必须按照以下“铁律”进行打分和报警：</p>
+<h3>1. 客户价值分级 (Priority)</h3>
+<ul>
+<li><strong>高 (High)</strong>：确认为专业买家（家具店、酒店、装修公司、建筑师）。</li>
+<li><strong>中 (Medium)</strong>：有公司名但背景不明，或小额贸易商。</li>
+<li><strong>低 (Low)</strong>：个人用途、散客、或只问 1 件产品的游客。</li>
+</ul>
+<h3>2. 管理干预警报 (Management Alerts)</h3>
+<p>出现以下情况，必须在报告中加粗提醒：<br />
+- <strong>【态度风险】</strong>：高价值客户咨询，但业务员回复敷衍（如：只发表情、只回“OK”、不回具体问题）。<br />
+- <strong>【效率风险】</strong>：询盘超过 12 小时未报价（针对大单）。<br />
+- <strong>【质量风险】</strong>：客户提到“Damage”、“Quality Issue”、“Comfort”等负面关键词。<br />
+- <strong>【流失风险】</strong>：客户提到“Bought from others”或超过 24 小时未回访。</p></section>

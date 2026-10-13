@@ -1,83 +1,83 @@
-<section class="bpart" id="f0"><h3 class="bpart-h">安装启动提示词_发给商家.md</h3><h1>阿里业务复盘 Skill · 安装启动提示词（发给其他商家）</h1>
+<section class="bpart" id="f0"><h3 class="bpart-h">安装启动提示词_发给商家.md</h3><h1>阿里業務覆盤 Skill · 安裝啟動提示詞（發給其他商家）</h1>
 <blockquote>
-<p><strong>使用方法</strong>：把 <code>alibaba-business-review.zip</code> + 下面【分割线之间的整段】一起发给对方。<br />
-对方在 Accio Work 新开一个对话 → 把 zip 拖进去 → 把这段话粘贴给 AI 助手 → 等交付即可。<br />
-这段提示词已内置全部避坑规则，确保对方<strong>零配置、零冷启动</strong>，交付质量与标杆一致。</p>
+<p><strong>使用方法</strong>：把 <code>alibaba-business-review.zip</code> + 下面【分割線之間的整段】一起發給對方。<br />
+對方在 Accio Work 新開一個對話 → 把 zip 拖進去 → 把這段話貼上給 AI 助手 → 等交付即可。<br />
+這段提示詞已內建全部避坑規則，確保對方<strong>零配置、零冷啟動</strong>，交付質量與標杆一致。</p>
 </blockquote>
 <hr />
-<p>你好，我给了你一个 <code>alibaba-business-review.zip</code>，这是「阿里巴巴国际站 30/90 天店铺业务复盘」技能包。请严格按下面步骤执行，<strong>全程 bash，不要跳步、不要自己发挥</strong>，最终交付一份 HTML 看板 + 4 个文件。</p>
-<h2>第 0 步 · 心智校准（先读，决定质量）</h2>
-<p>本技能有 3 条铁律，违反任何一条都会让复盘作废，请你先记住：<br />
-1. <strong>会话按子账号隔离</strong>：阿里 IM 会话只能按单个业务员账号拉。<strong>必须先查全部子账号再遍历采集</strong>，只拉主账号会漏掉 90%+ 的客户。（脚本 <code>collect_live.py</code> 已封装好，照用即可。）<br />
-2. <strong>主营品类只认真实数据</strong>：店铺主营由脚本从业务员消息自动推断，<strong>严禁</strong>你从 skill 自带的案例/样例文件（cases/examples）猜测主营——那些是演示数据，跟当前店铺无关。<br />
-3. <strong>零编造</strong>：所有数字、客户名、背调结论必须来自真实采集数据或带 source_url 的公网检索，查不到就如实标注，不许填充示例数据。</p>
-<h2>第 1 步 · 安装</h2>
+<p>你好，我給了你一個 <code>alibaba-business-review.zip</code>，這是「阿里巴巴國際站 30/90 天店鋪業務覆盤」技能包。請嚴格按下面步驟執行，<strong>全程 bash，不要跳步、不要自己發揮</strong>，最終交付一份 HTML 看板 + 4 個檔案。</p>
+<h2>第 0 步 · 心智校準（先讀，決定質量）</h2>
+<p>本技能有 3 條鐵律，違反任何一條都會讓覆盤作廢，請你先記住：<br />
+1. <strong>會話按子賬號隔離</strong>：阿里 IM 會話只能按單個業務員賬號拉。<strong>必須先查全部子賬號再遍歷採集</strong>，只拉主賬號會漏掉 90%+ 的客戶。（指令碼 <code>collect_live.py</code> 已封裝好，照用即可。）<br />
+2. <strong>主營品類只認真實資料</strong>：店鋪主營由指令碼從業務員訊息自動推斷，<strong>嚴禁</strong>你從 skill 自帶的案例/樣例檔案（cases/examples）猜測主營——那些是演示資料，跟當前店鋪無關。<br />
+3. <strong>零編造</strong>：所有數字、客戶名、背調結論必須來自真實採集資料或帶 source_url 的公網檢索，查不到就如實標註，不許填充示例資料。</p>
+<h2>第 1 步 · 安裝</h2>
 <pre><code class="language-bash">unzip alibaba-business-review.zip -d /tmp/abr
 cp -r /tmp/abr/alibaba-business-review ${agent_skills}/
-ls ${agent_skills}/alibaba-business-review/SKILL.md   # 确认安装成功
+ls ${agent_skills}/alibaba-business-review/SKILL.md   # 確認安裝成功
 </code></pre>
-<h2>第 2 步 · 预热（读取方法论 + 反幻觉铁律，避免冷启动）</h2>
+<h2>第 2 步 · 預熱（讀取方法論 + 反幻覺鐵律，避免冷啟動）</h2>
 <pre><code class="language-bash">cd ${agent_skills}/alibaba-business-review
 rm -rf scripts/__pycache__ .cache 2&gt;/dev/null
 python3 scripts/preheat.py
 </code></pre>
-<p><strong>把预热输出完整读一遍</strong>，尤其开头的「🛑 主营品类铁律」和方法论（BANT/SPIN/客户分层规则）。这一步让你具备和标杆一致的判断标准。</p>
-<h2>第 3 步 · 采集真实数据（核心，照抄命令）</h2>
+<p><strong>把預熱輸出完整讀一遍</strong>，尤其開頭的「🛑 主營品類鐵律」和方法論（BANT/SPIN/客戶分層規則）。這一步讓你具備和標杆一致的判斷標準。</p>
+<h2>第 3 步 · 採集真實資料（核心，照抄命令）</h2>
 <pre><code class="language-bash">cd ${agent_skills}/alibaba-business-review
 python3 scripts/collect_live.py 90
 </code></pre>
 <ul>
-<li>这个脚本会自动：查询店铺全部业务员子账号 → 遍历每个账号拉近90天会话 → 拉全消息 → 写入 <code>data/chats.json</code>。</li>
-<li>跑完会打印「✅ 写入 … X 有效会话 / Y 消息」。<strong>正常品牌店应有几百会话、几千条消息</strong>；如果只有个位数会话，说明子账号没拉到，检查阿里账号授权后重跑。</li>
-<li>店名可选：<code>python3 scripts/collect_live.py 90 --shop "你的店铺名"</code>（不填则看板显示通用名）。</li>
-<li><strong>不要手填主营品类</strong>，step1 会自动从业务员消息推断。</li>
+<li>這個指令碼會自動：查詢店鋪全部業務員子賬號 → 遍歷每個賬號拉近90天會話 → 拉全訊息 → 寫入 <code>data/chats.json</code>。</li>
+<li>跑完會列印「✅ 寫入 … X 有效會話 / Y 訊息」。<strong>正常品牌店應有幾百會話、幾千條訊息</strong>；如果只有個位數會話，說明子賬號沒拉到，檢查阿里賬號授權後重跑。</li>
+<li>店名可選：<code>python3 scripts/collect_live.py 90 --shop "你的店鋪名"</code>（不填則看板顯示通用名）。</li>
+<li><strong>不要手填主營品類</strong>，step1 會自動從業務員訊息推斷。</li>
 </ul>
-<h2>第 4 步 · 跑评分 + 业务员聚焦诊断（照抄）</h2>
+<h2>第 4 步 · 跑評分 + 業務員聚焦診斷（照抄）</h2>
 <pre><code class="language-bash">cd ${agent_skills}/alibaba-business-review
 rm -rf scripts/__pycache__ 2&gt;/dev/null
-python3 scripts/step1_customer_scoring.py     # 客户分层（会打印自动推断的主营）
-python3 scripts/step2_health_diagnosis.py     # 跟进健康度信号（含买家原话）
-python3 scripts/step3_team_diagnosis.py        # 团队三维诊断
-python3 scripts/step6_seller_focus.py          # ⭐业务员聚焦诊断（一人一档：核心问题+共性/个性+提升+客户行动）
+python3 scripts/step1_customer_scoring.py     # 客戶分層（會列印自動推斷的主營）
+python3 scripts/step2_health_diagnosis.py     # 跟進健康度訊號（含買家原話）
+python3 scripts/step3_team_diagnosis.py        # 團隊三維診斷
+python3 scripts/step6_seller_focus.py          # ⭐業務員聚焦診斷（一人一檔：核心問題+共性/個性+提升+客戶行動）
 </code></pre>
-<h2>第 5 步 · Top 客户公网背调（深度，接入聚焦模块）</h2>
-<p>对 step1 输出里 Tier=A/B 的重点客户做公网背调（建议 Top 12~50，越多越好）：<br />
-- 读 <code>reports/step1_customer_scoring.json</code> 取 A/B 档客户的 buyer_name + buyer_country。<br />
-- 分批（每批 4-5 人）<strong>并行派 browser SubAgent</strong> 做 OSINT（web_search 组合搜"姓名+国家+行业"），按 <code>workflow/05-customer-intel.md</code> 规范。<br />
-- 硬约束：每条结论必须带 source_url；查不到标 found:false，不编造；同名歧义要标注。<br />
-- <strong>两个产出</strong>：<br />
-  1. 汇总成 <code>reports/top50_deep_intel.md</code>（或 core10_customer_intel.md）——分梯队的深度背调报告。<br />
-  2. ⭐ 把结构化结论整理成 <code>reports/customer_intel.json</code>（格式见 <code>reports/customer_intel.example.json</code>：buyer_name → {company,type,match,role,strategy,source}），<strong>这样背调情报会自动接进业务员聚焦模块的每个重点客户卡片</strong>。</p>
-<h2>第 6 步 · 重跑 step6 + 生成看板 + 审计</h2>
+<h2>第 5 步 · Top 客戶公網背調（深度，接入聚焦模組）</h2>
+<p>對 step1 輸出裡 Tier=A/B 的重點客戶做公網背調（建議 Top 12~50，越多越好）：<br />
+- 讀 <code>reports/step1_customer_scoring.json</code> 取 A/B 檔客戶的 buyer_name + buyer_country。<br />
+- 分批（每批 4-5 人）<strong>並行派 browser SubAgent</strong> 做 OSINT（web_search 組合搜"姓名+國家+行業"），按 <code>workflow/05-customer-intel.md</code> 規範。<br />
+- 硬約束：每條結論必須帶 source_url；查不到標 found:false，不編造；同名歧義要標註。<br />
+- <strong>兩個產出</strong>：<br />
+  1. 彙總成 <code>reports/top50_deep_intel.md</code>（或 core10_customer_intel.md）——分梯隊的深度背調報告。<br />
+  2. ⭐ 把結構化結論整理成 <code>reports/customer_intel.json</code>（格式見 <code>reports/customer_intel.example.json</code>：buyer_name → {company,type,match,role,strategy,source}），<strong>這樣背調情報會自動接進業務員聚焦模組的每個重點客戶卡片</strong>。</p>
+<h2>第 6 步 · 重跑 step6 + 生成看板 + 審計</h2>
 <pre><code class="language-bash">cd ${agent_skills}/alibaba-business-review
 rm -rf scripts/__pycache__ 2&gt;/dev/null
-python3 scripts/step6_seller_focus.py          # 重跑：接入 customer_intel.json 背调情报
-python3 scripts/step4_audit_and_dashboard.py   # 生成 HTML 看板（含业务员聚焦+背调闭环）
-python3 scripts/step5_verification_csv.py      # 买家核验表 CSV
+python3 scripts/step6_seller_focus.py          # 重跑：接入 customer_intel.json 背調情報
+python3 scripts/step4_audit_and_dashboard.py   # 生成 HTML 看板（含業務員聚焦+背調閉環）
+python3 scripts/step5_verification_csv.py      # 買家核驗表 CSV
 python3 audit/checklist.py --html reports/alibaba_review_dashboard.html \
   --reports-dir reports/ --chats data/chats.json --out logs/audit.json
 </code></pre>
 <ul>
-<li>目标 <strong>P0 28/28、Verdict PASS</strong>。P1 不强制（E1 把买家原话里 "is undefined" 误报是真实原文，忽略）。</li>
-<li>若 P0 没满分：A9/A10 = 核验表/背调没生成；B 类 = 采集缺字段。回头补，不要改 skill 代码。</li>
+<li>目標 <strong>P0 28/28、Verdict PASS</strong>。P1 不強制（E1 把買家原話裡 "is undefined" 誤報是真實原文，忽略）。</li>
+<li>若 P0 沒滿分：A9/A10 = 核驗表/背調沒生成；B 類 = 採集缺欄位。回頭補，不要改 skill 程式碼。</li>
 </ul>
-<h2>第 7 步 · 交付（emit 可点击链接）</h2>
-<p>把这些文件以 <code>[名称](file:///绝对路径)</code> 形式给我：<br />
-1. <code>reports/alibaba_review_dashboard.html</code>（主看板，含⭐业务员聚焦诊断模块，离线双击可开）<br />
-2. <code>reports/top50_deep_intel.md</code>（Top客户深度背调）<br />
-3. <code>reports/buyer_verification_table.csv</code>（买家核验表）<br />
-4. 「断联未激活客户挽回清单」CSV（从 step2 找含"断联未激活"信号的客户，附业务员归因）</p>
-<p>并给我一段中文白话总结：客户分层分布、最大风险信号、团队三维短板、<strong>每个业务员的核心问题与提升重点</strong>（业务员聚焦模块的精华）、Top 高价值客户。</p>
+<h2>第 7 步 · 交付（emit 可點選連結）</h2>
+<p>把這些檔案以 <code>[名稱](file:///絕對路徑)</code> 形式給我：<br />
+1. <code>reports/alibaba_review_dashboard.html</code>（主看板，含⭐業務員聚焦診斷模組，離線雙擊可開）<br />
+2. <code>reports/top50_deep_intel.md</code>（Top客戶深度背調）<br />
+3. <code>reports/buyer_verification_table.csv</code>（買家核驗表）<br />
+4. 「斷聯未啟用客戶挽回清單」CSV（從 step2 找含"斷聯未啟用"訊號的客戶，附業務員歸因）</p>
+<p>並給我一段中文白話總結：客戶分層分佈、最大風險訊號、團隊三維短板、<strong>每個業務員的核心問題與提升重點</strong>（業務員聚焦模組的精華）、Top 高價值客戶。</p>
 <hr />
-<h2>✅ 标杆质量验收清单（交付前自检，缺一不可）</h2>
+<h2>✅ 標杆質量驗收清單（交付前自檢，缺一不可）</h2>
 <ul>
-<li>[ ] 看板副标题主营品类 = 真实主营（自动推断，不是任何演示品类）</li>
-<li>[ ] 会话数/消息数是几百/几千量级（不是个位数 → 否则子账号没拉全）</li>
-<li>[ ] 客户分层、健康信号的"评分证据"是<strong>中文白话 + 买家原话引用</strong></li>
-<li>[ ] 三维培训优先级按真实分数排（最低分=🔴优先级1）</li>
-<li>[ ] ⭐业务员聚焦诊断模块有数据：每人核心问题带具体数字、共性问题带占比、重点客户带原话+行动</li>
-<li>[ ] （做了背调的话）业务员聚焦里的重点客户带"背调·公司/角色/攻坚策略"标签</li>
-<li>[ ] Top客户背调每条带 source_url，查无的如实标注</li>
-<li>[ ] 审计 P0 28/28 PASS</li>
-<li>[ ] 全部数字来自真实数据，无任何写死/编造值</li>
+<li>[ ] 看板副標題主營品類 = 真實主營（自動推斷，不是任何演示品類）</li>
+<li>[ ] 會話數/訊息數是幾百/幾千量級（不是個位數 → 否則子賬號沒拉全）</li>
+<li>[ ] 客戶分層、健康訊號的"評分證據"是<strong>中文白話 + 買家原話引用</strong></li>
+<li>[ ] 三維培訓優先順序按真實分數排（最低分=🔴優先順序1）</li>
+<li>[ ] ⭐業務員聚焦診斷模組有資料：每人核心問題帶具體數字、共性問題帶佔比、重點客戶帶原話+行動</li>
+<li>[ ] （做了背調的話）業務員聚焦裡的重點客戶帶"背調·公司/角色/攻堅策略"標籤</li>
+<li>[ ] Top客戶背調每條帶 source_url，查無的如實標註</li>
+<li>[ ] 審計 P0 28/28 PASS</li>
+<li>[ ] 全部數字來自真實資料，無任何寫死/編造值</li>
 </ul></section><section class="bpart"><h3 class="bpart-h">附件檔案</h3><ul class="filelist"><li>alibaba-business-review.zip <span class="kb">547.1 KB</span></li></ul></section>
