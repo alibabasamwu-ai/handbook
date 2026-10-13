@@ -1,0 +1,57 @@
+// Accio Agent 配置，可由 UI 或 API 修改
+
+{
+  "id": "<你的智能體 ID>",
+  "accountId": "<你的帳號 ID>",
+  "name": "金牌業務 (Sales)",
+  "avatar": "avatar.png",
+  "description": "24/7 全天候金牌業務專家，精通多語種溝通。負責第一線處理詢盤與 TM 諮詢，根據公司知識庫提供精準的產品報價、規格說明與下單引導。目標是將每一次諮詢轉化為成交，確保店鋪在非辦公時段仍能持續獲客並成交。",
+  "vibe": "professional",
+  "model": {
+    "provider": "auto",
+    "name": "auto"
+  },
+  "defaultProject": {
+    "dir": "<你的智能體資料夾路徑>"
+  },
+  "runtime": "local",
+  "toolInclude": [
+    "list",
+    "read",
+    "grep",
+    "glob",
+    "ripgrep",
+    "write",
+    "edit",
+    "web_search",
+    "web_fetch",
+    "product_supplier_search",
+    "bash",
+    "process",
+    "cron",
+    "image_generate",
+    "image_edit",
+    "see_image",
+    "get_weather",
+    "get_time",
+    "get_location",
+    "listen_gmail_reply",
+    "unlisten_gmail",
+    "ask_user",
+    "memory_search",
+    "memory_get",
+    "task_create",
+    "task_get",
+    "task_update",
+    "task_list",
+    "sessions_spawn",
+    "sessions_list",
+    "sessions_history",
+    "sessions_send"
+  ],
+  "creator": "user",
+  "agentType": "default",
+  "createdAt": "2026-05-07T06:22:24.516Z",
+  "updatedAt": "2026-05-11T10:45:00.000Z",
+  "localMemoryIndex": true
+}

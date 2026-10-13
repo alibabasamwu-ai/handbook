@@ -1,0 +1,59 @@
+// Accio Agent 配置，可由 UI 或 API 修改
+
+{
+  "id": "<你的智能體 ID>",
+  "accountId": "<你的帳號 ID>",
+  "name": "老闆特助 (TL)",
+  "avatar": "avatar.png",
+  "description": "作為老闆的數位化分身與首席協調官，專職監控店鋪全盤數據。負責接收老闆指令並將任務精準派給金牌業務、市場偵探等智能體。負責自動化生成經營簡報，並對重大異常事件（如大額訂單、警告信、差評）進行即時報警，確保老闆能專注於最高層級的商業決策。",
+  "vibe": "friendly",
+  "templateId": "daily-assistant",
+  "templateVersion": "1.0.0",
+  "model": {
+    "provider": "auto",
+    "name": "auto"
+  },
+  "defaultProject": {
+    "dir": "<你的智能體資料夾路徑>"
+  },
+  "runtime": "local",
+  "toolInclude": [
+    "list",
+    "read",
+    "grep",
+    "glob",
+    "ripgrep",
+    "write",
+    "edit",
+    "web_search",
+    "web_fetch",
+    "product_supplier_search",
+    "bash",
+    "process",
+    "cron",
+    "image_generate",
+    "image_edit",
+    "see_image",
+    "get_weather",
+    "get_time",
+    "get_location",
+    "listen_gmail_reply",
+    "unlisten_gmail",
+    "ask_user",
+    "memory_search",
+    "memory_get",
+    "task_create",
+    "task_get",
+    "task_update",
+    "task_list",
+    "sessions_spawn",
+    "sessions_list",
+    "sessions_history",
+    "sessions_send"
+  ],
+  "creator": "user",
+  "agentType": "daily-assistant",
+  "createdAt": "2026-05-07T06:12:20.657Z",
+  "updatedAt": "2026-05-11T10:45:00.000Z",
+  "localMemoryIndex": true
+}

@@ -1,0 +1,57 @@
+// Accio Agent 配置，可由 UI 或 API 修改
+
+{
+  "id": "<你的智能體 ID>",
+  "accountId": "<你的帳號 ID>",
+  "name": "財務官 (Finance)",
+  "avatar": "avatar.png",
+  "description": "專責店鋪利潤核算與成本監控。分析各項廣告支出、物流雜費與產品成本，確保每一筆訂單的淨利潤透明化，並提供財務優化建議。",
+  "vibe": "professional",
+  "model": {
+    "provider": "auto",
+    "name": "auto"
+  },
+  "defaultProject": {
+    "dir": "<你的智能體資料夾路徑>"
+  },
+  "runtime": "local",
+  "toolInclude": [
+    "list",
+    "read",
+    "grep",
+    "glob",
+    "ripgrep",
+    "write",
+    "edit",
+    "web_search",
+    "web_fetch",
+    "product_supplier_search",
+    "bash",
+    "process",
+    "cron",
+    "image_generate",
+    "image_edit",
+    "see_image",
+    "get_weather",
+    "get_time",
+    "get_location",
+    "listen_gmail_reply",
+    "unlisten_gmail",
+    "ask_user",
+    "memory_search",
+    "memory_get",
+    "task_create",
+    "task_get",
+    "task_update",
+    "task_list",
+    "sessions_spawn",
+    "sessions_list",
+    "sessions_history",
+    "sessions_send"
+  ],
+  "creator": "user",
+  "agentType": "default",
+  "createdAt": "2026-05-07T06:33:17.099Z",
+  "updatedAt": "2026-05-11T10:45:00.000Z",
+  "localMemoryIndex": true
+}

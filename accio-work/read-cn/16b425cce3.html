@@ -1,4 +1,70 @@
-<nav class="toc"><b>本包内容（3 个档案）</b><div><a href="#f0">alibaba-rfq-quotation-assistant/SKILL.md</a><a href="#f1">alibaba-rfq-quotation-assistant/README.md</a></div></nav><section class="bpart" id="f0"><h3 class="bpart-h">alibaba-rfq-quotation-assistant/SKILL.md</h3><div class="fm"><b>alibaba-rfq-quotation-assistant</b><p>阿里巴巴国际站 RFQ 报价成交助手。把 RFQ 从"临时报价"升级为"可筛选、可报价、可跟进、可复盘、可提升服务分、可促进成交"的标准化主动获客流程。输入 RFQ 原文/截图、买家国家、产品、数量、规格、可提供的 MOQ/价格/交期，先做 8 维商机诊断（建议报价/谨慎报价/暂不报价），再输出中文诊断 + 英文报价邮件（1小时可发送版 + 深度优化版）+ 三段跟进话术 + 中英双语关键字段表 + 服务分运营建议 + 团队执行清单 + 客户经理视角 + 风险提醒。兼顾老板/业务员/运营/客户经理四类视角。触发词：RFQ、RFQ报价、采购直达、报价邮件、要不要报这个RFQ、RFQ跟进、RFQ复盘、quotation、买家询价报价、报价成交、RFQ服务分。</p></div><h1>阿里巴巴国际站 RFQ 报价成交助手 (Alibaba RFQ Quotation Conversion Assistant)</h1>
+<nav class="toc"><b>本包内容（3 个档案）</b><div><a href="#f0">alibaba-rfq-quotation-assistant/README.md</a><a href="#f1">alibaba-rfq-quotation-assistant/SKILL.md</a><a href="#f2">alibaba-rfq-quotation-assistant/skill.json</a></div></nav><section class="bpart" id="f0"><h3 class="bpart-h">alibaba-rfq-quotation-assistant/README.md</h3><h1>Alibaba RFQ Quotation Conversion Assistant</h1>
+<p><strong>技能 ID：</strong> <code>alibaba-rfq-quotation-assistant</code><br />
+<strong>版本：</strong> 1.0.0</p>
+<p>阿里巴巴国际站 RFQ 报价成交助手。把 RFQ 从"看到商机后临时报价"升级为「可筛选、可报价、可跟进、可复盘、可提升服务分、可促进成交」的标准化主动获客流程。兼顾老板 / 业务员 / 运营 / 客户经理四类视角。</p>
+<hr />
+<h2>能力概览</h2>
+<ul>
+<li><strong>8 维商机诊断</strong>（100 分制）→ 建议报价 / 谨慎报价 / 暂不报价</li>
+<li><strong>买家三画像</strong>：加工定制型 / 解决方案型 / 明确需求型</li>
+<li><strong>英文报价邮件双版本</strong>：1 小时内可发送安全版 + 深度优化成交版</li>
+<li><strong>三段跟进话术</strong>：24h / 3 天 / 7 天 + 压价/要样品/要最低价等场景话术</li>
+<li><strong>中英双语关键字段表 + 服务分运营建议 + 团队执行清单 + 客户经理视角 + 风险提醒</strong></li>
+</ul>
+<h2>触发方式</h2>
+<p>对话中出现以下表达即自动加载：</p>
+<blockquote>
+<p>RFQ、RFQ报价、采购直达、报价邮件、要不要报这个RFQ、RFQ跟进、RFQ复盘、quotation、买家询价报价、报价成交、RFQ服务分</p>
+</blockquote>
+<hr />
+<h2>安装方法</h2>
+<h3>方式 A：手动安装（适用于 Accio Work 文件级技能目录）</h3>
+<ol>
+<li>解压本技能包，得到目录 <code>alibaba-rfq-quotation-assistant/</code>（内含 <code>SKILL.md</code>）。</li>
+<li>将该目录整体复制到你的 agent 技能目录下：<br />
+<code>&lt;agent-core&gt;/skills/alibaba-rfq-quotation-assistant/</code></li>
+<li>在同目录的 <code>skills.jsonc</code> 的 <code>"skills"</code> 数组中追加一条注册项（把 <code>installPath</code> 改成你机器上的真实绝对路径）：<br />
+<code>jsonc
+   {
+     "id": "alibaba-rfq-quotation-assistant",
+     "name": "alibaba-rfq-quotation-assistant",
+     "version": "1.0.0",
+     "enabled": true,
+     "kind": "directory",
+     "entryName": "alibaba-rfq-quotation-assistant",
+     "description": "阿里巴巴国际站 RFQ 报价成交助手……（见 skill.json）",
+     "installPath": "&lt;你的绝对路径&gt;/skills/alibaba-rfq-quotation-assistant"
+   }</code></li>
+<li>重启会话使技能列表刷新即可生效。</li>
+</ol>
+<h3>方式 B：通过 UI 导入</h3>
+<p>若你的客户端支持「导入技能包 / Import skill」，直接选择本 <code>.zip</code> 文件导入即可，无需手动改 <code>skills.jsonc</code>。</p>
+<hr />
+<h2>文件清单</h2>
+<table>
+<thead>
+<tr>
+<th>文件</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>SKILL.md</code></td>
+<td>技能主体（身份、8 维诊断、固定输出结构 9.1–9.10、英文模板、跟进节奏）</td>
+</tr>
+<tr>
+<td><code>skill.json</code></td>
+<td>技能元数据（id / 版本 / 描述 / 触发词）</td>
+</tr>
+<tr>
+<td><code>README.md</code></td>
+<td>本说明文件</td>
+</tr>
+</tbody>
+</table>
+<h2>合规提醒</h2>
+<p>本技能不虚构平台政策、服务分公式与权益门槛；所有涉及服务分、报价席位、权益、交易额计入的内容均以<strong>商家后台、官方规则中心和客户经理最新通知为准</strong>。</p></section><section class="bpart" id="f1"><h3 class="bpart-h">alibaba-rfq-quotation-assistant/SKILL.md</h3><div class="fm"><b>alibaba-rfq-quotation-assistant</b><p>阿里巴巴国际站 RFQ 报价成交助手。把 RFQ 从"临时报价"升级为"可筛选、可报价、可跟进、可复盘、可提升服务分、可促进成交"的标准化主动获客流程。输入 RFQ 原文/截图、买家国家、产品、数量、规格、可提供的 MOQ/价格/交期，先做 8 维商机诊断（建议报价/谨慎报价/暂不报价），再输出中文诊断 + 英文报价邮件（1小时可发送版 + 深度优化版）+ 三段跟进话术 + 中英双语关键字段表 + 服务分运营建议 + 团队执行清单 + 客户经理视角 + 风险提醒。兼顾老板/业务员/运营/客户经理四类视角。触发词：RFQ、RFQ报价、采购直达、报价邮件、要不要报这个RFQ、RFQ跟进、RFQ复盘、quotation、买家询价报价、报价成交、RFQ服务分。</p></div><h1>阿里巴巴国际站 RFQ 报价成交助手 (Alibaba RFQ Quotation Conversion Assistant)</h1>
 <h2>1. 身份与定位</h2>
 <p>你是"阿里巴巴国际站 RFQ 报价成交专家 + 外贸销售教练 + 运营复盘顾问 + 客户经理交付助手"。<br />
 核心任务不是写一封报价邮件，而是帮商家把 RFQ 升级为<strong>可筛选、可报价、可跟进、可复盘、可提升服务分、可促进成交</strong>的标准化主动获客流程。</p>
@@ -177,70 +243,25 @@ Best regards,
 <h2>14. 输出质量要求</h2>
 <p>所有输出必须<strong>具体、可执行、可复制</strong>。不要只给原则（如笼统的"建议提高回复率"）。<br />
 必须告诉用户：今天报不报、怎么报、英文怎么写、缺什么资料、明天怎么跟进、运营怎么复盘、老板怎么管理。<br />
-无法确定某项规则/数据时，必须说明不确定，并建议"以阿里巴巴国际站后台、官方规则中心或客户经理最新通知为准"。</p></section><section class="bpart" id="f1"><h3 class="bpart-h">alibaba-rfq-quotation-assistant/README.md</h3><h1>Alibaba RFQ Quotation Conversion Assistant</h1>
-<p><strong>技能 ID：</strong> <code>alibaba-rfq-quotation-assistant</code><br />
-<strong>版本：</strong> 1.0.0</p>
-<p>阿里巴巴国际站 RFQ 报价成交助手。把 RFQ 从"看到商机后临时报价"升级为「可筛选、可报价、可跟进、可复盘、可提升服务分、可促进成交」的标准化主动获客流程。兼顾老板 / 业务员 / 运营 / 客户经理四类视角。</p>
-<hr />
-<h2>能力概览</h2>
-<ul>
-<li><strong>8 维商机诊断</strong>（100 分制）→ 建议报价 / 谨慎报价 / 暂不报价</li>
-<li><strong>买家三画像</strong>：加工定制型 / 解决方案型 / 明确需求型</li>
-<li><strong>英文报价邮件双版本</strong>：1 小时内可发送安全版 + 深度优化成交版</li>
-<li><strong>三段跟进话术</strong>：24h / 3 天 / 7 天 + 压价/要样品/要最低价等场景话术</li>
-<li><strong>中英双语关键字段表 + 服务分运营建议 + 团队执行清单 + 客户经理视角 + 风险提醒</strong></li>
-</ul>
-<h2>触发方式</h2>
-<p>对话中出现以下表达即自动加载：</p>
-<blockquote>
-<p>RFQ、RFQ报价、采购直达、报价邮件、要不要报这个RFQ、RFQ跟进、RFQ复盘、quotation、买家询价报价、报价成交、RFQ服务分</p>
-</blockquote>
-<hr />
-<h2>安装方法</h2>
-<h3>方式 A：手动安装（适用于 Accio Work 文件级技能目录）</h3>
-<ol>
-<li>解压本技能包，得到目录 <code>alibaba-rfq-quotation-assistant/</code>（内含 <code>SKILL.md</code>）。</li>
-<li>将该目录整体复制到你的 agent 技能目录下：<br />
-<code>&lt;agent-core&gt;/skills/alibaba-rfq-quotation-assistant/</code></li>
-<li>在同目录的 <code>skills.jsonc</code> 的 <code>"skills"</code> 数组中追加一条注册项（把 <code>installPath</code> 改成你机器上的真实绝对路径）：<br />
-<code>jsonc
-   {
-     "id": "alibaba-rfq-quotation-assistant",
-     "name": "alibaba-rfq-quotation-assistant",
-     "version": "1.0.0",
-     "enabled": true,
-     "kind": "directory",
-     "entryName": "alibaba-rfq-quotation-assistant",
-     "description": "阿里巴巴国际站 RFQ 报价成交助手……（见 skill.json）",
-     "installPath": "&lt;你的绝对路径&gt;/skills/alibaba-rfq-quotation-assistant"
-   }</code></li>
-<li>重启会话使技能列表刷新即可生效。</li>
-</ol>
-<h3>方式 B：通过 UI 导入</h3>
-<p>若你的客户端支持「导入技能包 / Import skill」，直接选择本 <code>.zip</code> 文件导入即可，无需手动改 <code>skills.jsonc</code>。</p>
-<hr />
-<h2>文件清单</h2>
-<table>
-<thead>
-<tr>
-<th>文件</th>
-<th>说明</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><code>SKILL.md</code></td>
-<td>技能主体（身份、8 维诊断、固定输出结构 9.1–9.10、英文模板、跟进节奏）</td>
-</tr>
-<tr>
-<td><code>skill.json</code></td>
-<td>技能元数据（id / 版本 / 描述 / 触发词）</td>
-</tr>
-<tr>
-<td><code>README.md</code></td>
-<td>本说明文件</td>
-</tr>
-</tbody>
-</table>
-<h2>合规提醒</h2>
-<p>本技能不虚构平台政策、服务分公式与权益门槛；所有涉及服务分、报价席位、权益、交易额计入的内容均以<strong>商家后台、官方规则中心和客户经理最新通知为准</strong>。</p></section><section class="bpart"><h3 class="bpart-h">附件文件</h3><ul class="filelist"><li>alibaba-rfq-quotation-assistant/skill.json <span class="kb">1.3 KB</span></li></ul></section>
+无法确定某项规则/数据时，必须说明不确定，并建议"以阿里巴巴国际站后台、官方规则中心或客户经理最新通知为准"。</p></section><section class="bpart" id="f2"><h3 class="bpart-h">alibaba-rfq-quotation-assistant/skill.json</h3><pre>{
+  "id": "alibaba-rfq-quotation-assistant",
+  "name": "alibaba-rfq-quotation-assistant",
+  "displayName": "Alibaba RFQ Quotation Conversion Assistant",
+  "version": "1.0.0",
+  "enabled": true,
+  "kind": "directory",
+  "entryName": "alibaba-rfq-quotation-assistant",
+  "entry": "SKILL.md",
+  "author": "Accio Work",
+  "license": "Proprietary",
+  "tags": [
+    "alibaba",
+    "rfq",
+    "quotation",
+    "b2b",
+    "cross-border",
+    "sales"
+  ],
+  "description": "阿里巴巴国际站 RFQ 报价成交助手。把 RFQ 从\"临时报价\"升级为\"可筛选、可报价、可跟进、可复盘、可提升服务分、可促进成交\"的标准化主动获客流程。输入 RFQ 原文/截图、买家国家、产品、数量、规格、可提供的 MOQ/价格/交期，先做 8 维商机诊断（建议报价/谨慎报价/暂不报价），再输出中文诊断 + 英文报价邮件（1小时可发送版 + 深度优化版）+ 三段跟进话术 + 中英双语关键字段表 + 服务分运营建议 + 团队执行清单 + 客户经理视角 + 风险提醒。兼顾老板/业务员/运营/客户经理四类视角。触发词：RFQ、RFQ报价、采购直达、报价邮件、要不要报这个RFQ、RFQ跟进、RFQ复盘、quotation、买家询价报价、报价成交、RFQ服务分。"
+}
+</pre></section>
