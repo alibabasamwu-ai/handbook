@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex">
+<title>閱讀中 · Accio Work 專區</title>
+<style>
+  :root{
+    --seed-bg:#fef8f3; --seed-fg:#12233f; --seed-primary:#ff6f1a;
+    --seed-accent:#0c2a5e; --seed-surface:#ffffff;
+    --ink:var(--seed-fg);
+    --ink-soft:color-mix(in srgb, var(--seed-fg) 62%, #fff);
+    --ink-faint:color-mix(in srgb, var(--seed-fg) 45%, #fff);
+    --navy:var(--seed-accent); --brand:var(--seed-primary);
+    --brand-strong:#c2410c;
+    --bg:var(--seed-bg); --surface:var(--seed-surface);
+    --line:color-mix(in srgb, var(--seed-accent) 14%, #fff);
+    --line-soft:color-mix(in srgb, var(--seed-accent) 8%, #fff);
+    --shadow-md:0 14px 40px color-mix(in srgb, var(--seed-accent) 14%, transparent);
+    --r:16px; --maxw:900px;
+  }
+  *{box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{
+    margin:0; background:var(--bg); color:var(--ink); line-height:1.75;
+    font-family:-apple-system,BlinkMacSystemFont,"PingFang TC","Noto Sans TC","Microsoft JhengHei",Arial,sans-serif;
+    -webkit-font-smoothing:antialiased; overflow-wrap:break-word;
+  }
+  a{color:var(--brand-strong); text-decoration:none}
+  a:hover{text-decoration:underline}
+
+  /* ---------- top bar ---------- */
+  .bar{
+    position:sticky; top:0; z-index:20; background:color-mix(in srgb,#fff 88%,transparent);
+    backdrop-filter:saturate(1.6) blur(12px); border-bottom:1px solid var(--line);
+  }
+  .bar-in{max-width:1100px; margin:0 auto; padding:10px 20px; display:flex; gap:14px; align-items:center}
+  .back{
+    display:inline-flex; align-items:center; gap:6px; font-size:13.5px; font-weight:700;
+    color:var(--navy); padding:7px 13px; border:1px solid var(--line); border-radius:999px;
+    background:#fff; white-space:nowrap; flex:0 0 auto;
+  }
+  .back:hover{background:color-mix(in srgb,var(--brand) 8%,#fff); text-decoration:none}
+  .bar-title{
+    font-size:14.5px; font-weight:800; color:var(--ink);
+    overflow:hidden; text-overflow:ellipsis; white-space:nowrap; flex:1 1 auto; min-width:0;
+  }
+  .dl{
+    display:inline-flex; align-items:center; gap:6px; font-size:13.5px; font-weight:750;
+    color:#fff; background:var(--brand-strong); padding:8px 15px; border-radius:999px;
+    white-space:nowrap; flex:0 0 auto; border:none; cursor:pointer;
+  }
+  .dl:hover{filter:brightness(1.08); text-decoration:none}
+  .dl.ghost{background:#fff; color:var(--navy); border:1px solid var(--line)}
+
+  /* ---------- layout ---------- */
+  .wrap{max-width:var(--maxw); margin:0 auto; padding:26px 20px 90px}
+  .crumbs{font-size:12.5px; color:var(--ink-faint); margin:0 0 10px; font-weight:650; letter-spacing:.02em}
+  .doc-meta{display:flex; flex-wrap:wrap; gap:8px; margin:0 0 20px}
+  .pill{font-size:11.5px; font-weight:750; padding:4px 11px; border-radius:999px;
+        background:color-mix(in srgb,var(--brand) 12%,#fff); color:var(--brand-strong);
+        border:1px solid color-mix(in srgb,var(--brand) 26%,#fff)}
+  .pill.n{background:color-mix(in srgb,var(--seed-accent) 7%,#fff); color:var(--navy);
+           border-color:var(--line)}
+  .sources{
+    margin:0 0 26px; padding:14px 16px; border:1px dashed var(--line);
+    border-radius:var(--r); background:#fff; font-size:13px;
+  }
+  .sources b{display:block; font-size:12px; letter-spacing:.06em; text-transform:uppercase;
+             color:var(--ink-faint); margin-bottom:8px}
+  .sources a{display:inline-block; margin:2px 12px 2px 0; font-weight:700}
+
+  /* ---------- prose ---------- */
+  .prose{background:#fff; border:1px solid var(--line); border-radius:var(--r);
+         padding:34px 38px; box-shadow:var(--shadow-md)}
+  .prose h2,.prose h3,.prose h4,.prose h5{line-height:1.35; color:var(--navy); margin:1.7em 0 .55em}
+  .prose h2{font-size:22px; padding-bottom:9px; border-bottom:2px solid color-mix(in srgb,var(--brand) 32%,#fff)}
+  .prose h3{font-size:18px}
+  .prose h4{font-size:16px; color:var(--ink)}
+  .prose h5,.prose h6{font-size:14.5px; color:var(--ink)}
+  .prose h2:first-child,.prose h3:first-child,.prose p:first-child{margin-top:0}
+  .prose p{margin:.62em 0}
+  .prose strong{color:var(--ink); font-weight:800}
+  .prose ul,.prose ol{margin:.6em 0 .9em; padding-left:1.5em}
+  .prose li{margin:.28em 0}
+  .prose blockquote{margin:1em 0; padding:12px 18px; border-left:3px solid var(--brand);
+    background:color-mix(in srgb,var(--brand) 6%,#fff); color:var(--ink-soft); border-radius:0 10px 10px 0}
+  .prose code{font-family:"SF Mono",ui-monospace,Menlo,monospace; font-size:.9em;
+    background:color-mix(in srgb,var(--seed-accent) 7%,#fff); padding:2px 6px; border-radius:6px}
+  .prose pre{background:#0e1b2f; color:#e8eefb; padding:15px 17px; border-radius:12px;
+    overflow-x:auto; font-size:13px; line-height:1.6}
+  .prose pre code{background:none; color:inherit; padding:0}
+
+  .tbl-wrap{overflow-x:auto; margin:1.1em 0; border:1px solid var(--line); border-radius:12px}
+  .prose table{border-collapse:collapse; width:100%; font-size:14px; min-width:420px}
+  .prose th,.prose td{border-bottom:1px solid var(--line-soft); border-right:1px solid var(--line-soft);
+    padding:10px 13px; text-align:left; vertical-align:top}
+  .prose th{background:color-mix(in srgb,var(--seed-accent) 5%,#fff); font-weight:800; color:var(--navy); white-space:nowrap}
+  .prose tr:last-child td{border-bottom:none}
+  .prose td:last-child,.prose th:last-child{border-right:none}
+
+  .prose figure{margin:1.3em 0; text-align:center}
+  .prose img{max-width:100%; height:auto; border:1px solid var(--line); border-radius:12px; background:#fff}
+
+  .fm{background:color-mix(in srgb,var(--seed-accent) 4%,#fff); border:1px solid var(--line);
+      border-radius:12px; padding:13px 16px; margin:0 0 20px; font-size:13.5px}
+  .fm b{display:block; color:var(--navy); font-size:14.5px}
+  .fm p{margin:5px 0 0; color:var(--ink-soft)}
+
+  .toc{background:color-mix(in srgb,var(--brand) 6%,#fff); border:1px solid var(--line);
+       border-radius:12px; padding:14px 17px; margin:0 0 26px; font-size:13.5px}
+  .toc b{display:block; color:var(--brand-strong); margin-bottom:7px; font-size:13px}
+  .toc div{display:flex; flex-wrap:wrap; gap:6px}
+  .toc a{background:#fff; border:1px solid var(--line); border-radius:999px;
+         padding:4px 11px; font-weight:650; font-size:12.5px}
+
+  .bpart{margin:0 0 34px; padding-top:8px}
+  .bpart-h{font-size:13px; font-weight:800; letter-spacing:.04em; color:var(--ink-faint);
+    text-transform:none; border-bottom:1px dashed var(--line); padding-bottom:7px; margin:0 0 14px}
+  .filelist{list-style:none; padding:0; margin:0; font-size:13.5px}
+  .filelist li{display:flex; justify-content:space-between; gap:12px; padding:8px 0;
+    border-bottom:1px solid var(--line-soft)}
+  .kb{color:var(--ink-faint); font-size:12px; white-space:nowrap}
+
+  iframe.pdf{width:100%; height:78vh; border:1px solid var(--line); border-radius:var(--r); background:#fff}
+  .state{padding:40px 20px; text-align:center; color:var(--ink-soft); font-size:14px}
+  .warn{color:#b4442e; font-size:13px}
+  .foot{margin:34px 0 0; padding-top:16px; border-top:1px solid var(--line);
+        font-size:12.5px; color:var(--ink-faint); text-align:center}
+
+  @media (max-width:720px){
+    .wrap{padding:18px 14px 70px}
+    .prose{padding:22px 17px}
+    .bar-in{padding:9px 13px; gap:9px}
+    .bar-title{display:none}
+    .prose h2{font-size:19px}
+    iframe.pdf{height:66vh}
+  }
+  @media print{
+    .bar,.sources,.foot{display:none}
+    .prose{border:none; box-shadow:none; padding:0}
+  }
+</style>
+</head>
+<body>
+<div class="bar">
+  <div class="bar-in">
+    <a class="back" href="../#/accio"><span>&larr;</span> Accio Work 專區</a>
+    <div class="bar-title" id="barTitle">載入中…</div>
+    <a class="dl" id="dlMain" href="#" download>下載原檔</a>
+  </div>
+</div>
+
+<div class="wrap">
+  <div class="crumbs" id="crumbs"></div>
+  <div class="doc-meta" id="meta"></div>
+  <div id="mount"><div class="state">載入中…</div></div>
+  <div class="foot">本頁由「國際站營運全鏈路手冊」的 Accio Work 專區產生 · 內容版權屬原作者</div>
+</div>
+
+<script>
+(function(){
+  var qs = new URLSearchParams(location.search);
+  var id = qs.get('d');
+  var mount = document.getElementById('mount');
+
+  function fail(msg){
+    mount.innerHTML = '<div class="state">' + msg +
+      '<br><br><a class="dl ghost" style="display:inline-flex" href="../#/accio">回到專區</a></div>';
+  }
+  if(!id){ fail('沒有指定文件。'); return; }
+
+  fetch('manifest.json', {cache:'no-store'})
+    .then(function(r){ if(!r.ok) throw new Error('manifest ' + r.status); return r.json(); })
+    .then(function(man){
+      var it = null;
+      for(var i=0;i<man.items.length;i++){ if(man.items[i].id === id){ it = man.items[i]; break; } }
+      if(!it) throw new Error('找不到這份文件');
+
+      document.title = it.label + ' · Accio Work 專區';
+      document.getElementById('barTitle').textContent = it.label;
+
+      var cat = man.categories.filter(function(c){ return c.id === it.cat; })[0];
+      document.getElementById('crumbs').textContent =
+        'Accio Work 專區 ／ ' + (cat ? cat.name : '');
+
+      var pills = ['<span class="pill">' + (it.meta || '') + '</span>'];
+      if(it.kb) pills.push('<span class="pill n">' + it.kb + ' KB</span>');
+      if(it.is_skill) pills.push('<span class="pill n">技能包</span>');
+      document.getElementById('meta').innerHTML = pills.join('');
+
+      // download button -> zip for a skill bundle, the file itself otherwise
+      var main = document.getElementById('dlMain');
+      if(it.zip){ main.href = it.zip; main.textContent = '下載技能包 (.zip)'; main.setAttribute('download',''); }
+      else if(it.dl && it.dl.length){ main.href = it.dl[0].url; main.setAttribute('download',''); }
+
+      var src = '';
+      if(it.dl && it.dl.length){
+        src = '<div class="sources"><b>可下載的原始檔案</b>' +
+          it.dl.map(function(f){
+            return '<a href="' + f.url + '" download>' + f.name + ' <span class="kb">' +
+                   f.kb + ' KB</span></a>';
+          }).join('') + '</div>';
+      }
+
+      if(it.embed){
+        mount.innerHTML = src + '<iframe class="pdf" src="' + it.embed + '#view=FitH" title="' + it.label + '"></iframe>';
+        return;
+      }
+      if(!it.reader){
+        mount.innerHTML = src + '<div class="state">此項目沒有可線上閱讀的內容，請直接下載。</div>';
+        return;
+      }
+
+      fetch(it.reader, {cache:'no-store'})
+        .then(function(r){ if(!r.ok) throw new Error('reader ' + r.status); return r.text(); })
+        .then(function(body){
+          mount.innerHTML = src + '<article class="prose">' + body + '</article>';
+          // smooth-scroll the in-page table of contents
+          mount.querySelectorAll('.toc a').forEach(function(a){
+            a.addEventListener('click', function(e){
+              var t = mount.querySelector(a.getAttribute('href'));
+              if(t){ e.preventDefault(); t.scrollIntoView({behavior:'smooth', block:'start'}); }
+            });
+          });
+        })
+        .catch(function(e){ fail('內容載入失敗：' + e.message); });
+    })
+    .catch(function(e){ fail('載入失敗：' + e.message); });
+})();
+</script>
+</body>
+</html>

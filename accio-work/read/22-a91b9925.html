@@ -1,0 +1,54 @@
+<section class="bpart" id="f0"><h3 class="bpart-h">skill.md</h3><div class="fm"><b>OKKI 商机深度分析助手 (OKKI Opportunity Analyst)</b><p>自动从 OKKI (小满) CRM 中抓取重点商机进度，提取 AI 聊天摘要，生成多格式报告（Markdown、Word、手机端长图），并自动推送到企业微信群。</p></div><h1>Skill: OKKI 商机深度分析助手 (OKKI Opportunity Analyst)</h1>
+<p>自动从 OKKI (小满) CRM 中抓取重点商机进度，提取 AI 聊天摘要，生成多格式报告（Markdown、Word、手机端长图），并自动推送到企业微信群。</p>
+<h2>适用场景</h2>
+<ul>
+<li><strong>外贸管理层</strong>：每日自动汇总业务员跟进情况，识别需要介入的风险订单。</li>
+<li><strong>业务员自检</strong>：自动梳理当日待办及昨日进展。</li>
+</ul>
+<h2>自动化流程 (Workflow)</h2>
+<ol>
+<li>
+<p><strong>进入小满并筛选</strong>：<br />
+   - 访问 <code>https://crm.xiaoman.cn/business/list</code>。<br />
+   - 筛选“结束日期”在“今日至下月底”之间的商机。<br />
+   - 锁定“样品流程”、“正式订单意向”、“PI/合同协商”三个关键阶段。</p>
+</li>
+<li>
+<p><strong>数据抓取</strong>：<br />
+   - 遍历以上阶段的所有商机卡片。<br />
+   - 提取：客户名字、国家、产品、小满编号、金额、跟进人、商机阶段。</p>
+</li>
+<li>
+<p><strong>AI 进度提取</strong>：<br />
+   - 深入每个商机的“动态” -&gt; “AI聊天旅程”。<br />
+   - 提取昨日/今日的对话总结（价格、付款承诺、物流等关键点）。</p>
+</li>
+<li>
+<p><strong>多格式报告生成</strong>：<br />
+   - 生成 <strong>Markdown</strong> 报告。<br />
+   - 调用 <code>scripts/generate_docx_template.js</code> 生成 <strong>Word</strong> 文档。<br />
+   - 渲染 HTML 模板并截图生成 <strong>手机端长图 (PNG)</strong>。</p>
+</li>
+<li>
+<p><strong>企业微信推送</strong>：<br />
+   - 调用 <code>scripts/push_to_wecom.sh</code> 将图片和摘要发送至 Webhook。</p>
+</li>
+</ol>
+<h2>安装与配置</h2>
+<ol>
+<li>
+<p><strong>依赖安装</strong>：<br />
+   - 系统需安装 <code>node.js</code>。<br />
+   - 运行：<code>npm install docx</code> (用于生成 Word)。</p>
+</li>
+<li>
+<p><strong>Webhook 配置</strong>：<br />
+   - 在 <code>push_to_wecom.sh</code> 或触发指令中填入您的企业微信机器人 Webhook 地址。</p>
+</li>
+<li>
+<p><strong>复用说明</strong>：<br />
+   - 将此文件夹放入 Accio Work 的技能目录或通过“添加技能”导入 <code>skill.md</code>。</p>
+</li>
+</ol>
+<hr />
+<p><em>Powered by Accio Work</em></p></section><section class="bpart"><h3 class="bpart-h">附件檔案</h3><ul class="filelist"><li>scripts/generate_docx_template.js <span class="kb">2.5 KB</span></li><li>scripts/push_to_wecom.sh <span class="kb">0.7 KB</span></li></ul></section>

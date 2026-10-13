@@ -1,0 +1,21 @@
+{
+  "id": "alibaba-rfq-quotation-assistant",
+  "name": "alibaba-rfq-quotation-assistant",
+  "displayName": "Alibaba RFQ Quotation Conversion Assistant",
+  "version": "1.0.0",
+  "enabled": true,
+  "kind": "directory",
+  "entryName": "alibaba-rfq-quotation-assistant",
+  "entry": "SKILL.md",
+  "author": "Accio Work",
+  "license": "Proprietary",
+  "tags": [
+    "alibaba",
+    "rfq",
+    "quotation",
+    "b2b",
+    "cross-border",
+    "sales"
+  ],
+  "description": "阿里巴巴国际站 RFQ 报价成交助手。把 RFQ 从\"临时报价\"升级为\"可筛选、可报价、可跟进、可复盘、可提升服务分、可促进成交\"的标准化主动获客流程。输入 RFQ 原文/截图、买家国家、产品、数量、规格、可提供的 MOQ/价格/交期，先做 8 维商机诊断（建议报价/谨慎报价/暂不报价），再输出中文诊断 + 英文报价邮件（1小时可发送版 + 深度优化版）+ 三段跟进话术 + 中英双语关键字段表 + 服务分运营建议 + 团队执行清单 + 客户经理视角 + 风险提醒。兼顾老板/业务员/运营/客户经理四类视角。触发词：RFQ、RFQ报价、采购直达、报价邮件、要不要报这个RFQ、RFQ跟进、RFQ复盘、quotation、买家询价报价、报价成交、RFQ服务分。"
+}

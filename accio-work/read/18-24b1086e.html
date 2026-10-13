@@ -1,0 +1,1363 @@
+<nav class="toc"><b>本包內容（3 個檔案）</b><div><a href="#f0">结构化商详/FAQ/SKILL.md</a><a href="#f1">结构化商详/商品图集/SKILL.md</a><a href="#f2">结构化商详/商品卖点黄金五段论/SKILL.md</a></div></nav><section class="bpart" id="f0"><h3 class="bpart-h">结构化商详/FAQ/SKILL.md</h3><div class="fm"><b>b2b-faq-generator</b><p>&gt;</p></div><h1>B2B 外贸 FAQ 知识库生成技能</h1>
+<h2>核心身份定位</h2>
+<p>以以下双重视角输出所有内容：<br />
+- <strong>行业专家</strong>：拥有12年外贸实战经验，熟悉B2B国际贸易全流程（询盘→报价→打样→生产→清关→售后）<br />
+- <strong>TOP Sales话术提炼师</strong>：精通跨境买家沟通心理、客户异议处理、成交逼单技巧</p>
+<hr />
+<h2>输出标准</h2>
+<p>生成的 FAQ 必须满足以下标准：<br />
+1. <strong>可直接用于训练 AI 智能接待</strong>（结构化、机读性强）<br />
+2. <strong>中英双语</strong>（每道题含完整的英文和中文版本）<br />
+3. <strong>200 道问答</strong>，覆盖买家全购买旅程<br />
+4. <strong>置信度评估</strong>（三级：✅高置信 / ⚠️中置信 / ❌低置信）<br />
+5. <strong>输出为 Excel 文件</strong>（.xlsx），格式规范，可直接上传系统</p>
+<hr />
+<h2>七大类别框架（固定结构）</h2>
+<table>
+<thead>
+<tr>
+<th>#</th>
+<th>类别</th>
+<th>编号范围</th>
+<th>题目数</th>
+<th>核心覆盖场景</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>首次询盘破冰类</td>
+<td>Q001-Q032</td>
+<td>32</td>
+<td>现货/报价/MOQ/OEM/样品/包装/发货方式</td>
+</tr>
+<tr>
+<td>2</td>
+<td>身份与资质验证类</td>
+<td>Q033-Q056</td>
+<td>24</td>
+<td>认证/营业执照/工厂实力/专利/出口资质</td>
+</tr>
+<tr>
+<td>3</td>
+<td>产品技术咨询类</td>
+<td>Q057-Q096</td>
+<td>40</td>
+<td>材质/工艺/参数/检测/涂层/尺寸/定制</td>
+</tr>
+<tr>
+<td>4</td>
+<td>价格与商务条款类</td>
+<td>Q097-Q128</td>
+<td>32</td>
+<td>报价/付款/MOQ价格梯度/代理协议/模具费</td>
+</tr>
+<tr>
+<td>5</td>
+<td>质量与售后保障类</td>
+<td>Q129-Q152</td>
+<td>24</td>
+<td>质检流程/AQL/质保/投诉处理/认证文件</td>
+</tr>
+<tr>
+<td>6</td>
+<td>交期与物流协调类</td>
+<td>Q153-Q176</td>
+<td>24</td>
+<td>生产周期/分批发货/物流方式/清关文件</td>
+</tr>
+<tr>
+<td>7</td>
+<td>需求挖掘与增值销售类</td>
+<td>Q177-Q200</td>
+<td>24</td>
+<td>市场洞察/联合开发/营销素材/战略合作</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2>Excel 文件规格</h2>
+<h3>Sheet 结构（共9个）</h3>
+<pre><code>Sheet 1: 📊 置信度汇总
+Sheet 2: Q001-Q032 首次询盘破冰类
+Sheet 3: Q033-Q056 身份与资质验证类
+Sheet 4: Q057-Q096 产品技术咨询类
+Sheet 5: Q097-Q128 价格与商务条款类
+Sheet 6: Q129-Q152 质量与售后保障类
+Sheet 7: Q153-Q176 交期与物流协调类
+Sheet 8: Q177-Q200 需求挖掘与增值销售类
+Sheet 9: ⚠️ 需处理条目
+</code></pre>
+<h3>22列字段（固定顺序）</h3>
+<pre><code>1.  序号
+2.  问题类别
+3.  问题编号（Q001、Q002…）
+4.  买家问题（英文）
+5.  买家问题（中文）
+6.  问题意图分析
+7.  买家心理阶段（认知/兴趣/考量/意向/决策）
+8.  紧急程度（低/中/高）
+9.  回答复杂度（低/中/高）
+10. 核心回答（英文）—— TOP Sales 话术，100-200字，有引导成交意识
+11. 核心回答（中文）
+12. 延伸信息（英文）
+13. 延伸信息（中文）
+14. 引导动作（英文）—— 明确的下一步行动指引
+15. 引导动作（中文）
+16. 备选话术（英文）
+17. 备选话术（中文）
+18. 适用场景
+19. 置信等级（✅ / ⚠️ / ❌）
+20. 假设性数据描述
+21. 需替换字段
+22. 建议真实数据
+</code></pre>
+<h3>置信度配色</h3>
+<ul>
+<li>✅ 高置信：绿色填充 <code>#C6EFCE</code>，约65%</li>
+<li>⚠️ 中置信：橙色填充 <code>#FFEB9C</code>，约20%</li>
+<li>❌ 低置信：红色填充 <code>#FFC7CE</code>，约15%</li>
+</ul>
+<hr />
+<h2>置信度评级规则</h2>
+<table>
+<thead>
+<tr>
+<th>等级</th>
+<th>含义</th>
+<th>假设性数据描述列</th>
+<th>需替换字段</th>
+<th>建议真实数据</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>✅ 高置信</td>
+<td>行业通用知识，可直接使用</td>
+<td>无假设数据</td>
+<td>无</td>
+<td>无</td>
+</tr>
+<tr>
+<td>⚠️ 中置信</td>
+<td>含通用参考数值，建议替换为贵司真实数据</td>
+<td>说明哪些数值为参考值</td>
+<td>字段名称</td>
+<td>替换指引</td>
+</tr>
+<tr>
+<td>❌ 低置信</td>
+<td>含明确占位符（如具体价格/认证编号/产能数字），必须替换</td>
+<td>说明原因</td>
+<td>字段名称</td>
+<td>替换指引</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2>每条 FAQ 的内容质量要求</h2>
+<h3>核心回答（TOP Sales 话术标准）</h3>
+<p>英文和中文核心回答必须：<br />
+- <strong>有实质内容</strong>（100-200字），绝不使用"Thank you for your inquiry, we will get back to you"等套话<br />
+- <strong>体现专业性</strong>：运用行业术语、技术参数，展示产品知识深度<br />
+- <strong>建立信任</strong>：提供具体证据（认证/案例/数据）<br />
+- <strong>引导下一步</strong>：回答中自然埋入推动商机前进的钩子<br />
+- <strong>解除顾虑</strong>：主动回应买家潜在的疑虑，而不是仅回答表面问题</p>
+<h3>引导动作（必须明确可执行）</h3>
+<p>每条 FAQ 的引导动作必须是具体的：<br />
+- ❌ 差：<code>Please contact us for more information.</code><br />
+- ✅ 好：<code>Please share the style reference or quantity, and I will send you the current stock list with photos within 2 hours.</code></p>
+<hr />
+<h2>执行步骤</h2>
+<h3>Step 1：确认产品与输入方式</h3>
+<p>接收到用户的产品名称后，确认以下信息（如用户未提供则合理推断）：<br />
+- <strong>产品名称</strong>（如：太阳镜、登山包、工业手套）<br />
+- <strong>主要目标市场</strong>（默认：欧美/全球市场）<br />
+- <strong>是否有参考模板</strong>（如用户上传了现有 FAQ 表格）</p>
+<h3>Step 2：规划内容框架</h3>
+<p>在生成前，内部完成以下规划：<br />
+1. 针对该产品的<strong>行业特有</strong>高频询盘点（如太阳镜→UV400/偏光片/CE认证）<br />
+2. 该产品在<strong>合规认证</strong>方面的关键市场要求<br />
+3. 该产品常见的<strong>买家痛点</strong>（质量/交期/价格谈判）<br />
+4. 该产品的<strong>技术参数体系</strong>（材质/工艺/测试标准）</p>
+<h3>Step 3：生成200道FAQ内容</h3>
+<p>按七大类别逐一生成，每类别内容要：<br />
+- <strong>问题多样化</strong>：避免重复或过于相似的问法<br />
+- <strong>覆盖不同买家画像</strong>：新客首次咨询、老客复购谈判、大客战略合作<br />
+- <strong>混合紧急程度</strong>：高/中/低比例约为30%/50%/20%</p>
+<h3>Step 4：生成 Excel 文件</h3>
+<p>使用 Python（openpyxl）生成标准化 Excel 文件：</p>
+<pre><code class="language-python">import openpyxl
+from openpyxl.styles import PatternFill, Font, Alignment, Border, Side
+from openpyxl.utils import get_column_letter
+import random
+
+wb = openpyxl.Workbook()
+
+# 颜色定义
+GREEN = PatternFill('solid', start_color='C6EFCE', end_color='C6EFCE')
+ORANGE = PatternFill('solid', start_color='FFEB9C', end_color='FFEB9C')
+RED = PatternFill('solid', start_color='FFC7CE', end_color='FFC7CE')
+HEADER_BLUE = PatternFill('solid', start_color='2E75B6', end_color='2E75B6')
+TITLE_DARK = PatternFill('solid', start_color='1F4E79', end_color='1F4E79')
+CONF_FILLS = {'✅': GREEN, '⚠️': ORANGE, '❌': RED}
+
+# 22列标题
+HEADERS = [
+    '序号', '问题类别', '问题编号',
+    '买家问题（英文）', '买家问题（中文）',
+    '问题意图分析', '买家心理阶段', '紧急程度', '回答复杂度',
+    '核心回答（英文）', '核心回答（中文）',
+    '延伸信息（英文）', '延伸信息（中文）',
+    '引导动作（英文）', '引导动作（中文）',
+    '备选话术（英文）', '备选话术（中文）',
+    '适用场景', '置信等级', '假设性数据描述', '需替换字段', '建议真实数据'
+]
+
+# 列宽设置
+COL_WIDTHS = [8, 20, 12, 50, 40, 25, 15, 12, 12,
+              60, 50, 50, 40, 45, 35, 45, 35,
+              25, 12, 40, 25, 35]
+
+def setup_category_sheet(ws, title, headers, col_widths):
+    &quot;&quot;&quot;初始化每个类别sheet的标题行和列头&quot;&quot;&quot;
+    # 大标题行（合并A1:V1）
+    ws.merge_cells('A1:V1')
+    ws['A1'] = title
+    ws['A1'].font = Font(bold=True, size=13, color='FFFFFF')
+    ws['A1'].fill = TITLE_DARK
+    ws['A1'].alignment = Alignment(horizontal='center', vertical='center')
+    ws.row_dimensions[1].height = 28
+
+    # 列标题行
+    for i, (h, w) in enumerate(zip(headers, col_widths), 1):
+        cell = ws.cell(2, i, h)
+        cell.font = Font(bold=True, color='FFFFFF', size=10)
+        cell.fill = HEADER_BLUE
+        cell.alignment = Alignment(horizontal='center', vertical='center', wrap_text=True)
+        ws.column_dimensions[get_column_letter(i)].width = w
+    ws.row_dimensions[2].height = 30
+
+def write_faq_rows(ws, faq_list, start_row=3):
+    &quot;&quot;&quot;写入FAQ数据行&quot;&quot;&quot;
+    for i, row_data in enumerate(faq_list):
+        row_idx = start_row + i
+        for col_idx, value in enumerate(row_data, 1):
+            cell = ws.cell(row_idx, col_idx)
+            cell.value = value
+            cell.alignment = Alignment(wrap_text=True, vertical='center')
+        # 置信等级着色（第19列）
+        lvl = row_data[18]
+        if lvl in CONF_FILLS:
+            ws.cell(row_idx, 19).fill = CONF_FILLS[lvl]
+        ws.row_dimensions[row_idx].height = 80
+</code></pre>
+<p><strong>Sheet 格式要求：</strong><br />
+- 第1行：大标题（合并A1:V1），深蓝背景，白字，高度28<br />
+- 第2行：22列标题，蓝色背景，白字，高度30<br />
+- 第3行起：FAQ数据，行高80，所有单元格wrap_text=True<br />
+- 置信等级列（第19列）：根据值着对应颜色</p>
+<p><strong>置信度汇总 Sheet 格式：</strong></p>
+<pre><code>列：问题类别 | 编号范围 | ✅ 高置信 | ⚠️ 中置信 | ❌ 低置信 | 需处理条目
+最后一行：合计行（加粗，浅蓝底色）
+附注：置信度说明文字
+</code></pre>
+<p><strong>⚠️ 需处理条目 Sheet：</strong></p>
+<p>从所有类别中提取 <code>⚠️</code> 和 <code>❌</code> 条目，输出以下字段：<br />
+问题编号 | 问题类别 | 买家问题（中文）| 置信等级 | 假设性数据描述 | 需替换字段 | 建议真实数据</p>
+<h3>Step 5：保存文件并汇报</h3>
+<ul>
+<li>默认保存路径：用户桌面 <code>/Users/&lt;username&gt;/Desktop/[产品名]FAQ_200问置信度评估完整表格.xlsx</code></li>
+<li>生成完成后汇报：置信度分布统计、各类别题目数量、需处理条目总数</li>
+</ul>
+<hr />
+<h2>产品适配指南</h2>
+<p>针对不同产品类型，需要调整以下内容：</p>
+<h3>消费品类（太阳镜/服装/鞋包）</h3>
+<ul>
+<li><strong>合规重点</strong>：CE、FDA、REACH/RoHS、BSCI</li>
+<li><strong>技术重点</strong>：材质、工艺、尺寸公差、颜色一致性</li>
+<li><strong>销售重点</strong>：ODM/OEM、包装定制、社媒营销素材</li>
+</ul>
+<h3>工业品类（机械/五金/电子）</h3>
+<ul>
+<li><strong>合规重点</strong>：CE、UL、ISO、IP防护等级</li>
+<li><strong>技术重点</strong>：技术参数、公差、材料认证、测试报告</li>
+<li><strong>销售重点</strong>：OEM、备件供应、技术支持</li>
+</ul>
+<h3>食品/农产品类</h3>
+<ul>
+<li><strong>合规重点</strong>：FDA、HACCP、有机认证、原产地</li>
+<li><strong>技术重点</strong>：成分、保质期、储存条件、包装规格</li>
+<li><strong>销售重点</strong>：小批量试单、样品政策、冷链物流</li>
+</ul>
+<hr />
+<h2>内容写作规范示例</h2>
+<h3>✅ 高质量核心回答示例（以太阳镜为例）</h3>
+<p><strong>买家问题</strong>：Do you offer OEM/ODM services?</p>
+<p><strong>核心回答（英文）</strong>：</p>
+<blockquote>
+<p>Yes, we offer both OEM and ODM services. For OEM: we manufacture to your exact specifications — your brand logo, custom frame color, lens tint, and packaging. For ODM: our in-house design team can develop exclusive styles from scratch based on your market brief. We protect your designs with NDAs. Many of our clients have successfully launched their own eyewear brands with our support.</p>
+</blockquote>
+<p><strong>引导动作（英文）</strong>：</p>
+<blockquote>
+<p>Are you looking to develop a new style or customize an existing frame? Please share your brand vision and I can connect you with our design team for a no-obligation consultation.</p>
+</blockquote>
+<h3>❌ 低质量回答示例（禁止出现）</h3>
+<blockquote>
+<p>Thank you for your interest in our products. We do offer OEM services. Please contact us for more details. We look forward to cooperating with you.</p>
+</blockquote>
+<hr />
+<h2>输出文件命名规则</h2>
+<pre><code>[产品名]FAQ_200问置信度评估完整表格.xlsx
+示例：太阳镜FAQ_200问置信度评估完整表格.xlsx
+     运动袜FAQ_200问置信度评估完整表格.xlsx
+     工业手套FAQ_200问置信度评估完整表格.xlsx
+</code></pre>
+<hr />
+<h2>完成后汇报格式</h2>
+<p>生成完毕后，向用户输出以下摘要：</p>
+<pre><code>📄 文件已生成：[文件路径]
+
+📊 置信度分布：
+✅ 高置信：X 条（X%）
+⚠️ 中置信：X 条（X%）
+❌ 低置信：X 条（X%）
+⚠️ 需处理条目：X 条（见 Sheet9）
+
+📋 类别分布：
+Q001-Q032 首次询盘破冰类：32题
+Q033-Q056 身份与资质验证类：24题
+Q057-Q096 产品技术咨询类：40题
+Q097-Q128 价格与商务条款类：32题
+Q129-Q152 质量与售后保障类：24题
+Q153-Q176 交期与物流协调类：24题
+Q177-Q200 需求挖掘与增值销售类：24题
+
+💡 使用建议：
+1. 优先处理 Sheet9「需处理条目」，将假设性数据替换为贵司真实数据
+2. 英文核心回答（Column J）可直接导入阿里国际站智能接待知识库
+3. 引导动作（Column N）可作为业务员跟进话术参考
+</code></pre></section><section class="bpart" id="f1"><h3 class="bpart-h">结构化商详/商品图集/SKILL.md</h3><div class="fm"><b>alibaba-detail-image-generator</b><p>阿里巴巴国际站商品图集生成技能。当用户提供产品链接或产品名称，要求生成"商品图集"、"详情页图片"、"产品图"、"图集"、"商品图"时，必须使用此技能。自动判断行业类型（非消费品B2B工业品 vs 消费品），匹配对应的30图三段式框架，分批并行生成高质量商品图，输出可直接上传至阿里国际站图集模块的图片组。触发关键词：商品图集、详情页图片、产品图、图集、做图、生成图、商品图、帮我做图、上传图片。</p></div><h1>阿里巴巴国际站商品图集生成技能</h1>
+<h2>行业双框架版 · 非消费品B2B + 消费品全覆盖</h2>
+<p>本技能根据用户提供的产品链接，自动抓取产品信息，判断行业类型，匹配对应的30图三段式构图框架，分批生成可直接上传至阿里国际站图集模块的高质量商品图。</p>
+<hr />
+<h2>一、输入模式判断</h2>
+<p>收到用户消息后，判断输入类型：</p>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">输入类型</th>
+<th style="text-align: left;">处理方式</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;"><strong>产品链接</strong>（alibaba.com / 1688 / 淘宝 / 天猫 / 独立站）</td>
+<td style="text-align: left;">执行第二节抓取产品信息</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>产品名称 + 行业描述</strong></td>
+<td style="text-align: left;">跳过第二节，从第三节开始</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>已有产品信息文字</strong></td>
+<td style="text-align: left;">跳过第二、三节，直接进入第四节</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2>二、产品信息抓取</h2>
+<p>使用 <code>web_fetch</code> 抓取产品链接，提取以下信息：</p>
+<p><strong>基础信息</strong>：<br />
+- 产品名称、型号、品类<br />
+- 产品材质 / 成分 / 原料<br />
+- 核心规格参数（尺寸、重量、厚度、容量等）<br />
+- 颜色 / 花色 / 款式数量<br />
+- 功能特点与卖点描述<br />
+- 认证资质（CE、GREENGUARD、OEKO-TEX、ISO 等）<br />
+- 定制服务（OEM/ODM、MOQ、打样周期）<br />
+- 店铺名称与所属行业</p>
+<p><strong>图片资源</strong>：<br />
+- 使用 <code>see_image</code> 查看产品已有图片（主图、细节图、场景图等），了解真实视觉资产<br />
+- 记录哪些图片可作为 <code>image_edit</code> 的参考底图</p>
+<p>抓取完成后，输出简要确认：</p>
+<pre><code>【产品信息确认】
+- 产品：xxx
+- 行业判断：[非消费品B2B / 消费品] → 使用[框架A / 框架B]
+- 核心卖点：xxx
+- 已有图片资产：xxx张（可作为底图参考）
+</code></pre>
+<hr />
+<h2>三、行业类型判断（关键节点）</h2>
+<p>根据产品品类自动判断框架，<strong>无需用户选择</strong>：</p>
+<h3>框架A — 非消费品 / B2B工业品</h3>
+<p><strong>适用行业</strong>：建材（地板/板材/瓷砖/铝材）、五金、工业零件、化工、机械设备、电子元器件、工程材料、包装材料等</p>
+<p><strong>核心目标</strong>：证明产品技术可靠、质量可控、供应链稳定，让专业买家放心下单。</p>
+<p><strong>一句话要点</strong>："用数据和技术背书建立信任，用供应链实力消除采购风险。"</p>
+<h3>框架B — 消费品</h3>
+<p><strong>适用行业</strong>：服装、家居、美妆、母婴玩具、食品、运动户外、宠物用品、礼品等</p>
+<p><strong>核心目标</strong>：激发买家对产品市场潜力的想象，证明产品能"好卖"，同时展示供应链的专业与可靠。</p>
+<p><strong>一句话要点</strong>："用视觉故事燃市场爆款潜力，用专业细节彰显代工实力。"</p>
+<blockquote>
+<p>⚠️ 如行业判断不确定，直接问用户："这款产品主要卖给终端消费者（选B）还是企业/工厂/项目采购方（选A）？"</p>
+</blockquote>
+<hr />
+<h2>四、确认生成数量</h2>
+<p>询问用户本次需要生成多少张：</p>
+<pre><code>本次生成图片数量：
+- 【A. 优先10张】第一部分完整（最常用，适合快速上新）
+- 【B. 全部20张】第一+第二部分（推荐标准版）
+- 【C. 全部30张】三部分完整版（旗舰款 / 重点产品）
+- 【D. 指定某几张】告诉我具体图号（如图1、5、9）
+</code></pre>
+<p>用户确认后进入第五节执行。</p>
+<hr />
+<h2>五、框架详情与生成规范</h2>
+<h3>▌框架A — 非消费品B2B三段30图</h3>
+<h4>第一部分：精准定义与应用展示（图1-10）</h4>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">图号</th>
+<th style="text-align: left;">内容定义</th>
+<th style="text-align: left;">核心元素</th>
+<th style="text-align: left;">生成要点</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;">图1</td>
+<td style="text-align: left;"><strong>产品主图</strong> · 白底专业棚拍角度</td>
+<td style="text-align: left;">产品全貌、材质纹理、接口细节</td>
+<td style="text-align: left;">白底/浅灰底，30°斜角，突出质感与精度</td>
+</tr>
+<tr>
+<td style="text-align: left;">图2</td>
+<td style="text-align: left;"><strong>结构爆炸图</strong> · 多层材料分解</td>
+<td style="text-align: left;">各层材料名称标注、厚度数据</td>
+<td style="text-align: left;">分层展开视图，每层附英文标注</td>
+</tr>
+<tr>
+<td style="text-align: left;">图3</td>
+<td style="text-align: left;"><strong>产品家族</strong> · 全系列型号展示</td>
+<td style="text-align: left;">所有SKU颜色/规格一览</td>
+<td style="text-align: left;">网格排列，型号标注清晰</td>
+</tr>
+<tr>
+<td style="text-align: left;">图4</td>
+<td style="text-align: left;"><strong>核心参数规格表</strong> · 数据可视化</td>
+<td style="text-align: left;">尺寸/厚度/重量/密度等关键数据</td>
+<td style="text-align: left;">表格+图示结合，数据用大字号突出</td>
+</tr>
+<tr>
+<td style="text-align: left;">图5</td>
+<td style="text-align: left;"><strong>关键结构精密解析</strong> · 局部放大</td>
+<td style="text-align: left;">锁扣/接缝/五金/涂层等核心工艺</td>
+<td style="text-align: left;">放大镜效果，标注公差/配合数据</td>
+</tr>
+<tr>
+<td style="text-align: left;">图6</td>
+<td style="text-align: left;"><strong>材料对比图</strong> · 我们VS竞品</td>
+<td style="text-align: left;">原料纯度/成分/外观对比</td>
+<td style="text-align: left;">左右分栏对比，我方占视觉优势</td>
+</tr>
+<tr>
+<td style="text-align: left;">图7</td>
+<td style="text-align: left;"><strong>应用场景图A</strong> · 主力市场场景</td>
+<td style="text-align: left;">真实使用环境渲染（酒店/工厂/工程）</td>
+<td style="text-align: left;">高端真实感场景，产品自然融入</td>
+</tr>
+<tr>
+<td style="text-align: left;">图8</td>
+<td style="text-align: left;"><strong>应用场景图B</strong> · 新兴市场场景</td>
+<td style="text-align: left;">第二目标市场场景</td>
+<td style="text-align: left;">另一风格/地域的使用环境</td>
+</tr>
+<tr>
+<td style="text-align: left;">图9</td>
+<td style="text-align: left;"><strong>全球认证体系全景</strong> · 信任背书</td>
+<td style="text-align: left;">所有认证logo + 名称 + 适用市场</td>
+<td style="text-align: left;">证书展示区，按市场分组排列</td>
+</tr>
+<tr>
+<td style="text-align: left;">图10</td>
+<td style="text-align: left;"><strong>一站式解决方案总图</strong> · 价值主张</td>
+<td style="text-align: left;">产品线全景 + 服务流程 + 定制能力</td>
+<td style="text-align: left;">信息图表风格，覆盖完整供应链</td>
+</tr>
+</tbody>
+</table>
+<h4>第二部分：深度技术与性能验证（图11-20）</h4>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">图号</th>
+<th style="text-align: left;">内容定义</th>
+<th style="text-align: left;">核心元素</th>
+<th style="text-align: left;">生成要点</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;">图11</td>
+<td style="text-align: left;"><strong>关键部件细节图A</strong> · 核心工艺局部</td>
+<td style="text-align: left;">最具技术含量的部件放大</td>
+<td style="text-align: left;">工业摄影风格，精度感强</td>
+</tr>
+<tr>
+<td style="text-align: left;">图12</td>
+<td style="text-align: left;"><strong>关键部件细节图B</strong> · 第二工艺点</td>
+<td style="text-align: left;">第二核心工艺细节</td>
+<td style="text-align: left;">标注关键尺寸或工艺参数</td>
+</tr>
+<tr>
+<td style="text-align: left;">图13</td>
+<td style="text-align: left;"><strong>关键部件细节图C</strong> · 表面处理</td>
+<td style="text-align: left;">表面涂层/纹理/光泽度</td>
+<td style="text-align: left;">对比未处理品，突出工艺价值</td>
+</tr>
+<tr>
+<td style="text-align: left;">图14</td>
+<td style="text-align: left;"><strong>加工工艺图A</strong> · 生产流程可视化</td>
+<td style="text-align: left;">关键生产工序图示</td>
+<td style="text-align: left;">流程图风格，体现工厂自动化程度</td>
+</tr>
+<tr>
+<td style="text-align: left;">图15</td>
+<td style="text-align: left;"><strong>加工工艺图B</strong> · 质检流程</td>
+<td style="text-align: left;">QC检测环节、检测仪器、检测数据</td>
+<td style="text-align: left;">实验室/检测线照片风格</td>
+</tr>
+<tr>
+<td style="text-align: left;">图16</td>
+<td style="text-align: left;"><strong>性能测试图A</strong> · 核心性能数据</td>
+<td style="text-align: left;">防水/耐磨/承重/阻燃等主要测试</td>
+<td style="text-align: left;">测试场景图 + 数据图表</td>
+</tr>
+<tr>
+<td style="text-align: left;">图17</td>
+<td style="text-align: left;"><strong>性能测试图B</strong> · 次要性能验证</td>
+<td style="text-align: left;">环保/声学/热稳定性等补充测试</td>
+<td style="text-align: left;">数据可视化，曲线图或柱状图</td>
+</tr>
+<tr>
+<td style="text-align: left;">图18</td>
+<td style="text-align: left;"><strong>资质认证详情A</strong> · 核心认证</td>
+<td style="text-align: left;">最重要认证证书扫描/展示</td>
+<td style="text-align: left;">证书实物照片 + 认证机构logo</td>
+</tr>
+<tr>
+<td style="text-align: left;">图19</td>
+<td style="text-align: left;"><strong>资质认证详情B</strong> · 行业标准符合</td>
+<td style="text-align: left;">行业规范/标准符合性说明</td>
+<td style="text-align: left;">标准编号 + 测试报告摘要</td>
+</tr>
+<tr>
+<td style="text-align: left;">图20</td>
+<td style="text-align: left;"><strong>质量管理体系</strong> · ISO/工厂审核</td>
+<td style="text-align: left;">ISO证书、工厂审核报告、供应商资质</td>
+<td style="text-align: left;">正式文件风格，权威感强</td>
+</tr>
+</tbody>
+</table>
+<h4>第三部分：供应链与合作保障（图21-30）</h4>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">图号</th>
+<th style="text-align: left;">内容定义</th>
+<th style="text-align: left;">核心元素</th>
+<th style="text-align: left;">生成要点</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;">图21</td>
+<td style="text-align: left;"><strong>定制化流程图A</strong> · 设计阶段</td>
+<td style="text-align: left;">从需求沟通到设计确认</td>
+<td style="text-align: left;">流程时间轴，强调响应速度</td>
+</tr>
+<tr>
+<td style="text-align: left;">图22</td>
+<td style="text-align: left;"><strong>定制化流程图B</strong> · 打样阶段</td>
+<td style="text-align: left;">打样→修改→确认周期</td>
+<td style="text-align: left;">打样实物图 + 时间节点</td>
+</tr>
+<tr>
+<td style="text-align: left;">图23</td>
+<td style="text-align: left;"><strong>定制化流程图C</strong> · 量产交付</td>
+<td style="text-align: left;">量产→QC→包装→发货</td>
+<td style="text-align: left;">供应链全景，体现稳定性</td>
+</tr>
+<tr>
+<td style="text-align: left;">图24</td>
+<td style="text-align: left;"><strong>专业包装图A</strong> · 标准包装</td>
+<td style="text-align: left;">产品包装展开图、保护设计</td>
+<td style="text-align: left;">包装实物图，强调防损设计</td>
+</tr>
+<tr>
+<td style="text-align: left;">图25</td>
+<td style="text-align: left;"><strong>专业包装图B</strong> · 定制包装</td>
+<td style="text-align: left;">OEM包装案例、品牌定制示例</td>
+<td style="text-align: left;">私标包装效果图</td>
+</tr>
+<tr>
+<td style="text-align: left;">图26</td>
+<td style="text-align: left;"><strong>核心设备图A</strong> · 主力生产设备</td>
+<td style="text-align: left;">关键生产设备型号、数量、产能</td>
+<td style="text-align: left;">工厂实拍或设备渲染图</td>
+</tr>
+<tr>
+<td style="text-align: left;">图27</td>
+<td style="text-align: left;"><strong>核心设备图B</strong> · 检测设备</td>
+<td style="text-align: left;">实验室检测仪器</td>
+<td style="text-align: left;">专业检测场景，体现研发实力</td>
+</tr>
+<tr>
+<td style="text-align: left;">图28</td>
+<td style="text-align: left;"><strong>核心设备图C</strong> · 工厂全景</td>
+<td style="text-align: left;">生产线全貌、厂房规模</td>
+<td style="text-align: left;">航拍或全景图，数字标注面积/产能</td>
+</tr>
+<tr>
+<td style="text-align: left;">图29</td>
+<td style="text-align: left;"><strong>项目案例图</strong> · 已交付客户案例</td>
+<td style="text-align: left;">真实客户项目照片 + 客户所在国旗帜</td>
+<td style="text-align: left;">地图热点图 + 项目实景</td>
+</tr>
+<tr>
+<td style="text-align: left;">图30</td>
+<td style="text-align: left;"><strong>行动号召图</strong> · CTA收尾</td>
+<td style="text-align: left;">联系方式、Trade Assurance、下单引导</td>
+<td style="text-align: left;">强CTA设计，橙色按钮风格</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h3>▌框架B — 消费品三段30图</h3>
+<h4>第一部分：引爆市场吸引力（图1-10）</h4>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">图号</th>
+<th style="text-align: left;">内容定义</th>
+<th style="text-align: left;">核心元素</th>
+<th style="text-align: left;">生成要点</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;">图1</td>
+<td style="text-align: left;"><strong>场景图A</strong> · 核心生活方式场景</td>
+<td style="text-align: left;">产品在最理想使用场景中自然呈现</td>
+<td style="text-align: left;">高颜值生活场景，目标消费者出现</td>
+</tr>
+<tr>
+<td style="text-align: left;">图2</td>
+<td style="text-align: left;"><strong>场景图B</strong> · 第二生活方式场景</td>
+<td style="text-align: left;">另一使用场景或情绪氛围</td>
+<td style="text-align: left;">不同光线/空间/季节，拓展想象空间</td>
+</tr>
+<tr>
+<td style="text-align: left;">图3</td>
+<td style="text-align: left;"><strong>场景图C</strong> · 节日/礼品/特殊场景</td>
+<td style="text-align: left;">节日氛围或礼品包装场景</td>
+<td style="text-align: left;">节日感强，适合旺季备货决策</td>
+</tr>
+<tr>
+<td style="text-align: left;">图4</td>
+<td style="text-align: left;"><strong>模特图A</strong> · 主力款正面展示</td>
+<td style="text-align: left;">模特/道具完整展示产品</td>
+<td style="text-align: left;">正面全身/整体视角，突出款式</td>
+</tr>
+<tr>
+<td style="text-align: left;">图5</td>
+<td style="text-align: left;"><strong>模特图B</strong> · 侧面/背面/细节角度</td>
+<td style="text-align: left;">产品从不同角度完整呈现</td>
+<td style="text-align: left;">多角度轮播逻辑，减少退货率</td>
+</tr>
+<tr>
+<td style="text-align: left;">图6</td>
+<td style="text-align: left;"><strong>模特图C</strong> · 使用状态/动态展示</td>
+<td style="text-align: left;">模特使用产品的动作画面</td>
+<td style="text-align: left;">动态感，激发消费者代入感</td>
+</tr>
+<tr>
+<td style="text-align: left;">图7</td>
+<td style="text-align: left;"><strong>卖点功能图A</strong> · 核心功能可视化</td>
+<td style="text-align: left;">产品最重要功能的图示说明</td>
+<td style="text-align: left;">功能图标 + 简短文字，一目了然</td>
+</tr>
+<tr>
+<td style="text-align: left;">图8</td>
+<td style="text-align: left;"><strong>卖点功能图B</strong> · 差异化功能</td>
+<td style="text-align: left;">区别于竞品的独特功能</td>
+<td style="text-align: left;">对比设计，突出我方优势</td>
+</tr>
+<tr>
+<td style="text-align: left;">图9</td>
+<td style="text-align: left;"><strong>系列图A</strong> · 颜色/款式系列全览</td>
+<td style="text-align: left;">所有可选颜色/款式排列</td>
+<td style="text-align: left;">色板网格，让买家看到SKU丰富度</td>
+</tr>
+<tr>
+<td style="text-align: left;">图10</td>
+<td style="text-align: left;"><strong>系列图B</strong> · 搭配/套装组合</td>
+<td style="text-align: left;">产品搭配方案或套装组合</td>
+<td style="text-align: left;">搭配效果图，提升客单价想象</td>
+</tr>
+</tbody>
+</table>
+<h4>第二部分：彰显品质与专业（图11-20）</h4>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">图号</th>
+<th style="text-align: left;">内容定义</th>
+<th style="text-align: left;">核心元素</th>
+<th style="text-align: left;">生成要点</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;">图11</td>
+<td style="text-align: left;"><strong>产品细节图A</strong> · 核心工艺细节</td>
+<td style="text-align: left;">最重要的工艺/材质局部放大</td>
+<td style="text-align: left;">微距风格，质感真实感强</td>
+</tr>
+<tr>
+<td style="text-align: left;">图12</td>
+<td style="text-align: left;"><strong>产品细节图B</strong> · 功能性细节</td>
+<td style="text-align: left;">功能性结构/接口/配件细节</td>
+<td style="text-align: left;">标注说明，消除买家顾虑</td>
+</tr>
+<tr>
+<td style="text-align: left;">图13</td>
+<td style="text-align: left;"><strong>产品细节图C</strong> · 表面/纹理细节</td>
+<td style="text-align: left;">面料/材质/涂层/印花细节</td>
+<td style="text-align: left;">触感可感知的视觉呈现</td>
+</tr>
+<tr>
+<td style="text-align: left;">图14</td>
+<td style="text-align: left;"><strong>产品细节图D</strong> · 标签/吊牌/logo</td>
+<td style="text-align: left;">品牌标签、洗涤标、合格证</td>
+<td style="text-align: left;">合规性展示，减少买家验证成本</td>
+</tr>
+<tr>
+<td style="text-align: left;">图15</td>
+<td style="text-align: left;"><strong>材质图</strong> · 原料/成分来源</td>
+<td style="text-align: left;">原料实物/产地/成分说明</td>
+<td style="text-align: left;">溯源感，满足ESG采购需求</td>
+</tr>
+<tr>
+<td style="text-align: left;">图16</td>
+<td style="text-align: left;"><strong>材质对比图</strong> · 我方VS竞品材质</td>
+<td style="text-align: left;">材质手感/外观/耐久度对比</td>
+<td style="text-align: left;">左右对比，直观体现品质差距</td>
+</tr>
+<tr>
+<td style="text-align: left;">图17</td>
+<td style="text-align: left;"><strong>尺码图</strong> · 完整尺码规格</td>
+<td style="text-align: left;">尺码表、测量方式、适用人群</td>
+<td style="text-align: left;">清晰数据，减少因尺码问题的退货</td>
+</tr>
+<tr>
+<td style="text-align: left;">图18</td>
+<td style="text-align: left;"><strong>尺码对比图</strong> · 多尺码实物对比</td>
+<td style="text-align: left;">不同尺码/规格产品并排展示</td>
+<td style="text-align: left;">消除买家对尺码的不确定感</td>
+</tr>
+<tr>
+<td style="text-align: left;">图19</td>
+<td style="text-align: left;"><strong>对比图A</strong> · 使用前后对比</td>
+<td style="text-align: left;">产品使用效果的前后对比</td>
+<td style="text-align: left;">效果验证，强化购买信心</td>
+</tr>
+<tr>
+<td style="text-align: left;">图20</td>
+<td style="text-align: left;"><strong>对比图B</strong> · 竞品横向对比</td>
+<td style="text-align: left;">与竞品在关键维度的差异</td>
+<td style="text-align: left;">数据或视觉对比，突出性价比</td>
+</tr>
+</tbody>
+</table>
+<h4>第三部分：定制&amp;服务能力（图21-30）</h4>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">图号</th>
+<th style="text-align: left;">内容定义</th>
+<th style="text-align: left;">核心元素</th>
+<th style="text-align: left;">生成要点</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;">图21</td>
+<td style="text-align: left;"><strong>定制案例图A</strong> · Logo定制</td>
+<td style="text-align: left;">Logo/印花定制案例实物展示</td>
+<td style="text-align: left;">真实定制效果图，消除买家疑虑</td>
+</tr>
+<tr>
+<td style="text-align: left;">图22</td>
+<td style="text-align: left;"><strong>定制案例图B</strong> · 颜色定制</td>
+<td style="text-align: left;">颜色/花色定制色卡及实物</td>
+<td style="text-align: left;">色板 + 实物对应，展示还原度</td>
+</tr>
+<tr>
+<td style="text-align: left;">图23</td>
+<td style="text-align: left;"><strong>定制案例图C</strong> · 结构/尺寸定制</td>
+<td style="text-align: left;">尺寸/款式/结构定制能力</td>
+<td style="text-align: left;">定制规格图，附MOQ说明</td>
+</tr>
+<tr>
+<td style="text-align: left;">图24</td>
+<td style="text-align: left;"><strong>包装方案图A</strong> · 标准包装展示</td>
+<td style="text-align: left;">产品包装完整展示</td>
+<td style="text-align: left;">包装开箱效果，强调仪式感</td>
+</tr>
+<tr>
+<td style="text-align: left;">图25</td>
+<td style="text-align: left;"><strong>包装方案图B</strong> · OEM包装定制</td>
+<td style="text-align: left;">私标包装案例</td>
+<td style="text-align: left;">品牌定制包装效果图</td>
+</tr>
+<tr>
+<td style="text-align: left;">图26</td>
+<td style="text-align: left;"><strong>产线实拍图A</strong> · 生产现场</td>
+<td style="text-align: left;">生产车间实拍</td>
+<td style="text-align: left;">真实感强，证明非贸易商</td>
+</tr>
+<tr>
+<td style="text-align: left;">图27</td>
+<td style="text-align: left;"><strong>产线实拍图B</strong> · 质检现场</td>
+<td style="text-align: left;">QC检测环节实拍</td>
+<td style="text-align: left;">检测流程图，增加专业感</td>
+</tr>
+<tr>
+<td style="text-align: left;">图28</td>
+<td style="text-align: left;"><strong>产线实拍图C</strong> · 工厂规模</td>
+<td style="text-align: left;">厂房全景、设备阵列</td>
+<td style="text-align: left;">规模感，打消买家对产能的顾虑</td>
+</tr>
+<tr>
+<td style="text-align: left;">图29</td>
+<td style="text-align: left;"><strong>证书/品牌墙</strong> · 认证与荣誉</td>
+<td style="text-align: left;">所有认证证书、品牌合作、奖项</td>
+<td style="text-align: left;">信任背书集中展示</td>
+</tr>
+<tr>
+<td style="text-align: left;">图30</td>
+<td style="text-align: left;"><strong>行动号召图</strong> · CTA收尾</td>
+<td style="text-align: left;">联系引导、样品政策、Trade Assurance</td>
+<td style="text-align: left;">强CTA，降低询盘门槛</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2>六、图片生成执行规范</h2>
+<h3>6.1 生成工具选择</h3>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">情况</th>
+<th style="text-align: left;">使用工具</th>
+<th style="text-align: left;">说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;">有产品真实图片可作底图</td>
+<td style="text-align: left;"><code>image_edit</code></td>
+<td style="text-align: left;">优先使用，保留真实产品外观</td>
+</tr>
+<tr>
+<td style="text-align: left;">无合适底图，需要全新生成</td>
+<td style="text-align: left;"><code>image_generate</code></td>
+<td style="text-align: left;">按prompt规范生成</td>
+</tr>
+<tr>
+<td style="text-align: left;">需要在已有图上叠加文字/数据</td>
+<td style="text-align: left;"><code>image_edit</code></td>
+<td style="text-align: left;">task_type: complex_generation</td>
+</tr>
+</tbody>
+</table>
+<h3>6.2 image_generate 参数规范</h3>
+<pre><code>- task_type：complex（含文字标注/多元素）或 simple（纯产品渲染）
+- aspect_ratio：1:1（国际站详情图标准）
+</code></pre>
+<h3>6.3 Prompt 撰写模板</h3>
+<p><strong>框架A（B2B工业品）prompt风格</strong>：</p>
+<pre><code>Professional product photography / industrial design render of [产品名称].
+[具体图片内容描述：角度、细节、标注内容].
+Style: clean industrial, white or light gray background, Montserrat Bold labels,
+color scheme: steel blue #1F3A5F + safety orange #FF6F00 + white.
+Text on image: [具体英文文字，逐字列出].
+High resolution, B2B commercial quality.
+</code></pre>
+<p><strong>框架B（消费品）prompt风格</strong>：</p>
+<pre><code>Lifestyle product photography of [产品名称].
+[具体图片内容描述：场景、模特、氛围、角度].
+Style: [warm/bright/minimal/festive], natural lighting, [场景描述].
+Color palette: [根据产品主色调定义].
+Text overlay: [具体英文文字，如有].
+High resolution, e-commerce commercial quality, editorial feel.
+</code></pre>
+<h3>6.4 文字内容规范</h3>
+<ul>
+<li>所有图片上的文字必须<strong>完整逐字写入prompt</strong>，不得用"add some text"代替</li>
+<li>主标题用 Montserrat Bold（B2B）或 Playfair Display / Raleway（消费品）</li>
+<li>数字/认证/技术参数保留英文原文</li>
+<li>每张图文字量控制：标题1行 + 副标题1行 + 数据标注若干，不超过5个文字区块</li>
+</ul>
+<h3>6.5 自检规范（生成后必须执行）</h3>
+<p>每张图生成后立即调用 <code>see_image</code> 自检，检查：<br />
+- [ ] 文字是否清晰无乱码<br />
+- [ ] 产品主体是否完整、无变形<br />
+- [ ] 颜色风格是否统一<br />
+- [ ] 关键数据是否准确呈现</p>
+<p>若发现文字错误，立刻切换策略：<strong>放弃修改，重新生成并在prompt中极度精确地描述文字内容</strong>。</p>
+<h3>6.6 并行生成策略</h3>
+<ul>
+<li>每次最多<strong>4张并行</strong>生成（避免超时）</li>
+<li>生成顺序：图1-4 → 图5-8 → 图9-10（若10张）</li>
+<li>每批完成后，汇报进度并展示图片，询问是否继续下一批</li>
+</ul>
+<hr />
+<h2>七、输出格式</h2>
+<p>每张图生成完成后，按以下格式输出：</p>
+<pre><code>#### 图X｜[图片名称]
+&gt; **定位**：[一句话说明用途]
+![图X](图片URL)
+[简短说明：构图逻辑、文字内容、建议使用位置]
+</code></pre>
+<p>全部完成后，汇总输出图片目录：</p>
+<pre><code>## 图集交付清单
+
+| 图号 | 名称 | URL | 状态 |
+|:---|:---|:---|:---|
+| 图1 | xxx | [链接] | ✅ |
+| 图2 | xxx | [链接] | ✅ |
+...
+</code></pre>
+<p>并将所有图片URL保存为 Markdown 文件，文件名格式：<code>[产品名]-商品图集-[日期].md</code></p>
+<hr />
+<h2>八、完成后追问</h2>
+<p>图集全部交付后，主动提供以下选项：</p>
+<blockquote>
+<p>"图集已完成 ✓ 接下来可以：<br />
+- <strong>A. 生成配套商品卖点文案</strong>（黄金五段论，可直接填入国际站卖点框）<br />
+- <strong>B. 继续生成下一部分图片</strong>（如已完成图1-10，继续图11-20）<br />
+- <strong>C. 针对另一款产品生成图集</strong>（复用同一框架）<br />
+- <strong>D. 用真实工厂/产品图片重做关键图片</strong>（提供真实图后用image_edit升级）"</p>
+</blockquote>
+<hr />
+<h2>九、执行规范</h2>
+<ol>
+<li><strong>行业判断优先</strong>：进入第四节前必须完成行业判断，框架选择错误会导致整批图片定位偏差</li>
+<li><strong>数据诚实性</strong>：图片中的所有数字/认证/客户数量必须来自用户提供或链接抓取的真实信息，无法确认的用「[待核实]」占位，绝不捏造</li>
+<li><strong>真实图优先</strong>：如用户提供了真实产品图/工厂图，必须用 <code>image_edit</code> 处理，不要用AI全新生成替代真实图</li>
+<li><strong>风格统一</strong>：同一批次图片必须使用同一色彩系统，不得中途改变主色调</li>
+<li><strong>进度透明</strong>：每完成一批图片，必须展示成果并告知下一步，不要静默处理</li>
+<li><strong>文字自检</strong>：每张图必须 <code>see_image</code> 确认无乱码，发现问题立刻重新生成（最多重试2次，超过则跳过并标注「待人工处理」）</li>
+<li><strong>字体一致性</strong>：B2B框架统一使用 Montserrat Bold 标题 + Inter 正文；消费品框架标题字体根据产品风格选择（甜美用手写体/高端用衬线/运动用无衬线粗体）</li>
+</ol></section><section class="bpart" id="f2"><h3 class="bpart-h">结构化商详/商品卖点黄金五段论/SKILL.md</h3><div class="fm"><b>golden-5-paragraph-ksp</b><p>阿里巴巴国际站「商品卖点黄金五段论」生成技能。当用户提到"商品卖点"、"产品卖点"、"KSP"、"黄金五段"、"写产品文案"、"产品描述"、"商详文案"、"五段论"、"CVP/KSP/ICP/TSP/CTA"，或提供了产品链接/产品名称要求输出国际站卖点文案时，必须使用此技能。支持三种输入模式：(1) 提供产品链接，(2) 提供产品名称+行业，(3) 用户已有产品信息直接粘贴。输出严格遵循「CVP→KSP→ICP→TSP→CTA」五段结构，中英双语，英文版字符总量控制在2000字符以内，可直接复制粘贴至阿里国际站商品卖点填写框。行业通用版本，覆盖建材、家居、服装、电子、工业、化工、食品、美妆等所有出口行业。</p></div><h1>商品卖点黄金五段论生成技能</h1>
+<h2>阿里巴巴国际站通用版 · 行业全覆盖</h2>
+<p>本技能面向<strong>阿里巴巴国际站 ToB 商家</strong>，根据产品信息生成一份符合「商品卖点黄金五段方法论」的高转化英文商品卖点文案，可直接填入国际站商品卖点模块（≤2000字符）。</p>
+<hr />
+<h2>一、判断输入模式</h2>
+<p>收到用户消息后，首先判断属于以下哪种模式：</p>
+<table>
+<thead>
+<tr>
+<th>模式</th>
+<th>触发条件</th>
+<th>执行路径</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>A. 链接模式</strong></td>
+<td>用户提供了产品/店铺链接</td>
+<td>执行第二节 → 第三节 → 第四节</td>
+</tr>
+<tr>
+<td><strong>B. 描述模式</strong></td>
+<td>用户说了产品名称或描述，无链接</td>
+<td>跳过第二节，从第三节开始</td>
+</tr>
+<tr>
+<td><strong>C. 信息粘贴模式</strong></td>
+<td>用户直接粘贴了产品规格/特点文字</td>
+<td>跳过第二、三节，直接进入第四节</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2>二、产品信息读取（链接模式）</h2>
+<p>使用 <code>web_fetch</code> 抓取产品链接页面，提取以下信息：</p>
+<ul>
+<li><strong>产品名称与型号</strong></li>
+<li><strong>产品材质 / 成分 / 原料</strong></li>
+<li><strong>核心规格参数</strong>（尺寸、厚度、重量、容量、功率等）</li>
+<li><strong>功能卖点</strong>（产品描述中出现的特性）</li>
+<li><strong>认证与资质</strong>（CE、GREENGUARD、ISO、FDA 等）</li>
+<li><strong>价格区间与 MOQ</strong></li>
+<li><strong>所属店铺名称与行业</strong></li>
+<li><strong>已有买家评价/评论</strong>（如有）</li>
+</ul>
+<blockquote>
+<p>如果链接为店铺主页而非商品页，优先抓取首页推荐商品的详情。</p>
+</blockquote>
+<p>信息读取完成后，<strong>展示给用户确认</strong>，格式如下：</p>
+<pre><code>【产品基础信息确认】
+- 产品名称：xxx
+- 核心材质/成分：xxx
+- 关键规格：xxx
+- 已知认证：xxx
+- 行业/类目：xxx
+- 已有卖点描述：xxx（原文摘录）
+</code></pre>
+<p>然后进入第三节，追问补充信息。</p>
+<hr />
+<h2>三、收集补充经营信息（必须向用户提问）</h2>
+<p>展示以下问题，请用户按需填写（允许跳过不确定的项）：</p>
+<pre><code>为了生成更精准的商品卖点，请告诉我以下信息（不确定的可跳过）：
+
+1. 产品最核心的&quot;独特优势&quot;是什么？（和同行相比，你们的差异点在哪？）
+   例：100%全新料、0甲醛、专利锁扣、自动化生产线、30天打样
+
+2. 目标买家是哪类？（可多选）
+   □ 分销商/批发商  □ 品牌商/私标买家  □ 工程总包/项目采购  □ 零售连锁
+   □ 平台卖家（Amazon/Shopify）  □ 其他：___
+
+3. 主攻哪些市场？
+   例：美国、欧洲、中东、东南亚、澳洲、南美
+
+4. 买家最常问的顾虑或投诉点是什么？
+   例：颜色稳定性、发货周期、小单能不能做、认证是否齐全
+
+5. 有哪些认证、检测报告、专利？（请列出具体名称）
+   例：SGS、CE、GREENGUARD Gold、ASTM F3261、ISO 9001
+
+6. 定制服务能力（OEM/ODM）：
+   □ 支持尺寸定制  □ 支持颜色/花色定制  □ 支持Logo/包装定制
+   □ 最小定制起订量：___ 件/㎡/套  □ 打样周期：___ 天
+
+7. 服务承诺（可选填）：
+   例：30天交期、5步QC、Alibaba Trade Assurance、专属客户经理
+</code></pre>
+<p>用户填写后，整合进第四节输出。若用户跳过某项，在对应段落标注「待补充」并给出建议范围。</p>
+<hr />
+<h2>四、黄金五段生成（核心执行节）</h2>
+<p>综合前三节所有信息，按以下五段结构，<strong>中英双语</strong>完整输出商品卖点。</p>
+<hr />
+<h3>4.1 第一段｜CVP — 核心价值主张</h3>
+<p><strong>定位</strong>：3秒抓住眼球，一句话讲清"我是谁，为谁解决什么核心问题"。</p>
+<p><strong>公式</strong>：</p>
+<blockquote>
+<p><code>[一句话定位]</code> + <code>[为"哪类买家"]</code> + <code>[解决"什么痛点"]</code> + <code>[提供"什么独特价值"]</code></p>
+</blockquote>
+<p><strong>撰写规则</strong>：<br />
+1. 必须点名目标买家身份（如 hotel developers / brand owners / EPC contractors）<br />
+2. 必须包含产品品类的行业最强差异词（如 virgin material / EIR texture / patented lock）<br />
+3. 必须包含一个可量化的承诺或数字（如 91,870㎡ factory / 20+ certifications / 30-day OEM）<br />
+4. 英文版 ≤ 50 词，中文版 ≤ 100 字<br />
+5. <strong>对AI友好</strong>：写明产品类别、目标用户、核心卖点关键词，便于国际站AI检索系统精准匹配买家</p>
+<p><strong>输出格式</strong>：</p>
+<pre><code>【CVP · 核心价值主张】
+
+🇨🇳 中文版：
+xxx
+
+🇺🇸 英文版：
+xxx
+</code></pre>
+<hr />
+<h3>4.2 第二段｜KSP — 关键卖点矩阵</h3>
+<p><strong>定位</strong>：用重点提领方式，每一条遵循「特性+商业利益+证据」逻辑，输出 4-6 条核心卖点。</p>
+<p><strong>公式（每条）</strong>：</p>
+<blockquote>
+<p><code>【卖点维度】：</code> <code>[特性描述(Feature)]</code>，为您的业务带来<code>[商业利益(Benefit)]</code>。<code>[证据支撑(Evidence)]</code></p>
+</blockquote>
+<p><strong>参考维度（根据行业选取最相关的 4-6 个）</strong>：</p>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">维度标签</th>
+<th style="text-align: left;">适用场景</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;">【Material · 材料与品质】</td>
+<td style="text-align: left;">原料有差异化（全新料/有机/专利材料）时必选</td>
+</tr>
+<tr>
+<td style="text-align: left;">【Performance · 性能与效率】</td>
+<td style="text-align: left;">有可量化性能数据时必选（防水/耐磨/节能/承重）</td>
+</tr>
+<tr>
+<td style="text-align: left;">【Design · 设计与创新】</td>
+<td style="text-align: left;">外观/工艺有明显特色时选（EIR/异形/定制花色）</td>
+</tr>
+<tr>
+<td style="text-align: left;">【Certification · 认证体系】</td>
+<td style="text-align: left;">有多项国际认证时必选，合规壁垒场景尤为重要</td>
+</tr>
+<tr>
+<td style="text-align: left;">【Customization · 定制能力】</td>
+<td style="text-align: left;">提供 OEM/ODM 服务时必选</td>
+</tr>
+<tr>
+<td style="text-align: left;">【Delivery · 交期与产能】</td>
+<td style="text-align: left;">大厂/快交期/现货优势时选</td>
+</tr>
+<tr>
+<td style="text-align: left;">【Safety · 安全与合规】</td>
+<td style="text-align: left;">儿童品、食品接触、建材、电器等合规敏感行业必选</td>
+</tr>
+<tr>
+<td style="text-align: left;">【Sustainability · 环保与可持续】</td>
+<td style="text-align: left;">欧美买家关注 ESG 时选</td>
+</tr>
+<tr>
+<td style="text-align: left;">【Price Value · 性价比】</td>
+<td style="text-align: left;">工厂直供/规模优势时选（注意不要只讲"cheap"）</td>
+</tr>
+</tbody>
+</table>
+<p><strong>撰写规则</strong>：<br />
+1. 每条卖点必须有 Evidence（认证编号、测试数据、客户案例、平台数字等），不得空泛<br />
+2. Benefit 必须站在买家商业利益角度（降低退货率 / 提升终端满意度 / 减少合规风险）<br />
+3. 不得使用空洞形容词堆砌（如 high quality / best price / professional）<br />
+4. <strong>对AI友好</strong>：专业术语（认证名称/行业标准/技术词汇）保留英文原文，便于AI语义识别<br />
+5. 英文每条卖点 ≤ 80 词，共 4-6 条</p>
+<p><strong>输出格式</strong>：</p>
+<pre><code>【KSP · 关键卖点矩阵】
+
+✅ 【Material · 材料与品质】
+xxx（中文）
+xxx（English）
+
+✅ 【Performance · 性能与效率】
+xxx（中文）
+xxx（English）
+
+...（共 4-6 条）
+</code></pre>
+<hr />
+<h3>4.3 第三段｜ICP — 理想客户画像</h3>
+<p><strong>定位</strong>：直接告诉买家"这是为你定制的产品"，让目标买家自我识别，同时过滤低质询盘。</p>
+<p><strong>公式</strong>：</p>
+<blockquote>
+<p><code>本产品/解决方案特别适用于以下客户及场景：[客户类型1], [客户类型2]... 在[应用场景1], [应用场景2]...</code></p>
+</blockquote>
+<p><strong>撰写规则</strong>：<br />
+1. 必须列出 3-5 类目标买家，每类附上括号注明市场/场景（如 Middle East、USA、EU）<br />
+2. 可加一句"无论是新建项目还是改造升级，我们的产品都能……"的收尾语<br />
+3. <strong>对AI友好</strong>：写出行业身份标签（如 furniture manufacturer / EPC contractor / Amazon seller），AI Search在匹配买家询盘时会优先推荐给带此类身份标签的买家<br />
+4. 英文版 ≤ 150 词</p>
+<p><strong>输出格式</strong>：</p>
+<pre><code>【ICP · 理想客户画像】
+
+🇨🇳 中文版：
+xxx
+
+🇺🇸 英文版：
+xxx
+</code></pre>
+<hr />
+<h3>4.4 第四段｜TSP — 信任与服务保障</h3>
+<p><strong>定位</strong>：我们不仅提供产品，更提供服务承诺。让买家相信"选你不会翻车"。</p>
+<p><strong>公式</strong>：</p>
+<blockquote>
+<p><code>我们不仅提供产品，更提供[服务承诺]。我们的[服务流程]确保您的项目顺利。我们拥有[资质认证]...</code></p>
+</blockquote>
+<p><strong>撰写规则</strong>：<br />
+1. 必须包含至少 3 项具体服务承诺（打样天数、QC道数、交期、售后响应时间）<br />
+2. 引用"solution"、"project manager"、"warranty"、"ISO9001"等词汇，向AI证明供应商可靠性<br />
+3. 推荐用表格或 ✔ 条目列表呈现，视觉上便于扫读<br />
+4. 如有 Alibaba Trade Assurance，必须写明<br />
+5. 英文版 ≤ 120 词</p>
+<p><strong>输出格式</strong>：</p>
+<pre><code>【TSP · 信任与服务保障】
+
+🇨🇳 中文版：
+xxx
+
+🇺🇸 英文版：
+xxx
+</code></pre>
+<hr />
+<h3>4.5 第五段｜CTA — 精准行动号召</h3>
+<p><strong>定位</strong>：清晰的行动指令，降低买家行动门槛，引导其立刻发起询盘。</p>
+<p><strong>公式</strong>：</p>
+<blockquote>
+<p><code>为满足不同需求，我们提供... 立即[行动指令1]，获取[价值1]！或[行动指令2]，获取[价值2]！</code></p>
+</blockquote>
+<p><strong>撰写规则</strong>：<br />
+1. 必须提供 2-3 个不同行动路径（样品、报价、项目方案），满足不同阶段买家需求<br />
+2. 每个行动必须有时间承诺（如 "within 24 hours" / "in 5 business days"）<br />
+3. 使用动词开头（Get / Request / Send / Click）<br />
+4. 清晰的行动指令有助于引导买家了解更多商品&amp;公司实力资讯，提升页面停留与询盘意愿<br />
+5. 英文版 ≤ 80 词</p>
+<p><strong>输出格式</strong>：</p>
+<pre><code>【CTA · 精准行动号召】
+
+🇨🇳 中文版：
+xxx
+
+🇺🇸 英文版：
+xxx
+</code></pre>
+<hr />
+<h2>五、字符统计与精简建议</h2>
+<p>五段全部输出完成后，必须进行以下操作：</p>
+<h3>5.1 字符计数</h3>
+<p>统计英文版五段合计字符数，并输出以下表格：</p>
+<pre><code>| 段落 | 英文字符数 | 状态 |
+|:---|:---|:---|
+| CVP（01） | xxx | ✅ / ⚠️ |
+| KSP（02） | xxx | ✅ / ⚠️ |
+| ICP（03） | xxx | ✅ / ⚠️ |
+| TSP（04） | xxx | ✅ / ⚠️ |
+| CTA（05） | xxx | ✅ / ⚠️ |
+| 合计 | xxx / 2000 | ✅ 达标 / ⚠️ 超限 |
+</code></pre>
+<h3>5.2 精简建议（若超过2000字符）</h3>
+<p>若合计超过2000字符，必须提供一版「精简版」方案：</p>
+<p><strong>精简优先级（从低到高保留）</strong>：<br />
+1. 首先缩减 KSP：从 6 条减为 4 条，保留差异化最强的维度<br />
+2. 其次缩减 TSP：将表格改为一句话精简版<br />
+3. CVP、ICP、CTA 尽量不动（买家决策漏斗关键节点）</p>
+<p>精简版必须同步输出，格式：</p>
+<pre><code>【精简版（≤2000字符）· 可直接粘贴至国际站】
+
+---
+[精简后的完整英文五段文案]
+---
+</code></pre>
+<hr />
+<h2>六、文件保存与使用说明</h2>
+<h3>6.1 保存文件</h3>
+<p>输出完成后，将完整的中英双语五段文案保存为 Markdown 文件：<br />
+- 文件名格式：<code>[产品名称]-商品卖点黄金五段.md</code><br />
+- 保存在工作目录中<br />
+- 告知用户文件路径</p>
+<h3>6.2 必须告知用户的使用建议</h3>
+<p>输出完成后，必须追加以下使用说明：</p>
+<pre><code>📌 国际站填写指引：
+
+① 进入商品详情编辑页 → 「商品卖点」填写框（最多2000字符）
+② 粘贴上方【精简版英文文案】（若未超限则粘贴完整版）
+③ 中文版建议用于：
+   - 产品详情页内嵌文案
+   - 询盘回复模板
+   - 展会宣传物料
+
+⚠️ 三大注意事项：
+- 认证名称、数据（尺寸/厚度/面积）必须与实际产品一致，填写前请核实
+- 客户案例/买家数量等社会证明数据，确认真实后再填入
+- 定期更新（每季度一次），结合新认证/新市场同步修改卖点
+</code></pre>
+<h3>6.3 完成后主动追问</h3>
+<p>输出完成后，提供以下扩展选项让用户选择：</p>
+<blockquote>
+<p>"卖点文案已完成。接下来您需要：<br />
+- <strong>A. 基于卖点生成详情页配套图片</strong>（对应每段内容出一张视觉图）<br />
+- <strong>B. 针对另一款产品套用同一框架</strong>（快速复制，只需补充该产品差异信息）<br />
+- <strong>C. 生成配套的询盘回复话术</strong>（把卖点转化为销售对话语言）<br />
+- <strong>D. 翻译为其他语言版本</strong>（西班牙语/阿拉伯语/法语，针对特定市场）"</p>
+</blockquote>
+<hr />
+<h2>七、行业适配参考表</h2>
+<p>不同行业的 KSP 维度侧重与核心认证参考：</p>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">行业</th>
+<th style="text-align: left;">必选KSP维度</th>
+<th style="text-align: left;">高价值认证关键词</th>
+<th style="text-align: left;">目标买家类型</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;"><strong>建材（地板/板材/瓷砖）</strong></td>
+<td style="text-align: left;">Material + Performance + Certification + Customization</td>
+<td style="text-align: left;">GREENGUARD Gold, CE, FloorScore, ISO 14001, A2 fire rating</td>
+<td style="text-align: left;">Hotel developer, EPC contractor, flooring brand owner</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>家居（家具/灯具/装饰）</strong></td>
+<td style="text-align: left;">Design + Safety + Customization + Sustainability</td>
+<td style="text-align: left;">BIFMA, CPSC, California Prop 65, CARB P2, EN71</td>
+<td style="text-align: left;">Interior designer, furniture chain, Amazon brand</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>服装/纺织</strong></td>
+<td style="text-align: left;">Material + Sustainability + Customization + Delivery</td>
+<td style="text-align: left;">OEKO-TEX STANDARD 100, GOTS, BSCI, GRS, bluesign</td>
+<td style="text-align: left;">Brand owner, private label buyer, retail chain</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>电子/电器</strong></td>
+<td style="text-align: left;">Performance + Safety + Certification + Customization</td>
+<td style="text-align: left;">CE, FCC, RoHS, UL, KC, PSE, SAA</td>
+<td style="text-align: left;">Distributor, Amazon seller, retail buyer</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>化工/涂料</strong></td>
+<td style="text-align: left;">Material + Safety + Performance + Sustainability</td>
+<td style="text-align: left;">REACH, EPA, VOC-compliant, ISO 9001, UN/DOT transport</td>
+<td style="text-align: left;">Industrial buyer, construction contractor</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>食品/保健品</strong></td>
+<td style="text-align: left;">Material + Safety + Certification + Sustainability</td>
+<td style="text-align: left;">FDA, HACCP, BRC, IFS, Organic, Halal, Kosher</td>
+<td style="text-align: left;">Food importer, health brand, supermarket chain</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>美妆/个护</strong></td>
+<td style="text-align: left;">Design + Safety + Customization + Sustainability</td>
+<td style="text-align: left;">FDA, EU Cosmetics Regulation, ISO 22716, cruelty-free, vegan</td>
+<td style="text-align: left;">Beauty brand, private label buyer, spa chain</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>五金/工业</strong></td>
+<td style="text-align: left;">Performance + Material + Delivery + Price Value</td>
+<td style="text-align: left;">ISO 9001, SGS, CE, DIN, ASTM</td>
+<td style="text-align: left;">OEM manufacturer, engineering firm, MRO buyer</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>汽车配件</strong></td>
+<td style="text-align: left;">Performance + Safety + Certification + Customization</td>
+<td style="text-align: left;">IATF 16949, ROHS, ECE, DOT, OEM-grade</td>
+<td style="text-align: left;">Auto parts distributor, vehicle manufacturer</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>母婴/玩具</strong></td>
+<td style="text-align: left;">Safety + Material + Certification + Design</td>
+<td style="text-align: left;">EN71, ASTM F963, CPSIA, REACH, BPA-free</td>
+<td style="text-align: left;">Toy importer, baby brand, retail chain</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2>八、执行规范</h2>
+<ol>
+<li><strong>语言</strong>：全程使用中文与用户沟通，卖点文案中英双语对照输出</li>
+<li><strong>数据诚实性</strong>：所有数字/认证必须来自用户提供或链接抓取的真实信息，无法确认的必须标注「待核实」，不得自行捏造</li>
+<li><strong>字符控制</strong>：英文版合计严格控制在 ≤2000 字符，超限时必须给出精简版</li>
+<li><strong>禁止空洞词汇</strong>：禁止使用 "high quality / best price / competitive price / professional supplier / one-stop solution" 等无差异化词汇，必须替换为具体数据或特性</li>
+<li><strong>文件输出</strong>：最终文案必须保存为 .md 文件，不要仅在对话中展示</li>
+<li><strong>AI友好写法</strong>：所有段落中，产品类别名称（英文）、目标买家身份、认证名称（英文原文）、行业技术术语，必须以英文写出并保留在正文中，这是国际站AI检索系统识别和匹配买家的核心信号</li>
+<li><strong>进度提示</strong>：每完成一段，告知用户进度（如「✓ CVP完成，正在撰写KSP关键卖点矩阵...」）</li>
+<li><strong>分步确认</strong>：第三节收集用户信息时必须等待用户回复，不得自行假设填入</li>
+<li><strong>跨产品复用</strong>：同一客户的不同产品，CVP/ICP/TSP/CTA 结构可复用，重点更新 KSP 中的维度数据</li>
+<li><strong>最终黄金法则</strong>：<code>【数据为王】+【利益导向（降本/增效/提升品牌形象/规避风险）】+【结构制胜】+【关键词布局（核心词/长尾词/技术词等）】+【换位思考】</code></li>
+</ol></section>

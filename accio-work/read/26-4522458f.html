@@ -1,0 +1,49 @@
+<nav class="toc"><b>本包內容（2 個檔案）</b><div><a href="#f0">skill.md</a><a href="#f1">rules/report-protocol.md</a></div></nav><section class="bpart" id="f0"><h3 class="bpart-h">skill.md</h3><div class="fm"><b>新选品技能</b><p>穿透B端与C端平台数据，深度挖掘蓝海风口并生成Word分析报告。</p></div><h1>技能名称：新选品技能 (Alibaba Selection Expert)</h1>
+<h2>技能描述</h2>
+<p>这是一个帮你“决定卖什么最赚钱”的情报专家。它不仅盯着阿里国际站的询盘热款，还会穿透到亚马逊（Jungle Scout数据）、TikTok、Shopee 等 C 端平台看真实销量。最后，它会把所有的市场走势、竞争对手分析和建议，自动整理成一份漂亮的 Word 报告给你。</p>
+<h2>核心功能</h2>
+<ol>
+<li><strong>多模式智能选品</strong>：支持链接选品、行业选品和盲盒式蓝海选品。</li>
+<li><strong>B/C端跨平台穿透</strong>：同步抓取亚马逊月销量、TikTok流行趋势及国际站询盘数据。</li>
+<li><strong>趋势增长研判</strong>：自动分析过去6个月的流量走势，识别真正的“增长黑马”。</li>
+<li><strong>自动化报告生成</strong>：通过Python脚本，一键生成结构化的 Word (docx) 版分析全案。</li>
+</ol>
+<h2>工作流程 (Workflow)</h2>
+<ol>
+<li><strong>模式识别</strong>：根据用户提供的“链接”、“行业”或“选品”指令，自动匹配调研路径。</li>
+<li><strong>多源情报采集</strong>：<br />
+   - 阿里端：使用 <code>product_supplier_search</code> 抓取询盘热款。<br />
+   - 亚马逊端：利用 Jungle Scout 数据抓取月销量与月收入。<br />
+   - 趋势端：通过 <code>web_search</code> 扫描 TikTok 和各平台流行风向。</li>
+<li><strong>深度建模分析</strong>：参考 <code>rules/selection-logic.md</code> 对比产品共性、价格分布与利润空间。</li>
+<li><strong>报告自动化排版</strong>：参考 <code>rules/report-protocol.md</code>，调用 <code>bash</code> 运行 Python 脚本生成 Word 文档。</li>
+<li><strong>交付成果</strong>：在对话框展示核心结论，并提供 Word 文档下载链接。</li>
+</ol>
+<h2>使用工具</h2>
+<ul>
+<li><code>product_supplier_search</code>: 抓取阿里国际站供需数据。</li>
+<li><code>web_search</code> / <code>web_fetch</code>: 调研亚马逊、TikTok 等平台趋势。</li>
+<li><code>bash</code>: 用于运行 Python 脚本生成结构化 Word 报告。</li>
+<li><code>see_image</code>: 用于分析爆款的主图及视觉特征。</li>
+</ul></section><section class="bpart" id="f1"><h3 class="bpart-h">rules/report-protocol.md</h3><h1>规则：报告生成协议 (Report Protocol)</h1>
+<p>所有的分析结果必须最终转化为一份结构化的 Word 文档，格式要求如下：</p>
+<h3>1. 行业大盘分析</h3>
+<ul>
+<li>[产品名称] 在 2025 年的全球搜索走势图（趋势预测）。</li>
+<li>核心进出口国家排名。</li>
+</ul>
+<h3>2. 竞品深度拆解</h3>
+<ul>
+<li>提取 5 个核心竞品的：标题、价格区间、月预估销量、利润空间、核心优势。</li>
+</ul>
+<h3>3. 运营优化建议</h3>
+<ul>
+<li><strong>关键词策略</strong>：列出 10 个高转化长尾词。</li>
+<li><strong>视觉建议</strong>：主图应包含的元素（如：对比图、应用场景图）。</li>
+<li><strong>供应链建议</strong>：建议的起订量 (MOQ) 与目标成本价。</li>
+</ul>
+<h3>4. 自动化执行</h3>
+<ul>
+<li>使用 <code>bash</code> 调用 Python 库（如 <code>python-docx</code>）进行排版。</li>
+<li>确保文档包含目录、页眉页脚，风格保持商务专业。</li>
+</ul></section>

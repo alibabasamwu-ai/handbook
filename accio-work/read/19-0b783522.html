@@ -1,0 +1,250 @@
+<section class="bpart" id="f0"><h3 class="bpart-h">cross-border-product-research/SKILL.md</h3><div class="fm"><b>cross-border-product-research</b><p>跨境电商选品分析与热门品类报告生成器。当用户提到选品分析、品类报告、跨境电商市场研究、热门品类、蓝海产品、出口数据分析、海外市场调研时使用。输入任意产品品类名称，自动完成11维度深度调研并生成图文并茂的HTML可视化报告（含ECharts交互图表）。</p></div><h1>跨境电商选品分析报告生成器</h1>
+<h2>触发场景</h2>
+<p>当用户请求以下内容时自动触发：<br />
+- 某个品类的跨境电商选品分析<br />
+- 热门品类报告生成<br />
+- 出口市场调研<br />
+- 蓝海产品推荐<br />
+- 平台热销榜单分析<br />
+- 提到"选品"、"品类报告"、"跨境分析"等关键词</p>
+<h2>输入参数</h2>
+<p>用户需提供：<strong>产品品类名称</strong>（如"汽车零配件"、"家居用品"、"宠物用品"等）</p>
+<p>可选参数：<br />
+- 目标市场（默认全球）<br />
+- 报告语言（默认中文）<br />
+- 重点关注维度</p>
+<h2>执行流程</h2>
+<h3>Phase 1: 多源数据采集</h3>
+<p>使用 WebSearch 工具并行采集以下11个维度数据：</p>
+<p><strong>搜索策略</strong>：每个维度至少搜索3-5个关键词组合（中英文混合），确保数据覆盖面。</p>
+<table>
+<thead>
+<tr>
+<th>维度</th>
+<th>搜索关键词模板</th>
+<th>数据目标</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1.市场规模</td>
+<td>"{品类} global market size 2026" / "{品类}跨境电商市场规模"</td>
+<td>GMV、YoY增速、ASP</td>
+</tr>
+<tr>
+<td>2.出口数据</td>
+<td>"中国{品类}出口 海关数据 HS编码" / "浙江省{品类}出口"</td>
+<td>出口额、国家分布、HS编码TOP5</td>
+</tr>
+<tr>
+<td>3.产业带</td>
+<td>"中国{品类}产业带 分布 企业数量"</td>
+<td>城市、企业数、优势</td>
+</tr>
+<tr>
+<td>4.需求热度</td>
+<td>"{品类} TikTok trending" / "{品类} google trends" / "alibaba {品类} inquiry"</td>
+<td>社媒热度、询盘增长、热搜词TOP10</td>
+</tr>
+<tr>
+<td>5.平台榜单</td>
+<td>"Amazon best seller {品类}" / "TikTok Shop {品类}热销" / "Temu {品类}"</td>
+<td>各平台TOP10产品</td>
+</tr>
+<tr>
+<td>6.蓝海品</td>
+<td>"{品类}外贸蓝海产品" / "{品类} blue ocean niche"</td>
+<td>蓝海推荐、蓝海指数</td>
+</tr>
+<tr>
+<td>7.热搜词</td>
+<td>"阿里国际站{品类}热搜词" / "alibaba {品类} trending keywords"</td>
+<td>TOP20搜索增长关键词</td>
+</tr>
+<tr>
+<td>8.供应链</td>
+<td>"1688 {品类} 跨境专供" / "淘宝 {品类} 批发"</td>
+<td>供应商链接、价格区间</td>
+</tr>
+<tr>
+<td>9.买家画像</td>
+<td>"{品类}海外买家画像" / "{品类} buyer persona"</td>
+<td>买家类型、区域偏好</td>
+</tr>
+<tr>
+<td>10.出口资质</td>
+<td>"{品类}出口认证 DOT CE SASO"</td>
+<td>各区域认证要求</td>
+</tr>
+<tr>
+<td>11.出口政策</td>
+<td>"{品类}出口退税率" / "{品类}出口政策支持"</td>
+<td>退税率、支持政策</td>
+</tr>
+</tbody>
+</table>
+<h3>Phase 2: 数据整理与分析</h3>
+<p>将采集数据按以下结构整理：</p>
+<pre><code>research_data = {
+  market: { gmv, yoy, asp, regional_breakdown },
+  export: { total_value, countries_top10, hs_codes_top5, zhejiang_data },
+  industrial_belt: [{ city, enterprises, advantages, categories }],
+  demand_signals: { social_media, b2b_inquiry, google_trends, hot_terms_top10 },
+  platform_rankings: { amazon, tiktok_shop, shein, temu, dtc_sites },
+  blue_ocean: [{ product, index, market_size, competition, growth }],
+  hot_keywords: [{ keyword, growth_rate, category }],
+  supply_chain: [{ category, platform, search_url, price_range, location }],
+  buyer_profile: { by_platform, by_region },
+  certifications: { usa, europe, southeast_asia, middle_east, africa, asia_other },
+  policies: { tax_rebate, support_policies, tariff_risks }
+}
+</code></pre>
+<h3>Phase 3: 生成HTML可视化报告</h3>
+<p>生成单文件HTML报告，包含以下特性：</p>
+<h4>技术栈</h4>
+<ul>
+<li>ECharts 5.x（CDN引入）用于交互式图表</li>
+<li>纯CSS实现响应式布局和美观样式</li>
+<li>无外部依赖，可离线浏览</li>
+</ul>
+<h4>报告结构模板</h4>
+<pre><code class="language-html">&lt;!DOCTYPE html&gt;
+&lt;html lang=&quot;zh-CN&quot;&gt;
+&lt;head&gt;
+    &lt;meta charset=&quot;UTF-8&quot;&gt;
+    &lt;meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1.0&quot;&gt;
+    &lt;title&gt;[品类名称]跨境电商选品分析报告&lt;/title&gt;
+    &lt;script src=&quot;https://cdn.jsdelivr.net/npm/echarts@5/dist/echarts.min.js&quot;&gt;&lt;/script&gt;
+    &lt;style&gt;
+        /* 设计规范见下方 */
+    &lt;/style&gt;
+&lt;/head&gt;
+&lt;body&gt;
+    &lt;!-- 报告封面/Header --&gt;
+    &lt;!-- 目录导航 --&gt;
+    &lt;!-- 11个维度章节 --&gt;
+    &lt;!-- 数据来源与免责声明 --&gt;
+    &lt;script&gt;
+        /* ECharts图表初始化 */
+    &lt;/script&gt;
+&lt;/body&gt;
+&lt;/html&gt;
+</code></pre>
+<h4>设计规范</h4>
+<p><strong>配色方案</strong>（商务科技风）：</p>
+<pre><code class="language-css">:root {
+    --primary: #1a73e8;        /* 主色-科技蓝 */
+    --primary-dark: #1557b0;   /* 深蓝 */
+    --secondary: #34a853;      /* 辅色-增长绿 */
+    --warning: #fbbc04;        /* 警示黄 */
+    --danger: #ea4335;         /* 风险红 */
+    --bg-main: #f8f9fa;        /* 背景色 */
+    --bg-card: #ffffff;        /* 卡片白 */
+    --text-primary: #202124;   /* 主文字 */
+    --text-secondary: #5f6368; /* 次文字 */
+    --border: #e8eaed;         /* 边框 */
+}
+</code></pre>
+<p><strong>布局要求</strong>：<br />
+- 左侧固定导航栏（目录锚点跳转）<br />
+- 右侧主内容区域，卡片式布局<br />
+- 每个章节一个卡片，带圆角阴影<br />
+- 顶部报告封面含品类名称、日期、核心指标卡片<br />
+- 底部数据来源列表</p>
+<p><strong>图表规划</strong>（必须包含）：</p>
+<table>
+<thead>
+<tr>
+<th>章节</th>
+<th>图表类型</th>
+<th>ECharts图表</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>市场规模</td>
+<td>柱状图+折线图</td>
+<td>近5年GMV趋势 + 区域占比饼图</td>
+</tr>
+<tr>
+<td>出口数据</td>
+<td>地图/柱状图</td>
+<td>出口国家分布柱状图 + HS编码TOP5横向条形图</td>
+</tr>
+<tr>
+<td>产业带</td>
+<td>表格</td>
+<td>产业带信息表格（带样式）</td>
+</tr>
+<tr>
+<td>需求热度</td>
+<td>雷达图/条形图</td>
+<td>各平台热度对比雷达图 + 热搜词词云效果</td>
+</tr>
+<tr>
+<td>平台榜单</td>
+<td>表格</td>
+<td>分Tab展示各平台产品表格</td>
+</tr>
+<tr>
+<td>蓝海品</td>
+<td>气泡图</td>
+<td>竞争度vs增长率气泡图（气泡大小=市场规模）</td>
+</tr>
+<tr>
+<td>热搜词</td>
+<td>横向条形图</td>
+<td>搜索增长率TOP20条形图</td>
+</tr>
+<tr>
+<td>供应链</td>
+<td>表格</td>
+<td>供应商信息表格（含链接）</td>
+</tr>
+<tr>
+<td>买家画像</td>
+<td>饼图/桑基图</td>
+<td>买家类型分布饼图 + 区域偏好</td>
+</tr>
+<tr>
+<td>出口资质</td>
+<td>表格</td>
+<td>分区域认证要求表格</td>
+</tr>
+<tr>
+<td>出口政策</td>
+<td>信息卡片</td>
+<td>退税率高亮卡片 + 政策时间线</td>
+</tr>
+</tbody>
+</table>
+<p><strong>表格样式</strong>：<br />
+- 斑马纹行<br />
+- 悬停高亮<br />
+- 固定表头<br />
+- 关键数据加粗/彩色标记</p>
+<p><strong>响应式</strong>：<br />
+- 桌面端：左侧导航 + 右侧内容<br />
+- 移动端：顶部折叠导航 + 全宽内容</p>
+<h3>Phase 4: 输出文件</h3>
+<p>将HTML文件保存到输出目录，文件命名规则：<br />
+<code>{品类名称}_跨境电商选品报告_{日期}.html</code></p>
+<p>使用 present_files 工具呈现给用户。</p>
+<h2>关键注意事项</h2>
+<ol>
+<li><strong>数据时效性</strong>：搜索时务必加入当前年份关键词，确保数据为最新</li>
+<li><strong>多源验证</strong>：关键数据（市场规模、增长率）至少2个来源交叉验证</li>
+<li><strong>中英文搜索</strong>：每个维度同时使用中英文关键词搜索，扩大数据覆盖</li>
+<li><strong>数据标注</strong>：报告中所有数据标注来源，增强可信度</li>
+<li><strong>图表交互</strong>：ECharts图表保留tooltip、legend筛选等交互功能</li>
+<li><strong>单文件完整</strong>：所有CSS/JS内联，确保离线可用（ECharts通过CDN加载）</li>
+<li><strong>使用Task工具并行调研</strong>：将11个维度拆分为3-4个Task并行执行，提升效率</li>
+</ol>
+<h2>示例调用</h2>
+<p>用户输入：<code>帮我做一份宠物用品的跨境电商选品分析报告</code></p>
+<p>执行步骤：<br />
+1. 确认品类：宠物用品<br />
+2. 启动并行数据采集（3-4个Task agent）<br />
+3. 整合数据<br />
+4. 生成HTML报告<br />
+5. 输出文件并呈现</p></section>

@@ -19,6 +19,7 @@
 | 星等級規則 | 台灣商家星等級官方規則：四力計分項與 5★ 到 1★ 完整門檻 |
 | 路徑速查 | 15 條「問題現象 → 後台路徑 → 關鍵動作」 |
 | SAA 專區 | Smart Assistant Agent 專區：27 條可搜尋的營運指令地圖（含可複製 Prompt）、四大場景、升級對照 |
+| Accio Work 專區 | 62 份素材的資源庫：Agent 提示詞、33 個技能包（`.zip` 可直接安裝）、場景指令與教學文件。每項都能**線上閱讀**（Word／Excel／PDF／技能包自動轉成網頁）與**下載原檔**，並可整包下載 |
 
 ## 檔案
 
@@ -26,16 +27,19 @@
 |---|---|
 | `index.html` | 繁體中文版（主要對外版本） |
 | `zh-CN.html` | 简体中文版 |
+| `accio-work/` | Accio Work 專區的閱讀頁、抽取的圖片與下載檔（由手冊內連結使用，不需單獨開啟） |
 
 兩者皆為**完全獨立的單一檔案**，CSS 與 JavaScript 全部內嵌，離線可開。內部以 hash 路由分頁（例如 `index.html#/saa-commands`），可直接分享單一頁面的深連結。
 
-常用深連結：`#/mindmap`、`#/five`、`#/exposure`、`#/publish`、`#/click`、`#/convert`、`#/star`、`#/paths`、`#/saa-commands`
+常用深連結：`#/mindmap`、`#/five`、`#/exposure`、`#/publish`、`#/click`、`#/convert`、`#/star`、`#/paths`、`#/saa-commands`、`#/accio`、`#/accio-lib`
 
 ## 使用方式
 
 - 直接用瀏覽器開啟，或部署到任何靜態空間
 - 建議使用 Chrome、Edge 或 Safari
 - 可直接列印或另存為 PDF（列印時所有分頁會展開成完整手冊）
+
+> **Accio Work 專區的素材原文為簡體中文。** 為保留原始檔名與技能識別碼（`SKILL.md` 的 `name` 欄位一旦被轉換，技能會安裝失敗），素材內容未做繁簡轉換；只有介面文字隨語言版本切換。
 
 ## 來源
 

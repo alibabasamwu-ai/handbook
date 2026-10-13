@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<!--
+  ============================================================
+  跨境选品决策看板 · 可复用 HTML 模板 (report-template.html)
+  ============================================================
+  用法（Team Leader 在 Phase 4 输出时）：
+  1. 复制本模板，替换所有 {{占位符}} 与示例数据为本次选品真实数据。
+  2. 占位符清单：
+     {{CATEGORY}}  品类名（如 跳绳 / 户外灯具）
+     {{MERCHANT}}  商家名（如无则留"商家"）
+     {{MARKET}}    目标市场（如 北美+欧洲）
+     {{BUDGET}}    预算（如 1~5 万元）
+     {{DATE}}      报告日期 YYYY-MM-DD
+     {{MODE}}      完整模式 / 精简模式
+  3. 四个区块按需替换：KPI 卡 / 三级建议表 / 4 张图表 / 审计折叠日志。
+  4. 图表数据在 <script> 底部，按真实数据改 labels 与 data 数组。
+  5. 所有结论须可溯源；幻觉/冲突数据进"审计日志"折叠区，不进正文结论。
+  6. Chart.js 用 CDN；如需完全离线，可把 chart.umd.min.js 内容内联进 <script>。
+  本模板视觉骨架已在金之泰跳绳选品实战验证（深色金/青配色，离线可用）。
+  ============================================================
+-->
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>{{CATEGORY}}品类跨境选品决策看板 · {{MERCHANT}}</title>
+<script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.1/dist/chart.umd.min.js"></script>
+<style>
+  :root{
+    --bg:#0d1117; --panel:#161b22; --panel2:#1c2330; --line:#2a3343;
+    --gold:#e8b65a; --gold2:#f5d488; --teal:#3ad6c4; --red:#ff5d6c; --amber:#ffb347;
+    --txt:#e6edf3; --txt2:#9aa7b4; --green:#39d98a;
+    --font:'Segoe UI',-apple-system,'PingFang SC','Microsoft YaHei',sans-serif;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  body{background:linear-gradient(160deg,#0a0e14 0%,#0d1117 60%,#10151d 100%);color:var(--txt);font-family:var(--font);line-height:1.6;padding:0 0 80px}
+  .wrap{max-width:1180px;margin:0 auto;padding:0 24px}
+  header.hero{padding:54px 24px 40px;background:radial-gradient(1200px 400px at 50% -120px,rgba(232,182,90,.18),transparent),var(--panel);border-bottom:1px solid var(--line);text-align:center}
+  .hero h1{font-size:34px;font-weight:800;letter-spacing:.5px;background:linear-gradient(90deg,var(--gold2),var(--gold),var(--teal));-webkit-background-clip:text;background-clip:text;color:transparent}
+  .hero p{color:var(--txt2);margin-top:10px;font-size:15px}
+  .badges{margin-top:18px;display:flex;gap:10px;justify-content:center;flex-wrap:wrap}
+  .badge{font-size:12px;padding:5px 13px;border-radius:20px;border:1px solid var(--line);background:var(--panel2);color:var(--gold2)}
+  .badge.audit{color:var(--teal);border-color:rgba(58,214,196,.4)}
+  section{margin-top:38px}
+  h2{font-size:21px;margin-bottom:16px;padding-left:13px;border-left:4px solid var(--gold);display:flex;align-items:center;gap:10px}
+  .kpis{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;margin-top:24px}
+  .kpi{background:var(--panel);border:1px solid var(--line);border-radius:14px;padding:20px}
+  .kpi .n{font-size:30px;font-weight:800;color:var(--gold2)}
+  .kpi .l{color:var(--txt2);font-size:13px;margin-top:6px}
+  .kpi.win .n{color:var(--green)} .kpi.bad .n{color:var(--red)}
+  .grid2{display:grid;grid-template-columns:1fr 1fr;gap:20px;margin-top:8px}
+  .card{background:var(--panel);border:1px solid var(--line);border-radius:14px;padding:22px}
+  .card h3{font-size:15px;color:var(--txt2);font-weight:600;margin-bottom:14px}
+  table{width:100%;border-collapse:collapse;font-size:13.5px;margin-top:6px}
+  th,td{padding:11px 12px;text-align:left;border-bottom:1px solid var(--line)}
+  th{color:var(--gold2);font-weight:600;cursor:pointer;user-select:none;white-space:nowrap}
+  th:hover{color:var(--gold)} th .arr{opacity:.4;font-size:10px;margin-left:4px}
+  tbody tr:hover{background:rgba(255,255,255,.025)}
+  td a{color:var(--teal);text-decoration:none} td a:hover{text-decoration:underline}
+  .pill{display:inline-block;padding:3px 10px;border-radius:12px;font-size:12px;font-weight:600}
+  .p-win{background:rgba(57,217,138,.14);color:var(--green)}
+  .p-warn{background:rgba(255,179,71,.14);color:var(--amber)}
+  .p-bad{background:rgba(255,93,108,.14);color:var(--red)}
+  .accordion{margin-top:10px}
+  .acc-item{border:1px solid var(--line);border-radius:12px;margin-bottom:12px;overflow:hidden;background:var(--panel)}
+  .acc-head{padding:16px 20px;cursor:pointer;display:flex;justify-content:space-between;align-items:center;font-weight:600}
+  .acc-head:hover{background:var(--panel2)}
+  .acc-head .ic{color:var(--gold);transition:transform .25s}
+  .acc-item.open .acc-head .ic{transform:rotate(90deg)}
+  .acc-body{max-height:0;overflow:hidden;transition:max-height .35s ease;padding:0 20px}
+  .acc-item.open .acc-body{max-height:1400px;padding:4px 20px 20px}
+  .chart-box{position:relative;height:300px}
+  .note{font-size:12.5px;color:var(--txt2);margin-top:10px;padding:12px 14px;background:var(--panel2);border-radius:10px;border-left:3px solid var(--teal)}
+  .verdict{background:linear-gradient(135deg,rgba(232,182,90,.12),rgba(58,214,196,.06));border:1px solid rgba(232,182,90,.3);border-radius:14px;padding:22px 24px;margin-top:24px;font-size:15px}
+  .verdict b{color:var(--gold2)}
+  footer{margin-top:50px;text-align:center;color:var(--txt2);font-size:12px;border-top:1px solid var(--line);padding-top:24px}
+  @media(max-width:820px){.kpis{grid-template-columns:repeat(2,1fr)}.grid2{grid-template-columns:1fr}.hero h1{font-size:26px}}
+</style>
+</head>
+<body>
+<header class="hero">
+  <h1>{{CATEGORY}}品类跨境选品决策看板</h1>
+  <p>{{MERCHANT}} ｜ Alibaba.com × Amazon {{MARKET}} ｜ {{MODE}} · 多 Agent 双验 · 零幻觉审计 ｜ {{DATE}}</p>
+  <div class="badges">
+    <span class="badge">预算 {{BUDGET}}</span>
+    <span class="badge audit">✓ 审计的审计</span>
+    <span class="badge audit">✓ 双 Agent 交叉验证</span>
+    <span class="badge audit">✓ 浏览器强制验证</span>
+  </div>
+</header>
+<div class="wrap">
+
+  <!-- ① KPI 卡（替换为真实关键指标） -->
+  <section>
+    <h2>📌 核心结论</h2>
+    <div class="kpis">
+      <div class="kpi win"><div class="n">N / M</div><div class="l">穿越全部审计关卡的细分数</div></div>
+      <div class="kpi win"><div class="n">XX%</div><div class="l">主力细分仲裁净利率</div></div>
+      <div class="kpi bad"><div class="n">XXpp</div><div class="l">被排除细分的双验偏差</div></div>
+      <div class="kpi"><div class="n">K 次</div><div class="l">审计机制关键拦截</div></div>
+    </div>
+    <div class="verdict"><b>一句话决策：</b>（在此填写主力 / 测试 / 排除的核心建议 + 预算分配）</div>
+  </section>
+
+  <!-- ② 三级建议表（可排序，data-* 属性供排序用） -->
+  <section>
+    <h2>🏆 三级选品建议 <span style="font-size:12px;color:var(--txt2);font-weight:400">（点击表头排序）</span></h2>
+    <div class="card"><table id="tierTable">
+      <thead><tr>
+        <th data-k="tier" data-t="s">梯队<span class="arr">↕</span></th>
+        <th data-k="name" data-t="s">细分<span class="arr">↕</span></th>
+        <th data-k="profit" data-t="n">净利率<span class="arr">↕</span></th>
+        <th data-k="supply" data-t="n">供给量<span class="arr">↕</span></th>
+        <th data-k="pain" data-t="s">痛点证据<span class="arr">↕</span></th>
+        <th data-k="verdict" data-t="s">裁决<span class="arr">↕</span></th>
+      </tr></thead>
+      <tbody>
+        <tr data-tier="1" data-name="细分A" data-profit="18" data-supply="1000" data-pain="高频" data-verdict="推进">
+          <td style="color:var(--gold2);font-weight:800">🥇 第一梯队</td><td>细分A</td><td>XX%</td><td>1,000+</td><td>痛点·高频</td><td><span class="pill p-win">✅ 重点推进</span></td></tr>
+        <tr data-tier="2" data-name="细分B" data-profit="10" data-supply="1000" data-pain="中频" data-verdict="测试">
+          <td style="color:var(--teal);font-weight:800">🥈 第二梯队</td><td>细分B</td><td>XX%</td><td>1,000+</td><td>痛点·中频</td><td><span class="pill p-warn">⚠️ 小批量试水</span></td></tr>
+        <tr data-tier="9" data-name="细分X" data-profit="-4" data-supply="2000" data-pain="中频" data-verdict="排除">
+          <td style="color:var(--red);font-weight:800">❌ 排除</td><td>细分X</td><td>冲突</td><td>2,000+</td><td>—</td><td><span class="pill p-bad">❌ 物流倒挂</span></td></tr>
+      </tbody>
+    </table></div>
+  </section>
+
+  <!-- ③ 4 张图表 -->
+  <section>
+    <h2>📊 数据可视化</h2>
+    <div class="grid2">
+      <div class="card"><h3>各细分净利率对比（%）</h3><div class="chart-box"><canvas id="profitChart"></canvas></div></div>
+      <div class="card"><h3>市场 CAGR 多口径分歧</h3><div class="chart-box"><canvas id="cagrChart"></canvas></div>
+        <div class="note">列出所有机构口径，不主观取高值（铁律1）。</div></div>
+    </div>
+    <div class="grid2" style="margin-top:20px">
+      <div class="card"><h3>主力细分利润双验（BB vs BC）</h3><div class="chart-box"><canvas id="dualChart"></canvas></div>
+        <div class="note">偏差 &lt; 15% 才通过门槛。</div></div>
+      <div class="card"><h3>六维机会评分（主力细分）</h3><div class="chart-box"><canvas id="radarChart"></canvas></div></div>
+    </div>
+  </section>
+
+  <!-- ④ 审计折叠日志 -->
+  <section>
+    <h2>🔍 审计日志（零幻觉证据链）<span style="font-size:12px;color:var(--txt2);font-weight:400">点击展开</span></h2>
+    <div class="accordion">
+      <div class="acc-item"><div class="acc-head"><span>① 被剔除 / 降级的数据</span><span class="ic">▶</span></div>
+        <div class="acc-body"><p style="color:var(--txt2);padding:8px 0">（填入幻觉/冲突数据表：数据点 | 原始声称 | 复核结果 | 处置）</p></div></div>
+      <div class="acc-item"><div class="acc-head"><span>② 审计的审计 — 来源审计员失职记录</span><span class="ic">▶</span></div>
+        <div class="acc-body"><p style="color:var(--txt2);padding:8px 0">（记录主审计官对来源审计员结论的复核与拦截）</p></div></div>
+      <div class="acc-item"><div class="acc-head"><span>③ 双 / 三重验证通过记录</span><span class="ic">▶</span></div>
+        <div class="acc-body"><p style="color:var(--txt2);padding:8px 0">（验证项 | 方法 | 结果）</p></div></div>
+      <div class="acc-item"><div class="acc-head"><span>④ 真实来源清单（已亲验存在）</span><span class="ic">▶</span></div>
+        <div class="acc-body"><p style="color:var(--txt2);padding:8px 0">（带 URL 的来源列表）</p></div></div>
+    </div>
+  </section>
+
+  <footer>本看板由 cross-border-product-selection skill（{{MODE}}）生成 · 浏览器强制验证 + 双 Agent 交叉验证 + 审计的审计<br>所有结论可溯源，分歧数据已仲裁，幻觉数据已剔除 · {{MERCHANT}} · {{DATE}}</footer>
+</div>
+<script>
+const C={gold:'#e8b65a',gold2:'#f5d488',teal:'#3ad6c4',red:'#ff5d6c',amber:'#ffb347',green:'#39d98a',grid:'#2a3343',txt:'#9aa7b4'};
+Chart.defaults.color=C.txt;Chart.defaults.font.family="'Segoe UI','PingFang SC',sans-serif";Chart.defaults.borderColor=C.grid;
+// 按真实数据替换 labels / data
+new Chart(profitChart,{type:'bar',data:{labels:['细分A','细分B','细分X'],datasets:[{label:'净利率%',data:[18,10,-4],backgroundColor:[C.green,C.teal,C.red],borderRadius:6}]},options:{plugins:{legend:{display:false}},scales:{y:{grid:{color:C.grid}},x:{grid:{display:false}}}}});
+new Chart(cagrChart,{type:'bar',data:{labels:['口径1','口径2','口径3'],datasets:[{label:'CAGR%',data:[3.4,6.7,8.5],backgroundColor:C.gold,borderRadius:5}]},options:{indexAxis:'y',plugins:{legend:{display:false}},scales:{x:{grid:{color:C.grid}},y:{grid:{display:false}}}}});
+new Chart(dualChart,{type:'bar',data:{labels:['零售价$','采购$','FBA$','佣金$','净利率%'],datasets:[{label:'BB',data:[17,3,3.7,2.6,21],backgroundColor:C.teal,borderRadius:5},{label:'BC',data:[20,3.2,4.5,3,15.5],backgroundColor:C.gold,borderRadius:5}]},options:{scales:{y:{grid:{color:C.grid}},x:{grid:{display:false}}}}});
+new Chart(radarChart,{type:'radar',data:{labels:['痛点真实度','供给非红海','利润空间','物流友好','试单门槛低','差异化空间'],datasets:[{label:'主力',data:[9,7,7,9,9,8],backgroundColor:'rgba(58,214,196,.18)',borderColor:C.teal,pointBackgroundColor:C.teal}]},options:{scales:{r:{grid:{color:C.grid},angleLines:{color:C.grid},pointLabels:{color:C.gold2},suggestedMin:0,suggestedMax:10,ticks:{display:false}}},plugins:{legend:{display:false}}}});
+document.querySelectorAll('.acc-head').forEach(h=>h.addEventListener('click',()=>h.parentElement.classList.toggle('open')));
+document.querySelector('.acc-item').classList.add('open');
+const tbl=document.getElementById('tierTable');let ss={};
+tbl.querySelectorAll('th').forEach(th=>th.addEventListener('click',()=>{const tb=tbl.querySelector('tbody');const rows=[...tb.rows];const k=th.dataset.k,t=th.dataset.t;const d=ss[k]=-(ss[k]||1);rows.sort((a,b)=>{let x=a.dataset[k],y=b.dataset[k];if(t==='n'){return(parseFloat(x)-parseFloat(y))*d;}return x.localeCompare(y,'zh')*d;});rows.forEach(r=>tb.appendChild(r));}));
+</script>
+</body>
+</html>

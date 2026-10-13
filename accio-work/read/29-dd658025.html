@@ -1,0 +1,58 @@
+<nav class="toc"><b>本包內容（3 個檔案）</b><div><a href="#f0">skill.md</a><a href="#f1">rules/action-rules.md</a><a href="#f2">rules/diagnosis-logic.md</a></div></nav><section class="bpart" id="f0"><h3 class="bpart-h">skill.md</h3><div class="fm"><b>直通车水位诊断</b><p>阿里国际站直通车（P4P）水位诊断，识别低效产品与高转化国家。</p></div><h1>技能名称：直通车水位诊断 (P4P Water Level Diagnosis)</h1>
+<h2>技能描述</h2>
+<p>这是一个帮你“诊断直通车钱花得值不值”的专家工具。它通过计算“水位”（点击量÷商机量）来评估你的推广效率。它能一眼揪出那些光烧钱不回本的“拖后腿产品”，以及哪些国家该提价抢量、哪些该降价止损，并为你生成专业的诊断报告。</p>
+<h2>核心功能</h2>
+<ol>
+<li><strong>自动水位核算</strong>：自动计算全店、单品及各国家的“水位”指标，评估流量健康度。</li>
+<li><strong>产品红黑榜</strong>：自动识别优质产品（加大投入）、拖后腿产品（需优化）和高点击零商机产品（紧急干预）。</li>
+<li><strong>地域出价优化</strong>：分析各国家转化效率，给出具体的提价或降价策略建议。</li>
+<li><strong>自动化报告生成</strong>：自动生成包含全产品分析表和优先行动清单的 Word 诊断报告。</li>
+</ol>
+<h2>工作流程 (Workflow)</h2>
+<ol>
+<li><strong>数据采集</strong>：引导用户登录后台，调用 <code>browser</code> 抓取最近一个自然月的产品报告和地域报告。</li>
+<li><strong>水位诊断</strong>：参考 <code>rules/diagnosis-logic.md</code>，计算各维度水位并打上红/黄/绿标签。</li>
+<li><strong>策略生成</strong>：识别“拖后腿”产品及“低效国家”，并严格遵守 <code>rules/action-rules.md</code> 中的优化禁忌。</li>
+<li><strong>报表交付</strong>：调用 <code>bash</code> 生成 Word 报告，并在对话框总结出 P0 级的紧急处理清单。</li>
+</ol>
+<h2>使用工具</h2>
+<ul>
+<li><code>browser</code>: 自动潜入直通车后台抓取多维度报告数据。</li>
+<li><code>bash</code>: 运行 Python/Node 脚本生成 Word 格式的报告文档。</li>
+<li><code>see_image</code>: 若用户提供截图，则调用此工具解析数据。</li>
+</ul></section><section class="bpart" id="f1"><h3 class="bpart-h">rules/action-rules.md</h3><h1>规则：直通车优化核心禁忌 (Action Rules)</h1>
+<p>在给出优化方案时，必须严守以下三条“军规”：</p>
+<h3>1. 绝不删除法则</h3>
+<ul>
+<li><strong>禁忌</strong>：严禁删除任何“有点击”的产品。</li>
+<li><strong>动作</strong>：有点击说明有权重，如果转化差，应在“新计划”中重新推广并优化，而不是在原计划中删除或大改。</li>
+</ul>
+<h3>2. Top 5 限流法则</h3>
+<ul>
+<li><strong>禁忌</strong>：流量前 5 的产品，一次最多只能同时改动 2 个。</li>
+<li><strong>原因</strong>：大改主力产品会导致系统重新学习，引发全店流量崩盘。改后需观察 14 天。</li>
+</ul>
+<h3>3. 微调原则</h3>
+<ul>
+<li><strong>建议</strong>：主攻主图和详情页，类目和标题尽量不动。</li>
+<li><strong>目的</strong>：保持系统已有的定向权重，仅优化转化端。</li>
+</ul></section><section class="bpart" id="f2"><h3 class="bpart-h">rules/diagnosis-logic.md</h3><h1>规则：水位诊断逻辑 (Diagnosis Logic)</h1>
+<p>所有的诊断必须基于“同一周期”的数据，执行以下计算逻辑：</p>
+<h3>1. 账户水位计算 (基准)</h3>
+<ul>
+<li><strong>公式</strong>：账户总点击 ÷ 账户总商机。</li>
+<li><strong>红线</strong>：水位 &gt; 50 说明流量在自杀；水位 &lt; 15 说明效率极高。</li>
+</ul>
+<h3>2. 产品分类标准</h3>
+<ul>
+<li><strong>优质产品</strong>：水位 ≤ 整体均值 × 0.8（建议维持或加大投入）。</li>
+<li><strong>拖后腿产品</strong>：水位 &gt; 整体均值 × 1.5（重点优化主图/详情页）。</li>
+<li><strong>严重拖后腿</strong>：水位 &gt; 整体均值 × 2（紧急优化）。</li>
+<li><strong>高点击零商机 (橙色)</strong>：点击 ≥ 20 次，商机 = 0（必须拿去“重练”）。</li>
+</ul>
+<h3>3. 地域出价逻辑</h3>
+<ul>
+<li><strong>高水位国家</strong>：点击多、商机少，建议降价 20-30% 或暂停。</li>
+<li><strong>低水位国家</strong>：转化极好，建议提价抢展现。</li>
+<li><strong>全站无转化</strong>：问题在产品本身，检查详情页跳出率。</li>
+</ul></section>

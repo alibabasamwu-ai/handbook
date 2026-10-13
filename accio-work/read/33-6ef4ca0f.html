@@ -1,0 +1,83 @@
+<nav class="toc"><b>本包內容（4 個檔案）</b><div><a href="#f0">skill.md</a><a href="#f1">rules/analysis-intent.md</a><a href="#f2">rules/auto-reply-logic.md</a><a href="#f3">rules/drafting-protocol.md</a></div></nav><section class="bpart" id="f0"><h3 class="bpart-h">skill.md</h3><div class="fm"><b>阿里24h数字业务员</b><p>7x24小时监控阿里国际站后台，分析客户意图并在业务员离线时自动回复的数字助手。</p></div><h1>技能名称：7x24小时阿里国际站数字业务员 (Alibaba 7/24 Assistant)</h1>
+<h2>技能描述</h2>
+<p>这是一个帮你 7×24 小时盯着阿里巴巴国际站后台的数字助手。它能实时监控询盘和 TM 消息，分析客户意图，并在你忙不过来（2小时内未回复）时，自动按照专业套路代你回信，保住客户不流失。</p>
+<h2>核心功能</h2>
+<ol>
+<li><strong>全天候站岗</strong>：实时监听所有询盘 (Inquiry) 和 TM 消息。</li>
+<li><strong>读懂客户</strong>：自动分析客户是来问价、要样还是谈技术。</li>
+<li><strong>专业拟稿</strong>：按照“2+1+1”黄金套路写好回复稿子。</li>
+<li><strong>延迟代发</strong>：如果你 2 小时没回，它就定个闹钟自动帮你发出去。</li>
+</ol>
+<h2>工作流程 (Workflow)</h2>
+<ol>
+<li><strong>监听消息</strong>：通过 <code>listen_seller_agent</code> 捕捉新动态。</li>
+<li><strong>分析意图</strong>：参考 <code>rules/analysis-intent.md</code> 搞清楚客户想干嘛。</li>
+<li><strong>找资料</strong>：优先翻本地产品规格书，找不到就去对应的阿里产品网页抓取数据。</li>
+<li><strong>写稿子</strong>：参考 <code>rules/drafting-protocol.md</code> 写好代发内容。</li>
+<li><strong>设闹钟</strong>：用 <code>cron</code> 定个 120 分钟的倒数。</li>
+<li><strong>最后核对</strong>：闹钟响时，检查业务员回没回。没回则调用 <code>send_msg</code> 正式代发。</li>
+</ol>
+<h2>使用工具</h2>
+<ul>
+<li><code>listen_seller_agent</code>: 盯着后台消息。</li>
+<li><code>send_msg</code>: 代发回复。</li>
+<li><code>web_fetch</code>: 找不到本地资料时，去网页抓取产品参数。</li>
+<li><code>cron</code>: 搞定 2 小时的延迟逻辑。</li>
+</ul></section><section class="bpart" id="f1"><h3 class="bpart-h">rules/analysis-intent.md</h3><h1>规则：客户意图分析 (Intent Analysis)</h1>
+<p>你需要把客户发来的话，归类到以下四个“坑”里，方便后面找答案：</p>
+<h3>1. 问价钱 (Pricing Inquiry)</h3>
+<ul>
+<li><strong>特征</strong>：提到 price, cost, discount, MOQ, bulk, quotation 等。</li>
+<li><strong>动作</strong>：去找产品的阶梯价和起订量。</li>
+</ul>
+<h3>2. 要拿样 (Sample Request)</h3>
+<ul>
+<li><strong>特征</strong>：提到 sample, test unit, trial, shipping cost 等。</li>
+<li><strong>动作</strong>：去查咱们的拿样政策和大概运费。</li>
+</ul>
+<h3>3. 聊技术 (Technical Discussion)</h3>
+<ul>
+<li><strong>特征</strong>：提到 specification, material, certification, how to use, compatible 等。</li>
+<li><strong>动作</strong>：去翻规格书里的材质、认证（CE, RoHS等）和具体参数。</li>
+</ul>
+<h3>4. 催货/交期 (Logistics/Lead Time)</h3>
+<ul>
+<li><strong>特征</strong>：提到 shipping, delivery, how long, port, warehouse 等。</li>
+<li><strong>动作</strong>：去查生产周期和常用的发货方式。</li>
+</ul>
+<p><strong>如果本地找不到产品资料怎么办？</strong><br />
+- 顺着询盘里的产品链接，用工具去网页上抓取客户正在看的那款产品的在线参数作为参考。</p></section><section class="bpart" id="f2"><h3 class="bpart-h">rules/auto-reply-logic.md</h3><h1>规则：自动回复与安全逻辑 (Auto-Reply Logic)</h1>
+<p>为了防止回错或跟业务员撞车，必须遵守以下“安全守则”：</p>
+<h3>1. 延迟机制</h3>
+<ul>
+<li><strong>触发点</strong>：收到新消息。</li>
+<li><strong>延迟时间</strong>：120 分钟（2小时）。</li>
+<li><strong>工具</strong>：使用 <code>cron</code> 的 <code>inMs: 7200000</code>。</li>
+</ul>
+<h3>2. 发送前的“三看”检查</h3>
+<p>在闹钟响了准备发信前，必须确认：<br />
+- <strong>一看回没回</strong>：检查最近 2 小时的聊天记录，如果业务员已经手动回了，<strong>立即取消</strong>代发任务。<br />
+- <strong>二看准不准</strong>：只有在匹配到了产品资料、且稿子质量很高的情况下才发。<br />
+- <strong>三看发过没</strong>：确保同一个问题不要重复代发。</p>
+<h3>3. 执行完毕要留痕</h3>
+<ul>
+<li>成功代发后，记得在当天的日志 (diary) 里记一笔，让业务员回来能看到。</li>
+</ul></section><section class="bpart" id="f3"><h3 class="bpart-h">rules/drafting-protocol.md</h3><h1>规则：2+1+1 专业回复套路 (Drafting Protocol)</h1>
+<p>不管是代发还是建议，回信必须死磕这个“2+1+1”结构，主打一个专业且高效：</p>
+<h3>第一部分：直接给答案 (前2句)</h3>
+<ul>
+<li><strong>目标</strong>：别废话，客户问啥回啥。</li>
+<li><strong>要求</strong>：给精准数据（价格、尺寸、有货没货）。</li>
+</ul>
+<h3>第二部分：秀肌肉 (第3句)</h3>
+<ul>
+<li><strong>目标</strong>：让客户觉得咱们靠谱。</li>
+<li><strong>内容</strong>：展示公司实力。例如：“我们是12年阿里金牌供应商”、“通过了TÜV深度验厂”或“是某某大牌的代工厂”。</li>
+</ul>
+<h3>第三部分：要联系方式 (第4句)</h3>
+<ul>
+<li><strong>目标</strong>：把客户引到 WhatsApp 或邮箱，方便以后“收割”。</li>
+<li><strong>话术</strong>：可以问：“能不能留个 WhatsApp 或邮箱？我把更细的规格书和完整目录发给你。”</li>
+</ul>
+<p><strong>语言要求：</strong><br />
+- 除非客户说中文，否则一律用专业、简洁的英文回复。</p></section>
